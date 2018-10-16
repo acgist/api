@@ -15,8 +15,10 @@
 ** 系统服务类型：** 
 * 10：注册中心
 * 20：配置中心
-* 30：管理平台
-* 40：系统网关
+* 30：管理平台（自己开发）
+* 31：管理平台（Spring Boot Admin）
+* 40：接口网关
+* 41：系统网关
 * 50：链路监控
 * 51：仪表盘（turbine）
 * 52：仪表盘（dashboard）
@@ -28,8 +30,10 @@
 ├─api-common：通用模块  
 ├─api-config：配置中心  
 ├─api-registry：注册中心  
-├─api-gateway：系统网关，配合NGINX或者其他WEB服务器来实现负载均衡  
-├─api-admin：管理平台，模仿spring boot admin项目  
+├─api-gateway：接口网关，配合NGINX或者其他WEB服务器来实现负载均衡  
+├─api-gateway-admin：系统网关  
+├─api-admin：管理平台，模仿Spring Boot Admin项目  
+├─api-admin-boot：管理平台  
 ├─api-sleuth：链路调用监控系统  
 ├─api-turbine：仪表盘  
 ├─api-dashboard：仪表盘  
@@ -38,3 +42,9 @@
 
 各个端点处理，网关端点权限  
 JPA，消息中间件，异步信息处理，接口API页面
+
+#### 映射关系
+网关							controller					服务  
+/gateway/api/pay				/pay						/service/pay  
+/gateway/api/pay/drawback		/pay/drawback				/service/pay/drawback  
+/gateway/api/pay/query			/pay/query				/service/pay/query  
