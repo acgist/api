@@ -44,7 +44,8 @@
 JPA，消息中间件，异步信息处理，接口API页面
 
 #### 映射关系
-网关							controller					服务  
-/gateway/api/pay				/pay						/service/pay  
-/gateway/api/pay/drawback		/pay/drawback				/service/pay/drawback  
-/gateway/api/pay/query			/pay/query				/service/pay/query  
+|网关|控制器|服务|
+|:-|:-|:-|
+|/gateway/api/pay|/pay|/service/pay|
+|/gateway/api/pay/drawback|/pay/drawback|/service/pay/drawback|
+|/gateway/api/pay/query|/pay/query|/service/pay/query|
