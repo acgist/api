@@ -30,10 +30,10 @@
 ├─api-common：通用模块  
 ├─api-config：配置中心  
 ├─api-registry：注册中心  
-├─api-gateway：接口网关，配合NGINX或者其他WEB服务器来实现负载均衡  
-├─api-gateway-admin：系统网关  
-├─api-admin：管理平台，模仿Spring Boot Admin项目  
-├─api-admin-boot：管理平台  
+├─api-gateway：接口网关，系统服务网关  
+├─api-gateway-admin：系统网关，管理平台网关  
+├─api-admin-boot：管理平台，Spring Boot Admin  
+├─api-admin：管理平台，模仿Spring Boot Admin项目，常用端点、仪表盘、链路监控整合
 ├─api-sleuth：链路调用监控系统  
 ├─api-turbine：仪表盘  
 ├─api-dashboard：仪表盘  
