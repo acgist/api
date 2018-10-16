@@ -29,7 +29,7 @@
 ├─api-config：配置中心  
 ├─api-registry：注册中心  
 ├─api-gateway：系统网关，配合NGINX或者其他WEB服务器来实现负载均衡  
-├─api-admin：管理平台，spring boot admin  
+├─api-admin：管理平台，模仿spring boot admin项目  
 ├─api-sleuth：链路调用监控系统  
 ├─api-turbine：仪表盘  
 ├─api-dashboard：仪表盘  
