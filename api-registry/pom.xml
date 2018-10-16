@@ -5,27 +5,18 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.acgist</groupId>
 	<artifactId>api-registry</artifactId>
-	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>api-registry</name>
 	<description>注册中心</description>
 
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.5.RELEASE</version>
-		<relativePath />
+		<groupId>com.acgist</groupId>
+		<artifactId>api-acgist</artifactId>
+		<version>1.0.0</version>
+		<relativePath>..</relativePath>
 	</parent>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>10</java.version>
-		<spring-cloud.version>Finchley.SR1</spring-cloud.version>
-	</properties>
 
 	<dependencies>
 		<dependency>
@@ -33,14 +24,8 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.glassfish.jaxb</groupId>
-			<artifactId>jaxb-runtime</artifactId>
-			<version>2.3.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.activation</groupId>
-			<artifactId>activation</artifactId>
-			<version>1.1.1</version>
+			<groupId>com.acgist</groupId>
+			<artifactId>api-common</artifactId>
 		</dependency>
 
 		<dependency>
@@ -50,23 +35,18 @@
 		</dependency>
 	</dependencies>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<artifactId>spring-boot-maven-plugin</artifactId><!-- Spring Boot打包工具 -->
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal><!-- 将依赖打包到生成的包里面 -->
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

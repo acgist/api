@@ -9,4 +9,5 @@
 .mvn
 
 ### MAVEN ###
+*/logs/
 */target/
