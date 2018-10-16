@@ -1,0 +1,12 @@
+### ide config ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+.mvn
+
+### MAVEN ###
+*/target/
