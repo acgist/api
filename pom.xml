@@ -14,6 +14,7 @@
 
 	<modules>
 		<module>api-common</module>
+		<module>api-admin</module>
 		<module>api-registry</module>
 		<module>api-service-pay</module>
 	</modules>
@@ -30,8 +31,10 @@
 		<spring-cloud.version>Finchley.SR1</spring-cloud.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<jaxb-runtime.version>2.3.0.1</jaxb-runtime.version>
 		<activation.version>1.1.1</activation.version>
+		<commons-lang3.version>3.8</commons-lang3.version>
+		<jaxb-runtime.version>2.3.0.1</jaxb-runtime.version>
+		<commons-beanutils.version>1.9.3</commons-beanutils.version>
 	</properties>
 
 	<dependencies>
@@ -44,6 +47,16 @@
 			<groupId>javax.activation</groupId>
 			<artifactId>activation</artifactId><!-- JAVA 10被移除模块 -->
 			<version>${activation.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>${commons-beanutils.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
 		</dependency>
 	</dependencies>
 
