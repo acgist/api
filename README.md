@@ -18,34 +18,59 @@
 * 20：配置中心
 * 30：管理平台（自己开发）
 * 31：管理平台（Spring Boot Admin）
-* 32：链路监控
-* 33：仪表盘（turbine）
-* 34：仪表盘（dashboard）
-* 40：接口网关
-* 41：系统网关
+* 32：仪表盘
+* 33：链路监控
+* 40：服务网关
+* 41：系统网关  
 ** 业务服务类型：** 
-* 10：交易业务  
+* 10：用户业务
+* 20：订单业务
 
 #### 项目结构
 ├─api-common：通用模块  
 ├─api-config：配置中心  
 ├─api-registry：注册中心  
-├─api-gateway：接口网关，系统服务网关，签名验证数据集校验  
-├─api-gateway-admin：系统网关，管理平台网关  
+├─api-gateway-admin：系统网关，管理平台网关，session共享  
+├─api-admin：管理平台，模仿Spring Boot Admin项目，常用端点、仪表盘、链路监控整合  
 ├─api-admin-boot：管理平台，Spring Boot Admin  
-├─api-admin：管理平台，模仿Spring Boot Admin项目，常用端点、仪表盘、链路监控整合
-├─api-sleuth：链路调用监控系统  
-├─api-turbine：仪表盘  
-├─api-dashboard：仪表盘  
-└─api-service-pay：服务-交易  
+├─api-admin-sleuth：链路调用监控系统  
+├─api-admin-dashboard：仪表盘：dashboard、turbine  
+├─api-gateway-service：服务网关，系统服务网关，签名验证数据集校验  
+├─api-service-www：服务-网站  
+├─api-service-user：服务-用户  
+└─api-service-order：服务-订单    
+
+系统管理  
+	系统用户  
+	角色管理  
+服务管理  
+	服务监控：查看、关闭、仪表盘、端点操作  
+	服务链路  
+用户管理  
+	用户管理  
+订单管理  
+	订单管理  
 
 	sign();
-		String message = ValidatorUtils.verify(this); // 数据校验
-		if(message != null) {
-			throw new ErrorCodeException(APICode.CODE_3000, message);
-		}
+	String message = ValidatorUtils.verify(this); // 数据校验
+	if(message != null) {
+		throw new ErrorCodeException(APICode.CODE_3000, message);
+	}
+
 各个端点处理，网关端点权限  
-JPA，消息中间件，异步信息处理，接口API页面
+JPA，消息中间件，异步信息处理，接口API页面  
+日志统一处理  
+https://gitee.com/minull/ace-security  
+https://preview.pro.ant.design  
+项目本地缓存数据，bus刷新  
+
+#### 数据库表
+|表名|作用|
+|:-|:-|
+|tb_user|用户|
+|tb_order|订单|
+|tb_admin|管理员|
+|tb_menu|菜单栏|
 
 #### 映射关系
 |映射|类型|
