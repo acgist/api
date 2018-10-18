@@ -8,10 +8,7 @@
 		<meta name="description" content="交易页面" />
 		
 		<link rel="shortcut icon" href="/favicon.ico">
-		<link href="/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-		<link href="/resources/css/style.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src="/resources/js/jquery-1.10.2.min.js"></script>
-		<script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
+		<#include "/include/resources.ftl">
 	</head>
 
 	<body>
@@ -22,6 +19,7 @@
 			</form>
 			<p>交易结果：${result.code}</p>
 			<p>交易订单号：${result.orderId}</p>
+			<p>交易订单号：${result.message}</p>
 		</div>
 	</body>
 </html>

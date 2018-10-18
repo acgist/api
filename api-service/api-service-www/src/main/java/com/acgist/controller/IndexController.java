@@ -1,15 +1,15 @@
 package com.acgist.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.acgist.api.APIConstURL;
 
 @Controller
 public class IndexController {
 
-	@RequestMapping("/")
-	public String index() {
+	@GetMapping("/")
+	public String indexs() {
 		return "redirect:" + APIConstURL.URL_ORDER;
 	}
 	

@@ -1,4 +1,4 @@
-package com.acgist.service.impl;
+package com.acgist.service;
 
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.acgist.common.code.API;
+import com.acgist.api.API;
 
 /**
  * 签名工具，公钥私钥生成：http://web.chacuo.net/netrsakeypair
@@ -101,9 +101,7 @@ public class SignService {
 	private static final String dataToDigest(final Map<String, String> data) {
 		final StringBuffer buffer = new StringBuffer();
 		final TreeMap<String, String> treeMap = new TreeMap<String, String>();
-		data.entrySet().stream()
-		.filter(entry -> !API.PROPERTY_SIGN.equals(entry.getKey()))
-		.forEach(entry -> {
+		data.entrySet().stream().filter(entry -> !API.PROPERTY_SIGN.equals(entry.getKey())).forEach(entry -> {
 			treeMap.put(entry.getKey(), entry.getValue());
 		});
 		treeMap.entrySet().forEach(entry -> {

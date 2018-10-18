@@ -4,6 +4,9 @@
 一个基于Spring Cloud的HTTP接口DEMO项目。  
 内网访问均不需要权限，外网全部需要经过网关进行访问，服务不直接对外提供服务，网关负责鉴权、数据校验等操作。
 
+#### 数据处理
+系统数据分为JSON和其他数据类型。
+
 #### 软件版本
 * JAVA：JAVA 10
 * Spring Boot：2.0.5.RELEASE
@@ -65,27 +68,18 @@ https://preview.pro.ant.design
 |tb_admin|管理员|
 |tb_menu|菜单栏|
 
-#### 映射关系
-|映射|类型|
-|:-|:-|
-|/admin/**|后台服务|
-|/gateway/api/**|接口服务|
-|/**|接口服务|
-** 接口映射 **
+#### 接口映射
 |网关|控制器|服务|
 |:-|:-|:-|
-|/gateway/api/pay|/pay|/service/pay|
-|/gateway/api/pay/drawback|/pay/drawback|/service/pay/drawback|
-|/gateway/api/pay/query|/pay/query|/service/pay/query|
+|/gateway/api/order|/order|/service/order|
+|/gateway/api/order/query|/pay/query|/service/order/query|
 
 #### 包结构
 |包路径|作用|
 |:-|:-|
 |com.acgist.api|接口|
-|com.acgist.service|服务|
-|com.acgist.modules|组件|
+|com.acgist.service.服务模块|服务|
 |com.acgist.controller|网页|
-|com.acgist.service.impl|服务实现|
 
 #### 常见忽略错误
 @EnableHystrix：用于开启/actuator/hystrix.stream端点  

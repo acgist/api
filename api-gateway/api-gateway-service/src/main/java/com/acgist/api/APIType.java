@@ -3,8 +3,7 @@ package com.acgist.api;
 import javax.servlet.http.HttpServletRequest;
 
 import com.acgist.api.request.APIRequest;
-import com.acgist.api.request.order.DrawbackRequest;
-import com.acgist.api.request.order.PayRequest;
+import com.acgist.api.request.order.OrderRequest;
 import com.acgist.api.request.order.QueryRequest;
 import com.acgist.exception.ErrorCodeException;
 
@@ -13,9 +12,8 @@ import com.acgist.exception.ErrorCodeException;
  */
 public enum APIType {
 
-	PAY("交易", APIConstURL.URL_GATEWAY_PAY, PayRequest.class, true),
-	PAY_QUERY("交易查询", APIConstURL.URL_GATEWAY_PAY_QUERY, QueryRequest.class),
-	PAY_DRAWBACK("交易退款", APIConstURL.URL_GATEWAY_PAY_DRAWBACK, DrawbackRequest.class, true);
+	ORDER("创建订单", APIConstURL.URL_GATEWAY_ORDER, OrderRequest.class, true),
+	ORDER_QUERY("订单查询", APIConstURL.URL_GATEWAY_ORDER_QUERY, QueryRequest.class);
 
 	private boolean record; // 是否记录
 	private String typeName; // 接口名称

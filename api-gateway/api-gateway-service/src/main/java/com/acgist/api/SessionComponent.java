@@ -1,4 +1,4 @@
-package com.acgist.common.api;
+package com.acgist.api;
 
 import java.io.Serializable;
 
@@ -8,9 +8,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.acgist.common.api.request.APIRequest;
-import com.acgist.common.api.response.APIResponse;
-import com.acgist.common.code.APIType;
+import com.acgist.api.request.APIRequest;
+import com.acgist.api.response.APIResponse;
 
 /**
  * 请求数据
