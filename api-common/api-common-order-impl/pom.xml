@@ -23,6 +23,7 @@
 			<groupId>com.acgist</groupId>
 			<artifactId>api-common-order</artifactId>
 		</dependency>
+		<!-- 带有hystrix，但是不包含统计依赖 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>

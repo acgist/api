@@ -86,3 +86,9 @@ https://preview.pro.ant.design
 |com.acgist.modules|组件|
 |com.acgist.controller|网页|
 |com.acgist.service.impl|服务实现|
+
+#### 常见忽略错误
+@EnableHystrix：用于开启/actuator/hystrix.stream端点  
+@EnableHystrixDashboard：开启hystrix仪表盘  
+@EnableFeignClients：需要指定包路径  
+feign模块以及包含hystrix熔断功能，但是没有端点监控功能（@EnableHystrix）  

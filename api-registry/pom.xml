@@ -43,7 +43,8 @@
 				<executions>
 					<execution>
 						<goals>
-							<goal>repackage</goal><!-- 将依赖打包到生成的包里面 -->
+							<!-- 将依赖打包到生成的包里面 -->
+							<goal>repackage</goal>
 						</goals>
 					</execution>
 				</executions>
