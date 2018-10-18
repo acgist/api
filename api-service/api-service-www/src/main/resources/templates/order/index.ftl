@@ -15,8 +15,8 @@
 	</head>
 
 	<body>
-		<div class="pay">
-			<form method="post" action="/pay">
+		<div class="order">
+			<form method="post" action="/order">
 				<p>订单号：<input name="orderId" placeholder="订单号" type="text" /></p>
 				<p><input type="submit" value="提交" /></p>
 			</form>

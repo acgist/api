@@ -16,6 +16,16 @@ public interface APIConstURL {
 	String URL_SERVICE = "/service";
 	
 	/**
+	 * 熔断前缀
+	 */
+	String URL_FALLBACK = "/fallback";
+	
+	/**
+	 * 熔断前缀
+	 */
+	String URL_FALLBACK_SERVICE = "/fallback" + URL_SERVICE;
+	
+	/**
 	 * 网关前缀
 	 */
 	String URL_GATEWAY = "/gateway/api";

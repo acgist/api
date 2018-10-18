@@ -10,7 +10,7 @@ public class IndexController {
 
 	@RequestMapping("/")
 	public String index() {
-		return "redirect:" + APIConstURL.URL_ADMIN_ORDER;
+		return "redirect:" + APIConstURL.URL_ORDER;
 	}
 	
 }

@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.acgist.api.APIConstURL;
 import com.acgist.service.order.OrderService;
@@ -16,7 +15,6 @@ import com.acgist.service.order.pojo.OrderResult;
  * 订单管理
  */
 @Controller
-@RequestMapping(APIConstURL.URL_ADMIN)
 public class OrderController {
 
 	@Autowired
