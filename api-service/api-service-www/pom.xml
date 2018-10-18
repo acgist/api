@@ -2,14 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>api-service-admin</artifactId>
+	<artifactId>api-service-www</artifactId>
 	<packaging>jar</packaging>
 
-	<name>api-service-admin</name>
-	<description>服务-管理平台</description>
+	<name>api-service-www</name>
+	<description>服务-网页</description>
 
 	<parent>
 		<groupId>com.acgist</groupId>

@@ -21,22 +21,17 @@
 ** 业务服务类型：** 
 * 10：管理平台（自己开发）
 * 11：管理平台
-* 12：仪表盘
-* 13：链路监控
 * 20：用户业务
 * 30：订单业务
+* 40：网站业务
 
 #### 项目结构
-├─api-common：通用模块  
-├─api-config：配置中心  
-├─api-registry：注册中心  
-├─api-boot-admin：管理平台，Spring Boot Admin  
-├─api-gateway-admin：系统网关，管理平台网关，session共享  
-├─api-gateway-service：服务网关，系统服务网关，签名验证数据集校验  
-├─api-service-admin：管理平台，常用端点、仪表盘（dashboard、turbine）、链路监控整合（sleuth）  
-├─api-service-www：服务-网站  
-├─api-service-user：服务-用户  
-└─api-service-order：服务-订单    
+├── api-boot-admin  
+├── api-common：通用模块  
+├── api-config：配置中心  
+├── api-gateway：网关模块  
+├── api-registry：注册中心  
+└── api-service：服务模块  
 
 系统管理  
 	系统用户  

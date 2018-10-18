@@ -17,6 +17,7 @@
 		<module>api-common/api-common-order</module>
 		<module>api-common/api-common-order-impl</module>
 		<module>api-registry</module>
+		<module>api-service/api-service-www</module>
 		<module>api-service/api-service-admin</module>
 		<module>api-service/api-service-order</module>
 	</modules>
