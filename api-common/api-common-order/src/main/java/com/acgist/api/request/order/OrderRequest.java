@@ -1,0 +1,25 @@
+package com.acgist.api.request.order;
+
+import javax.validation.constraints.NotBlank;
+
+import com.acgist.api.request.APIRequest;
+
+/**
+ * 创建订单请求
+ */
+public class OrderRequest extends APIRequest {
+	
+	private static final long serialVersionUID = 1L;
+
+	@NotBlank(message = "订单号不能为空")
+	private String orderId;
+
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+
+}

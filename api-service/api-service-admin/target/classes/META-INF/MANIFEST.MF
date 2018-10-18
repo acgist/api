@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: Administrator
+Build-Jdk: 11
+Implementation-Title: api-service-admin
+Implementation-Version: 1.0.0
+Implementation-Vendor-Id: com.acgist
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/api-acgist/api-service/api-service-admin
+Created-By: Maven Integration for Eclipse
+
