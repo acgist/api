@@ -21,6 +21,7 @@
 		<module>api-service/api-service-www</module>
 		<module>api-service/api-service-admin</module>
 		<module>api-service/api-service-order</module>
+		<module>api-service/api-service-resources</module>
 	</modules>
 
 	<parent>
