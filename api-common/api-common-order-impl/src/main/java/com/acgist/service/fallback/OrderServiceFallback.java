@@ -22,7 +22,7 @@ public class OrderServiceFallback implements OrderService {
 		LOGGER.warn("支付失败，执行退款，订单号：{}", order.getOrderId());
 		OrderResult result = new OrderResult();
 		result.setOrderId(order.getOrderId());
-		result.message(APICode.CODE_9999);
+		result.fail(APICode.CODE_9999);
 		return result;
 	}
 

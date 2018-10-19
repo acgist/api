@@ -1,8 +1,11 @@
 package com.acgist.controller;
 
-import java.util.Date;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,33 +24,46 @@ import com.acgist.api.response.APIResponse;
 @Controller
 public class APIErrorController implements ErrorController {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(APIErrorController.class);
+	
 	@ResponseBody
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/error", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public Map<String, String> index(String code, String message) {
-		final APICode apiCode = APICode.valueOfCode(code);
-		if(message == null) {
-			message = apiCode.getMessage();
-		}
-		return APIResponse.builder().message(apiCode, message).response();
+	public Map<String, String> index(String code, String message, HttpServletResponse response) {
+		final APICode apiCode = code(code, response);
+		message = message(message, apiCode);
+		LOGGER.warn("系统错误（接口），错误代码：{}，错误描述：{}", apiCode.getCode(), message);
+		return APIResponse.builder().fail(apiCode, message).response();
 	}
-	
+
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/error")
-	public String index(String code, String message, ModelMap model) {
-		final APICode apiCode = APICode.valueOfCode(code);
-		if(message == null) {
-			message = apiCode.getMessage();
-		}
+	public String index(String code, String message, ModelMap model, HttpServletResponse response) {
+		final APICode apiCode = code(code, response);
+		message = message(message, apiCode);
 		model.put("code", apiCode.getCode());
 		model.put("message", message);
-		model.put("date", new Date());
+		LOGGER.warn("系统错误（页面），错误代码：{}，错误描述：{}", apiCode.getCode(), message);
 		return getErrorPath();
 	}
 
 	@Override
 	public String getErrorPath() {
 		return "/error";
+	}
+	
+	private APICode code(String code, HttpServletResponse response) {
+		if(code == null) {
+			return APICode.valueOfHTTPCode(response.getStatus());
+		}
+		return APICode.valueOfCode(code);
+	}
+	
+	private String message(String message, APICode apiCode) {
+		if(message == null) {
+			message = apiCode.getMessage();
+		}
+		return message;
 	}
 
 }

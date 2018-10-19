@@ -14,7 +14,8 @@
 系统数据分为JSON和其他数据类型。
 
 #### 软件版本
-* JAVA：JAVA 10
+* JAVA：JAVA 10 +
+* Redis：3.x.x
 * Spring Boot：2.0.5.RELEASE
 * Spring Cloud：Finchley.SR1
 

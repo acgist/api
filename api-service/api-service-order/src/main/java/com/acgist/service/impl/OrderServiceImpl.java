@@ -15,7 +15,7 @@ public class OrderServiceImpl implements IOrder {
 		String orderId = order.getOrderId();
 		OrderResult result = new OrderResult();
 		if("fail".equals(orderId)) {
-			result.message(APICode.CODE_9999, "创建订单失败");
+			result.fail(APICode.CODE_9999, "创建订单失败");
 		} else if ("exception".equals(orderId)) {
 			throw new RuntimeException();
 		} else {

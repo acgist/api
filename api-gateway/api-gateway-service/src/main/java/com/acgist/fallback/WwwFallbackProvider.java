@@ -17,14 +17,14 @@ import com.acgist.api.APIConstApplication;
 import com.acgist.api.response.APIResponse;
 
 /**
- * 订单-熔断器
+ * 网站-熔断器
  */
 @Component
-public class OrderFallbackProvider implements FallbackProvider {
+public class WwwFallbackProvider implements FallbackProvider {
 
 	@Override
 	public String getRoute() {
-		return APIConstApplication.API_SERVICE_ORDER;
+		return APIConstApplication.API_SERVICE_WWW;
 	}
 
 	@Override

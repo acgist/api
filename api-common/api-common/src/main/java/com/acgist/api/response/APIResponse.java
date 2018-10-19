@@ -83,41 +83,41 @@ public class APIResponse extends API {
 	 * 成功
 	 */
 	public APIResponse success() {
-		return message(APICode.CODE_0000);
+		return fail(APICode.CODE_0000);
 	}
 	
 	/**
 	 * 失败
 	 */
 	public APIResponse fail() {
-		return message(APICode.CODE_9999);
+		return fail(APICode.CODE_9999);
 	}
 	
 	/**
 	 * 设置响应信息
 	 */
-	public APIResponse message(APICode code) {
-		return message(code.getCode(), code.getMessage());
+	public APIResponse fail(APICode code) {
+		return fail(code.getCode(), code.getMessage());
 	}
 	
 	/**
 	 * 设置响应信息
 	 */
-	public APIResponse message(ServiceResult result) {
-		return message(result.getCode(), result.getMessage());
+	public APIResponse fail(ServiceResult result) {
+		return fail(result.getCode(), result.getMessage());
 	}
 	
 	/**
 	 * 设置响应信息
 	 */
-	public APIResponse message(APICode code, String message) {
-		return message(code.getCode(), message);
+	public APIResponse fail(APICode code, String message) {
+		return fail(code.getCode(), message);
 	}
 	
 	/**
 	 * 设置响应信息
 	 */
-	public APIResponse message(String code, String message) {
+	public APIResponse fail(String code, String message) {
 		this.responseCode = code;
 		this.responseMessage = message;
 		this.responseTime = DateUtils.nowDate();

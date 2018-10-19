@@ -25,7 +25,7 @@ public class OrderExecutor extends APIExecutor<OrderRequest, OrderResponse> {
 		Order order = new Order();
 		order.valueOfRequest(request);
 		OrderResult result = orderServiceImpl.order(order);
-		response.message(result);
+		response.fail(result);
 	}
 	
 }

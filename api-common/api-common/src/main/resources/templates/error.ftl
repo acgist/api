@@ -16,7 +16,7 @@
 			<p>系统异常</p>
 			<p>异常代码：${code}</p>
 			<p>异常描述：${message}</p>
-			<p>系统时间：${date?string("yyyy-MM-dd HH:mm:ss")}</p>
+			<p>系统时间：${.now?string("yyyy-MM-dd HH:mm:ss")}</p>
 		</div>
 	</body>
 </html>

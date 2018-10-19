@@ -24,6 +24,7 @@ public abstract class API implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	public static final String PROPERTY_SIGN = "sign"; // 签名字符串
+	public static final String DEFAULT_CHARSET = "UTF-8"; // 系统默认编码
 
 	protected String queryId; // 请求ID
 	protected String reserved; // 原样返回数据

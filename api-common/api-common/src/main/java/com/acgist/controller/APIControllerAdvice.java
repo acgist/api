@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -28,7 +29,11 @@ public class APIControllerAdvice {
 			APICode code = APICode.valueOfCode(exception.getErrorCode());
 			RedirectUtils.error(code, exception.getMessage(), request, response);
 		} else {
-			RedirectUtils.error(APICode.CODE_9999, request, response);
+			APICode code = APICode.CODE_9999;
+			if(e instanceof HttpRequestMethodNotSupportedException) {
+				code = APICode.CODE_4405;
+			}
+			RedirectUtils.error(code, request, response);
 		}
 	}
 

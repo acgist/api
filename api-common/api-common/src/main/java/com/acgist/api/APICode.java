@@ -7,6 +7,7 @@ package com.acgist.api;
  * 1xxx=系统错误
  * 2xxx=业务错误
  * 3xxx=数据错误
+ * 4xxx=系统异常（主要处理服务器错误）
  */
 public enum APICode {
 
@@ -16,11 +17,15 @@ public enum APICode {
 	CODE_1002("1002", "服务不可用"),
 	CODE_3000("3000", "数据格式错误"),
 	CODE_3001("3001", "验签失败"),
+	CODE_4404("4404", "服务不存在"),
+	CODE_4405("4405", "服务不支持"),
 	CODE_9999("9999", "未知错误");
 	
 	private String code;
 	private String message;
 
+	private static final String RESPONSE_ERROR = "4";
+	
 	private APICode(String code, String message) {
 		this.code = code;
 		this.message = message;
@@ -35,6 +40,10 @@ public enum APICode {
 		return CODE_9999;
 	}
 	
+	public static final APICode valueOfHTTPCode(int code) {
+		return valueOfCode(RESPONSE_ERROR + code);
+	}
+	
 	public String getCode() {
 		return code;
 	}
@@ -42,5 +51,5 @@ public enum APICode {
 	public String getMessage() {
 		return message;
 	}
-
+	
 }

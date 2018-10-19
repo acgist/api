@@ -40,19 +40,23 @@ public class ServiceResult implements Serializable {
 	}
 	
 	public void success() {
-		message(APICode.CODE_0000);
+		fail(APICode.CODE_0000);
 	}
 	
-	public void message(APICode code) {
-		message(code.getCode(), code.getMessage());
+	public void fail() {
+		fail(APICode.CODE_9999);
 	}
 	
-	public void message(APICode code, String message) {
+	public void fail(APICode code) {
+		fail(code.getCode(), code.getMessage());
+	}
+	
+	public void fail(APICode code, String message) {
 		this.code = code.getCode();
 		this.message = message;
 	}
 	
-	public void message(String code, String message) {
+	public void fail(String code, String message) {
 		this.code = code;
 		this.message = message;
 	}
