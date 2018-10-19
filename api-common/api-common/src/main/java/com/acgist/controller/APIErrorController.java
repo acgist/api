@@ -26,6 +26,9 @@ public class APIErrorController implements ErrorController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(APIErrorController.class);
 	
+	/**
+	 * JSON接口错误处理
+	 */
 	@ResponseBody
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/error", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -36,6 +39,9 @@ public class APIErrorController implements ErrorController {
 		return APIResponse.builder().fail(apiCode, message).response();
 	}
 
+	/**
+	 * 其他错误处理
+	 */
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/error")
 	public String index(String code, String message, ModelMap model, HttpServletResponse response) {

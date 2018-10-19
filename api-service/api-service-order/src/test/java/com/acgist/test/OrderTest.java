@@ -35,12 +35,14 @@ public class OrderTest {
 		for (int i = 0; i < count; i++) {
 			exe.submit(() -> {
 				OrderRequest request = new OrderRequest();
-				request.setOrderId("exception");
+				request.setOrderId("fail");
+//				request.setOrderId("exception");
 //				ResponseEntity<String> response = rest.getForEntity(URI.create("http://192.168.1.100:34010"), String.class);
-				ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:23010/gateway/api/orsder"), request, String.class);
+				ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:23010/gateway/api/ordder"), request, String.class);
 //				ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:33010/gateway/api/order"), request, String.class);
-				System.out.println(response.getStatusCodeValue());
 				System.out.println(response.getBody());
+				System.out.println(response.getStatusCodeValue());
+				System.out.println(response.getHeaders().getContentType());
 				latch.countDown();
 			});
 		}
