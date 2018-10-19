@@ -2,7 +2,7 @@ package com.acgist.service.order;
 
 import org.springframework.cloud.openfeign.FeignClient;
 
-import com.acgist.api.APIConstApplication;
+import com.acgist.config.APIConstApplication;
 import com.acgist.service.config.OrderConfig;
 import com.acgist.service.fallback.OrderServiceFallback;
 

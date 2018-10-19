@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.acgist.api.APICode;
-import com.acgist.api.APIConstURL;
+import com.acgist.config.APIConstURL;
 import com.acgist.service.order.OrderService;
 import com.acgist.service.order.pojo.Order;
 import com.acgist.service.order.pojo.OrderResult;

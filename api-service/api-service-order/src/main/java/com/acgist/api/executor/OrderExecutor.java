@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 
 import com.acgist.api.request.order.OrderRequest;
 import com.acgist.api.response.order.OrderResponse;
+import com.acgist.pojo.dto.OrderDTO;
+import com.acgist.pojo.entity.Order;
 import com.acgist.service.impl.OrderServiceImpl;
-import com.acgist.service.order.pojo.Order;
-import com.acgist.service.order.pojo.OrderResult;
 
 /**
  * 创建订单
@@ -24,8 +24,8 @@ public class OrderExecutor extends APIExecutor<OrderRequest, OrderResponse> {
 	public void execute() {
 		Order order = new Order();
 		order.valueOfRequest(request);
-		OrderResult result = orderServiceImpl.order(order);
-		response.fail(result);
+		OrderDTO dto = orderServiceImpl.order(order);
+		response.fail(dto);
 	}
 	
 }

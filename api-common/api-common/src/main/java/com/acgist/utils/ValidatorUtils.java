@@ -8,7 +8,7 @@ import javax.validation.Validator;
 import javax.validation.groups.Default;
 
 import com.acgist.api.API;
-import com.acgist.service.ServiceParameter;
+import com.acgist.pojo.dto.BaseDTO;
 
 /**
  * 数据校验工具
@@ -49,14 +49,14 @@ public class ValidatorUtils {
 	 * 	成功返回：null
 	 * 	失败返回：错误信息
 	 */
-	public static final String verify(ServiceParameter data) {
+	public static final String verify(BaseDTO data) {
 		if(data == null) {
 			return null;
 		}
 		final StringBuffer message = new StringBuffer();
-		final Set<ConstraintViolation<ServiceParameter>> set = VALIDATOR.validate(data, Default.class);
+		final Set<ConstraintViolation<BaseDTO>> set = VALIDATOR.validate(data, Default.class);
 		if (set != null && !set.isEmpty()) {
-			for (ConstraintViolation<ServiceParameter> violation : set) {
+			for (ConstraintViolation<BaseDTO> violation : set) {
 				message
 					.append(violation.getMessage())
 					.append("[")

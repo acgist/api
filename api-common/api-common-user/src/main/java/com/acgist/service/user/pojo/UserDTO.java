@@ -1,13 +1,13 @@
-package com.acgist.service.order.pojo;
+package com.acgist.service.user.pojo;
 
 import java.io.Serializable;
 
-import com.acgist.service.ServiceResult;
+import com.acgist.pojo.dto.BaseDTO;
 
 /**
- * 支付结果
+ * 结果
  */
-public class OrderResult extends ServiceResult implements Serializable {
+public class UserDTO extends BaseDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

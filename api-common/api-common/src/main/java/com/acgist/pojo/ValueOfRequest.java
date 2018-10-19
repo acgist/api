@@ -1,4 +1,4 @@
-package com.acgist.service;
+package com.acgist.pojo;
 
 import com.acgist.api.request.APIRequest;
 

@@ -1,4 +1,4 @@
-package com.acgist.api;
+package com.acgist.config;
 
 /**
  * 链接管理

@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 
 import com.acgist.api.API;
 import com.acgist.api.APICode;
-import com.acgist.api.APIConstApplication;
 import com.acgist.api.response.APIResponse;
+import com.acgist.config.APIConstApplication;
 
 /**
  * 网站-熔断器

@@ -18,8 +18,8 @@
 				<p><input type="submit" value="提交" /></p>
 			</form>
 			<p>交易结果：${result.code}</p>
-			<p>交易订单号：${result.orderId}</p>
-			<p>交易订单号：${result.message}</p>
+			<p>交易信息：${result.message}</p>
+			<p>交易订单号：${result.order.orderId}</p>
 		</div>
 	</body>
 </html>

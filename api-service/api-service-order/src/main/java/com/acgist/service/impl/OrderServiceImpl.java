@@ -3,27 +3,26 @@ package com.acgist.service.impl;
 import org.springframework.stereotype.Service;
 
 import com.acgist.api.APICode;
+import com.acgist.pojo.dto.OrderDTO;
+import com.acgist.pojo.entity.Order;
 import com.acgist.service.order.IOrder;
-import com.acgist.service.order.pojo.Order;
-import com.acgist.service.order.pojo.OrderResult;
 
 @Service
 public class OrderServiceImpl implements IOrder {
 
 	@Override
-	public OrderResult order(Order order) {
+	public OrderDTO order(Order order) {
 		String orderId = order.getOrderId();
-		OrderResult result = new OrderResult();
+		OrderDTO dto = new OrderDTO();
 		if("fail".equals(orderId)) {
-			result.fail(APICode.CODE_9999, "创建订单失败");
+			dto.fail(APICode.CODE_9999, "创建订单失败");
 		} else if ("exception".equals(orderId)) {
 			throw new RuntimeException();
 		} else {
-			result.success();
+			dto.success();
 		}
-		result.setId(order.getId());
-		result.setOrderId(order.getOrderId());
-		return result;
+		dto.setEntity(order);
+		return dto;
 	}
 
 }

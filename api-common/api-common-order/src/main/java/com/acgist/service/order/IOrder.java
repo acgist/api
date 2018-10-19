@@ -1,7 +1,7 @@
 package com.acgist.service.order;
 
-import com.acgist.service.order.pojo.Order;
-import com.acgist.service.order.pojo.OrderResult;
+import com.acgist.pojo.dto.OrderDTO;
+import com.acgist.pojo.entity.Order;
 
 /**
  * 订单
@@ -11,6 +11,6 @@ public interface IOrder {
 	/**
 	 * 创建订单
 	 */
-	OrderResult order(Order order);
+	OrderDTO order(Order order);
 	
 }
