@@ -4,6 +4,12 @@
 一个基于Spring Cloud的HTTP接口DEMO项目。  
 内网访问均不需要权限，外网全部需要经过网关进行访问，服务不直接对外提供服务，网关负责鉴权、数据校验等操作。
 
+#### 权限方案
+** 网页 **
+使用用户名登陆基于redis的session共享  
+** 接口 **
+使用oauth2进行鉴权
+
 #### 数据处理
 系统数据分为JSON和其他数据类型。
 
@@ -53,12 +59,14 @@
 		throw new ErrorCodeException(APICode.CODE_3000, message);
 	}
 
+#### 待办功能
 各个端点处理，网关端点权限  
 JPA，消息中间件，异步信息处理，接口API页面  
 日志统一处理  
 https://gitee.com/minull/ace-security  
 https://preview.pro.ant.design  
 项目本地缓存数据，bus刷新  
+网页项目端点屏蔽  
 
 #### 数据库表
 |表名|作用|
