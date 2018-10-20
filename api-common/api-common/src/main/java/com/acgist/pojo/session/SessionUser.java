@@ -1,11 +1,11 @@
-package com.acgist.user.pojo.dto;
+package com.acgist.pojo.session;
 
-import com.acgist.pojo.dto.ResultDTO;
+import java.io.Serializable;
 
 /**
- * 登陆
+ * session-用户：用户登陆后的session key
  */
-public class LoginDTO extends ResultDTO {
+public class SessionUser implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

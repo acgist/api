@@ -1,13 +1,11 @@
 package com.acgist.user.pojo.dto;
 
-import java.io.Serializable;
-
 import com.acgist.pojo.dto.BaseDTO;
 
 /**
  * 结果
  */
-public class AuthoDTO extends BaseDTO implements Serializable {
+public class AuthoDTO extends BaseDTO {
 
 	private static final long serialVersionUID = 1L;
 

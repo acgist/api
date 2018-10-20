@@ -10,7 +10,7 @@ import com.acgist.order.service.IOrder;
 import com.acgist.service.APIEntityService;
 
 @Service
-public class OrderServiceImpl implements IOrder, APIEntityService<OrderEntity> {
+public class OrderServiceImpl implements IOrder, APIEntityService {
 
 	@Autowired
 	private OrderRepository orderRepository;
@@ -22,7 +22,8 @@ public class OrderServiceImpl implements IOrder, APIEntityService<OrderEntity> {
 			return dto;
 		}
 		orderRepository.save(order);
-		dto.buildSuccess().setEntity(order);
+		dto.buildSuccess();
+		dto.setEntity(order);
 		return dto;
 	}
 

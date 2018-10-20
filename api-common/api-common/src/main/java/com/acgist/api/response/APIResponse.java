@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 import com.acgist.api.API;
 import com.acgist.api.APICode;
 import com.acgist.api.request.APIRequest;
-import com.acgist.pojo.dto.ServiceDTO;
+import com.acgist.pojo.dto.ResultDTO;
 import com.acgist.utils.APIUtils;
 import com.acgist.utils.DateUtils;
 
@@ -103,7 +103,7 @@ public class APIResponse extends API {
 	/**
 	 * 设置响应信息
 	 */
-	public APIResponse buildMessage(ServiceDTO<?> dto) {
+	public APIResponse buildMessage(ResultDTO dto) {
 		return buildMessage(dto.getCode(), dto.getMessage());
 	}
 	
