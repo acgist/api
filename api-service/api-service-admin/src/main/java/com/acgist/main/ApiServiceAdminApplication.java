@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableHystrix
 @ComponentScan("com.acgist")
 @EnableEurekaClient
-@EnableFeignClients("com.acgist.service")
+@EnableFeignClients("com.acgist.**.service")
 @EnableHystrixDashboard
 @SpringBootApplication
 public class ApiServiceAdminApplication {

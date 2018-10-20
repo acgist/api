@@ -38,10 +38,12 @@
 		<spring-cloud.version>Finchley.SR1</spring-cloud.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<c3p0.version>0.9.5.2</c3p0.version>
 		<activation.version>1.1.1</activation.version>
 		<commons-lang3.version>3.8</commons-lang3.version>
 		<jaxb-runtime.version>2.3.0.1</jaxb-runtime.version>
 		<commons-beanutils.version>1.9.3</commons-beanutils.version>
+		<mysql-connector-java.version>5.1.47</mysql-connector-java.version>
 	</properties>
 
 	<dependencies>
@@ -93,6 +95,16 @@
 				<groupId>com.acgist</groupId>
 				<artifactId>api-common-user-impl</artifactId>
 				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mchange</groupId>
+				<artifactId>c3p0</artifactId>
+				<version>${c3p0.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql-connector-java.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>

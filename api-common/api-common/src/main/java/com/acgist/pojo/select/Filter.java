@@ -262,19 +262,19 @@ public class Filter implements Serializable {
 		}
 		Filter other = (Filter) obj;
 		return new EqualsBuilder()
-				.append(getProperty(), other.getProperty())
-				.append(getOperator(), other.getOperator())
-				.append(getValue(), other.getValue())
-				.isEquals();
+			.append(getProperty(), other.getProperty())
+			.append(getOperator(), other.getOperator())
+			.append(getValue(), other.getValue())
+			.isEquals();
 	}
 
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder(17, 37)
-				.append(getProperty())
-				.append(getOperator())
-				.append(getValue())
-				.toHashCode();
+			.append(getProperty())
+			.append(getOperator())
+			.append(getValue())
+			.toHashCode();
 	}
 
 }

@@ -128,17 +128,17 @@ public class Order implements Serializable {
 		}
 		Order other = (Order) obj;
 		return new EqualsBuilder()
-				.append(getProperty(), other.getProperty())
-				.append(getDirection(), other.getDirection())
-				.isEquals();
+			.append(getProperty(), other.getProperty())
+			.append(getDirection(), other.getDirection())
+			.isEquals();
 	}
 
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder(17, 37)
-				.append(getProperty())
-				.append(getDirection())
-				.toHashCode();
+			.append(getProperty())
+			.append(getDirection())
+			.toHashCode();
 	}
 
 }

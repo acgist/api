@@ -47,25 +47,26 @@ public class ServiceDTO<T extends BaseEntity> extends BaseDTO {
 		return CODE_SUCCESS.equals(this.getCode());
 	}
 
-	public void buildSuccess() {
-		buildMessage(APICode.CODE_0000);
+	public ServiceDTO<T> buildSuccess() {
+		return buildMessage(APICode.CODE_0000);
 	}
 
-	public void buildFail() {
-		buildMessage(APICode.CODE_9999);
+	public ServiceDTO<T> buildFail() {
+		return buildMessage(APICode.CODE_9999);
 	}
 
-	public void buildMessage(APICode code) {
-		buildMessage(code.getCode(), code.getMessage());
+	public ServiceDTO<T> buildMessage(APICode code) {
+		return buildMessage(code.getCode(), code.getMessage());
 	}
 
-	public void buildMessage(APICode code, String message) {
-		buildMessage(code.getCode(), message);
+	public ServiceDTO<T> buildMessage(APICode code, String message) {
+		return buildMessage(code.getCode(), message);
 	}
 
-	public void buildMessage(String code, String message) {
+	public ServiceDTO<T> buildMessage(String code, String message) {
 		this.code = code;
 		this.message = message;
+		return this;
 	}
 
 }

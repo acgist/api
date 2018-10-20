@@ -49,12 +49,12 @@ public class ValidatorUtils {
 	 * 	成功返回：null
 	 * 	失败返回：错误信息
 	 */
-	public static final String verify(BaseDTO data) {
-		if(data == null) {
+	public static final String verify(BaseDTO dto) {
+		if(dto == null) {
 			return null;
 		}
 		final StringBuffer message = new StringBuffer();
-		final Set<ConstraintViolation<BaseDTO>> set = VALIDATOR.validate(data, Default.class);
+		final Set<ConstraintViolation<BaseDTO>> set = VALIDATOR.validate(dto, Default.class);
 		if (set != null && !set.isEmpty()) {
 			for (ConstraintViolation<BaseDTO> violation : set) {
 				message

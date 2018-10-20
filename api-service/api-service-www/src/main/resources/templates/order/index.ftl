@@ -19,7 +19,8 @@
 			</form>
 			<p>交易结果：${dto.code}</p>
 			<p>交易信息：${dto.message}</p>
-			<p>交易订单号：${dto.order.orderId}</p>
+			<p>交易订单ID：${dto.entity.id}</p>
+			<p>交易订单号：${dto.entity.orderId}</p>
 		</div>
 	</body>
 </html>

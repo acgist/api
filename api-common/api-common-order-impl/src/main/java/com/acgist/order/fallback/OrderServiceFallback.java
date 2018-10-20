@@ -21,8 +21,7 @@ public class OrderServiceFallback implements OrderService {
 	public OrderDTO order(OrderEntity order) {
 		LOGGER.warn("服务调用失败：创建订单，执行退款，订单号：{}", order.getOrderId());
 		OrderDTO dto = new OrderDTO();
-		dto.setEntity(order);
-		dto.buildMessage(APICode.CODE_9999);
+		dto.buildMessage(APICode.CODE_9999).setEntity(order);
 		return dto;
 	}
 
