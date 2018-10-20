@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.acgist.config.APIConstURL;
-import com.acgist.pojo.dto.OrderDTO;
-import com.acgist.pojo.entity.Order;
-import com.acgist.service.order.OrderService;
+import com.acgist.order.pojo.dto.OrderDTO;
+import com.acgist.order.pojo.entity.OrderEntity;
+import com.acgist.order.service.OrderService;
 
 /**
  * 订单管理
@@ -26,9 +26,9 @@ public class OrderController {
 	}
 	
 	@PostMapping(APIConstURL.URL_ORDER)
-	public String order(Order order, ModelMap model) {
+	public String order(OrderEntity order, ModelMap model) {
 		OrderDTO dto = orderService.order(order);
-		model.put("result", dto);
+		model.put("dto", dto);
 		return "/order/index";
 	}
 	

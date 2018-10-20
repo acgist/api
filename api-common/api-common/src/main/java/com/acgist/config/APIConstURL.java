@@ -41,4 +41,15 @@ public interface APIConstURL {
 	String URL_SERVICE_ORDER_QUERY = URL_SERVICE + URL_ORDER_QUERY;
 	String URL_GATEWAY_ORDER_QUERY = URL_GATEWAY + URL_ORDER_QUERY;
 	
+	// 用户
+	String URL_USER = "/user";
+	
+	// 用户登陆
+	String URL_USER_LOGIN = URL_USER + "/login";
+	String URL_SERVICE_USER_LOGIN = URL_SERVICE + URL_USER_LOGIN;
+	
+	// 获取用户鉴权信息
+	String URL_USER_AUTHO = URL_USER + "/autho";
+	String URL_SERVICE_USER_AUTHO = URL_SERVICE + URL_USER_AUTHO;
+	
 }

@@ -17,9 +17,9 @@
 				<p>订单号：<input name="orderId" placeholder="订单号" type="text" /></p>
 				<p><input type="submit" value="提交" /></p>
 			</form>
-			<p>交易结果：${result.code}</p>
-			<p>交易信息：${result.message}</p>
-			<p>交易订单号：${result.order.orderId}</p>
+			<p>交易结果：${dto.code}</p>
+			<p>交易信息：${dto.message}</p>
+			<p>交易订单号：${dto.order.orderId}</p>
 		</div>
 	</body>
 </html>

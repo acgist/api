@@ -43,7 +43,7 @@ public class UserFallbackProvider implements FallbackProvider {
 			}
 			@Override
 			public InputStream getBody() throws IOException {
-				return new ByteArrayInputStream(APIResponse.builder().fail(APICode.CODE_1002).toString().getBytes(API.DEFAULT_CHARSET));
+				return new ByteArrayInputStream(APIResponse.builder().buildMessage(APICode.CODE_1002).toString().getBytes(API.DEFAULT_CHARSET));
 			}
 			@Override
 			public HttpStatus getStatusCode() throws IOException {

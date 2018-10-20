@@ -12,7 +12,7 @@ import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.web.client.ResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 
-import com.acgist.api.request.order.OrderRequest;
+import com.acgist.order.api.request.OrderRequest;
 
 public class OrderTest {
 

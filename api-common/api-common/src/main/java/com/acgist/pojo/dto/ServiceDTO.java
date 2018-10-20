@@ -4,7 +4,7 @@ import com.acgist.api.APICode;
 import com.acgist.pojo.entity.BaseEntity;
 
 /**
- * 需要获取是否成功的服务调用
+ * DTO：需要知道调用结果的服务使用
  */
 public class ServiceDTO<T extends BaseEntity> extends BaseDTO {
 
@@ -47,24 +47,23 @@ public class ServiceDTO<T extends BaseEntity> extends BaseDTO {
 		return CODE_SUCCESS.equals(this.getCode());
 	}
 
-	public void success() {
-		fail(APICode.CODE_0000);
+	public void buildSuccess() {
+		buildMessage(APICode.CODE_0000);
 	}
 
-	public void fail() {
-		fail(APICode.CODE_9999);
+	public void buildFail() {
+		buildMessage(APICode.CODE_9999);
 	}
 
-	public void fail(APICode code) {
-		fail(code.getCode(), code.getMessage());
+	public void buildMessage(APICode code) {
+		buildMessage(code.getCode(), code.getMessage());
 	}
 
-	public void fail(APICode code, String message) {
-		this.code = code.getCode();
-		this.message = message;
+	public void buildMessage(APICode code, String message) {
+		buildMessage(code.getCode(), message);
 	}
 
-	public void fail(String code, String message) {
+	public void buildMessage(String code, String message) {
 		this.code = code;
 		this.message = message;
 	}

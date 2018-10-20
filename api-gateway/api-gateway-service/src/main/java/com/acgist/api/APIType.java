@@ -3,10 +3,10 @@ package com.acgist.api;
 import javax.servlet.http.HttpServletRequest;
 
 import com.acgist.api.request.APIRequest;
-import com.acgist.api.request.order.OrderRequest;
-import com.acgist.api.request.order.QueryRequest;
 import com.acgist.config.APIConstURL;
 import com.acgist.exception.ErrorCodeException;
+import com.acgist.order.api.request.OrderRequest;
+import com.acgist.order.api.request.QueryRequest;
 
 /**
  * 接口类型

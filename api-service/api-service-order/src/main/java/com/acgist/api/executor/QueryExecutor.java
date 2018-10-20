@@ -3,8 +3,8 @@ package com.acgist.api.executor;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.acgist.api.request.order.QueryRequest;
-import com.acgist.api.response.order.QueryResponse;
+import com.acgist.order.api.request.QueryRequest;
+import com.acgist.order.api.response.QueryResponse;
 
 /**
  * 订单查询
@@ -15,7 +15,7 @@ public class QueryExecutor extends APIExecutor<QueryRequest, QueryResponse> {
 
 	@Override
 	protected void execute() {
-		response.success();
+		response.buildSuccess();
 	}
 
 }

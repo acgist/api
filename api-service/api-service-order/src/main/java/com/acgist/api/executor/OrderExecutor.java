@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.acgist.api.request.order.OrderRequest;
-import com.acgist.api.response.order.OrderResponse;
-import com.acgist.pojo.dto.OrderDTO;
-import com.acgist.pojo.entity.Order;
+import com.acgist.order.api.request.OrderRequest;
+import com.acgist.order.api.response.OrderResponse;
+import com.acgist.order.pojo.dto.OrderDTO;
+import com.acgist.order.pojo.entity.OrderEntity;
 import com.acgist.service.impl.OrderServiceImpl;
 
 /**
@@ -22,10 +22,10 @@ public class OrderExecutor extends APIExecutor<OrderRequest, OrderResponse> {
 	
 	@Override
 	public void execute() {
-		Order order = new Order();
+		OrderEntity order = new OrderEntity();
 		order.valueOfRequest(request);
 		OrderDTO dto = orderServiceImpl.order(order);
-		response.fail(dto);
+		response.buildMessage(dto);
 	}
 	
 }

@@ -36,7 +36,7 @@ public class APIErrorController implements ErrorController {
 		final APICode apiCode = code(code, response);
 		message = message(message, apiCode);
 		LOGGER.warn("系统错误（接口），错误代码：{}，错误描述：{}", apiCode.getCode(), message);
-		return APIResponse.builder().fail(apiCode, message).response();
+		return APIResponse.builder().buildMessage(apiCode, message).response();
 	}
 
 	/**

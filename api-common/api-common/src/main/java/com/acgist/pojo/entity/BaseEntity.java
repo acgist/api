@@ -3,7 +3,7 @@ package com.acgist.pojo.entity;
 import com.acgist.pojo.dto.BaseDTO;
 
 /**
- * 数据库超类
+ * Entity：数据库实体
  */
 public class BaseEntity extends BaseDTO {
 

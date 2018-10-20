@@ -16,6 +16,8 @@
 		<module>api-common/api-common</module>
 		<module>api-common/api-common-order</module>
 		<module>api-common/api-common-order-impl</module>
+		<module>api-common/api-common-user</module>
+		<module>api-common/api-common-user-impl</module>
 		<module>api-registry</module>
 		<module>api-gateway/api-gateway-service</module>
 		<module>api-service/api-service-www</module>
@@ -80,6 +82,16 @@
 			<dependency>
 				<groupId>com.acgist</groupId>
 				<artifactId>api-common-order-impl</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.acgist</groupId>
+				<artifactId>api-common-user</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.acgist</groupId>
+				<artifactId>api-common-user-impl</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
