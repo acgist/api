@@ -66,26 +66,20 @@ https://preview.pro.ant.design
 项目本地缓存数据，bus刷新  
 网页项目端点屏蔽  
 
-#### 数据库表
-|表名|作用|
-|:-|:-|
-|tb_user|用户|
-|tb_order|订单|
-|tb_admin|管理员|
-|tb_menu|菜单栏|
-
 #### 接口映射
-|网关|控制器|服务|
-|:-|:-|:-|
-|/gateway/api/order|/order|/service/order|
-|/gateway/api/order/query|/pay/query|/service/order/query|
+|网关|服务|
+|:-|:-|
+|/gateway/api/**|/service/**|
 
 #### 包结构
 |包路径|作用|
 |:-|:-|
+|com.acgist.main|main方法|
 |com.acgist.api|接口|
-|com.acgist.service.服务模块|服务|
+|com.acgist.pojo|POJO|
+|com.acgist.config|配置|
 |com.acgist.controller|网页|
+|com.acgist.服务模块.*|服务模块|
 
 #### 常见忽略错误
 @EnableHystrix：用于开启/actuator/hystrix.stream端点  
