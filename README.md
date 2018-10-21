@@ -8,8 +8,9 @@
 系统数据分为JSON和其他数据类型。
 
 #### 软件版本
-* JAVA：JAVA 10 +
-* Redis：3.x.x
+* JAVA：JAVA 10（不支持JAVA 11）
+* Redis：3.X.X
+* MySQL：5.X.X
 * Spring Boot：2.0.5.RELEASE
 * Spring Cloud：Finchley.SR1
 
