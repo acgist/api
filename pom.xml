@@ -14,6 +14,7 @@
 
 	<modules>
 		<module>api-common/api-common</module>
+		<module>api-common/api-common-data</module>
 		<module>api-common/api-common-order</module>
 		<module>api-common/api-common-order-impl</module>
 		<module>api-common/api-common-user</module>
@@ -22,6 +23,7 @@
 		<module>api-gateway/api-gateway-service</module>
 		<module>api-service/api-service-www</module>
 		<module>api-service/api-service-admin</module>
+		<module>api-service/api-service-user</module>
 		<module>api-service/api-service-order</module>
 		<module>api-service/api-service-resources</module>
 	</modules>
@@ -41,20 +43,23 @@
 		<c3p0.version>0.9.5.2</c3p0.version>
 		<activation.version>1.1.1</activation.version>
 		<commons-lang3.version>3.8</commons-lang3.version>
+		<commons-codec.version>1.11</commons-codec.version>
 		<jaxb-runtime.version>2.3.0.1</jaxb-runtime.version>
 		<commons-beanutils.version>1.9.3</commons-beanutils.version>
 		<mysql-connector-java.version>5.1.47</mysql-connector-java.version>
 	</properties>
 
 	<dependencies>
+		<!-- JAVA 10被移除模块 -->
 		<dependency>
 			<groupId>org.glassfish.jaxb</groupId>
-			<artifactId>jaxb-runtime</artifactId><!-- JAVA 10被移除模块 -->
+			<artifactId>jaxb-runtime</artifactId>
 			<version>${jaxb-runtime.version}</version>
 		</dependency>
+		<!-- JAVA 10被移除模块 -->
 		<dependency>
 			<groupId>javax.activation</groupId>
-			<artifactId>activation</artifactId><!-- JAVA 10被移除模块 -->
+			<artifactId>activation</artifactId>
 			<version>${activation.version}</version>
 		</dependency>
 		<dependency>
@@ -67,6 +72,11 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>${commons-lang3.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons-codec.version}</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
@@ -74,6 +84,11 @@
 			<dependency>
 				<groupId>com.acgist</groupId>
 				<artifactId>api-common</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.acgist</groupId>
+				<artifactId>api-common-data</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>

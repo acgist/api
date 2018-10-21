@@ -11,7 +11,7 @@ import java.util.List;
 public class PageQuery implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	/** 默认页码 */
 	private static final int DEFAULT_PAGE = 1;
 
@@ -37,8 +37,8 @@ public class PageQuery implements Serializable {
 	}
 
 	public PageQuery(int page, int pageSize) {
-		this.page = page;
-		this.pageSize = pageSize;
+		setPage(page);
+		setPageSize(pageSize);
 	}
 
 	public int getPage() {
@@ -49,7 +49,7 @@ public class PageQuery implements Serializable {
 		if (page < 1) {
 			page = DEFAULT_PAGE;
 		}
-		this.page = page;
+		this.page = page - 1;
 	}
 
 	public int getPageSize() {

@@ -1,6 +1,7 @@
 package com.acgist.pojo.select;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -53,7 +54,7 @@ public class Filter implements Serializable {
 		 * @param value 值
 		 * @return String对应的operator
 		 */
-		public static Operator fromString(String value) {
+		public static final Operator fromString(String value) {
 			return Operator.valueOf(value);
 		}
 
@@ -195,6 +196,13 @@ public class Filter implements Serializable {
 		return new Filter(property, Operator.isNotNull, null);
 	}
 
+	public static final List<Filter> filters(Filter ... filters) {
+		if(filters == null) {
+			return null;
+		}
+		return List.of(filters);
+	}
+	
 	/**
 	 * 获取属性
 	 * 

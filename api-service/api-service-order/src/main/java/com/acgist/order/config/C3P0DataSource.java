@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource(value = "c3p0.properties")
+@PropertySource(value = "classpath:/c3p0.properties")
 public class C3P0DataSource {
 
 	@Primary

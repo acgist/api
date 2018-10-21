@@ -1,6 +1,7 @@
 package com.acgist.pojo.select;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -11,7 +12,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 public class Order implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	/**
 	 * 方向
 	 */
@@ -29,7 +30,7 @@ public class Order implements Serializable {
 		 * @param value 值
 		 * @return String对应的Direction
 		 */
-		public static Direction fromString(String value) {
+		public static final Direction fromString(String value) {
 			return Direction.valueOf(value);
 		}
 		
@@ -78,7 +79,14 @@ public class Order implements Serializable {
 	public static final Order desc(String property) {
 		return new Order(property, Direction.desc);
 	}
-
+	
+	public static final List<Order> orders(Order ... orders) {
+		if(orders == null) {
+			return null;
+		}
+		return List.of(orders);
+	}
+	
 	/**
 	 * 获取属性
 	 * 
@@ -89,30 +97,12 @@ public class Order implements Serializable {
 	}
 
 	/**
-	 * 设置属性
-	 * 
-	 * @param property 属性
-	 */
-	public void setProperty(String property) {
-		this.property = property;
-	}
-
-	/**
 	 * 获取方向
 	 * 
 	 * @return 方向
 	 */
 	public Direction getDirection() {
 		return direction;
-	}
-
-	/**
-	 * 设置方向
-	 * 
-	 * @param direction 方向
-	 */
-	public void setDirection(Direction direction) {
-		this.direction = direction;
 	}
 
 	@Override

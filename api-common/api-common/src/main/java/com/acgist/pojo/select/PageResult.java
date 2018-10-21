@@ -11,14 +11,14 @@ public class PageResult<T> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	/** 内容 */
-	private final List<T> result = new ArrayList<T>();
-
 	/** 总记录数 */
 	private final long total;
 
 	/** 分页信息 */
 	private final PageQuery pageQuery;
+	
+	/** 内容 */
+	private final List<T> result = new ArrayList<T>();
 
 	public PageResult() {
 		this.total = 0L;

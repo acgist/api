@@ -5,11 +5,11 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>api-service-order</artifactId>
+	<artifactId>api-service-user</artifactId>
 	<packaging>jar</packaging>
 
-	<name>api-service-order</name>
-	<description>服务-订单</description>
+	<name>api-service-user</name>
+	<description>服务-用户</description>
 
 	<parent>
 		<groupId>com.acgist</groupId>
@@ -20,8 +20,16 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.acgist</groupId>
-			<artifactId>api-common-order</artifactId>
+			<artifactId>api-common-user</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.acgist</groupId>
+			<artifactId>api-common-data</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
