@@ -1,5 +1,6 @@
-package com.acgist.gateway.it;
 //package com.acgist.interceptor;
+//
+//import java.util.Map;
 //
 //import javax.servlet.http.HttpServletRequest;
 //import javax.servlet.http.HttpServletResponse;
@@ -11,14 +12,15 @@ package com.acgist.gateway.it;
 //
 //import com.acgist.api.ResponseCode;
 //import com.acgist.api.SessionComponent;
-//import com.acgist.api.request.APIRequest;
+//import com.acgist.service.SignService;
+//import com.acgist.utils.JSONUtils;
 //import com.acgist.utils.RedirectUtils;
 //
 ///**
-// * 数据格式校验
+// * 签名验证，验证请求所有数据，而不是实体数据
 // */
 //@Component
-//public class DataVerifyInterceptor implements HandlerInterceptor {
+//public class SignVerifyInterceptor implements HandlerInterceptor {
 //
 //	@Autowired
 //	private ApplicationContext context;
@@ -26,13 +28,17 @@ package com.acgist.gateway.it;
 //	@Override
 //	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 //		final SessionComponent session = SessionComponent.getInstance(context);
-//		final APIRequest apiRequest = session.getApiRequest();
-//		final String message = apiRequest.verify();
-//		if(message != null) {
-//			RedirectUtils.error(ResponseCode.CODE_3000, message, request, response);
+//		final String json = session.getJson();
+//		if(json == null) {
+//			RedirectUtils.error(ResponseCode.CODE_3000, "请求数据不能为空", request, response);
 //			return false;
 //		}
-//		return true;
+//		final Map<String, String> data = JSONUtils.jsonToMap(json);
+//		if(SignService.verify(data)) {
+//			return true;
+//		}
+//		RedirectUtils.error(ResponseCode.CODE_3001, request, response);
+//		return false;
 //	}
 //	
 //}

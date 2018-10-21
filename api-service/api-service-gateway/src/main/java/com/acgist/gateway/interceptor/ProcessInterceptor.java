@@ -1,4 +1,3 @@
-package com.acgist.gateway.it;
 //package com.acgist.interceptor;
 //
 //import javax.servlet.http.HttpServletRequest;
@@ -9,42 +8,37 @@ package com.acgist.gateway.it;
 //import org.springframework.stereotype.Component;
 //import org.springframework.web.servlet.HandlerInterceptor;
 //
-//import com.acgist.api.APIType;
+//import com.acgist.api.ResponseCode;
 //import com.acgist.api.SessionComponent;
-//import com.acgist.modules.asyn.AsynService;
-//import com.acgist.service.GatewayService;
+//import com.acgist.service.UniqueIdService;
+//import com.acgist.utils.RedirectUtils;
 //
 ///**
-// * 报文保存
+// * 处理过程中拦截：使用session来记录数据，所以如果一个session处理两次请求，后面的请求数据会覆盖掉前一次的请求
 // */
 //@Component
-//public class GatewayInterceptor implements HandlerInterceptor {
+//public class ProcessInterceptor implements HandlerInterceptor {
 //
-//	@Autowired
-//	private AsynService asynService;
 //	@Autowired
 //	private ApplicationContext context;
 //	@Autowired
-//	private GatewayService gatewayService;
-//
+//	private UniqueIdService uniqueIdService;
+//	
 //	@Override
 //	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 //		final SessionComponent session = SessionComponent.getInstance(context);
-//		final APIType apiType = session.getApiType();
-//		if(apiType.record()) {
-//			gatewayService.save(session.getApiRequest());
+//		final String queryId = uniqueIdService.id();
+//		if(session.buildProcess(queryId)) {
+//			return true;
 //		}
-//		return true;
+//		RedirectUtils.error(ResponseCode.CODE_1001, request, response);
+//		return false;
 //	}
-//	
+//
 //	@Override
 //	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
 //		final SessionComponent session = SessionComponent.getInstance(context);
-//		final APIType apiType = session.getApiType();
-//		if(apiType.record()) {
-//			gatewayService.update(session.getApiResponse());
-//			asynService.put(session);
-//		}
+//		session.completeProcess(request);
 //	}
 //
 //}

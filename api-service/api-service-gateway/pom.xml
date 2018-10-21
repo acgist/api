@@ -2,14 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+	
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>api-service-order</artifactId>
+	<artifactId>api-service-gateway</artifactId>
 	<packaging>jar</packaging>
 
-	<name>api-service-order</name>
-	<description>服务-订单</description>
+	<name>api-service-gateway</name>
+	<description>服务-接口</description>
 
 	<parent>
 		<groupId>com.acgist</groupId>
@@ -21,11 +21,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.acgist</groupId>
-			<artifactId>api-common-order</artifactId>
+			<artifactId>api-common-user-impl</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.acgist</groupId>
-			<artifactId>api-common-data</artifactId>
+			<artifactId>api-common-order-impl</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -37,11 +37,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
 		</dependency>
 
 		<dependency>

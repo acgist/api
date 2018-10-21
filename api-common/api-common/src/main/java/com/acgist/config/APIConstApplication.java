@@ -16,6 +16,11 @@ public interface APIConstApplication {
 	String API_SERVICE_ORDER = "api-service-order";
 	
 	/**
+	 * 接口模块
+	 */
+	String API_SERVICE_GATEWAY = "api-service-gateway";
+	
+	/**
 	 * 网页模块
 	 */
 	String API_SERVICE_WWW = "api-service-www";

@@ -1,15 +1,11 @@
 package com.acgist.user.service.impl;
 
-import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.acgist.api.APICode;
 import com.acgist.user.pojo.dto.AuthoDTO;
 import com.acgist.user.pojo.dto.LoginDTO;
-import com.acgist.user.pojo.entity.UserEntity;
 import com.acgist.user.repository.UserRepository;
 import com.acgist.user.service.IUser;
 
@@ -24,7 +20,6 @@ public class UserServiceImpl implements IUser {
 		if(name == null) {
 			return null;
 		}
-		Page<UserEntity> user = userRepository.findAll(Pageable.unpaged());
 		return null;
 	}
 
@@ -34,8 +29,7 @@ public class UserServiceImpl implements IUser {
 		if(name == null || password == null) {
 			dto.buildMessage(APICode.CODE_2000);
 		}
-		final String passwordMD5 = DigestUtils.md5Hex(password);
-		
+//		final String passwordMD5 = DigestUtils.md5Hex(password);
 		return null;
 	}
 

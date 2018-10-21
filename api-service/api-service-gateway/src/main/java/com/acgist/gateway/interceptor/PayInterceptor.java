@@ -1,4 +1,3 @@
-package com.acgist.gateway.it;
 //package com.acgist.interceptor;
 //
 //import org.springframework.stereotype.Component;

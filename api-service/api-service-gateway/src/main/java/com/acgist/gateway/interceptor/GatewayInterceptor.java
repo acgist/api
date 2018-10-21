@@ -1,4 +1,3 @@
-package com.acgist.gateway.it;
 //package com.acgist.interceptor;
 //
 //import javax.servlet.http.HttpServletRequest;
@@ -9,37 +8,42 @@ package com.acgist.gateway.it;
 //import org.springframework.stereotype.Component;
 //import org.springframework.web.servlet.HandlerInterceptor;
 //
-//import com.acgist.api.ResponseCode;
+//import com.acgist.api.APIType;
 //import com.acgist.api.SessionComponent;
-//import com.acgist.service.UniqueIdService;
-//import com.acgist.utils.RedirectUtils;
+//import com.acgist.modules.asyn.AsynService;
+//import com.acgist.service.GatewayService;
 //
 ///**
-// * 处理过程中拦截：使用session来记录数据，所以如果一个session处理两次请求，后面的请求数据会覆盖掉前一次的请求
+// * 报文保存
 // */
 //@Component
-//public class ProcessInterceptor implements HandlerInterceptor {
+//public class GatewayInterceptor implements HandlerInterceptor {
 //
+//	@Autowired
+//	private AsynService asynService;
 //	@Autowired
 //	private ApplicationContext context;
 //	@Autowired
-//	private UniqueIdService uniqueIdService;
-//	
+//	private GatewayService gatewayService;
+//
 //	@Override
 //	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 //		final SessionComponent session = SessionComponent.getInstance(context);
-//		final String queryId = uniqueIdService.id();
-//		if(session.buildProcess(queryId)) {
-//			return true;
+//		final APIType apiType = session.getApiType();
+//		if(apiType.record()) {
+//			gatewayService.save(session.getApiRequest());
 //		}
-//		RedirectUtils.error(ResponseCode.CODE_1001, request, response);
-//		return false;
+//		return true;
 //	}
-//
+//	
 //	@Override
 //	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
 //		final SessionComponent session = SessionComponent.getInstance(context);
-//		session.completeProcess(request);
+//		final APIType apiType = session.getApiType();
+//		if(apiType.record()) {
+//			gatewayService.update(session.getApiResponse());
+//			asynService.put(session);
+//		}
 //	}
 //
 //}
