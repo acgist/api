@@ -32,12 +32,14 @@
 * 42：静态资源
 
 #### 项目结构
-├── api-boot-admin  
-├── api-common：通用模块  
-├── api-config：配置中心  
-├── api-gateway：网关模块  
-├── api-registry：注册中心  
-└── api-service：服务模块  
+|目录|描述|
+|:-|:-|
+|api-boot-admin|Spring Boot Admin管理|
+|api-common|通用模块，工具、实体、数据库、服务接口|
+|api-config|配置中心|
+|api-registry|注册中心|
+|api-gateway|网关模块|
+|api-service|服务模块|
 
 #### 管理系统菜单
 系统管理  
