@@ -7,7 +7,6 @@ import javax.validation.constraints.NotBlank;
 
 import com.acgist.utils.APIUtils;
 import com.acgist.utils.JSONUtils;
-import com.acgist.utils.ValidatorUtils;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -56,13 +55,6 @@ public abstract class API implements Serializable {
 		this.sign = sign;
 	}
 	
-	/**
-	 * 数据格式校验
-	 */
-	public String verify() {
-		return ValidatorUtils.verify(this);
-	}
-
 	/**
 	 * 获取map数据
 	 */

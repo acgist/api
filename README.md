@@ -22,8 +22,9 @@
 ** 系统服务类型：** 
 * 10：注册中心
 * 20：配置中心
-* 30：服务网关
-* 40：系统网关  
+* 30：系统网关  
+* 40：服务网关
+* 50：网站网关
 ** 业务服务类型：** 
 * 10：管理平台（自己开发）
 * 12：管理平台（Spring Boot Admin）
@@ -54,12 +55,6 @@
 	用户管理  
 订单管理  
 	订单管理  
-
-	sign();
-	String message = ValidatorUtils.verify(this); // 数据校验
-	if(message != null) {
-		throw new ErrorCodeException(APICode.CODE_3000, message);
-	}
 
 #### 待办功能
 各个端点处理，网关端点权限  

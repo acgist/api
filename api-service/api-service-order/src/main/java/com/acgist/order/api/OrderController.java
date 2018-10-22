@@ -1,7 +1,5 @@
 package com.acgist.order.api;
 
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.acgist.config.APIConstURL;
 import com.acgist.order.api.executor.PayExecutor;
 import com.acgist.order.api.request.PayRequest;
+import com.acgist.order.api.response.PayResponse;
 import com.acgist.order.config.APIConstOrderURL;
 import com.acgist.utils.APIUtils;
 
@@ -29,8 +28,8 @@ public class OrderController {
 	 * 订单支付
 	 */
 	@PostMapping(APIConstOrderURL.URL_ORDER_PAY)
-	public Map<String, String> pay(@RequestBody PayRequest request) {
-		return APIUtils.newInstance(context, PayExecutor.class).response(request);
+	public PayResponse pay(@RequestBody PayRequest request) {
+		return APIUtils.newInstance(context, PayExecutor.class).execute(request);
 	}
 	
 }

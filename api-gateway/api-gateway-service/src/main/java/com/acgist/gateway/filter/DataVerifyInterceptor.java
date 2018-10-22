@@ -1,5 +1,4 @@
-package com.acgist.gateway.filter;
-//package com.acgist.interceptor;
+//package com.acgist.gateway.filter;
 //
 //import javax.servlet.http.HttpServletRequest;
 //import javax.servlet.http.HttpServletResponse;
@@ -9,9 +8,9 @@ package com.acgist.gateway.filter;
 //import org.springframework.stereotype.Component;
 //import org.springframework.web.servlet.HandlerInterceptor;
 //
-//import com.acgist.api.ResponseCode;
-//import com.acgist.api.SessionComponent;
+//import com.acgist.api.APICode;
 //import com.acgist.api.request.APIRequest;
+//import com.acgist.gateway.api.SessionComponent;
 //import com.acgist.utils.RedirectUtils;
 //
 ///**
@@ -29,7 +28,7 @@ package com.acgist.gateway.filter;
 //		final APIRequest apiRequest = session.getApiRequest();
 //		final String message = apiRequest.verify();
 //		if(message != null) {
-//			RedirectUtils.error(ResponseCode.CODE_3000, message, request, response);
+//			RedirectUtils.error(APICode.CODE_3000, message, request, response);
 //			return false;
 //		}
 //		return true;

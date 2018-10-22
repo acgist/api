@@ -2,4 +2,5 @@
 |目录|描述|
 |:-|:-|
 |api-gateway-admin|系统网关|
-|api-gateway-service|服务网关|
+|api-gateway-www|网站网关|
+|api-gateway-service|接口网关|

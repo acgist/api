@@ -2,8 +2,6 @@ package com.acgist.api.response;
 
 import java.util.Map;
 
-import javax.validation.constraints.NotBlank;
-
 import com.acgist.api.API;
 import com.acgist.api.APICode;
 import com.acgist.api.request.APIRequest;
@@ -20,9 +18,7 @@ public class APIResponse extends API {
 	private static final long serialVersionUID = 1L;
 
 	protected String requestTime; // 请求时间
-	@NotBlank(message = "响应时间不能为空")
 	protected String responseTime; // 响应时间
-	@NotBlank(message = "响应状态码不能为空")
 	protected String responseCode; // 响应码
 	protected String responseMessage; // 响应内容
 
@@ -127,10 +123,10 @@ public class APIResponse extends API {
 	/**
 	 * 获取签名后响应内容
 	 */
-	public Map<String, String> response() {
-		return data();
+	public String response() {
+		return toString();
 	}
-	
+
 	/**
 	 * 默认响应
 	 */

@@ -3,6 +3,7 @@ package com.acgist.api.request;
 import javax.validation.constraints.NotBlank;
 
 import com.acgist.api.API;
+import com.acgist.utils.ValidatorUtils;
 
 /**
  * 抽象请求
@@ -22,4 +23,11 @@ public class APIRequest extends API {
 		this.requestTime = requestTime;
 	}
 
+	/**
+	 * 数据格式校验
+	 */
+	public String verify() {
+		return ValidatorUtils.verify(this);
+	}
+	
 }

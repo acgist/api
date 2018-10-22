@@ -1,7 +1,5 @@
 package com.acgist.controller;
 
-import java.util.Map;
-
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
@@ -32,7 +30,7 @@ public class APIErrorController implements ErrorController {
 	@ResponseBody
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/error", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public Map<String, String> index(String code, String message, HttpServletResponse response) {
+	public String index(String code, String message, HttpServletResponse response) {
 		final APICode apiCode = code(code, response);
 		message = message(message, apiCode);
 		LOGGER.warn("系统错误（接口），错误代码：{}，错误描述：{}", apiCode.getCode(), message);

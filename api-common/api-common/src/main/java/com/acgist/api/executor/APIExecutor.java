@@ -3,7 +3,6 @@ package com.acgist.api.executor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,10 +41,10 @@ public abstract class APIExecutor<T extends APIRequest, K extends APIResponse> {
 	/**
 	 * 响应
 	 */
-	public Map<String, String> response(T request) {
+	public K execute(T request) {
 		init(request);
 		execute();
-		return this.response.response();
+		return this.response;
 	}
 
 	/**

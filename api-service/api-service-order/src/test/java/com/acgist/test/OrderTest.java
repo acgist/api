@@ -19,7 +19,7 @@ public class OrderTest {
 	@Test
 	public void order() throws InterruptedException {
 		RestTemplate rest = new RestTemplate();
-		int count = 1000;
+		int count = 1;
 		long begin = System.currentTimeMillis();
 		rest.setErrorHandler(new ResponseErrorHandler() {
 			@Override
@@ -37,13 +37,12 @@ public class OrderTest {
 				PayRequest request = new PayRequest();
 				request.setOrderId("fail");
 //				request.setOrderId("exception");
-//				ResponseEntity<String> response = rest.getForEntity(URI.create("http://192.168.1.100:34010"), String.class);
 //				zuul网关
-				ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:23010/gateway/api/order"), request, String.class);
-//				网关服务
-//				ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:32010/gateway/api/order"), request, String.class);
+//				ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:24010/gateway/api/order/pay"), request, String.class);
+//				服务网关
+				ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:35010/gateway/api/order/pay"), request, String.class);
 //				直接调用服务
-//				ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:36010/service/order"), request, String.class);
+//				ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:35010/service/order"), request, String.class);
 				System.out.println(response.getBody());
 				System.out.println(response.getStatusCodeValue());
 				System.out.println(response.getHeaders().getContentType());

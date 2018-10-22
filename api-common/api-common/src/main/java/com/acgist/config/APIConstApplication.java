@@ -25,4 +25,9 @@ public interface APIConstApplication {
 	 */
 	String API_SERVICE_WWW = "api-service-www";
 	
+	/**
+	 * 静态资源模块
+	 */
+	String API_SERVICE_RESOURCES = "api-service-resources";
+	
 }
