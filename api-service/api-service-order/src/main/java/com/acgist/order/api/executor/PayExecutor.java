@@ -1,32 +1,32 @@
-package com.acgist.gateway.api.executor;
+package com.acgist.order.api.executor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.acgist.api.executor.APIExecutor;
-import com.acgist.order.api.request.OrderRequest;
-import com.acgist.order.api.response.OrderResponse;
+import com.acgist.order.api.request.PayRequest;
+import com.acgist.order.api.response.PayResponse;
 import com.acgist.order.pojo.dto.OrderDTO;
 import com.acgist.order.pojo.entity.OrderEntity;
-import com.acgist.order.service.OrderService;
+import com.acgist.order.service.impl.OrderServiceImpl;
 
 /**
- * 创建订单
+ * 订单支付
  */
 @Component
 @Scope("prototype")
-public class OrderExecutor extends APIExecutor<OrderRequest, OrderResponse> {
+public class PayExecutor extends APIExecutor<PayRequest, PayResponse> {
 
 	@Autowired
-	private OrderService orderService;
+	private OrderServiceImpl orderServiceImpl;
 	
 	@Override
 	public void execute() {
 		OrderEntity order = new OrderEntity();
-		order.valueOfRequest(request);
-		OrderDTO dto = orderService.order(order);
+		order.valueOfPayRequest(request);
+		OrderDTO dto = orderServiceImpl.order(order);
 		response.buildMessage(dto);
 	}
-	
+
 }

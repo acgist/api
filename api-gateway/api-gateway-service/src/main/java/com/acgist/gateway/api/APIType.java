@@ -4,18 +4,18 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.acgist.api.APICode;
 import com.acgist.api.request.APIRequest;
-import com.acgist.config.APIConstURL;
 import com.acgist.exception.ErrorCodeException;
-import com.acgist.order.api.request.OrderRequest;
+import com.acgist.order.api.request.PayRequest;
 import com.acgist.order.api.request.QueryRequest;
+import com.acgist.order.config.APIConstOrderURL;
 
 /**
  * 接口类型
  */
 public enum APIType {
 
-	ORDER("创建订单", APIConstURL.URL_GATEWAY_ORDER, OrderRequest.class, true),
-	ORDER_QUERY("订单查询", APIConstURL.URL_GATEWAY_ORDER_QUERY, QueryRequest.class);
+	ORDER_PAY("订单支付", APIConstOrderURL.URL_GATEWAY_ORDER_PAY, PayRequest.class, true),
+	ORDER_QUERY("订单查询", APIConstOrderURL.URL_GATEWAY_ORDER_QUERY, QueryRequest.class);
 
 	private boolean record; // 是否记录
 	private String typeName; // 接口名称

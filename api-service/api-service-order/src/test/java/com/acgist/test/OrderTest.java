@@ -12,7 +12,7 @@ import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.web.client.ResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 
-import com.acgist.order.api.request.OrderRequest;
+import com.acgist.order.api.request.PayRequest;
 
 public class OrderTest {
 
@@ -34,7 +34,7 @@ public class OrderTest {
 		ExecutorService exe = Executors.newFixedThreadPool(100);
 		for (int i = 0; i < count; i++) {
 			exe.submit(() -> {
-				OrderRequest request = new OrderRequest();
+				PayRequest request = new PayRequest();
 				request.setOrderId("fail");
 //				request.setOrderId("exception");
 //				ResponseEntity<String> response = rest.getForEntity(URI.create("http://192.168.1.100:34010"), String.class);

@@ -1,3 +1,4 @@
+package com.acgist.gateway.filter;
 //package com.acgist.interceptor;
 //
 //import javax.servlet.http.HttpServletRequest;
@@ -10,35 +11,28 @@
 //
 //import com.acgist.api.ResponseCode;
 //import com.acgist.api.SessionComponent;
-//import com.acgist.service.UniqueIdService;
+//import com.acgist.api.request.APIRequest;
 //import com.acgist.utils.RedirectUtils;
 //
 ///**
-// * 处理过程中拦截：使用session来记录数据，所以如果一个session处理两次请求，后面的请求数据会覆盖掉前一次的请求
+// * 数据格式校验
 // */
 //@Component
-//public class ProcessInterceptor implements HandlerInterceptor {
+//public class DataVerifyInterceptor implements HandlerInterceptor {
 //
 //	@Autowired
 //	private ApplicationContext context;
-//	@Autowired
-//	private UniqueIdService uniqueIdService;
 //	
 //	@Override
 //	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 //		final SessionComponent session = SessionComponent.getInstance(context);
-//		final String queryId = uniqueIdService.id();
-//		if(session.buildProcess(queryId)) {
-//			return true;
+//		final APIRequest apiRequest = session.getApiRequest();
+//		final String message = apiRequest.verify();
+//		if(message != null) {
+//			RedirectUtils.error(ResponseCode.CODE_3000, message, request, response);
+//			return false;
 //		}
-//		RedirectUtils.error(ResponseCode.CODE_1001, request, response);
-//		return false;
+//		return true;
 //	}
-//
-//	@Override
-//	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-//		final SessionComponent session = SessionComponent.getInstance(context);
-//		session.completeProcess(request);
-//	}
-//
+//	
 //}

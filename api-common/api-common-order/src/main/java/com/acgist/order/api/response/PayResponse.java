@@ -5,7 +5,7 @@ import com.acgist.api.response.APIResponse;
 /**
  * 创建订单响应
  */
-public class OrderResponse extends APIResponse {
+public class PayResponse extends APIResponse {
 
 	private static final long serialVersionUID = 1L;
 

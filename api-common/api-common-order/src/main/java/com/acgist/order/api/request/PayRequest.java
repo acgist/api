@@ -5,9 +5,9 @@ import javax.validation.constraints.NotBlank;
 import com.acgist.api.request.APIRequest;
 
 /**
- * 创建订单请求
+ * 交易接口
  */
-public class OrderRequest extends APIRequest {
+public class PayRequest extends APIRequest {
 	
 	private static final long serialVersionUID = 1L;
 

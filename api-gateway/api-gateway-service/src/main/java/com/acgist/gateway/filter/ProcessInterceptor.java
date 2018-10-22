@@ -1,6 +1,5 @@
+package com.acgist.gateway.filter;
 //package com.acgist.interceptor;
-//
-//import java.util.Map;
 //
 //import javax.servlet.http.HttpServletRequest;
 //import javax.servlet.http.HttpServletResponse;
@@ -12,33 +11,35 @@
 //
 //import com.acgist.api.ResponseCode;
 //import com.acgist.api.SessionComponent;
-//import com.acgist.service.SignService;
-//import com.acgist.utils.JSONUtils;
+//import com.acgist.service.UniqueIdService;
 //import com.acgist.utils.RedirectUtils;
 //
 ///**
-// * 签名验证，验证请求所有数据，而不是实体数据
+// * 处理过程中拦截：使用session来记录数据，所以如果一个session处理两次请求，后面的请求数据会覆盖掉前一次的请求
 // */
 //@Component
-//public class SignVerifyInterceptor implements HandlerInterceptor {
+//public class ProcessInterceptor implements HandlerInterceptor {
 //
 //	@Autowired
 //	private ApplicationContext context;
+//	@Autowired
+//	private UniqueIdService uniqueIdService;
 //	
 //	@Override
 //	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 //		final SessionComponent session = SessionComponent.getInstance(context);
-//		final String json = session.getJson();
-//		if(json == null) {
-//			RedirectUtils.error(ResponseCode.CODE_3000, "请求数据不能为空", request, response);
-//			return false;
-//		}
-//		final Map<String, String> data = JSONUtils.jsonToMap(json);
-//		if(SignService.verify(data)) {
+//		final String queryId = uniqueIdService.id();
+//		if(session.buildProcess(queryId)) {
 //			return true;
 //		}
-//		RedirectUtils.error(ResponseCode.CODE_3001, request, response);
+//		RedirectUtils.error(ResponseCode.CODE_1001, request, response);
 //		return false;
 //	}
-//	
+//
+//	@Override
+//	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+//		final SessionComponent session = SessionComponent.getInstance(context);
+//		session.completeProcess(request);
+//	}
+//
 //}

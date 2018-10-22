@@ -18,5 +18,5 @@ public class OrderService implements IOrderService {
 	public OrderDTO order(@RequestBody OrderEntity order) {
 		return orderServiceImpl.order(order);
 	}
-	
+
 }

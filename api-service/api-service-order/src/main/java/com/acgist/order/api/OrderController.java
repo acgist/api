@@ -1,4 +1,4 @@
-package com.acgist.gateway.api;
+package com.acgist.order.api;
 
 import java.util.Map;
 
@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.acgist.config.APIConstURL;
-import com.acgist.gateway.api.executor.OrderExecutor;
-import com.acgist.order.api.request.OrderRequest;
+import com.acgist.order.api.executor.PayExecutor;
+import com.acgist.order.api.request.PayRequest;
+import com.acgist.order.config.APIConstOrderURL;
 import com.acgist.utils.APIUtils;
 
 /**
@@ -25,11 +26,11 @@ public class OrderController {
 	private ApplicationContext context;
 	
 	/**
-	 * 创建订单
+	 * 订单支付
 	 */
-	@PostMapping(APIConstURL.URL_ORDER)
-	public Map<String, String> order(@RequestBody OrderRequest request) {
-		return APIUtils.newInstance(context, OrderExecutor.class).response(request);
+	@PostMapping(APIConstOrderURL.URL_ORDER_PAY)
+	public Map<String, String> pay(@RequestBody PayRequest request) {
+		return APIUtils.newInstance(context, PayExecutor.class).response(request);
 	}
 	
 }

@@ -7,8 +7,7 @@ import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import com.acgist.order.api.request.OrderRequest;
-import com.acgist.pojo.ValueOfRequest;
+import com.acgist.order.api.request.PayRequest;
 import com.acgist.pojo.entity.BaseEntity;
 
 /**
@@ -17,7 +16,7 @@ import com.acgist.pojo.entity.BaseEntity;
 @Entity
 @Table(name = "tb_order")
 @GenericGenerator(name = "sequenceGenerator", strategy = "uuid")
-public class OrderEntity extends BaseEntity implements ValueOfRequest<OrderRequest> {
+public class OrderEntity extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
@@ -33,7 +32,7 @@ public class OrderEntity extends BaseEntity implements ValueOfRequest<OrderReque
 		this.orderId = orderId;
 	}
 
-	public void valueOfRequest(OrderRequest request) {
+	public void valueOfPayRequest(PayRequest request) {
 		this.setOrderId(request.getOrderId());
 	}
 

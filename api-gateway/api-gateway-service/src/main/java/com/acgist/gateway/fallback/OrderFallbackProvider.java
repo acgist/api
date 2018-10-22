@@ -22,13 +22,13 @@ import com.acgist.config.APIConstApplication;
  * 订单-熔断器
  */
 @Component
-public class GatewayFallbackProvider implements FallbackProvider {
+public class OrderFallbackProvider implements FallbackProvider {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(GatewayFallbackProvider.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(OrderFallbackProvider.class);
 	
 	@Override
 	public String getRoute() {
-		return APIConstApplication.API_SERVICE_GATEWAY;
+		return APIConstApplication.API_SERVICE_ORDER;
 	}
 
 	@Override

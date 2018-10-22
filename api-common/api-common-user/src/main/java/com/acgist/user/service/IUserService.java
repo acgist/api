@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.acgist.config.APIConstURL;
+import com.acgist.user.config.APIConstUserURL;
 import com.acgist.user.pojo.dto.AuthoDTO;
 import com.acgist.user.pojo.dto.LoginDTO;
 
@@ -18,7 +19,7 @@ public interface IUserService {
 	 * @param name 用户名
 	 * @return 鉴权信息
 	 */
-	@PostMapping(APIConstURL.URL_USER_AUTHO)
+	@PostMapping(APIConstUserURL.URL_USER_AUTHO)
 	AuthoDTO autho(String name);
 
 	/**
@@ -27,7 +28,7 @@ public interface IUserService {
 	 * @param password 用户密码
 	 * @return 登陆结果
 	 */
-	@PostMapping(APIConstURL.URL_USER_LOGIN)
+	@PostMapping(APIConstUserURL.URL_USER_LOGIN)
 	LoginDTO login(String name, String password);
 	
 }
