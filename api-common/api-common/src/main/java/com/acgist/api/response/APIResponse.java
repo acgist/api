@@ -107,6 +107,7 @@ public class APIResponse extends API {
 	 * 设置响应信息
 	 */
 	public APIResponse buildMessage(APICode code, String message) {
+		message = APICode.message(code, message);
 		return buildMessage(code.getCode(), message);
 	}
 	
@@ -121,7 +122,7 @@ public class APIResponse extends API {
 	}
 
 	/**
-	 * 获取签名后响应内容
+	 * 获取响应内容
 	 */
 	public String response() {
 		return toString();

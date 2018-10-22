@@ -1,9 +1,6 @@
 package com.acgist.utils;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.Map.Entry;
-import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.acgist.api.APICode;
@@ -37,6 +33,7 @@ public class RedirectUtils {
 	 * 跳转错误提示页面
 	 */
 	public static final void error(APICode code, String message, HttpServletRequest request, HttpServletResponse response) {
+		message = APICode.message(code, message);
 		requestDispatcher(request, response, String.format(ERROR_LOCATION, code.getCode(), URLUtils.encoding(message)));
 	}
 
@@ -70,29 +67,6 @@ public class RedirectUtils {
 			response.setHeader("Connection", "close");
 		}
 		return null;
-	}
-
-	/**
-	 * 303重定向
-	 * 
-	 * @param response 响应
-	 * @param location 地址
-	 * @param model    参数
-	 */
-	public static final ModelAndView redirect2get(HttpServletResponse response, String location, ModelMap model) {
-		final StringBuffer querys = new StringBuffer(location);
-		if (model != null && model.size() > 0) {
-			querys.append("?");
-			Set<Entry<String, Object>> set = model.entrySet();
-			Iterator<Entry<String, Object>> iterator = set.iterator();
-			Entry<String, Object> entry;
-			while (iterator.hasNext()) {
-				entry = iterator.next();
-				querys.append(entry.getKey()).append("=").append(entry.getValue()).append("&");
-			}
-			querys.setLength(querys.length() - 1);
-		}
-		return redirect2get(response, querys.toString());
 	}
 
 	/**

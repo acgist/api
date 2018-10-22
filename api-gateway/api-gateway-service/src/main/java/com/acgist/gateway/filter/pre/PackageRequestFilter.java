@@ -1,4 +1,4 @@
-package com.acgist.gateway.filter;
+package com.acgist.gateway.filter.pre;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -14,39 +14,46 @@ import org.springframework.stereotype.Component;
 
 import com.acgist.api.APICode;
 import com.acgist.api.request.APIRequest;
-import com.acgist.api.response.APIResponse;
 import com.acgist.gateway.api.APIType;
 import com.acgist.gateway.api.SessionComponent;
+import com.acgist.gateway.filter.BaseZuulFilter;
 import com.acgist.service.UniqueNumberService;
 import com.acgist.utils.JSONUtils;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 
 /**
- * 请求数据打包
+ * 请求数据打包：SessionComponent
  */
 @Component
-public class PackageFilter extends BaseZuulFilter {
+public class PackageRequestFilter extends BaseZuulFilter {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(PackageFilter.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(PackageRequestFilter.class);
 	
 	@Autowired
 	private UniqueNumberService uniqueNumberService;
 	
 	@Override
+	public boolean shouldFilter() {
+		return true;
+	}
+	
+	@Override
 	public Object run() throws ZuulException {
 		final RequestContext context = context();
         final HttpServletRequest request = context.getRequest();
-		final String requestJSON = requestJSON(request);
-		if(requestJSON.isEmpty()) {
-			context.setSendZuulResponse(false);
-			context.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
-			context.setResponseBody(APIResponse.builder().buildMessage(APICode.CODE_3000, "请求数据不能为空").response());
+		final String queryId = uniqueNumberService.buildId();
+		final SessionComponent session = SessionComponent.newInstance(queryId, context);
+		final APIType apiType = APIType.valueOfRequest(request);
+		if(apiType == null) {
+			error(APICode.CODE_1000);
 			return null;
 		}
-		final String queryId = uniqueNumberService.buildId();
-		final APIType apiType = APIType.valueOfRequest(request);
-		final SessionComponent session = SessionComponent.newInstance(queryId, context);
+		final String requestJSON = requestJSON(request);
+		if(requestJSON.isEmpty()) {
+			error(HttpStatus.BAD_REQUEST.value(), APICode.CODE_4400, "请求数据不能为空");
+			return null;
+		}
 		final APIRequest apiRequest = JSONUtils.jsonToJava(requestJSON, apiType.reqeustClazz());
 		session.setApiType(apiType);
 		session.setJson(requestJSON);
@@ -71,17 +78,12 @@ public class PackageFilter extends BaseZuulFilter {
 	
 	@Override
 	public int filterOrder() {
-		return 10000;
+		return 100;
 	}
 	
 	@Override
 	public String filterType() {
 		return FILTER_TYPE_PRE;
-	}
-
-	@Override
-	public boolean shouldFilter() {
-		return true;
 	}
 
 }

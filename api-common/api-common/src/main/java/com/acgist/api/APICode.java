@@ -1,5 +1,12 @@
 package com.acgist.api;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
+
+import com.acgist.exception.ErrorCodeException;
+
 /**
  * 错误状态码
  * 0000=成功
@@ -23,7 +30,7 @@ public enum APICode {
 	CODE_3001("3001", "验签失败"),
 	
 	CODE_4400("4400", "请求无效"),
-	CODE_4404("4404", "服务不存在"),
+	CODE_4404("4404", "资源不存在"),
 	CODE_4405("4405", "服务不支持"),
 	
 	CODE_9999("9999", "未知错误");
@@ -47,8 +54,52 @@ public enum APICode {
 		return CODE_9999;
 	}
 	
-	public static final APICode valueOfHTTPCode(int code) {
-		return valueOfCode(RESPONSE_ERROR + code);
+	public static final APICode valueOfStatus(int statusCode) {
+		return valueOfCode(RESPONSE_ERROR + statusCode);
+	}
+	
+	public static final APICode valueOfThrowable(final Throwable e, HttpServletResponse response) {
+		if(e == null) {
+			return APICode.CODE_9999;
+		}
+		Throwable t = e;
+		while(t.getCause() != null) {
+			t = t.getCause();
+		}
+		APICode code;
+		if (t instanceof ErrorCodeException) {
+			ErrorCodeException exception = (ErrorCodeException) t;
+			code = APICode.valueOfCode(exception.getErrorCode());
+		} else if (t instanceof HttpRequestMethodNotSupportedException) {
+			code = APICode.CODE_4405;
+		} else if (t instanceof HttpMessageNotReadableException) {
+			code = APICode.CODE_4400;
+		} else {
+			if(response == null) {
+				code = APICode.CODE_9999;
+			} else {
+				code = APICode.valueOfStatus(response.getStatus());
+			}
+		}
+		return code;
+	}
+	
+	public static final String message(APICode code, Throwable e) {
+		if(e == null) {
+			return code.getMessage();
+		}
+		String message = null;
+		if (e instanceof ErrorCodeException) {
+			message = e.getMessage();
+		}
+		return message(code, message);
+	}
+	
+	public static final String message(APICode code, String message) {
+		if(message == null || message.isEmpty()) {
+			message = code.getMessage();
+		}
+		return message;
 	}
 	
 	public String getCode() {

@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>交易页面</title>
+		<title>系统错误</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="keywords" content="异常页面" />
-		<meta name="description" content="异常页面" />
+		<meta name="keywords" content="系统错误" />
+		<meta name="description" content="系统错误" />
 		
 		<link rel="shortcut icon" href="/favicon.ico">
 		<#include "/include/resources.ftl">
@@ -13,9 +13,9 @@
 
 	<body>
 		<div class="error">
-			<p>系统异常</p>
-			<p>异常代码：${code}</p>
-			<p>异常描述：${message}</p>
+			<p>系统错误</p>
+			<p>错误代码：${code}</p>
+			<p>错误描述：${message}</p>
 			<p>系统时间：${.now?string("yyyy-MM-dd HH:mm:ss")}</p>
 		</div>
 	</body>

@@ -5,8 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.converter.HttpMessageNotReadableException;
-import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -28,19 +26,10 @@ public class APIControllerAdvice {
 	@ExceptionHandler(Exception.class)
 	public void exception(HttpServletRequest request, HttpServletResponse response, Exception e) {
 		LOGGER.error("系统异常", e);
+		APICode code = APICode.valueOfThrowable(e, response);
 		if (e instanceof ErrorCodeException) {
-			ErrorCodeException exception = (ErrorCodeException) e;
-			APICode code = APICode.valueOfCode(exception.getErrorCode());
-			RedirectUtils.error(code, exception.getMessage(), request, response);
+			RedirectUtils.error(code, e.getMessage(), request, response);
 		} else {
-			APICode code;
-			if (e instanceof HttpRequestMethodNotSupportedException) {
-				code = APICode.CODE_4405;
-			} else if (e instanceof HttpMessageNotReadableException) {
-				code = APICode.CODE_4400;
-			} else {
-				code = APICode.valueOfHTTPCode(response.getStatus());
-			}
 			RedirectUtils.error(code, request, response);
 		}
 	}

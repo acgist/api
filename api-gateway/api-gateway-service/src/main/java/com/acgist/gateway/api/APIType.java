@@ -2,10 +2,8 @@ package com.acgist.gateway.api;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.acgist.api.APICode;
 import com.acgist.api.request.APIRequest;
 import com.acgist.api.response.APIResponse;
-import com.acgist.exception.ErrorCodeException;
 import com.acgist.order.api.request.PayRequest;
 import com.acgist.order.api.request.QueryRequest;
 import com.acgist.order.api.response.PayResponse;
@@ -47,7 +45,7 @@ public enum APIType {
 				return api;
 			}
 		}
-		throw new ErrorCodeException(APICode.CODE_1000);
+		return null;
 	}
 	
 	public boolean record() {
@@ -66,7 +64,7 @@ public enum APIType {
 		return requestClazz;
 	}
 
-	public Class<APIResponse> getResponseClazz() {
+	public Class<APIResponse> responseClazz() {
 		return responseClazz;
 	}
 

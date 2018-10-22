@@ -1,5 +1,6 @@
 package com.acgist.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
@@ -31,8 +32,9 @@ public class APIErrorController implements ErrorController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/error", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String index(String code, String message, HttpServletResponse response) {
+//		request.getAttribute("javax.servlet.error.message");
 		final APICode apiCode = code(code, response);
-		message = message(message, apiCode);
+		message = APICode.message(apiCode, message);
 		LOGGER.warn("系统错误（接口），错误代码：{}，错误描述：{}", apiCode.getCode(), message);
 		return APIResponse.builder().buildMessage(apiCode, message).response();
 	}
@@ -44,7 +46,7 @@ public class APIErrorController implements ErrorController {
 	@RequestMapping(value = "/error")
 	public String index(String code, String message, ModelMap model, HttpServletResponse response) {
 		final APICode apiCode = code(code, response);
-		message = message(message, apiCode);
+		message = APICode.message(apiCode, message);
 		model.put("code", apiCode.getCode());
 		model.put("message", message);
 		LOGGER.warn("系统错误（页面），错误代码：{}，错误描述：{}", apiCode.getCode(), message);
@@ -58,16 +60,9 @@ public class APIErrorController implements ErrorController {
 	
 	private APICode code(String code, HttpServletResponse response) {
 		if(code == null) {
-			return APICode.valueOfHTTPCode(response.getStatus());
+			return APICode.valueOfStatus(response.getStatus());
 		}
 		return APICode.valueOfCode(code);
 	}
 	
-	private String message(String message, APICode apiCode) {
-		if(message == null) {
-			message = apiCode.getMessage();
-		}
-		return message;
-	}
-
 }
