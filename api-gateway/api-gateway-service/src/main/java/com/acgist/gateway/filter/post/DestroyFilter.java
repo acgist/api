@@ -2,23 +2,18 @@ package com.acgist.gateway.filter.post;
 
 import org.springframework.stereotype.Component;
 
-import com.acgist.api.response.APIResponse;
-import com.acgist.gateway.api.SessionComponent;
 import com.acgist.gateway.filter.BaseZuulFilter;
 import com.netflix.zuul.exception.ZuulException;
 
 /**
- * 签名
+ * 资源销毁
  */
 @Component
-public class SignFilter extends BaseZuulFilter {
+public class DestroyFilter extends BaseZuulFilter {
 
 	@Override
 	public Object run() throws ZuulException {
-		final SessionComponent session = sessionComponent();
-		final APIResponse apiResponse = session.getResponse();
-//		SignService.sign(apiResponse);
-		apiResponse.setSign("111111111111");
+		sessionComponent().destroy(context());
 		return null;
 	}
 
@@ -29,7 +24,7 @@ public class SignFilter extends BaseZuulFilter {
 
 	@Override
 	public int filterOrder() {
-		return 997;
+		return 1000;
 	}
 
 }

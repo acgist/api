@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 import com.acgist.api.response.APIResponse;
 import com.acgist.gateway.api.SessionComponent;
 import com.acgist.gateway.filter.BaseZuulFilter;
-import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 
 /**
@@ -16,11 +15,9 @@ public class ResponseFilter extends BaseZuulFilter {
 
 	@Override
 	public Object run() throws ZuulException {
-		final RequestContext context = context();
 		final SessionComponent session = sessionComponent();
 		final APIResponse apiResponse = session.getResponse();
-		final String responseJSON = apiResponse.response();
-		context.setResponseBody(responseJSON);
+		responseBody(apiResponse);
 		return null;
 	}
 

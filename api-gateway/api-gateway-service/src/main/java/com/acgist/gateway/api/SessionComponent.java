@@ -15,7 +15,7 @@ public class SessionComponent implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private static final String CONTEXT_KEY = "SESSION_COMPONENT";
+	private static final String SESSION_COMPONENT = "SESSION_COMPONENT";
 	
 	private String json; // 原始请求数据
 	private String queryId; // 唯一标识
@@ -24,13 +24,13 @@ public class SessionComponent implements Serializable {
 	private APIResponse response; // 响应数据
 
 	public static final SessionComponent getInstance(RequestContext context) {
-		return (SessionComponent) context.get(CONTEXT_KEY);
+		return (SessionComponent) context.get(SESSION_COMPONENT);
 	}
 	
 	public static final SessionComponent newInstance(String queryId, RequestContext context) {
 		SessionComponent session = new SessionComponent();
 		session.queryId = queryId;
-		context.set(CONTEXT_KEY, session);
+		context.set(SESSION_COMPONENT, session);
 		return session;
 	}
 
@@ -70,4 +70,11 @@ public class SessionComponent implements Serializable {
 		this.response = response;
 	}
 
+	/**
+	 * 销毁资源
+	 */
+	public void destroy(RequestContext context) {
+		context.remove(SESSION_COMPONENT);
+	}
+	
 }

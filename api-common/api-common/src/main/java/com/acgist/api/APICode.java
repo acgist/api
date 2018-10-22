@@ -74,12 +74,10 @@ public enum APICode {
 			code = APICode.CODE_4405;
 		} else if (t instanceof HttpMessageNotReadableException) {
 			code = APICode.CODE_4400;
+		} else if(response != null) {
+			code = APICode.valueOfStatus(response.getStatus());
 		} else {
-			if(response == null) {
-				code = APICode.CODE_9999;
-			} else {
-				code = APICode.valueOfStatus(response.getStatus());
-			}
+			code = APICode.CODE_9999;
 		}
 		return code;
 	}

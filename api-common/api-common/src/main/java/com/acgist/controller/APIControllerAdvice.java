@@ -24,7 +24,7 @@ public class APIControllerAdvice {
 	 * 异常处理，异常和状态码对应参考：DefaultHandlerExceptionResolver
 	 */
 	@ExceptionHandler(Exception.class)
-	public void exception(HttpServletRequest request, HttpServletResponse response, Exception e) {
+	public void exception(Exception e, HttpServletRequest request, HttpServletResponse response) {
 		LOGGER.error("系统异常", e);
 		APICode code = APICode.valueOfThrowable(e, response);
 		if (e instanceof ErrorCodeException) {

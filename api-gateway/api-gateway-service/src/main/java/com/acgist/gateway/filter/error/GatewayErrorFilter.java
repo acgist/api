@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 
 import com.acgist.api.APICode;
-import com.acgist.api.response.APIResponse;
 import com.acgist.gateway.filter.BaseZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
@@ -26,7 +25,7 @@ public class GatewayErrorFilter extends BaseZuulFilter {
 		final Throwable e = context.getThrowable();
 		final APICode code = APICode.valueOfThrowable(e, response);
 		final String message = APICode.message(code, e);
-		responseBody(APIResponse.builder().buildMessage(code, message));
+		error(code, message);
 		disableSendErrorFilter(context);
 		return null;
 	}

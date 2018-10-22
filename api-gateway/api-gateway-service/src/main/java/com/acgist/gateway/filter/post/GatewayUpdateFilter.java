@@ -2,7 +2,6 @@ package com.acgist.gateway.filter.post;
 
 import org.springframework.stereotype.Component;
 
-import com.acgist.gateway.api.SessionComponent;
 import com.acgist.gateway.filter.BaseZuulFilter;
 import com.netflix.zuul.exception.ZuulException;
 
@@ -14,7 +13,7 @@ public class GatewayUpdateFilter extends BaseZuulFilter {
 
 	@Override
 	public Object run() throws ZuulException {
-		final SessionComponent session = sessionComponent();
+//		final SessionComponent session = sessionComponent();
 //		final APIType apiType = session.getApiType();
 //		if(apiType.record()) {
 //			// 报文保存

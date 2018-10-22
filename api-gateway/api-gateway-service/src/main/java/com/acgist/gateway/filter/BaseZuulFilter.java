@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 
 import com.acgist.api.APICode;
 import com.acgist.api.response.APIResponse;
@@ -80,12 +81,13 @@ public abstract class BaseZuulFilter extends ZuulFilter {
 	}
 	
 	/**
-	 * 失败
+	 * 失败：设置返回内容编码
 	 */
 	public void error(int status, APICode code, String message) {
 		final RequestContext context = context();
 		context.setSendZuulResponse(false);
 		context.setResponseStatusCode(status);
+		context.getResponse().setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
 		responseBody(APIResponse.builder().buildMessage(code, message));
 	}
 	
