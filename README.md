@@ -9,14 +9,16 @@
 系统数据分为JSON和其他数据类型。
 
 #### Spring Cloud组件
-Bus  
-Zuul  
-Feign/Ribbon  
-Eureka  
-Config  
-Stream  
-Sleuth  
-Hystrix/Turbine/Dashboard  
+Zuul：网关  
+Eureka：注册中心  
+Config：配置中心  
+Stream：消息队列  
+Bus：消息总线（stream）  
+Sleuth：链路跟踪（stream）  
+Feign/Ribbon：服务调用  
+Hystrix：熔断器（stream）  
+Turbine：熔断器仪表盘聚合（stream）  
+Dashboard：仪表盘  
 
 #### 软件版本
 * JAVA：JAVA 10（不支持JAVA 11）
