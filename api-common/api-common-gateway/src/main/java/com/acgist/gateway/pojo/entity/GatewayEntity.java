@@ -1,14 +1,41 @@
 package com.acgist.gateway.pojo.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 import com.acgist.pojo.entity.BaseEntity;
 
+/**
+ * 网关记录
+ */
+@Entity
+@Table(name = "tb_gateway")
+@GenericGenerator(name = "sequenceGenerator", strategy = "uuid")
 public class GatewayEntity extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 参考：{@link APIType}
+	 */
 	private String type;
+	/**
+	 * 响应状态
+	 */
 	private String code;
+	/**
+	 * 请求ID
+	 */
+	private String queryId;
+	/**
+	 * 响应报文
+	 */
 	private String send;
+	/**
+	 * 请求报文
+	 */
 	private String receive;
 
 	public String getType() {
@@ -25,6 +52,14 @@ public class GatewayEntity extends BaseEntity {
 
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	public String getQueryId() {
+		return queryId;
+	}
+
+	public void setQueryId(String queryId) {
+		this.queryId = queryId;
 	}
 
 	public String getSend() {

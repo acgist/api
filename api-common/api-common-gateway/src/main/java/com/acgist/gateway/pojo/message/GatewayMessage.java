@@ -9,4 +9,9 @@ public class GatewayMessage extends BaseMessage {
 
 	private static final long serialVersionUID = 1L;
 
+	private String type;
+	private String code;
+	private String queryId;
+	private String content;
+	
 }
