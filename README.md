@@ -22,6 +22,7 @@ Hystrix/Turbine/Dashboard
 * JAVA：JAVA 10（不支持JAVA 11）
 * Redis：3.X.X
 * MySQL：5.X.X
+* RabbitMQ：5.X.X
 * Spring Boot：2.0.5.RELEASE
 * Spring Cloud：Finchley.SR1
 

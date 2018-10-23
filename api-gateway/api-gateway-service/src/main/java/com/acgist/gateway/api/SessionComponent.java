@@ -45,11 +45,11 @@ public class SessionComponent implements Serializable {
 	public void setJson(String json) {
 		this.json = json;
 	}
-
+	
 	public APIType getApiType() {
 		return apiType;
 	}
-
+	
 	public void setApiType(APIType apiType) {
 		this.apiType = apiType;
 	}
