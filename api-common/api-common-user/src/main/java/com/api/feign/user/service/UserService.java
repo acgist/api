@@ -4,10 +4,10 @@ import org.springframework.cloud.openfeign.FeignClient;
 
 import com.api.core.config.APIConstApplication;
 import com.api.core.user.service.IUserService;
-import com.api.feign.user.config.UserConfig;
+import com.api.feign.config.FeignConfig;
 import com.api.feign.user.fallback.UserServiceFallback;
 
-@FeignClient(value = APIConstApplication.API_SERVICE_USER, configuration = UserConfig.class, fallback = UserServiceFallback.class)
+@FeignClient(value = APIConstApplication.API_SERVICE_USER, configuration = FeignConfig.class, fallback = UserServiceFallback.class)
 public interface UserService extends IUserService {
 
 }
