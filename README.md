@@ -8,6 +8,16 @@
 #### 数据处理
 系统数据分为JSON和其他数据类型。
 
+#### Spring Cloud组件
+Bus  
+Zuul  
+Feign/Ribbon  
+Eureka  
+Config  
+Stream  
+Sleuth  
+Hystrix/Turbine/Dashboard  
+
 #### 软件版本
 * JAVA：JAVA 10（不支持JAVA 11）
 * Redis：3.X.X

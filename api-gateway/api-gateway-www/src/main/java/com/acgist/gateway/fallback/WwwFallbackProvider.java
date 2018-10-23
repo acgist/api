@@ -1,8 +1,10 @@
 package com.acgist.gateway.fallback;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,10 +15,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Component;
 
-import com.acgist.api.API;
 import com.acgist.api.APICode;
-import com.acgist.api.response.APIResponse;
 import com.acgist.config.APIConstApplication;
+import com.acgist.utils.RedirectUtils;
+import com.netflix.zuul.context.RequestContext;
 
 /**
  * 网站-熔断器
@@ -38,12 +40,17 @@ public class WwwFallbackProvider implements FallbackProvider {
 			@Override
 			public HttpHeaders getHeaders() {
 				HttpHeaders headers = new HttpHeaders();
-				headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
+				headers.setContentType(MediaType.TEXT_HTML);
 				return headers;
 			}
 			@Override
 			public InputStream getBody() throws IOException {
-				return new ByteArrayInputStream(APIResponse.builder().buildMessage(APICode.CODE_1002).response().getBytes(API.DEFAULT_CHARSET));
+				final HttpServletRequest request = RequestContext.getCurrentContext().getRequest();
+				final HttpServletResponse response = RequestContext.getCurrentContext().getResponse();
+				response.setStatus(getRawStatusCode());
+				RedirectUtils.error(APICode.CODE_1002, request, response);
+				return null;
+//				return new ByteArrayInputStream(APIResponse.builder().buildMessage(APICode.CODE_1002).response().getBytes(API.DEFAULT_CHARSET));
 			}
 			@Override
 			public HttpStatus getStatusCode() throws IOException {

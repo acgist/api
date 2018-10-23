@@ -60,14 +60,14 @@ public abstract class BaseZuulFilter extends ZuulFilter {
 	}
 	
 	/**
-	 * 失败
+	 * 失败，默认状态码：200
 	 */
 	public void error(APICode apiCode) {
 		this.error(apiCode, apiCode.getMessage());
 	}
 	
 	/**
-	 * 失败
+	 * 失败，默认状态码：200
 	 */
 	public void error(APICode apiCode, String message) {
 		this.error(HttpStatus.OK.value(), apiCode, message);

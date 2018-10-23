@@ -36,7 +36,7 @@ public class RedirectUtils {
 		message = APICode.message(code, message);
 		requestDispatcher(request, response, String.format(ERROR_LOCATION, code.getCode(), URLUtils.encoding(message)));
 	}
-
+	
 	/**
 	 * 请求转发
 	 * 
