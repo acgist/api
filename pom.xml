@@ -18,9 +18,7 @@
 		<module>api-common/api-common</module>
 		<module>api-common/api-common-data</module>
 		<module>api-common/api-common-order</module>
-		<module>api-common/api-common-order-impl</module>
 		<module>api-common/api-common-user</module>
-		<module>api-common/api-common-user-impl</module>
 		<module>api-common/api-common-gateway</module>
 		<module>api-gateway/api-gateway-www</module>
 		<module>api-gateway/api-gateway-service</module>

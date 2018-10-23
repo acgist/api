@@ -20,11 +20,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.acgist</groupId>
-			<artifactId>api-common-user-impl</artifactId>
+			<artifactId>api-common-user</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.acgist</groupId>
-			<artifactId>api-common-order-impl</artifactId>
+			<artifactId>api-common-order</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -53,6 +53,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

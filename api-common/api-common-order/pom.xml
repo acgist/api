@@ -23,6 +23,18 @@
 			<groupId>com.acgist</groupId>
 			<artifactId>api-common</artifactId>
 		</dependency>
+		<!-- feign -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- 熔断器 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+			<optional>true</optional>
+		</dependency>
 	</dependencies>
 
 </project>

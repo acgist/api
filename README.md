@@ -86,12 +86,14 @@ https://preview.pro.ant.design
 #### 包结构
 |包路径|作用|
 |:-|:-|
-|com.acgist.main|main方法|
-|com.acgist.api|接口|
-|com.acgist.pojo|POJO|
-|com.acgist.config|配置|
-|com.acgist.controller|网页|
-|com.acgist.服务模块.*|服务模块|
+|com.api.main|main方法|
+|com.api.feign|feign，需要时自动加载配置|
+|com.api.core|主要方法，用于初始化时自动加载配置|
+|com.api.core.api|接口|
+|com.api.core.pojo|POJO|
+|com.api.core.config|配置|
+|com.api.core.controller|网页|
+|com.api.core.服务模块.*|服务模块|
 
 #### 常见忽略错误
 @EnableHystrix：用于开启/actuator/hystrix.stream端点  
