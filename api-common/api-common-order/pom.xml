@@ -23,10 +23,10 @@
 			<groupId>com.acgist</groupId>
 			<artifactId>api-common</artifactId>
 		</dependency>
-		<!-- JPA -->
+		<!-- hibernate -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
 			<optional>true</optional>
 		</dependency>
 		<!-- feign -->
@@ -35,7 +35,7 @@
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<!-- 熔断器 -->
+		<!-- hystrix -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>

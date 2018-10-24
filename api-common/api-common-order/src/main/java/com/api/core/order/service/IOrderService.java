@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.api.core.config.APIConstURL;
 import com.api.core.order.config.APIConstOrderURL;
-import com.api.core.order.pojo.entity.OrderEntity;
 import com.api.core.order.pojo.message.OrderMessage;
+import com.api.data.order.pojo.entity.OrderEntity;
 
 /**
  * 订单服务

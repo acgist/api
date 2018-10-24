@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.api.core.order.config.APIConstOrderURL;
-import com.api.core.order.pojo.entity.OrderEntity;
 import com.api.core.order.pojo.message.OrderMessage;
+import com.api.data.order.pojo.entity.OrderEntity;
 import com.api.feign.order.service.OrderService;
 
 /**

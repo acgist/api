@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.core.order.pojo.entity.OrderEntity;
 import com.api.core.order.pojo.message.OrderMessage;
 import com.api.core.order.service.impl.OrderServiceImpl;
+import com.api.data.order.pojo.entity.OrderEntity;
 
 @RestController
 public class OrderService implements IOrderService {

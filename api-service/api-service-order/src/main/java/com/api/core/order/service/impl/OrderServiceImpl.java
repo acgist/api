@@ -3,10 +3,10 @@ package com.api.core.order.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.api.core.order.pojo.entity.OrderEntity;
 import com.api.core.order.pojo.message.OrderMessage;
-import com.api.core.order.repository.OrderRepository;
-import com.api.core.service.APIEntityService;
+import com.api.data.order.pojo.entity.OrderEntity;
+import com.api.data.order.repository.OrderRepository;
+import com.api.data.service.APIEntityService;
 
 @Service
 public class OrderServiceImpl implements APIEntityService {

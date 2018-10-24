@@ -9,13 +9,13 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.api.core.repository.BaseExtendRepositoryImpl;
+import com.api.data.repository.BaseExtendRepositoryImpl;
 
-@EntityScan("com.api.core.**.entity")
+@EntityScan("com.api.data.**.entity")
 @EnableHystrix
-@ComponentScan("com.api.core")
+@ComponentScan({"com.api.core", "com.api.data"})
 @EnableEurekaClient
-@EnableJpaRepositories(basePackages = "com.api.core.**.repository", repositoryBaseClass = BaseExtendRepositoryImpl.class)
+@EnableJpaRepositories(basePackages = "com.api.data.**.repository", repositoryBaseClass = BaseExtendRepositoryImpl.class)
 @SpringBootApplication
 @EnableTransactionManagement
 public class ApiServiceOrderApplication {

@@ -1,7 +1,7 @@
 package com.api.core.order.pojo.message;
 
-import com.api.core.order.pojo.entity.OrderEntity;
 import com.api.core.pojo.message.ResultEntityMessage;
+import com.api.data.order.pojo.entity.OrderEntity;
 
 /**
  * 订单创建结果

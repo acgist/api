@@ -8,12 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.api.core.order.pojo.entity.OrderEntity;
-import com.api.core.order.repository.OrderRepository;
-import com.api.core.pojo.select.Filter;
-import com.api.core.pojo.select.Order;
-import com.api.core.pojo.select.PageQuery;
-import com.api.core.pojo.select.PageResult;
+import com.api.data.order.pojo.entity.OrderEntity;
+import com.api.data.order.repository.OrderRepository;
+import com.api.data.pojo.select.Filter;
+import com.api.data.pojo.select.Order;
+import com.api.data.pojo.select.PageQuery;
+import com.api.data.pojo.select.PageResult;
 import com.api.main.ApiServiceOrderApplication;
 
 @RunWith(SpringRunner.class)

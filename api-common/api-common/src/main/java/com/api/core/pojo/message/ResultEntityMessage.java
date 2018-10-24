@@ -1,6 +1,6 @@
 package com.api.core.pojo.message;
 
-import com.api.core.pojo.entity.BaseEntity;
+import com.api.data.pojo.entity.BaseEntity;
 
 /**
  * message：服务间通信，返回结果和实体
