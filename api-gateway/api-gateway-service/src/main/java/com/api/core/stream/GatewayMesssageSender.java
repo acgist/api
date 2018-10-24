@@ -6,13 +6,13 @@ import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.integration.support.MessageBuilder;
 import org.springframework.messaging.MessageChannel;
 
-import com.api.core.gateway.config.GatewayBindingConfig;
+import com.api.core.gateway.config.GatewaySenderBinding;
 
-@EnableBinding(GatewayBindingConfig.class)
+@EnableBinding(GatewaySenderBinding.class)
 public class GatewayMesssageSender {
 
     @Autowired
-    @Output(GatewayBindingConfig.STREAM_BINDER_SENDER)
+    @Output(GatewaySenderBinding.STREAM_BINDER_SENDER)
     private MessageChannel channel;
 	
 	public void send(String text) {
