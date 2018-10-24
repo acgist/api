@@ -3,8 +3,8 @@ package com.api.core.user.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.core.user.pojo.dto.AuthoDTO;
-import com.api.core.user.pojo.dto.LoginDTO;
+import com.api.core.user.pojo.message.AuthoMessage;
+import com.api.core.user.pojo.message.LoginMessage;
 import com.api.core.user.service.IUserService;
 import com.api.core.user.service.impl.UserServiceImpl;
 
@@ -15,12 +15,12 @@ public class UserService implements IUserService {
 	private UserServiceImpl userServiceImpl;
 	
 	@Override
-	public AuthoDTO autho(String name) {
+	public AuthoMessage autho(String name) {
 		return userServiceImpl.autho(name);
 	}
 
 	@Override
-	public LoginDTO login(String name, String password) {
+	public LoginMessage login(String name, String password) {
 		return userServiceImpl.login(name, password);
 	}
 

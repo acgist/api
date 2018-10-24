@@ -1,11 +1,11 @@
-package com.api.core.user.pojo.dto;
+package com.api.core.user.pojo.message;
 
-import com.api.core.pojo.dto.BaseDTO;
+import com.api.core.pojo.message.BaseMessage;
 
 /**
  * 结果
  */
-public class AuthoDTO extends BaseDTO {
+public class AuthoMessage extends BaseMessage {
 
 	private static final long serialVersionUID = 1L;
 

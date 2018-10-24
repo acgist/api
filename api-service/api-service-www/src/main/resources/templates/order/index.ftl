@@ -17,10 +17,10 @@
 				<p>订单号：<input name="orderId" placeholder="订单号" type="text" /></p>
 				<p><input type="submit" value="提交" /></p>
 			</form>
-			<p>交易结果：${dto.code}</p>
-			<p>交易信息：${dto.message}</p>
-			<p>交易订单ID：${dto.entity.id}</p>
-			<p>交易订单号：${dto.entity.orderId}</p>
+			<p>交易结果：${message.code}</p>
+			<p>交易信息：${message.message}</p>
+			<p>交易订单ID：${message.entity.id}</p>
+			<p>交易订单号：${message.entity.orderId}</p>
 		</div>
 	</body>
 </html>

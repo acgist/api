@@ -8,7 +8,7 @@ import javax.validation.Validator;
 import javax.validation.groups.Default;
 
 import com.api.core.gateway.request.APIRequest;
-import com.api.core.pojo.dto.BaseDTO;
+import com.api.core.pojo.message.BaseMessage;
 
 /**
  * 数据校验工具
@@ -26,11 +26,11 @@ public class ValidatorUtils {
 		if(request == null) {
 			return null;
 		}
-		final StringBuffer message = new StringBuffer();
+		final StringBuffer messageBuilder = new StringBuffer();
 		final Set<ConstraintViolation<APIRequest>> set = VALIDATOR.validate(request, Default.class);
 		if (set != null && !set.isEmpty()) {
 			for (ConstraintViolation<APIRequest> violation : set) {
-				message
+				messageBuilder
 					.append(violation.getMessage())
 					.append("[")
 					.append(violation.getPropertyPath().toString())
@@ -38,10 +38,10 @@ public class ValidatorUtils {
 					.append("&");
 			}
 		}
-		if(message.length() == 0) {
+		if(messageBuilder.length() == 0) {
 			return null;
 		}
-		return message.substring(0, message.length() - 1);
+		return messageBuilder.substring(0, messageBuilder.length() - 1);
 	}
 	
 	/**
@@ -49,15 +49,15 @@ public class ValidatorUtils {
 	 * 	成功返回：null
 	 * 	失败返回：错误信息
 	 */
-	public static final String verify(BaseDTO dto) {
-		if(dto == null) {
+	public static final String verify(BaseMessage message) {
+		if(message == null) {
 			return null;
 		}
-		final StringBuffer message = new StringBuffer();
-		final Set<ConstraintViolation<BaseDTO>> set = VALIDATOR.validate(dto, Default.class);
+		final StringBuffer messageBuilder = new StringBuffer();
+		final Set<ConstraintViolation<BaseMessage>> set = VALIDATOR.validate(message, Default.class);
 		if (set != null && !set.isEmpty()) {
-			for (ConstraintViolation<BaseDTO> violation : set) {
-				message
+			for (ConstraintViolation<BaseMessage> violation : set) {
+				messageBuilder
 					.append(violation.getMessage())
 					.append("[")
 					.append(violation.getPropertyPath().toString())
@@ -65,10 +65,10 @@ public class ValidatorUtils {
 					.append("&");
 			}
 		}
-		if(message.length() == 0) {
+		if(messageBuilder.length() == 0) {
 			return null;
 		}
-		return message.substring(0, message.length() - 1);
+		return messageBuilder.substring(0, messageBuilder.length() - 1);
 	}
 	
 }

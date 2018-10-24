@@ -1,11 +1,11 @@
-package com.api.core.pojo.dto;
+package com.api.core.pojo.message;
 
 import com.api.core.pojo.entity.BaseEntity;
 
 /**
- * DTO：需要知道调用结果和实体的服务使用
+ * message：服务间通信，返回结果和实体
  */
-public class ResultEntityDTO<T extends BaseEntity> extends ResultDTO {
+public class ResultEntityMessage<T extends BaseEntity> extends ResultMessage {
 
 	private static final long serialVersionUID = 1L;
 

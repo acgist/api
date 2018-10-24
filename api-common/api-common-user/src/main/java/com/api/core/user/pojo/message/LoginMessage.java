@@ -1,11 +1,11 @@
-package com.api.core.user.pojo.dto;
+package com.api.core.user.pojo.message;
 
-import com.api.core.pojo.dto.ResultDTO;
+import com.api.core.pojo.message.ResultMessage;
 
 /**
  * 登陆
  */
-public class LoginDTO extends ResultDTO {
+public class LoginMessage extends ResultMessage {
 
 	private static final long serialVersionUID = 1L;
 

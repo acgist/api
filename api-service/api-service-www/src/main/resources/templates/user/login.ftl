@@ -14,13 +14,9 @@
 	<body>
 		<div class="order">
 			<form method="post" action="/order">
-				<p>订单号：<input name="orderId" placeholder="订单号" type="text" /></p>
+				<p>用户名：<input name="orderId" placeholder="用户名" type="text" /></p>
 				<p><input type="submit" value="提交" /></p>
 			</form>
-			<p>交易结果：${dto.code}</p>
-			<p>交易信息：${dto.message}</p>
-			<p>交易订单ID：${dto.entity.id}</p>
-			<p>交易订单号：${dto.entity.orderId}</p>
 		</div>
 	</body>
 </html>

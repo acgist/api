@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.api.core.order.config.APIConstOrderURL;
-import com.api.core.order.pojo.dto.OrderDTO;
 import com.api.core.order.pojo.entity.OrderEntity;
+import com.api.core.order.pojo.message.OrderMessage;
 import com.api.feign.order.service.OrderService;
 
 /**
@@ -27,8 +27,8 @@ public class OrderController {
 	
 	@PostMapping(APIConstOrderURL.URL_ORDER)
 	public String order(OrderEntity order, ModelMap model) {
-		OrderDTO dto = orderService.order(order);
-		model.put("dto", dto);
+		OrderMessage message = orderService.order(order);
+		model.put("message", message);
 		return "/order/index";
 	}
 	

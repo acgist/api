@@ -1,11 +1,11 @@
-package com.api.core.pojo.dto;
+package com.api.core.pojo.message;
 
 import com.api.core.gateway.APICode;
 
 /**
- * DTO：需要知道调用结果的服务使用
+ * message：服务间通信，返回结果
  */
-public class ResultDTO extends BaseDTO {
+public class ResultMessage extends BaseMessage {
 
 	private static final long serialVersionUID = 1L;
 
@@ -37,23 +37,23 @@ public class ResultDTO extends BaseDTO {
 		return CODE_SUCCESS.equals(this.getCode());
 	}
 
-	public ResultDTO buildSuccess() {
+	public ResultMessage buildSuccess() {
 		return buildMessage(APICode.CODE_0000);
 	}
 
-	public ResultDTO buildFail() {
+	public ResultMessage buildFail() {
 		return buildMessage(APICode.CODE_9999);
 	}
 
-	public ResultDTO buildMessage(APICode code) {
+	public ResultMessage buildMessage(APICode code) {
 		return buildMessage(code.getCode(), code.getMessage());
 	}
 
-	public ResultDTO buildMessage(APICode code, String message) {
+	public ResultMessage buildMessage(APICode code, String message) {
 		return buildMessage(code.getCode(), message);
 	}
 
-	public ResultDTO buildMessage(String code, String message) {
+	public ResultMessage buildMessage(String code, String message) {
 		this.code = code;
 		this.message = message;
 		return this;

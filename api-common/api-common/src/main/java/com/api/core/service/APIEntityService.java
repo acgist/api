@@ -1,8 +1,8 @@
 package com.api.core.service;
 
 import com.api.core.gateway.APICode;
-import com.api.core.pojo.dto.ResultDTO;
 import com.api.core.pojo.entity.BaseEntity;
+import com.api.core.pojo.message.ResultMessage;
 import com.api.utils.ValidatorUtils;
 
 /**
@@ -13,16 +13,16 @@ public interface APIEntityService {
 	/**
 	 * 验证数据格式是否正确
 	 */
-	default boolean verifyEntity(BaseEntity entity, ResultDTO resultDTO) {
+	default boolean verifyEntity(BaseEntity entity, ResultMessage result) {
 		final String message = ValidatorUtils.verify(entity);
 		if(message == null) {
-			if(resultDTO != null) {
-				resultDTO.buildSuccess();
+			if(result != null) {
+				result.buildSuccess();
 			}
 			return true;
 		} else {
-			if(resultDTO != null) {
-				resultDTO.buildMessage(APICode.CODE_3000, message);
+			if(result != null) {
+				result.buildMessage(APICode.CODE_3000, message);
 			}
 			return false;
 		}

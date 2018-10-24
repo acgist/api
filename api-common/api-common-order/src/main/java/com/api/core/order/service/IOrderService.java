@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.api.core.config.APIConstURL;
 import com.api.core.order.config.APIConstOrderURL;
-import com.api.core.order.pojo.dto.OrderDTO;
 import com.api.core.order.pojo.entity.OrderEntity;
+import com.api.core.order.pojo.message.OrderMessage;
 
 /**
  * 订单服务
@@ -19,6 +19,6 @@ public interface IOrderService {
 	 * 创建订单
 	 */
 	@PostMapping(APIConstOrderURL.URL_ORDER)
-	OrderDTO order(@RequestBody OrderEntity order);
+	OrderMessage order(@RequestBody OrderEntity order);
 
 }

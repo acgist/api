@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.api.core.config.APIConstURL;
 import com.api.core.user.config.APIConstUserURL;
-import com.api.core.user.pojo.dto.AuthoDTO;
-import com.api.core.user.pojo.dto.LoginDTO;
+import com.api.core.user.pojo.message.AuthoMessage;
+import com.api.core.user.pojo.message.LoginMessage;
 
 /**
  * 用户
@@ -20,7 +20,7 @@ public interface IUserService {
 	 * @return 鉴权信息
 	 */
 	@PostMapping(APIConstUserURL.URL_USER_AUTHO)
-	AuthoDTO autho(String name);
+	AuthoMessage autho(String name);
 
 	/**
 	 * 登陆
@@ -29,6 +29,6 @@ public interface IUserService {
 	 * @return 登陆结果
 	 */
 	@PostMapping(APIConstUserURL.URL_USER_LOGIN)
-	LoginDTO login(String name, String password);
+	LoginMessage login(String name, String password);
 	
 }

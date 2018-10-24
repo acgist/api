@@ -12,14 +12,14 @@ import javax.persistence.MappedSuperclass;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import com.api.core.pojo.dto.BaseDTO;
+import com.api.core.pojo.message.BaseMessage;
 
 /**
  * Entity：数据库实体
  */
 @EntityListeners(EntityListener.class)
 @MappedSuperclass
-public class BaseEntity extends BaseDTO {
+public class BaseEntity extends BaseMessage {
 
 	private static final long serialVersionUID = 1L;
 

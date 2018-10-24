@@ -5,7 +5,7 @@ import java.util.Map;
 import com.api.core.gateway.API;
 import com.api.core.gateway.APICode;
 import com.api.core.gateway.request.APIRequest;
-import com.api.core.pojo.dto.ResultDTO;
+import com.api.core.pojo.message.ResultMessage;
 import com.api.utils.APIUtils;
 import com.api.utils.DateUtils;
 
@@ -99,8 +99,8 @@ public class APIResponse extends API {
 	/**
 	 * 设置响应信息
 	 */
-	public APIResponse buildMessage(ResultDTO dto) {
-		return buildMessage(dto.getCode(), dto.getMessage());
+	public APIResponse buildMessage(ResultMessage message) {
+		return buildMessage(message.getCode(), message.getMessage());
 	}
 	
 	/**

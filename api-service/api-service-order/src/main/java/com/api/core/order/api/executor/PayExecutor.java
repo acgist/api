@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 import com.api.core.gateway.executor.APIExecutor;
 import com.api.core.order.gateway.request.PayRequest;
 import com.api.core.order.gateway.response.PayResponse;
-import com.api.core.order.pojo.dto.OrderDTO;
 import com.api.core.order.pojo.entity.OrderEntity;
+import com.api.core.order.pojo.message.OrderMessage;
 import com.api.core.order.service.impl.OrderServiceImpl;
 
 /**
@@ -25,8 +25,8 @@ public class PayExecutor extends APIExecutor<PayRequest, PayResponse> {
 	public void execute() {
 		OrderEntity order = new OrderEntity();
 		order.valueOfPayRequest(request);
-		OrderDTO dto = orderServiceImpl.order(order);
-		response.buildMessage(dto);
+		OrderMessage message = orderServiceImpl.order(order);
+		response.buildMessage(message);
 	}
 
 }
