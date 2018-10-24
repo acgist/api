@@ -5,9 +5,8 @@ import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.messaging.Message;
 
 import com.api.core.gateway.config.GatewayReceiverBinding;
-import com.api.core.gateway.config.GatewaySenderBinding;
 
-@EnableBinding(GatewaySenderBinding.class)
+@EnableBinding(GatewayReceiverBinding.class)
 public class GatewayMesssageReceiver {
 
 	@StreamListener(GatewayReceiverBinding.STREAM_BINDER_RECEIVER)
