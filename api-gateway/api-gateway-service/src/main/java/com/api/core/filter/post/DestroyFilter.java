@@ -1,8 +1,8 @@
-package com.api.core.gateway.filter.post;
+package com.api.core.filter.post;
 
 import org.springframework.stereotype.Component;
 
-import com.api.core.gateway.filter.BaseZuulFilter;
+import com.api.core.filter.BaseZuulFilter;
 import com.netflix.zuul.exception.ZuulException;
 
 /**

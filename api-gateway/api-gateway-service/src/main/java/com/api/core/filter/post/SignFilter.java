@@ -1,23 +1,24 @@
-package com.api.core.gateway.filter.post;
+package com.api.core.filter.post;
 
 import org.springframework.stereotype.Component;
 
-import com.api.core.gateway.component.SessionComponent;
-import com.api.core.gateway.filter.BaseZuulFilter;
+import com.api.core.filter.BaseZuulFilter;
+import com.api.core.gateway.SessionComponent;
 import com.api.core.gateway.response.APIResponse;
 import com.netflix.zuul.exception.ZuulException;
 
 /**
- * 设置响应内容
+ * 签名
  */
 @Component
-public class ResponseFilter extends BaseZuulFilter {
+public class SignFilter extends BaseZuulFilter {
 
 	@Override
 	public Object run() throws ZuulException {
 		final SessionComponent session = sessionComponent();
 		final APIResponse apiResponse = session.getResponse();
-		responseBody(apiResponse);
+//		SignService.sign(apiResponse);
+		apiResponse.setSign("111111111111");
 		return null;
 	}
 
@@ -28,7 +29,7 @@ public class ResponseFilter extends BaseZuulFilter {
 
 	@Override
 	public int filterOrder() {
-		return 998;
+		return 997;
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.api.core.gateway.filter.error;
+package com.api.core.filter.error;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -6,8 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import com.api.core.filter.BaseZuulFilter;
 import com.api.core.gateway.APICode;
-import com.api.core.gateway.filter.BaseZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 

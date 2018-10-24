@@ -1,4 +1,4 @@
-package com.api.core.gateway.component;
+package com.api.core.gateway;
 
 import javax.servlet.http.HttpServletRequest;
 

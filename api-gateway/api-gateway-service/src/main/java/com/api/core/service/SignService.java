@@ -1,4 +1,4 @@
-package com.api.core.gateway.service;
+package com.api.core.service;
 
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;

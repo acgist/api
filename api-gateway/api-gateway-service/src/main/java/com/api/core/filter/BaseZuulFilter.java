@@ -1,4 +1,4 @@
-package com.api.core.gateway.filter;
+package com.api.core.filter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
 import com.api.core.gateway.APICode;
-import com.api.core.gateway.component.SessionComponent;
+import com.api.core.gateway.SessionComponent;
 import com.api.core.gateway.response.APIResponse;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;

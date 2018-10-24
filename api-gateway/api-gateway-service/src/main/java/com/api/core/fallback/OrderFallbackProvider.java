@@ -1,10 +1,8 @@
-package com.api.core.gateway.fallback;
+package com.api.core.fallback;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,21 +14,21 @@ import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Component;
 
 import com.api.core.config.APIConstApplication;
+import com.api.core.gateway.API;
 import com.api.core.gateway.APICode;
-import com.api.utils.RedirectUtils;
-import com.netflix.zuul.context.RequestContext;
+import com.api.core.gateway.response.APIResponse;
 
 /**
- * 网站-熔断器
+ * 订单-熔断器
  */
 @Component
-public class WwwFallbackProvider implements FallbackProvider {
+public class OrderFallbackProvider implements FallbackProvider {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(WwwFallbackProvider.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(OrderFallbackProvider.class);
 	
 	@Override
 	public String getRoute() {
-		return APIConstApplication.API_SERVICE_WWW;
+		return APIConstApplication.API_SERVICE_ORDER;
 	}
 
 	@Override
@@ -40,17 +38,12 @@ public class WwwFallbackProvider implements FallbackProvider {
 			@Override
 			public HttpHeaders getHeaders() {
 				HttpHeaders headers = new HttpHeaders();
-				headers.setContentType(MediaType.TEXT_HTML);
+				headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
 				return headers;
 			}
 			@Override
 			public InputStream getBody() throws IOException {
-				final HttpServletRequest request = RequestContext.getCurrentContext().getRequest();
-				final HttpServletResponse response = RequestContext.getCurrentContext().getResponse();
-				response.setStatus(getRawStatusCode());
-				RedirectUtils.error(APICode.CODE_1002, request, response);
-				return null;
-//				return new ByteArrayInputStream(APIResponse.builder().buildMessage(APICode.CODE_1002).response().getBytes(API.DEFAULT_CHARSET));
+				return new ByteArrayInputStream(APIResponse.builder().buildMessage(APICode.CODE_1002).response().getBytes(API.DEFAULT_CHARSET));
 			}
 			@Override
 			public HttpStatus getStatusCode() throws IOException {

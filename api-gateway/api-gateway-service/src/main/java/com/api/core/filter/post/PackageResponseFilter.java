@@ -1,11 +1,13 @@
-package com.api.core.gateway.filter.post;
+package com.api.core.filter.post;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.api.core.gateway.component.APIType;
-import com.api.core.gateway.component.SessionComponent;
-import com.api.core.gateway.filter.BaseZuulFilter;
+import com.api.core.filter.BaseZuulFilter;
+import com.api.core.gateway.APIType;
+import com.api.core.gateway.SessionComponent;
 import com.api.core.gateway.response.APIResponse;
+import com.api.core.stream.GatewayMesssageSender;
 import com.api.utils.JSONUtils;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
@@ -16,6 +18,9 @@ import com.netflix.zuul.exception.ZuulException;
 @Component
 public class PackageResponseFilter extends BaseZuulFilter {
 
+	@Autowired
+	private GatewayMesssageSender sender;
+	
 	@Override
 	public Object run() throws ZuulException {
 		final RequestContext context = context();
@@ -24,6 +29,7 @@ public class PackageResponseFilter extends BaseZuulFilter {
 		Class<APIResponse> clazz = apiType == null ? APIResponse.class : apiType.responseClazz();
 		final String responseJSON = context.getResponseBody();
 		final APIResponse apiResponse = JSONUtils.jsonToJava(responseJSON, clazz);
+		sender.send(responseJSON);
 		session.setResponse(apiResponse);
 		return null;
 	}

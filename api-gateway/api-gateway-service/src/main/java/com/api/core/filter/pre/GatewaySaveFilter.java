@@ -1,10 +1,10 @@
-package com.api.core.gateway.filter.pre;
+package com.api.core.filter.pre;
 
 import org.springframework.stereotype.Component;
 
-import com.api.core.gateway.component.APIType;
-import com.api.core.gateway.component.SessionComponent;
-import com.api.core.gateway.filter.BaseZuulFilter;
+import com.api.core.filter.BaseZuulFilter;
+import com.api.core.gateway.APIType;
+import com.api.core.gateway.SessionComponent;
 import com.netflix.zuul.exception.ZuulException;
 
 /**

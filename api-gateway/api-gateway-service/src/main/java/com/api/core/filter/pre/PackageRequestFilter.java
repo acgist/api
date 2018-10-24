@@ -1,4 +1,4 @@
-package com.api.core.gateway.filter.pre;
+package com.api.core.filter.pre;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -12,10 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
+import com.api.core.filter.BaseZuulFilter;
 import com.api.core.gateway.APICode;
-import com.api.core.gateway.component.APIType;
-import com.api.core.gateway.component.SessionComponent;
-import com.api.core.gateway.filter.BaseZuulFilter;
+import com.api.core.gateway.APIType;
+import com.api.core.gateway.SessionComponent;
 import com.api.core.gateway.request.APIRequest;
 import com.api.core.service.UniqueNumberService;
 import com.api.utils.JSONUtils;

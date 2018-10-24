@@ -2,11 +2,10 @@
 
 #### 项目介绍
 一个基于Spring Cloud的HTTP接口DEMO项目。  
-内网访问均不需要权限，外网访问项目为接口服务和网站服务，均通过网关服务对外提供同时进行负载均衡。  
-网关只负责负载均衡，接口服务和网站服务负责鉴权。
+内网访问均不需要权限，外网访问项目为接口服务和网站服务，均通过网关服务对外提供同时进行负载均衡和鉴权。  
 
-#### 数据处理
-系统数据分为JSON和其他数据类型。
+#### SESSION共享
+Spring Session Redis
 
 #### Spring Cloud组件
 Zuul：网关  
@@ -24,7 +23,7 @@ Dashboard：仪表盘
 * JAVA：JAVA 10（不支持JAVA 11）
 * Redis：3.X.X
 * MySQL：5.X.X
-* RabbitMQ：5.X.X
+* RabbitMQ：3.X.X
 * Spring Boot：2.0.5.RELEASE
 * Spring Cloud：Finchley.SR1
 
@@ -51,7 +50,7 @@ Dashboard：仪表盘
 |目录|描述|
 |:-|:-|
 |api-boot-admin|Spring Boot Admin管理|
-|api-common|通用模块，工具、实体、数据库、服务接口|
+|api-common|通用模块|
 |api-config|配置中心|
 |api-registry|注册中心|
 |api-gateway|网关模块|
@@ -70,18 +69,18 @@ Dashboard：仪表盘
 	订单管理  
 
 #### 待办功能
-各个端点处理，网关端点权限  
-JPA，消息中间件，异步信息处理，接口API页面  
+后台  
+各个端点处理，网关端点权限，页面优化    
+消息中间件  
 日志统一处理  
-https://gitee.com/minull/ace-security  
 https://preview.pro.ant.design  
-项目本地缓存数据，bus刷新  
-网页项目端点屏蔽  
+https://gitee.com/minull/ace-security  
 
 #### 接口映射
-|网关|服务|
+|地址|说明|
 |:-|:-|
-|/gateway/api/**|/service/**|
+|/gateway/api/**|网关接口|
+/service/**|服务|
 
 #### 包结构
 |包路径|作用|

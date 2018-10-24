@@ -74,12 +74,17 @@
 			</dependency>
 			<dependency>
 				<groupId>com.acgist</groupId>
+				<artifactId>api-common-user</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.acgist</groupId>
 				<artifactId>api-common-order</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.acgist</groupId>
-				<artifactId>api-common-user</artifactId>
+				<artifactId>api-common-gateway</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
