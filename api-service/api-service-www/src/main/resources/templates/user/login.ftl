@@ -13,8 +13,9 @@
 
 	<body>
 		<div class="order">
-			<form method="post" action="/order">
-				<p>用户名：<input name="orderId" placeholder="用户名" type="text" /></p>
+			<form method="post" action="/user/login">
+				<p>账号：<input name="username" placeholder="账号" type="text" /></p>
+				<p>密码：<input name="password" placeholder="密码" type="text" /></p>
 				<p><input type="submit" value="提交" /></p>
 			</form>
 		</div>

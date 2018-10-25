@@ -6,14 +6,15 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.cloud.netflix.turbine.EnableTurbine;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
+
+import zipkin2.server.internal.EnableZipkinServer;
 
 @EnableTurbine
 @EnableHystrix
-@ComponentScan({"com.api.core", "com.api.feign"})
+@ComponentScan("com.api.core")
 @EnableEurekaClient
-@EnableFeignClients("com.api.feign")
+@EnableZipkinServer
 @EnableHystrixDashboard
 @SpringBootApplication
 public class ApiServiceAdminApplication {

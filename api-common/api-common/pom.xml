@@ -66,16 +66,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
-		<!-- feign -->
+		<!-- feign：包含熔断功能，但是不包含hystrix.stream -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<!-- hystrix -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
 			<optional>true</optional>
 		</dependency>
 	</dependencies>

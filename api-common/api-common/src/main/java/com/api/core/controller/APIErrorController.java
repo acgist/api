@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -25,6 +26,7 @@ public class APIErrorController implements ErrorController {
 	/**
 	 * JSON接口错误处理
 	 */
+	@Primary
 	@ResponseBody
 	@RequestMapping(value = "/error", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public String index(String code, String message, HttpServletResponse response) {
@@ -38,6 +40,7 @@ public class APIErrorController implements ErrorController {
 	/**
 	 * 其他错误处理
 	 */
+	@Primary
 	@RequestMapping(value = "/error")
 	public String index(String code, String message, ModelMap model, HttpServletResponse response) {
 		final APICode apiCode = code(code, response);

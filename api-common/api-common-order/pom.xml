@@ -35,12 +35,6 @@
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<!-- hystrix -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-			<optional>true</optional>
-		</dependency>
 	</dependencies>
 
 </project>

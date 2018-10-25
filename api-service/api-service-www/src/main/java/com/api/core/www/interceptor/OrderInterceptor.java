@@ -6,8 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import com.api.core.config.APIConstSession;
-import com.api.core.pojo.session.SessionUser;
+import com.api.core.pojo.session.UserSession;
 import com.api.utils.RedirectUtils;
 
 /**
@@ -18,8 +17,8 @@ public class OrderInterceptor implements HandlerInterceptor {
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-		SessionUser sessionUser = (SessionUser) request.getSession().getAttribute(APIConstSession.SESSION_USER);
-		if(sessionUser == null) {
+		UserSession user = UserSession.get(request);
+		if(user == null) {
 			RedirectUtils.redirect2get(response, "/user/login");
 			return false;
 		}

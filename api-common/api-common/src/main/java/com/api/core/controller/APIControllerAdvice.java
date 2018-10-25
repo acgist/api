@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Primary;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -23,6 +24,7 @@ public class APIControllerAdvice {
 	/**
 	 * 异常处理，异常和状态码对应参考：DefaultHandlerExceptionResolver
 	 */
+	@Primary
 	@ExceptionHandler(Exception.class)
 	public void exception(Exception e, HttpServletRequest request, HttpServletResponse response) {
 		LOGGER.error("系统异常", e);
