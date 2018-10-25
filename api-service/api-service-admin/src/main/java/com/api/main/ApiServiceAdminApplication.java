@@ -10,11 +10,12 @@ import org.springframework.context.annotation.ComponentScan;
 
 import zipkin2.server.internal.EnableZipkinServer;
 
-@EnableTurbine
 @EnableHystrix
 @ComponentScan("com.api.core")
 @EnableEurekaClient
 @EnableZipkinServer
+@EnableTurbine
+//@EnableTurbineStream
 @EnableHystrixDashboard
 @SpringBootApplication
 public class ApiServiceAdminApplication {

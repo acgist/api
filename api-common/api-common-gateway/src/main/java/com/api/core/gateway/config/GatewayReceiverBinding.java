@@ -8,7 +8,7 @@ import org.springframework.messaging.SubscribableChannel;
  */
 public interface GatewayReceiverBinding {
 
-	String STREAM_BINDER_RECEIVER = "gateway_receiver";
+	String STREAM_BINDER_RECEIVER = "api_message_gateway_receiver";
 	
     @Input(STREAM_BINDER_RECEIVER)
     SubscribableChannel input();

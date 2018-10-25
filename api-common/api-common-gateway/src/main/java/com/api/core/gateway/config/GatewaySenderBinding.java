@@ -8,7 +8,7 @@ import org.springframework.messaging.MessageChannel;
  */
 public interface GatewaySenderBinding {
 
-	String STREAM_BINDER_SENDER = "gateway_sender";
+	String STREAM_BINDER_SENDER = "api_message_gateway_sender";
 	
     @Output(STREAM_BINDER_SENDER)
     MessageChannel output();
