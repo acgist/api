@@ -3,7 +3,6 @@ package com.api.core.filter.pre;
 import org.springframework.stereotype.Component;
 
 import com.api.core.filter.BaseZuulFilter;
-import com.api.core.gateway.APICode;
 import com.netflix.zuul.exception.ZuulException;
 
 /**
@@ -25,7 +24,7 @@ public class SignVerifyFilter extends BaseZuulFilter {
 //		if(SignService.verify(data)) {
 //			return null;
 //		}
-		error(APICode.CODE_3001);
+//		error(APICode.CODE_3001);
 		return null;
 	}
 

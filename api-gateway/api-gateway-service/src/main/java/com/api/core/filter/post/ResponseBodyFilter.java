@@ -11,7 +11,7 @@ import com.netflix.zuul.exception.ZuulException;
  * 设置响应内容
  */
 @Component
-public class ResponseFilter extends BaseZuulFilter {
+public class ResponseBodyFilter extends BaseZuulFilter {
 
 	@Override
 	public Object run() throws ZuulException {

@@ -7,6 +7,8 @@ import org.springframework.integration.support.MessageBuilder;
 import org.springframework.messaging.MessageChannel;
 
 import com.api.core.gateway.config.GatewaySenderBinding;
+import com.api.core.gateway.pojo.message.GatewayMessage;
+import com.api.data.gateway.pojo.entity.GatewayEntity;
 
 @EnableBinding(GatewaySenderBinding.class)
 public class GatewayMesssageSender {
@@ -15,8 +17,10 @@ public class GatewayMesssageSender {
     @Output(GatewaySenderBinding.STREAM_BINDER_SENDER)
     private MessageChannel channel;
 	
-	public void send(String text) {
-		channel.send(MessageBuilder.withPayload(text).build());
+	public void send(GatewayEntity entity) {
+		GatewayMessage message = new GatewayMessage();
+		message.setEntity(entity);
+		channel.send(MessageBuilder.withPayload(message).build());
 	}
 	
 }

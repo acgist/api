@@ -24,7 +24,7 @@ public class DestroyFilter extends BaseZuulFilter {
 
 	@Override
 	public int filterOrder() {
-		return 1000;
+		return 9999;
 	}
 
 }

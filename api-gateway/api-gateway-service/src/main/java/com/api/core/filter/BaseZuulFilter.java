@@ -1,8 +1,14 @@
 package com.api.core.filter;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
@@ -18,72 +24,79 @@ import com.netflix.zuul.context.RequestContext;
  */
 public abstract class BaseZuulFilter extends ZuulFilter {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(BaseZuulFilter.class);
+	
 	// 过滤器类型
 	protected static final String FILTER_TYPE_PRE = "pre";
 	protected static final String FILTER_TYPE_POST = "post";
 	protected static final String FILTER_TYPE_ROUTE = "route";
 	protected static final String FILTER_TYPE_ERROR = "error";
 	
+	@Override
+	public boolean shouldFilter() {
+		return true;
+	}
+	
 	/**
 	 * 是否通过验证
 	 */
-	public boolean permissions() {
+	protected boolean permissions() {
 		return context().sendZuulResponse();
 	}
 	
 	/**
 	 * 获取RequestContext
 	 */
-	public RequestContext context() {
+	protected RequestContext context() {
 		return RequestContext.getCurrentContext();
 	}
 	
 	/**
 	 * 获取SessionComponent
 	 */
-	public SessionComponent sessionComponent() {
+	protected SessionComponent sessionComponent() {
 		return SessionComponent.getInstance(context());
 	}
 
 	/**
 	 * 请求
 	 */
-	public HttpServletRequest request() {
+	protected HttpServletRequest request() {
 		return context().getRequest();
 	}
 	
 	/**
 	 * 响应
 	 */
-	public HttpServletResponse response() {
+	protected HttpServletResponse response() {
 		return context().getResponse();
 	}
 	
 	/**
 	 * 失败，默认状态码：200
 	 */
-	public void error(APICode apiCode) {
+	protected void error(APICode apiCode) {
 		this.error(apiCode, apiCode.getMessage());
 	}
 	
 	/**
 	 * 失败，默认状态码：200
 	 */
-	public void error(APICode apiCode, String message) {
+	protected void error(APICode apiCode, String message) {
 		this.error(HttpStatus.OK.value(), apiCode, message);
 	}
 	
 	/**
 	 * 失败
 	 */
-	public void error(int statusCode, APICode apiCode) {
+	protected void error(int statusCode, APICode apiCode) {
 		this.error(statusCode, apiCode, apiCode.getMessage());
 	}
 	
 	/**
 	 * 失败：设置返回内容编码
 	 */
-	public void error(int status, APICode code, String message) {
+	protected void error(int status, APICode code, String message) {
 		final RequestContext context = context();
 		context.setSendZuulResponse(false);
 		context.setResponseStatusCode(status);
@@ -94,14 +107,29 @@ public abstract class BaseZuulFilter extends ZuulFilter {
 	/**
 	 * 设置返回内容
 	 */
-	public void responseBody(APIResponse response) {
+	protected void responseBody(APIResponse response) {
 		final RequestContext context = context();
 		context.setResponseBody(response.response());
 	}
 	
-	@Override
-	public boolean shouldFilter() {
-		return true;
+	/**
+	 * 获取JSON
+	 */
+	protected String streamToJSON(InputStream input) {
+		if(input == null) {
+			return null;
+		}
+		final StringBuffer builder = new StringBuffer();
+		try {
+			String tmp = null;
+			final BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+			while((tmp = reader.readLine()) != null) {
+				builder.append(tmp);
+			}
+		} catch (Exception e) {
+			LOGGER.error("获取JSON报文异常", e);
+		}
+		return builder.toString();
 	}
 	
 }

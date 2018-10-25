@@ -1,8 +1,6 @@
 package com.api.core.filter.pre;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -34,11 +32,6 @@ public class PackageRequestFilter extends BaseZuulFilter {
 	private UniqueNumberService uniqueNumberService;
 	
 	@Override
-	public boolean shouldFilter() {
-		return true;
-	}
-	
-	@Override
 	public Object run() throws ZuulException {
 		final RequestContext context = context();
         final HttpServletRequest request = context.getRequest();
@@ -49,31 +42,25 @@ public class PackageRequestFilter extends BaseZuulFilter {
 			error(APICode.CODE_1000);
 			return null;
 		}
+		session.setApiType(apiType);
 		final String requestJSON = requestJSON(request);
-		if(requestJSON.isEmpty()) {
+		if(requestJSON == null || requestJSON.isEmpty()) {
 			error(HttpStatus.BAD_REQUEST.value(), APICode.CODE_4400, "请求数据不能为空");
 			return null;
 		}
 		final APIRequest apiRequest = JSONUtils.jsonToJava(requestJSON, apiType.reqeustClazz());
-		session.setApiType(apiType);
 		session.setJson(requestJSON);
 		session.setRequest(apiRequest);
 		return null;
 	}
 	
 	private String requestJSON(HttpServletRequest request) {
-		final StringBuffer builder = new StringBuffer();
 		try {
-			String tmp = null;
-			final InputStream input = request.getInputStream();
-			final BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-			while((tmp = reader.readLine()) != null) {
-				builder.append(tmp);
-			}
-		} catch (Exception e) {
-			LOGGER.error("获取请求参数异常", e);
+			return streamToJSON(request.getInputStream());
+		} catch (IOException e) {
+			LOGGER.error("获取请求报文异常", e);
 		}
-		return builder.toString();
+		return null;
 	}
 	
 	@Override

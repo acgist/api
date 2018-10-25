@@ -27,7 +27,7 @@ public class DataVerifyFilter extends BaseZuulFilter {
 		if(message == null) {
 			return null;
 		}
-		error(APICode.CODE_3000);
+		error(APICode.CODE_3000, message);
 		return null;
 	}
 
