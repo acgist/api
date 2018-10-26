@@ -26,6 +26,7 @@ public class ActuatorUtils {
 	 * 是否是系统端点
 	 */
 	public static final boolean actuator(String requestURL) {
+//		EndpointRequest
 		return Arrays.binarySearch(SYSTEM_ACTUATOR, requestURL) != -1;
 	}
 	

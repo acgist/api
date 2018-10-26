@@ -19,7 +19,7 @@ public class OrderTest {
 	@Test
 	public void order() throws InterruptedException {
 		RestTemplate rest = new RestTemplate();
-		int count = 1000;
+		int count = 10;
 		long begin = System.currentTimeMillis();
 		rest.setErrorHandler(new ResponseErrorHandler() {
 			@Override

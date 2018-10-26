@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>api-common-order</name>
-	<description>通用模块-订单</description>
+	<description>通用模块-订单服务</description>
 
 	<parent>
 		<groupId>com.acgist</groupId>
@@ -23,13 +23,11 @@
 			<groupId>com.acgist</groupId>
 			<artifactId>api-common</artifactId>
 		</dependency>
-		<!-- hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<!-- feign -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>

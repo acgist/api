@@ -9,10 +9,11 @@ import com.api.core.config.APIConstURL;
 import com.api.core.order.pojo.message.OrderMessage;
 import com.api.data.order.pojo.entity.OrderEntity;
 import com.api.feign.order.service.OrderService;
+import com.api.feign.service.BaseServiceFallback;
 
 @Component
 @RequestMapping(APIConstURL.URL_FALLBACK_SERVICE)
-public class OrderServiceFallback implements OrderService {
+public class OrderServiceFallback extends BaseServiceFallback implements OrderService {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(OrderServiceFallback.class);
 	

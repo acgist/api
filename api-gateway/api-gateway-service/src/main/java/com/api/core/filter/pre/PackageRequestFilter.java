@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import com.api.core.filter.BaseZuulFilter;
@@ -45,7 +44,7 @@ public class PackageRequestFilter extends BaseZuulFilter {
 		session.setApiType(apiType);
 		final String requestJSON = requestJSON(request);
 		if(requestJSON == null || requestJSON.isEmpty()) {
-			error(HttpStatus.BAD_REQUEST.value(), APICode.CODE_4400, "请求数据不能为空");
+			error(APICode.CODE_4400, "请求数据不能为空");
 			return null;
 		}
 		final APIRequest apiRequest = JSONUtils.jsonToJava(requestJSON, apiType.reqeustClazz());

@@ -13,7 +13,7 @@ import org.springframework.context.ApplicationContext;
 import com.api.core.gateway.API;
 
 /**
- * 对象转map工具
+ * 对象转MAP工具
  */
 public class APIUtils {
 
@@ -28,7 +28,7 @@ public class APIUtils {
 	}
 	
 	/**
-	 * JAVA对象转map
+	 * JAVA对象转MAP
 	 */
 	public static final <T extends API> Map<String, String> beanToMap(T t) {
 		if(t == null) {
@@ -56,7 +56,7 @@ public class APIUtils {
 	}
 
 	/**
-	 * map填充JAVA对象
+	 * MAP填充JAVA对象
 	 */
 	public static final void mapToBean(API api, Map<String, String> data) {
 		if(api == null || data == null) {

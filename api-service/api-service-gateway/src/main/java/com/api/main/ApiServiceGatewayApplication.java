@@ -12,9 +12,9 @@ import com.api.data.repository.BaseExtendRepositoryImpl;
 
 @EntityScan("com.api.data.**.entity")
 @ComponentScan({"com.api.core", "com.api.data"})
-@EnableJpaRepositories(basePackages = "com.api.data.**.repository", repositoryBaseClass = BaseExtendRepositoryImpl.class)
 @EnableEurekaClient
 @SpringBootApplication
+@EnableJpaRepositories(basePackages = "com.api.data.**.repository", repositoryBaseClass = BaseExtendRepositoryImpl.class)
 @EnableTransactionManagement
 public class ApiServiceGatewayApplication {
 

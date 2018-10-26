@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.api.core.config.APIConstURL;
 import com.api.core.user.pojo.message.AuthoMessage;
 import com.api.core.user.pojo.message.LoginMessage;
+import com.api.feign.service.BaseServiceFallback;
 import com.api.feign.user.service.UserService;
 
 @Component
 @RequestMapping(APIConstURL.URL_FALLBACK_SERVICE)
-public class UserServiceFallback implements UserService {
+public class UserServiceFallback extends BaseServiceFallback implements UserService {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceFallback.class);
 
