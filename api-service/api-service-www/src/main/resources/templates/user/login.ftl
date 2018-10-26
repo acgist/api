@@ -2,22 +2,35 @@
 <html>
 	<head>
 		<title>用户登录</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+		<#include "/include/head.ftl">
 		<meta name="keywords" content="用户登录" />
 		<meta name="description" content="用户登录" />
 		
-		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="shortcut icon" href="/favicon.ico" />
 		<#include "/include/resources.ftl">
 	</head>
 
 	<body>
-		<div class="order">
-			<form method="post" action="/user/login">
-				<p>账号：<input name="username" placeholder="账号" type="text" /></p>
-				<p>密码：<input name="password" placeholder="密码" type="text" /></p>
-				<p><input type="submit" value="提交" /></p>
-			</form>
-		</div>
+	<div class="container">
+		<form class="form-horizontal" method="post" action="/user/login">
+			<div class="form-group">
+				<label for="username" class="col-sm-2 control-label">账号：</label>
+				<div class="col-sm-10">
+					<input required="required" name="username" type="text" class="form-control" id="username" placeholder="账号" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password" class="col-sm-2 control-label">密码：</label>
+				<div class="col-sm-10">
+					<input required="required" name="password" type="password" class="form-control" id="password" placeholder="密码" />
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default">登陆</button>
+				</div>
+			</div>
+		</form>
+	</div>
 	</body>
 </html>

@@ -1,6 +1,5 @@
 package com.api.core.config;
 
-import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,7 +15,10 @@ public class ActuatorWebSecurityConfigurationAdapter extends WebSecurityConfigur
 	@Override
 	protected void configure(HttpSecurity security) throws Exception {
 		security.authorizeRequests()
-			.requestMatchers(EndpointRequest.toAnyEndpoint()).access("hasIpAddress('0:0::/112') or hasIpAddress('192.168.1.0/24')")
+//			.requestMatchers(EndpointRequest.toAnyEndpoint()).denyAll()
+//			.requestMatchers(EndpointRequest.toAnyEndpoint()).access("hasIpAddress('0:0::/112') or hasIpAddress('192.168.1.0/24')")
+//			.antMatchers("/actuator/**").denyAll()
+			.antMatchers("/actuator/**").access("hasIpAddress('0:0::/112') or hasIpAddress('192.168.1.0/24')")
 			.anyRequest().permitAll(); // 允许
 	}
 	
