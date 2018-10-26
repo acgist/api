@@ -28,8 +28,8 @@
 			<Pattern>[${system.name}] %d{YYYY-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</Pattern>
 		</layout>
 	</appender>
-	
-	<root level="DEBUG">
+
+	<root level="INFO">
 		<appender-ref ref="file" />
 		<appender-ref ref="console" />
 	</root>

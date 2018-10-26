@@ -13,6 +13,7 @@
 	<description>maven</description>
 
 	<modules>
+		<module>api-admin</module>
 		<module>api-config</module>
 		<module>api-registry</module>
 		<module>api-common/api-common</module>
