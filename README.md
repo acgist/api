@@ -1,4 +1,4 @@
-# api
+# API-ACGIST
 
 #### 项目介绍
 一个基于Spring Cloud的HTTP接口DEMO项目。  
@@ -48,7 +48,7 @@ Turbine/Dashboard：熔断器仪表盘聚合（stream）
 #### 项目结构
 |目录|描述|
 |:-|:-|
-|api-boot-admin|Spring Boot Admin管理|
+|api-admin|Spring Boot Admin管理|
 |api-common|通用模块|
 |api-config|配置中心|
 |api-registry|注册中心|
@@ -72,8 +72,7 @@ Turbine/Dashboard：熔断器仪表盘聚合（stream）
 各个端点处理，网关端点权限，页面优化    
 消息中间件  
 日志统一处理  
-https://preview.pro.ant.design  
-https://gitee.com/minull/ace-security  
+element-ui  
 
 #### 接口映射
 |地址|说明|
