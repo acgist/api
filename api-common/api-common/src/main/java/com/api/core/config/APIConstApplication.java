@@ -16,18 +16,23 @@ public interface APIConstApplication {
 	String API_SERVICE_ORDER = "api-service-order";
 	
 	/**
-	 * 网关模块
+	 * 网关信息模块
 	 */
 	String API_SERVICE_GATEWAY = "api-service-gateway";
 	
 	/**
-	 * 网页模块
+	 * 前台
 	 */
-	String API_SERVICE_WWW = "api-service-www";
+	String API_WWW = "api-www";
 	
 	/**
-	 * 静态资源模块
+	 * 后台
 	 */
-	String API_SERVICE_RESOURCES = "api-service-resources";
+	String API_WWW_ADMIN = "api-www-admin";
+	
+	/**
+	 * 静态资源
+	 */
+	String API_WWW_RESOURCES = "api-www-resources";
 	
 }

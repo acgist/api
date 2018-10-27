@@ -34,15 +34,12 @@ public class RedirectUtils {
 	 */
 	public static final void error(APICode code, String message, HttpServletRequest request, HttpServletResponse response) {
 		message = APICode.message(code, message);
-		requestDispatcher(request, response, String.format(ERROR_LOCATION, code.getCode(), URLUtils.encoding(message)));
+		final String location = String.format(ERROR_LOCATION, code.getCode(), URLUtils.encoding(message));
+		requestDispatcher(request, response, location);
 	}
 	
 	/**
 	 * 请求转发
-	 * 
-	 * @param request  请求
-	 * @param response 响应
-	 * @param location 地址
 	 */
 	public static final void requestDispatcher(HttpServletRequest request, HttpServletResponse response, String location) {
 		try {
@@ -56,11 +53,8 @@ public class RedirectUtils {
 
 	/**
 	 * 303重定向
-	 * 
-	 * @param response 响应
-	 * @param location 地址
 	 */
-	public static final ModelAndView redirect2get(HttpServletResponse response, String location) {
+	public static final ModelAndView redirectToGet(HttpServletResponse response, String location) {
 		if (response != null) {
 			response.setStatus(HttpStatus.SEE_OTHER.value());
 			response.setHeader("Location", location);
@@ -71,11 +65,8 @@ public class RedirectUtils {
 
 	/**
 	 * 307重定向
-	 * 
-	 * @param response 响应
-	 * @param location 地址
 	 */
-	public static final void redirect2post(HttpServletResponse response, String location) {
+	public static final void redirectToPost(HttpServletResponse response, String location) {
 		if (response != null) {
 			response.setStatus(HttpStatus.TEMPORARY_REDIRECT.value());
 			response.setHeader("Location", location);

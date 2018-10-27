@@ -5,8 +5,7 @@
 
 #### 服务安全
 * 集群内服务器均公开nginx端口（80），其余所有端口均只允许内部集群网络访问。
-* 客户端通过nginx访问接口网关或网站服务（www）。
-* 网关负责鉴权和屏蔽端点，网站服务（www）屏蔽端点。
+* 客户端通过nginx访问接口网关，通过网关访问内部服务或站点，网关负责鉴权和屏蔽端点。
 * 内网含有通知的情况需要验证通知地址是否是外网地址（防止攻击集群内部端点）。
 
 #### SESSION共享
@@ -35,25 +34,28 @@ Turbine/Dashboard：熔断器仪表盘聚合（stream）
 固定前缀+服务类型+服务序列号（10~99）  
 * 系统服务：2+XX+XX  
 * 业务服务：3+XX+XX  
+
 ** 系统服务类型：** 
 * 10：注册中心
 * 20：配置中心
 * 30：服务网关
-* 80：网站端口（80：前端、90：后台、88：静态资源）
+* 80：网站网关（前端和静态资源：10-80、后台：80-99）
 * 90：管理平台（Spring Boot Admin）
+
 ** 业务服务类型：** 
 * 10：用户服务
 * 20：订单服务
 * 30：网关信息服务
+* 80：网站网关（10-50：前端、50-80：后台、80-99：静态资源）
 
 #### 项目结构
 |目录|描述|
 |:-|:-|
-|api-admin|Spring Boot Admin管理|
-|api-www|网站模块|
 |api-common|通用模块|
 |api-config|配置中心|
 |api-registry|注册中心|
+|api-www|网站模块|
+|api-admin|Spring Boot Admin管理|
 |api-gateway|网关模块|
 |api-service|服务模块|
 
@@ -82,14 +84,13 @@ element-ui
 |/gateway/api/**|网关接口|
 /service/**|服务|
 
-#### 包结构
+#### 服务包结构
 |包路径|作用|
 |:-|:-|
 |com.api.main|main方法|
-|com.api.feign|feign模块|
-|com.api.data|数据库模块|
-|com.api.core|主要方法，用于初始化时自动加载配置|
 |com.api.core.服务模块.*|服务模块|
+|com.api.data.服务模块.*|数据库模块|
+|com.api.feign.服务模块.*|feign模块|
 
 #### 常见忽略错误
 @EnableHystrix：用于开启/actuator/hystrix.stream端点  

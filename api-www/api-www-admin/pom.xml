@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>api-www-admin</name>
-	<description>服务-后台</description>
+	<description>网站-后台</description>
 
 	<parent>
 		<groupId>com.acgist</groupId>
@@ -48,7 +48,7 @@
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
 		<!--
-		turbine.app-config=api-www,api-gateway
+		turbine.app-config=api-www,api-gateway-service
 		turbine.combine-host-port=true
 		turbine.cluster-name-expression="default"
 		<dependency>

@@ -23,12 +23,14 @@ public class APIErrorController implements ErrorController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(APIErrorController.class);
 	
+	public static final String ERROR_PATH = "/error";
+	
 	/**
 	 * JSON接口错误处理
 	 */
 	@Primary
 	@ResponseBody
-	@RequestMapping(value = "/error", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = ERROR_PATH, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public String index(String code, String message, HttpServletResponse response) {
 //		request.getAttribute("javax.servlet.error.message");
 		final APICode apiCode = code(code, response);
@@ -41,7 +43,7 @@ public class APIErrorController implements ErrorController {
 	 * 其他错误处理
 	 */
 	@Primary
-	@RequestMapping(value = "/error")
+	@RequestMapping(value = ERROR_PATH)
 	public String index(String code, String message, ModelMap model, HttpServletResponse response) {
 		final APICode apiCode = code(code, response);
 		message = APICode.message(apiCode, message);
@@ -53,7 +55,7 @@ public class APIErrorController implements ErrorController {
 
 	@Override
 	public String getErrorPath() {
-		return "/error";
+		return ERROR_PATH;
 	}
 	
 	private APICode code(String code, HttpServletResponse response) {

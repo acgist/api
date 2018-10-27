@@ -13,6 +13,7 @@
 	<body>
 	<div class="container">
 		<form class="form-horizontal" method="post" action="/user/login">
+			<input name="token" type="hidden" value="${token}" />
 			<div class="form-group">
 				<label for="username" class="col-sm-2 control-label">账号：</label>
 				<div class="col-sm-10">

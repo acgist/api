@@ -8,7 +8,7 @@
 	<packaging>jar</packaging>
 
 	<name>api-www</name>
-	<description>服务-前台</description>
+	<description>网站-前台</description>
 
 	<parent>
 		<groupId>com.acgist</groupId>
