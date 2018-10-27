@@ -23,9 +23,9 @@
 		<module>api-gateway/api-gateway-www</module>
 		<module>api-gateway/api-gateway-admin</module>
 		<module>api-gateway/api-gateway-service</module>
-		<module>api-service/api-www</module>
-		<module>api-service/api-www-admin</module>
-		<module>api-service/api-www-resources</module>
+		<module>api-www/api-www</module>
+		<module>api-www/api-www-admin</module>
+		<module>api-www/api-www-resources</module>
 		<module>api-service/api-service-user</module>
 		<module>api-service/api-service-order</module>
 		<module>api-service/api-service-gateway</module>
