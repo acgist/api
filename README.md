@@ -94,6 +94,9 @@ element-ui
 
 #### 常见忽略错误
 @EnableHystrix：用于开启/actuator/hystrix.stream端点  
-@EnableHystrixDashboard：开启hystrix仪表盘  
 @EnableFeignClients：需要指定包路径  
+@EnableHystrixDashboard：开启hystrix仪表盘  
 feign模块以及包含hystrix熔断功能，但是没有端点监控功能（@EnableHystrix）  
+
+#### 开发工具
+Spring STS：http://spring.io/tools
