@@ -1,7 +1,5 @@
 package com.api.core.config;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -14,11 +12,8 @@ import org.springframework.web.filter.CorsFilter;
 @Configuration
 public class CorsFilterConfig {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(CorsFilterConfig.class);
-	
 	@Bean
 	public CorsFilter corsFilter() {
-		LOGGER.warn("跨域配置添加了所有的域、头、方法请根据实际情况配置");
 		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		final CorsConfiguration config = new CorsConfiguration();
 		config.setAllowCredentials(true);

@@ -19,7 +19,7 @@ public class OrderTest {
 	@Test
 	public void order() throws InterruptedException {
 		RestTemplate rest = new RestTemplate();
-		int count = 1;
+		int count = 1000;
 		long begin = System.currentTimeMillis();
 		rest.setErrorHandler(new ResponseErrorHandler() {
 			@Override
@@ -40,9 +40,9 @@ public class OrderTest {
 				request.setSign("1234");
 //				request.setOrderId("exception");
 //				zuul网关
-				ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:23010/gateway/api/order/pay"), request, String.class);
+//				ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:23010/gateway/api/order/pay"), request, String.class);
 //				服务网关
-//				ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:32010/gateway/api/order/pay"), request, String.class);
+				ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:32010/gateway/api/order/pay"), request, String.class);
 //				直接调用服务
 //				ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:32010/service/order"), request, String.class);
 				System.out.println(response.getBody());
