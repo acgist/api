@@ -9,12 +9,14 @@ import org.springframework.context.annotation.ComponentScan;
 
 import zipkin2.server.internal.EnableZipkinServer;
 
+//@EnableAsync
 @ComponentScan("com.api.core")
+//@EnableScheduling
 @EnableEurekaClient
 @EnableZipkinServer
 @EnableTurbineStream // @EnableTurbine
-@EnableHystrixDashboard
 @SpringBootApplication
+@EnableHystrixDashboard
 public class ApiWwwAdminApplication {
 
 	public static void main(String[] args) {

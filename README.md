@@ -7,6 +7,8 @@
 * 集群内服务器均公开nginx端口（80），其余所有端口均只允许内部集群网络访问。
 * 客户端通过nginx访问接口网关，通过网关访问内部服务或站点，网关负责鉴权和屏蔽端点。
 * 内网含有通知的情况需要验证通知地址是否是外网地址（防止攻击集群内部端点）。
+* api-www：一个简单的前台完整页面。
+* api-www-admin：一个简单的后台管理。
 
 #### SESSION共享
 Spring Session Redis
@@ -20,7 +22,12 @@ Bus：消息总线（stream）
 Feign/Ribbon：服务调用  
 Sleuth/Zipkin：链路跟踪（stream）  
 Hystrix：熔断器（stream）  
-Turbine/Dashboard：熔断器仪表盘聚合（stream）  
+Turbine/Dashboard：熔断器仪表盘聚合（stream）
+  
+#### 未使用Spring Cloud组件
+Task：  
+Shiro：  
+OAuth2：  
 
 #### 软件版本
 * JAVA：JAVA 10（不支持JAVA 11）
