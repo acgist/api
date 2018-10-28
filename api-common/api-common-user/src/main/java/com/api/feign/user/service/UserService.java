@@ -7,7 +7,7 @@ import com.api.core.user.service.IUserService;
 import com.api.feign.config.FeignConfig;
 import com.api.feign.user.fallback.UserServiceFallback;
 
-@FeignClient(value = APIConstApplication.API_SERVICE_USER, configuration = FeignConfig.class, fallback = UserServiceFallback.class)
+@FeignClient(name = APIConstApplication.API_SERVICE_USER, configuration = FeignConfig.class, fallback = UserServiceFallback.class)
 public interface UserService extends IUserService {
 
 }
