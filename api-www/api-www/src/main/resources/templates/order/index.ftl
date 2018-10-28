@@ -14,6 +14,7 @@
 	<body>
 		<div class="order">
 			<form method="post" action="/order">
+				<input name="token" type="hidden" value="${token}" />
 				<p>订单号：<input name="orderId" placeholder="订单号" type="text" /></p>
 				<p><input type="submit" value="提交" /></p>
 			</form>
