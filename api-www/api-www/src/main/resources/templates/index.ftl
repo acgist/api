@@ -11,7 +11,12 @@
 	</head>
 
 	<body>
-	<div class="container">
+	<#include "/include/header.ftl">
+	<div class="container main">
+		<p class="home">
+			<a href="https://www.acgist.com">ACGIST</a>
+		</p>
 	</div>
+	<#include "/include/footer.ftl">
 	</body>
 </html>

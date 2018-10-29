@@ -12,16 +12,28 @@
 	</head>
 
 	<body>
+	<#include "/include/header.ftl">
+	<div class="container main">
 		<div class="order">
 			<form method="post" action="/order">
 				<input name="token" type="hidden" value="${token}" />
-				<p>订单号：<input name="orderId" placeholder="订单号" type="text" /></p>
-				<p><input type="submit" value="提交" /></p>
+				<div class="form-group">
+					<input required="required" name="orderId" type="text" class="form-control" placeholder="订单号" />
+				</div>
+				<div class="form-group text-center">
+					<button type="submit" class="btn btn-primary">提交订单</button>
+				</div>
 			</form>
-			<p>交易结果：${message.code}</p>
-			<p>交易信息：${message.message}</p>
-			<p>交易订单ID：${message.entity.id}</p>
-			<p>交易订单号：${message.entity.orderId}</p>
+			<#if message??>
+			<div>
+				<p>交易结果：${message.code}</p>
+				<p>交易信息：${message.message}</p>
+				<p>交易订单ID：${message.entity.id}</p>
+				<p>交易订单号：${message.entity.orderId}</p>
+			</div>
+			</#if>
 		</div>
+	</div>
+	<#include "/include/footer.ftl">
 	</body>
 </html>
