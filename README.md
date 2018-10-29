@@ -67,22 +67,11 @@ OAuth2：
 |api-gateway|网关模块|
 |api-service|服务模块|
 
-#### 管理系统菜单
-系统管理  
-	系统用户  
-	角色管理  
-服务管理  
-	服务监控：查看、关闭、仪表盘、端点操作、启动通知、实例数量、bus刷新  
-	服务链路  
-用户管理  
-	用户管理  
-订单管理  
-	订单管理  
-
 #### 待办功能
 后台  
 日志统一处理  
-element-ui  
+Bootstrap V4
+https://github.com/creativetimofficial/material-dashboard  
 
 #### 接口映射
 |地址|说明|
