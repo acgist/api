@@ -32,6 +32,9 @@ public class PermissionService {
 		return root;
 	}
 
+	/**
+	 * 递归权限树
+	 */
 	private void packagePermission(PermissionPackage parent, List<PermissionPackage> list) {
 		list.forEach(permission -> {
 			if(parent.getEntity() == null && permission.getEntity().getParent() == null) {
