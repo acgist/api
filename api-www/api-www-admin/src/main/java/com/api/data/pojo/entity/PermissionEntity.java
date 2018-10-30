@@ -12,11 +12,15 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name = "tb_permission")
 @GenericGenerator(name = "sequenceGenerator", strategy = "uuid")
-public class PermissionEntity {
+public class PermissionEntity extends BaseEntity {
 
+	private static final long serialVersionUID = 1L;
+	
 	private String name;
 	private String pattern;
 	private String memo;
+	private String parent;
+	private Integer order;
 
 	@Column(length = 20, nullable = false)
 	public String getName() {
@@ -43,6 +47,23 @@ public class PermissionEntity {
 
 	public void setMemo(String memo) {
 		this.memo = memo;
+	}
+
+	@Column(length = 32)
+	public String getParent() {
+		return parent;
+	}
+
+	public void setParent(String parent) {
+		this.parent = parent;
+	}
+
+	public Integer getOrder() {
+		return order;
+	}
+
+	public void setOrder(Integer order) {
+		this.order = order;
 	}
 
 }
