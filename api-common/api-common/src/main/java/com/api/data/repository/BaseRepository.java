@@ -96,9 +96,21 @@ public interface BaseRepository<T extends BaseEntity> extends JpaRepository<T, S
 			})
 			.forEach(filter -> {
 				if (filter.getOperator() == Operator.eq && filter.getValue() != null) {
-					list.add(criteriaBuilder.equal(root.get(filter.getProperty()), filter.getValue()));
+					if(filter.getValue() instanceof String) {
+						if(!filter.getValue().toString().isEmpty()) {
+							list.add(criteriaBuilder.equal(root.get(filter.getProperty()), filter.getValue()));
+						}
+					} else {
+						list.add(criteriaBuilder.equal(root.get(filter.getProperty()), filter.getValue()));
+					}
 				} else if (filter.getOperator() == Operator.ne && filter.getValue() != null) {
-					list.add(criteriaBuilder.notEqual(root.get(filter.getProperty()), filter.getValue()));
+					if(filter.getValue() instanceof String) {
+						if(!filter.getValue().toString().isEmpty()) {
+							list.add(criteriaBuilder.notEqual(root.get(filter.getProperty()), filter.getValue()));
+						}
+					} else {
+						list.add(criteriaBuilder.notEqual(root.get(filter.getProperty()), filter.getValue()));
+					}
 				} else if (filter.getOperator() == Operator.gt && filter.getValue() != null) {
 					if(filter.getValue() instanceof Date) {
 						list.add(criteriaBuilder.greaterThan(root.<Date>get(filter.getProperty()), (Date) filter.getValue()));

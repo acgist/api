@@ -15,8 +15,8 @@ public class UniqueNumberService {
 	@Value("${server.sn:10}")
 	private String serverSN;
 
-	private static final int MIN_INDEX = 10000;
-	private static final int MAX_INDEX = 99999;
+	private static final int MIN_INDEX = 100000;
+	private static final int MAX_INDEX = 999999;
 	private static int ID_INDEX = MIN_INDEX;
 	
 	/**

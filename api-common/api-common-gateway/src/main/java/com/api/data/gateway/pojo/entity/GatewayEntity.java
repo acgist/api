@@ -1,6 +1,8 @@
 package com.api.data.gateway.pojo.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -38,6 +40,7 @@ public class GatewayEntity extends BaseEntity {
 	 */
 	private String receive;
 
+	@Column(length = 20, nullable = false)
 	public String getType() {
 		return type;
 	}
@@ -46,6 +49,7 @@ public class GatewayEntity extends BaseEntity {
 		this.type = type;
 	}
 
+	@Column(length = 4)
 	public String getCode() {
 		return code;
 	}
@@ -54,6 +58,7 @@ public class GatewayEntity extends BaseEntity {
 		this.code = code;
 	}
 
+	@Column(length = 20)
 	public String getQueryId() {
 		return queryId;
 	}
@@ -62,6 +67,7 @@ public class GatewayEntity extends BaseEntity {
 		this.queryId = queryId;
 	}
 
+	@Lob
 	public String getSend() {
 		return send;
 	}
@@ -70,6 +76,7 @@ public class GatewayEntity extends BaseEntity {
 		this.send = send;
 	}
 
+	@Lob
 	public String getReceive() {
 		return receive;
 	}

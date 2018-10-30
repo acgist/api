@@ -7,22 +7,22 @@ import java.util.List;
  */
 public class ServiceInfo {
 
-	private String name;
+	private String serviceId;
 	List<ServiceInstanceInfo> instances;
 
 	public ServiceInfo() {
 	}
 
-	public ServiceInfo(String name) {
-		this.name = name;
+	public ServiceInfo(String serviceId) {
+		this.serviceId = serviceId;
 	}
 
-	public String getName() {
-		return name;
+	public String getServiceId() {
+		return serviceId;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setServiceId(String serviceId) {
+		this.serviceId = serviceId;
 	}
 
 	public List<ServiceInstanceInfo> getInstances() {
@@ -36,5 +36,5 @@ public class ServiceInfo {
 	public int getInstanceCount() {
 		return this.instances.size();
 	}
-	
+
 }

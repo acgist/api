@@ -38,7 +38,7 @@ public class JSONUtils {
 	 * TODO 优化泛型
 	 */
 	@SuppressWarnings("unchecked")
-	public static final Map<String, String> jsonToMap(String json) {
+	public static final Map<String, Object> jsonToMap(String json) {
 		if (json == null) {
 			return null;
 		}

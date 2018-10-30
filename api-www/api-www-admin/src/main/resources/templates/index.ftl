@@ -18,17 +18,19 @@
 							</dd>
 						</dl>
 					</li>
-					<li class="layui-nav-item"><a href="">退出</a></li>
+					<li class="layui-nav-item">
+						<a href="">退出</a>
+					</li>
 				</ul>
 			</div>
 			<div class="layui-side layui-bg-black">
 				<div class="layui-side-scroll">
 					<ul class="layui-nav layui-nav-tree" lay-filter="test">
-						<li class="layui-nav-item layui-nav-itemed">
-							<a class="" href="javascript:;">系统管理</a>
+						<li class="layui-nav-item">
+							<a>系统管理</a>
 							<dl class="layui-nav-child">
 								<dd>
-									<a href="javascript:;">系统用户</a>
+									<a href="/admin/list" target="api-content">系统用户</a>
 								</dd>
 								<dd>
 									<a href="javascript:;">系统角色</a>
@@ -39,10 +41,7 @@
 							</dl>
 						</li>
 						<li class="layui-nav-item">
-							<a href="javascript:;">服务管理</a>
-							<!--
-							查看、关闭、仪表盘、端点操作、启动通知、实例数量、bus刷新
-							-->
+							<a>服务管理</a>
 							<dl class="layui-nav-child">
 								<dd>
 									<a href="/discovery" target="api-content">服务列表</a>
@@ -69,16 +68,16 @@
 				</div>
 			</div>
 			<div class="layui-body">
-				<iframe name="api-content" width="100%" height="100%" src="/system/index"></iframe>
+				<iframe name="api-content" width="100%" height="100%" src="/admin/info"></iframe>
 			</div>
 			<div class="layui-footer">
 				<p>Copyright <span>&copy;</span> 2013-${.now?string("yyyy")} ACGIST.COM. All Rights Reserved.</p>
 			</div>
 		</div>
-		<script>
-			layui.use('element', function() {
-				var element = layui.element;
-			});
+		<script type="text/javascript">
+		layui.use('element', function() {
+			var element = layui.element;
+		});
 		</script>
 	</body>
 </html>
