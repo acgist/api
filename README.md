@@ -79,6 +79,10 @@ https://github.com/creativetimofficial/material-dashboard
 |/gateway/api/**|网关接口|
 /service/**|服务|
 
+#### 数据库表名称
+ts_系统表
+tb_业务表
+
 #### 服务包结构
 |包路径|作用|
 |:-|:-|

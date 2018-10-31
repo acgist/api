@@ -1,16 +1,26 @@
 package com.api.data.pojo.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
- * 管理员
+ * 系统用户
  */
 @Entity
-@Table(name = "tb_admin")
+@Table(name = "ts_admin")
 @GenericGenerator(name = "sequenceGenerator", strategy = "uuid")
 public class AdminEntity extends BaseEntity {
 
@@ -19,6 +29,8 @@ public class AdminEntity extends BaseEntity {
 	private String name;
 	private String password;
 	private String memo;
+	@JsonIgnore
+	private List<RoleEntity> roles;
 
 	@Column(length = 20, nullable = false)
 	public String getName() {
@@ -47,4 +59,26 @@ public class AdminEntity extends BaseEntity {
 		this.memo = memo;
 	}
 
+	@ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@JoinTable(
+		name = "ts_admin_role",
+		joinColumns = @JoinColumn(
+			name = "admin_id",
+			referencedColumnName = "id",
+			foreignKey = @ForeignKey(name = "key_admin_id")
+		),
+		inverseJoinColumns = @JoinColumn(
+			name = "role_id",
+			referencedColumnName = "id",
+			foreignKey = @ForeignKey(name = "key_role_id")
+		)
+	)
+	public List<RoleEntity> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<RoleEntity> roles) {
+		this.roles = roles;
+	}
+	
 }

@@ -33,10 +33,10 @@
 									<a href="/admin/list" target="api-content">系统用户</a>
 								</dd>
 								<dd>
-									<a href="javascript:;">系统角色</a>
+									<a href="/role/list" target="api-content">系统角色</a>
 								</dd>
 								<dd>
-									<a href="javascript:;">系统权限</a>
+									<a href="/permission/tree" target="api-content">系统权限</a>
 								</dd>
 							</dl>
 						</li>

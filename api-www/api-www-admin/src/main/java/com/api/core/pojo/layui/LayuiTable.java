@@ -1,4 +1,4 @@
-package com.api.core.pojo.vo;
+package com.api.core.pojo.layui;
 
 import java.io.Serializable;
 import java.util.List;

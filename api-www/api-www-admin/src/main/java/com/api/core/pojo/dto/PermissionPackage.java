@@ -1,4 +1,4 @@
-package com.api.core.pojo.vo;
+package com.api.core.pojo.dto;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -11,6 +11,7 @@ public class PermissionPackage implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String name;
+	private Boolean checked;
 	private PermissionEntity entity;
 	private List<PermissionPackage> children;
 
@@ -20,6 +21,14 @@ public class PermissionPackage implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Boolean getChecked() {
+		return checked;
+	}
+
+	public void setChecked(Boolean checked) {
+		this.checked = checked;
 	}
 
 	public PermissionEntity getEntity() {

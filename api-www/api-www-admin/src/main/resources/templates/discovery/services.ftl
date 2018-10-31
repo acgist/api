@@ -28,7 +28,7 @@
 			{{#  }; }}
 		</script>
 		<script type="text/javascript">
-		layui.use(['table', 'jquery'], function() {
+		layui.use(['table', 'jquery', 'element'], function() {
 			var table = layui.table;
 			table.on('tool(data-table)', function(obj) {
 				var data = obj.data;

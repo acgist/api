@@ -30,6 +30,13 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 	int SIZE_ONE = 1;
 
 	/**
+	 * 根据ID查询
+	 */
+	default T findOne(String id) {
+		return findOne(Filter.eq(BaseEntity.ID_PROPERTY_NAME, id));
+	}
+	
+	/**
 	 * 单个查询
 	 * 
 	 * @param filters 查询条件

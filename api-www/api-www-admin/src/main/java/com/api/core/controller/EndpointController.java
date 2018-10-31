@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.api.core.endpoint.impl.BusRefreshExecutor;
 import com.api.core.endpoint.impl.ShutdownExecutor;
-import com.api.core.gateway.APICode;
-import com.api.core.pojo.vo.LayuiMessage;
+import com.api.core.pojo.layui.LayuiMessage;
 
 /**
  * 端点
@@ -25,7 +24,7 @@ public class EndpointController {
 	public LayuiMessage busRefresh(String serviceId, String uri) {
 		BusRefreshExecutor executor = new BusRefreshExecutor(uri, serviceId);
 		executor.execute();
-		return LayuiMessage.build(APICode.CODE_0000);
+		return LayuiMessage.success();
 	}
 
 	/**
@@ -36,7 +35,7 @@ public class EndpointController {
 	public LayuiMessage shutdown(String uri) {
 		ShutdownExecutor executor = new ShutdownExecutor(uri);
 		executor.execute();
-		return LayuiMessage.build(APICode.CODE_0000);
+		return LayuiMessage.success();
 	}
 	
 }

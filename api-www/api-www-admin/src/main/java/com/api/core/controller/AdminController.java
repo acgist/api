@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.api.core.gateway.APICode;
-import com.api.core.pojo.vo.LayuiMessage;
-import com.api.core.pojo.vo.LayuiTable;
+import com.api.core.pojo.layui.LayuiMessage;
+import com.api.core.pojo.layui.LayuiTable;
 import com.api.data.pojo.entity.AdminEntity;
 import com.api.data.pojo.select.Filter;
 import com.api.data.pojo.select.PageQuery;
@@ -17,7 +16,7 @@ import com.api.data.pojo.select.PageResult;
 import com.api.data.repository.AdminRepository;
 
 /**
- * 管理员
+ * 系统用户
  */
 @Controller
 @RequestMapping("/admin")
@@ -49,7 +48,7 @@ public class AdminController {
 	@PostMapping("/delete")
 	public LayuiMessage delete(String id) {
 		adminRepository.deleteById(id);
-		return LayuiMessage.build(APICode.CODE_0000);
+		return LayuiMessage.success();
 	}
 	
 }

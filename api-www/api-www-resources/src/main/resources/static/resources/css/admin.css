@@ -1,5 +1,6 @@
 @charset "UTF-8";
-.layui-body{padding:1rem;overflow:hidden;}
+.layui-body{overflow:hidden;}
 .layui-body iframe{border:none;height:100%;width:100%;}
 .iframe-background{background-color:#F2F2F2;}
 .iframe-content{padding:1rem;}
+.layui-nav-tree .layui-nav-item a{cursor:pointer;}

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<#include "/admin/head.ftl" >
-		<title>管理员列表</title>
+		<title>系统用户</title>
 		<#include "/admin/resources.ftl" >
 	</head>
 	<body>
@@ -14,7 +14,7 @@
 				<div class="layui-inline">
 					<input class="layui-input" name="name" id="nameInput" placeholder="账号" autocomplete="off" />
 				</div>
-				<button class="layui-btn" id="data-reload">搜索</button>
+				<button class="layui-btn" id="data-search">搜索</button>
 			</div>
 			<table class="layui-table" id="data-table" lay-filter="data-table"></table>
 		</div>
@@ -22,7 +22,7 @@
 			<a class="layui-btn layui-btn-sm layui-btn-danger" lay-event="delete">删除</a>
 		</script>
 		<script type="text/javascript">
-		layui.use('table', function() {
+		layui.use(['table', 'element'], function() {
 			var $ = layui.$;
 			var table = layui.table;
 			table.render({
@@ -38,7 +38,7 @@
 				id : 'data-table-model',
 				page : true
 			});
-			$('#data-reload').on('click', function() {
+			$('#data-search').on('click', function() {
 				var idInput = $('#idInput');
 				var nameInput = $('#nameInput');
 				table.reload('data-table-model', {
@@ -52,17 +52,15 @@
 			table.on('tool(data-table)', function(obj) {
 				var data = obj.data;
 				if(obj.event == 'delete') {
-					layer.confirm('确定删除管理员（' + data.name + '）吗？', {icon : 3, title : '提示'}, function(index) {
+					layer.confirm('确定删除系统用户（' + data.name + '）吗？', {icon : 3, title : '提示'}, function(index) {
 						layer.closeAll();
 						layer.open({type : 3});
 						layui.jquery.post("/admin/delete", {
 							id : data.id
 						}, function(message) {
 							layer.closeAll();
-							layer.alert('管理员已刷新', {icon : 1}, function() {
-								table.reload('data-table-model');
-								layer.closeAll();
-							});
+							table.reload('data-table-model');
+							layer.alert('系统用户删除成功', {icon : 1});
 						});
 					});
 				}

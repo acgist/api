@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<#include "/admin/head.ftl" >
-		<title>实例列表</title>
+		<title>服务实例</title>
 		<#include "/admin/resources.ftl" >
 	</head>
 	<body>
@@ -25,7 +25,7 @@
 			{{#  }); }}
 		</script>
 		<script type="text/javascript">
-		layui.use('table', function() {
+		layui.use(['table', 'element'], function() {
 			var table = layui.table;
 			table.on('tool(data-table)', function(obj) {
 				var data = obj.data;

@@ -11,12 +11,12 @@ public class LoginController {
 
 	@GetMapping()
 	public String login() {
-		return "/login/index";
+		return "/login";
 	}
 	
 	@PostMapping()
 	public String login(String name, String password) {
-		return "/login/index";
+		return "/login";
 	}
 
 }

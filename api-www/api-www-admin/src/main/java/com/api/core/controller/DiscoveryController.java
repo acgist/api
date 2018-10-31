@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.api.core.pojo.vo.LayuiTable;
+import com.api.core.pojo.layui.LayuiTable;
 import com.api.core.service.DiscoveryService;
 
 /**

@@ -18,6 +18,8 @@ public class FreemarkerConfig {
 	
 	@Value("${system.static.base:}")
 	private String staticBase;
+	@Value("${spring.freemarker.settings.classic_compatible:true}")
+	private Boolean compatible;
 	
 	@Autowired
 	private freemarker.template.Configuration configuration;
@@ -26,6 +28,7 @@ public class FreemarkerConfig {
 	public void init() throws Exception {
 		LOGGER.info("初始化freemarker静态文件域名：{}", staticBase);
 		configuration.setSharedVariable("staticBase", staticBase);
+		configuration.setSetting("classic_compatible", compatible.toString()); // api-web-admin项目中不知为何没有自动配置此项
 	}
 
 }

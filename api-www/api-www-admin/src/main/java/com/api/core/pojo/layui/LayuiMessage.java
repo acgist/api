@@ -1,4 +1,4 @@
-package com.api.core.pojo.vo;
+package com.api.core.pojo.layui;
 
 import java.io.Serializable;
 
@@ -14,11 +14,19 @@ public class LayuiMessage implements Serializable {
 	private String code;
 	private String message;
 
+	public static final LayuiMessage success() {
+		return build(APICode.CODE_0000);
+	}
+	
 	public static final LayuiMessage build(APICode code) {
-		LayuiMessage message = new LayuiMessage();
-		message.code = code.getCode();
-		message.message = code.getMessage();
-		return message;
+		return build(code.getCode(), code.getMessage());
+	}
+	
+	public static final LayuiMessage build(String code, String message) {
+		LayuiMessage layuiMessage = new LayuiMessage();
+		layuiMessage.code = code;
+		layuiMessage.message = message;
+		return layuiMessage;
 	}
 	
 	public String getCode() {
