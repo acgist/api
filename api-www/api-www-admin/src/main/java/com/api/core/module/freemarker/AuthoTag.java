@@ -12,6 +12,7 @@ import com.api.core.security.AdminDetails;
 import com.api.core.service.PermissionService;
 
 import freemarker.core.Environment;
+import freemarker.template.SimpleScalar;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateException;
@@ -32,8 +33,10 @@ public class AuthoTag implements TemplateDirectiveModel {
 	@Override
 	@SuppressWarnings("rawtypes")
 	public void execute(Environment env, Map params, TemplateModel[] model, TemplateDirectiveBody body) throws TemplateException, IOException {
-		String name = (String) params.get(KEY_NAME);
-		String pattern = (String) params.get(KEY_PATTERN);
+		SimpleScalar nameScalar = (SimpleScalar) params.get(KEY_NAME);
+		SimpleScalar patternScalar = (SimpleScalar) params.get(KEY_PATTERN);
+		String name = nameScalar.getAsString();
+		String pattern = patternScalar.getAsString();
 		if(!(name(name) || pattern(pattern))) {
 			return;
 		}
