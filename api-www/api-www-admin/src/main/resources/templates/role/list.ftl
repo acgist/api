@@ -27,9 +27,9 @@
 				url : '/role/list',
 				cols : [[
 					{checkbox : true, fixed : true},
-					{field : 'name', width : 200, sort : true},
-					{field : 'memo'},
-					{toolbar : '#handle', width : 400}
+					{title : '角色名称', field : 'name', width : 200, sort : true},
+					{title : '角色描述', field : 'memo'},
+					{title : '操作', toolbar : '#handle', width : 400}
 				]],
 				id : 'data-table-model'
 			});

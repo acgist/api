@@ -9,16 +9,16 @@
 		<div class="iframe-content">
 			<div class="data-filter">
 				<div class="layui-inline">
-					<input class="layui-input" name="id" id="idInput" placeholder="ID" autocomplete="off" />
-				</div>
-				<div class="layui-inline">
 					<input class="layui-input" name="name" id="nameInput" placeholder="账号" autocomplete="off" />
 				</div>
-				<button class="layui-btn" id="data-search">搜索</button>
+				<button class="layui-btn layui-btn-normal" id="data-search">搜索</button>
+				<button class="layui-btn" id="create">新建</button>
 			</div>
 			<table class="layui-table" id="data-table" lay-filter="data-table"></table>
 		</div>
 		<script type="text/html" id="handle">
+			<a class="layui-btn layui-btn-sm" lay-event="update">修改</a>
+			<a class="layui-btn layui-btn-sm layui-btn-normal" lay-event="role">角色</a>
 			<a class="layui-btn layui-btn-sm layui-btn-danger" lay-event="delete">删除</a>
 		</script>
 		<script type="text/javascript">
@@ -31,22 +31,28 @@
 				url : '/admin/list',
 				cols : [[
 					{checkbox : true, fixed : true},
-					{field : 'name', width : 200, sort : true},
-					{field : 'memo', width : 200},
-					{toolbar : '#handle'}
+					{title : '用户账号', field : 'name', width : 200, sort : true},
+					{title : '用户描述', field : 'memo', width : 200},
+					{title : '操作', toolbar : '#handle'}
 				]],
 				id : 'data-table-model',
 				page : true
 			});
 			$('#data-search').on('click', function() {
-				var idInput = $('#idInput');
 				var nameInput = $('#nameInput');
 				table.reload('data-table-model', {
 					page : {curr : 1},
 					where : {
-						id : idInput.val(),
 						name : nameInput.val()
 					}
+				});
+			});
+			$("#create").on('click', function() {
+				layer.open({
+					type : 2,
+					title : '添加用户',
+					area : ['800px', '400px'],
+					content : '/admin/submit'
 				});
 			});
 			table.on('tool(data-table)', function(obj) {
@@ -62,6 +68,20 @@
 							table.reload('data-table-model');
 							layer.alert('系统用户删除成功', {icon : 1});
 						});
+					});
+				} else if(obj.event == 'update') {
+					layer.open({
+						type : 2,
+						title : '修改用户',
+						area : ['800px', '400px'],
+						content : '/admin/update?id=' + data.id
+					});
+				} else if(obj.event == 'role') {
+					layer.open({
+						type : 2,
+						title : '设置角色',
+						area : ['800px', '400px'],
+						content : '/admin/role?id=' + data.id
 					});
 				}
 			});

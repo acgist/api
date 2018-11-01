@@ -49,7 +49,7 @@ public class RoleEntity extends BaseEntity {
 		this.memo = memo;
 	}
 
-	@ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
 	@JoinTable(
 		name = "ts_role_permission",
 		joinColumns = @JoinColumn(
@@ -71,4 +71,11 @@ public class RoleEntity extends BaseEntity {
 		this.permissions = permissions;
 	}
 
+	public boolean hasPermission(PermissionEntity permission) {
+		if(permissions == null) {
+			return false;
+		}
+		return permissions.contains(permission);
+	}
+	
 }

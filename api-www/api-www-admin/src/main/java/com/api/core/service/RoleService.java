@@ -36,7 +36,7 @@ public class RoleService extends EntityService<RoleEntity> {
 		Stream.of(pids).forEach(pid -> {
 			list.add(permissionRepository.findOne(pid));
 		});
-		repository.save(role);
+		repository.saveAndFlush(role);
 	}
 	
 }

@@ -117,11 +117,6 @@
 						return '权限名称不能少于两个字符';
 					}
 				},
-				pattern : function(value) {
-					if(value.length < 2) {
-						return '权限地址不能少于两个字符';
-					}
-				},
 				sort : [/^\d{4}$/, '四位排序数字']
 			});
 		});

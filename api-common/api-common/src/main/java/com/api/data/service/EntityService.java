@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import com.api.data.pojo.entity.BaseEntity;
+import com.api.data.pojo.select.PageQuery;
+import com.api.data.pojo.select.PageResult;
 import com.api.data.repository.BaseExtendRepository;
 
 /**
@@ -40,6 +42,10 @@ public class EntityService<T extends BaseEntity> implements APIEntityService {
 	
 	public List<T> findAll() {
 		return repository.findAll();
+	}
+	
+	public PageResult<T> findPage(PageQuery pageQuery) {
+		return repository.findPage(pageQuery);
 	}
 	
 }

@@ -17,7 +17,7 @@ public class TurbineController extends org.springframework.cloud.netflix.turbine
 		super(hystrixSubject);
 	}
 
-	@GetMapping(value = "/turbine.stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+	@GetMapping(value = "/hystrix/turbine.stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
 	public Flux<String> stream() {
 		return super.stream();
 	}

@@ -59,7 +59,7 @@ public class AdminEntity extends BaseEntity {
 		this.memo = memo;
 	}
 
-	@ManyToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
 	@JoinTable(
 		name = "ts_admin_role",
 		joinColumns = @JoinColumn(
@@ -79,6 +79,22 @@ public class AdminEntity extends BaseEntity {
 
 	public void setRoles(List<RoleEntity> roles) {
 		this.roles = roles;
+	}
+	
+	public boolean hasRole(RoleEntity role) {
+		if(this.roles == null) {
+			return false;
+		}
+		return roles.contains(role);
+	}
+	
+	public boolean hasPermission(PermissionEntity permission) {
+		if(roles == null) {
+			return false;
+		}
+		return roles
+			.stream()
+			.anyMatch(role -> role.hasPermission(permission));
 	}
 	
 }

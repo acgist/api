@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<#include "/admin/head.ftl" >
-		<title>系统角色</title>
+		<title>系统用户</title>
 		<#include "/admin/resources.ftl" >
 	</head>
 	<body>
@@ -12,13 +12,19 @@
 				<div class="layui-form-item">
 					<label class="layui-form-label">名称</label>
 					<div class="layui-input-block">
-						<input type="text" name="name" value="${entity.name}" lay-verify="name" autocomplete="off" placeholder="角色名称" class="layui-input" />
+						<input type="text" name="name" value="${entity.name}" lay-verify="name" autocomplete="off" placeholder="用户名称" class="layui-input" />
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">密码</label>
+					<div class="layui-input-block">
+						<input type="text" name="password" value="${entity.password}" lay-verify="password" autocomplete="off" placeholder="用户密码" class="layui-input" />
 					</div>
 				</div>
 				<div class="layui-form-item layui-form-text">
 					<label class="layui-form-label">描述</label>
 					<div class="layui-input-block">
-						<textarea name="memo" placeholder="角色描述" class="layui-textarea">${entity.memo}</textarea>
+						<textarea name="memo" placeholder="用户描述" class="layui-textarea">${entity.memo}</textarea>
 					</div>
 				</div>
 				<div class="layui-form-item">
@@ -32,7 +38,7 @@
 		layui.use(['form', 'jquery', 'element'], function() {
 			var form = layui.form;
 			form.on('submit(submit)', function(data) {
-				layui.jquery.post("${entity???string("/role/update", "/role/submit")}", data.field, function(data) {
+				layui.jquery.post("${entity???string("/admin/update", "/admin/submit")}", data.field, function(data) {
 					parent.layui.table.reload('data-table-model');
 					parent.layer.closeAll();
 					parent.layer.alert("${entity???string("修改", "添加")}成功", {icon : 1});
@@ -42,7 +48,12 @@
 			form.verify({
 				name : function(value) {
 					if(value.length < 2) {
-						return '角色名称不能少于两个字符';
+						return '用户名称不能少于两个字符';
+					}
+				},
+				password : function(value) {
+					if(value.length < 6) {
+						return '用户密码不能少于六个字符';
 					}
 				}
 			});
