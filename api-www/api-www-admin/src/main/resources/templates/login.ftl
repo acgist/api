@@ -28,13 +28,13 @@
 
 	<body>
 		<div class="container-fluid text-center admin-login">
-			<form class="login" action="/login">
+			<form class="login" action="/login" method="POST">
 				<img class="mb-4 logo" src="${staticBase}/resources/images/logo.png" alt="admin" width="72" height="72" />
 				<h1 class="h3 mb-3 font-weight-normal">后台登录</h1>
-				<label for="name" class="sr-only">用户账号</label>
-				<input type="text" id="name" class="form-control" placeholder="用户账号" required autofocus />
+				<label for="username" class="sr-only">用户账号</label>
+				<input type="text" id="username" name="username" class="form-control" placeholder="用户账号" required autofocus />
 				<label for="password" class="sr-only">用户密码</label>
-				<input type="password" id="password" class="form-control" placeholder="用户密码" required />
+				<input type="password" id="password" name="password" class="form-control" placeholder="用户密码" required />
 				<button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
 			</form>
 			<p>Copyright <span>&copy;</span> 2013-${.now?string("yyyy")} ACGIST.COM. All Rights Reserved.</p>

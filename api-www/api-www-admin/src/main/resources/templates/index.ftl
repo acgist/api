@@ -11,15 +11,14 @@
 				<div class="layui-logo">API-ADMIN</div>
 				<ul class="layui-nav layui-layout-right">
 					<li class="layui-nav-item">
-						<a href="javascript:;"><img src="${staticBase}/resources/images/logo.png" class="layui-nav-img">贤心</a>
+						<a href="/admin/info" target="api-content">
+							<img src="${staticBase}/resources/images/logo.png" class="layui-nav-img" />${adminDetails.name}
+						</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a href="">基本资料</a>
+								<a href="/logout">退出</a>
 							</dd>
 						</dl>
-					</li>
-					<li class="layui-nav-item">
-						<a href="">退出</a>
 					</li>
 				</ul>
 			</div>
@@ -37,6 +36,9 @@
 								</dd>
 								<dd>
 									<a href="/permission/tree" target="api-content">系统权限</a>
+								</dd>
+								<dd>
+									<a href="/system/setting" target="api-content">系统设置</a>
 								</dd>
 							</dl>
 						</li>
@@ -58,9 +60,11 @@
 								</dd>
 							</dl>
 						</li>
+						<@autho name="test">
 						<li class="layui-nav-item">
 							<a href="javascript:;">用户管理</a>
 						</li>
+						</@autho>
 						<li class="layui-nav-item">
 							<a href="javascript:;">订单管理</a>
 						</li>

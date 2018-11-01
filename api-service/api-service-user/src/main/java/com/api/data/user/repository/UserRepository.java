@@ -9,7 +9,7 @@ import com.api.data.user.pojo.entity.UserEntity;
 @Repository
 public interface UserRepository extends BaseRepository<UserEntity> {
 
-	@Query("SELECT user FROM UserEntity user WHERE user.name = :name")
+	@Query(value = "SELECT * FROM tb_user user WHERE user.name = :name LIMIT 1", nativeQuery = true)
 	UserEntity findName(String name);
 	
 }
