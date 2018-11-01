@@ -35,8 +35,8 @@ public class AuthoTag implements TemplateDirectiveModel {
 	public void execute(Environment env, Map params, TemplateModel[] model, TemplateDirectiveBody body) throws TemplateException, IOException {
 		SimpleScalar nameScalar = (SimpleScalar) params.get(KEY_NAME);
 		SimpleScalar patternScalar = (SimpleScalar) params.get(KEY_PATTERN);
-		String name = nameScalar.getAsString();
-		String pattern = patternScalar.getAsString();
+		String name = nameScalar == null ? null : nameScalar.getAsString();
+		String pattern = patternScalar == null ? null : patternScalar.getAsString();
 		if(!(name(name) || pattern(pattern))) {
 			return;
 		}
