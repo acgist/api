@@ -1,6 +1,7 @@
 package com.api.core.order.service;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.api.core.config.APIConstURL;
@@ -18,6 +19,6 @@ public interface IOrderService {
 	 * 创建订单
 	 */
 	@PostMapping(APIConstOrderURL.URL_ORDER)
-	OrderMessage order(OrderEntity order);
+	OrderMessage order(@RequestBody OrderEntity order);
 
 }

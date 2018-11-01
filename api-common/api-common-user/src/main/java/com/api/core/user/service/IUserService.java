@@ -2,6 +2,7 @@ package com.api.core.user.service;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.api.core.config.APIConstURL;
 import com.api.core.user.config.APIConstUserURL;
@@ -20,7 +21,7 @@ public interface IUserService {
 	 * @return 鉴权信息
 	 */
 	@PostMapping(APIConstUserURL.URL_USER_AUTHO)
-	AuthoMessage autho(String name);
+	AuthoMessage autho(@RequestParam String name);
 
 	/**
 	 * 登陆
@@ -29,6 +30,6 @@ public interface IUserService {
 	 * @return 登陆结果
 	 */
 	@PostMapping(APIConstUserURL.URL_USER_LOGIN)
-	LoginMessage login(String name, String password);
+	LoginMessage login(@RequestParam String name, @RequestParam String password);
 	
 }

@@ -11,6 +11,7 @@ import org.springframework.cloud.netflix.turbine.stream.EnableTurbineStream;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.api.core.controller.TurbineController;
@@ -29,6 +30,7 @@ import zipkin2.server.internal.EnableZipkinServer;
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = "com.api.data.**.repository", repositoryBaseClass = BaseExtendRepositoryImpl.class)
 @EnableHystrixDashboard
+@EnableRedisHttpSession
 @EnableTransactionManagement
 public class ApiWwwAdminApplication {
 

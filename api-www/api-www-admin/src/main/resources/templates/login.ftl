@@ -21,7 +21,7 @@
 			.login .form-control{position:relative;box-sizing:border-box;height:auto;padding:10px;font-size:16px;}
 			.login .logo{border-radius:50%;}
 			.login .form-control:focus{z-index:2;}
-			.login input[type="email"]{margin-bottom:-1px;border-bottom-right-radius:0;border-bottom-left-radius:0;}
+			.login input[type="text"]{margin-bottom:-1px;border-bottom-right-radius:0;border-bottom-left-radius:0;}
 			.login input[type="password"]{margin-bottom:10px;border-top-left-radius:0;border-top-right-radius:0;}
 		</style>
 	</head>
@@ -31,8 +31,8 @@
 			<form class="login" action="/login">
 				<img class="mb-4 logo" src="${staticBase}/resources/images/logo.png" alt="admin" width="72" height="72" />
 				<h1 class="h3 mb-3 font-weight-normal">后台登录</h1>
-				<label for="email" class="sr-only">用户账号</label>
-				<input type="email" id="email" class="form-control" placeholder="用户账号" required autofocus />
+				<label for="name" class="sr-only">用户账号</label>
+				<input type="text" id="name" class="form-control" placeholder="用户账号" required autofocus />
 				<label for="password" class="sr-only">用户密码</label>
 				<input type="password" id="password" class="form-control" placeholder="用户密码" required />
 				<button class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>

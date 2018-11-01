@@ -79,6 +79,10 @@ https://github.com/creativetimofficial/material-dashboard
 |/gateway/api/**|网关接口|
 /service/**|服务|
 
+#### 服务接口
+* 服务接口要@RequestBody、@RequestParam指定类型，如果是多个String类型，必须使用@RequestParam。
+* 服务实现类@RequestBody必须要指定。
+
 #### 数据库表名称
 ts_系统表
 tb_业务表

@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
+import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -20,7 +21,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * 系统用户
  */
 @Entity
-@Table(name = "ts_admin")
+@Table(name = "ts_admin", indexes = {
+	@Index(name = "index_admin_name", columnList = "name", unique = true)
+})
 @GenericGenerator(name = "sequenceGenerator", strategy = "uuid")
 public class AdminEntity extends BaseEntity {
 

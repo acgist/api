@@ -1,11 +1,11 @@
 package com.api.core.user.pojo.message;
 
-import com.api.core.pojo.message.BaseMessage;
+import com.api.core.pojo.message.ResultMessage;
 
 /**
  * 结果
  */
-public class AuthoMessage extends BaseMessage {
+public class AuthoMessage extends ResultMessage {
 
 	private static final long serialVersionUID = 1L;
 

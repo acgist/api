@@ -12,7 +12,7 @@
 				<div class="layui-form-item">
 					<label class="layui-form-label">名称</label>
 					<div class="layui-input-block">
-						<input type="text" name="name" value="${entity.name}" lay-verify="name" autocomplete="off" placeholder="用户名称" class="layui-input" />
+						<input type="text" name="name" value="${entity.name}" ${entity???string('readonly', '')} lay-verify="name" autocomplete="off" placeholder="用户名称" class="layui-input" />
 					</div>
 				</div>
 				<div class="layui-form-item">
@@ -46,16 +46,8 @@
 				return false;
 			});
 			form.verify({
-				name : function(value) {
-					if(value.length < 2) {
-						return '用户名称不能少于两个字符';
-					}
-				},
-				password : function(value) {
-					if(value.length < 6) {
-						return '用户密码不能少于六个字符';
-					}
-				}
+				name : [/^[a-zA-Z]{4,}$/, '用户账号不少于四个英文字符'],
+				password : [/^[a-zA-Z0-9]{6,}$/, '用户密码不少于六位数字或英文字符']
 			});
 		});
 		</script>
