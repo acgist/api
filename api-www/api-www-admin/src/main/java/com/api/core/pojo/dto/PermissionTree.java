@@ -6,14 +6,17 @@ import java.util.List;
 
 import com.api.data.pojo.entity.PermissionEntity;
 
-public class PermissionPackage implements Serializable {
+/**
+ * 权限树
+ */
+public class PermissionTree implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private String name;
 	private Boolean checked;
 	private PermissionEntity entity;
-	private List<PermissionPackage> children;
+	private List<PermissionTree> children;
 
 	public String getName() {
 		return name;
@@ -39,19 +42,19 @@ public class PermissionPackage implements Serializable {
 		this.entity = entity;
 	}
 
-	public List<PermissionPackage> getChildren() {
+	public List<PermissionTree> getChildren() {
 		return children;
 	}
 
-	public void setChildren(List<PermissionPackage> children) {
+	public void setChildren(List<PermissionTree> children) {
 		this.children = children;
 	}
 
-	public void addChildren(PermissionPackage permissionPackage) {
+	public void addChildren(PermissionTree permissionTree) {
 		if(this.children == null) {
 			this.children = new ArrayList<>();
 		}
-		this.children.add(permissionPackage);
+		this.children.add(permissionTree);
 	}
 	
 }

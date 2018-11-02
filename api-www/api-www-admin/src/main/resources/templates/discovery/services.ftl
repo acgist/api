@@ -18,7 +18,10 @@
 			</table>
 		</div>
 		<script type="text/html" id="handle">
+			<@autho pattern="/discovery/**">
 			<a class="layui-btn layui-btn-sm" href="/discovery/{{d.serviceId}}">查看实例</a>
+			</@autho>
+			<@autho pattern="/endpoint/bus/refresh">
 			{{#  if(d.instances.length > 0) { }}
 			{{#  layui.each(d.instances[0].endpointInfos, function(index, info) { }}
 			{{#  if(info.key == 'actuator_bus_refresh') { }}
@@ -26,6 +29,7 @@
 			{{#  }; }}
 			{{#  }); }}
 			{{#  }; }}
+			</@autho>
 		</script>
 		<script type="text/javascript">
 		layui.use(['table', 'jquery', 'element'], function() {

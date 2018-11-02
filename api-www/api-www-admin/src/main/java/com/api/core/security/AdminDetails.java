@@ -24,22 +24,22 @@ public class AdminDetails implements UserDetails {
 
 	private String name;
 	private String password;
+	private List<String> roles; // 用户角色
 	private List<String> permissions; // 菜单名称
-	private List<SimpleGrantedAuthority> authorities; // 用户角色
 	
 	public AdminDetails(AdminEntity admin) {
 		this.name = admin.getName();
 		this.password = admin.getPassword();
-		this.permissions = admin.getRoles().stream()
-			.map(role -> role.getPermissions())
-			.flatMap(list -> list.stream())
-			.map(PermissionEntity::getName)
-			.collect(Collectors.toList());
-		this.authorities = admin.getRoles()
-			.stream()
-			.map(RoleEntity::getName)
-			.map(SimpleGrantedAuthority::new)
-			.collect(Collectors.toList());
+		if(admin.getRoles() != null) {
+			this.roles = admin.getRoles().stream()
+				.map(RoleEntity::getName)
+				.collect(Collectors.toList());
+			this.permissions = admin.getRoles().stream()
+				.map(RoleEntity::getPermissions)
+				.flatMap(list -> list.stream())
+				.map(PermissionEntity::getName)
+				.collect(Collectors.toList());
+		}
 	}
 
 	/**
@@ -47,7 +47,12 @@ public class AdminDetails implements UserDetails {
 	 */
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return this.authorities;
+		if(this.roles == null) {
+			return List.of();
+		}
+		return this.roles.stream()
+			.map(SimpleGrantedAuthority::new)
+			.collect(Collectors.toList());
 	}
 	
 	@Override

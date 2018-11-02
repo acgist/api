@@ -18,11 +18,13 @@
 			</table>
 		</div>
 		<script type="text/html" id="handle">
+			<@autho pattern="/endpoint/shutdown">
 			{{#  layui.each(d.endpointInfos, function(index, info) { }}
 			{{#  if(info.key == 'actuator_shutdown') { }}
 			<a class="layui-btn layui-btn-sm layui-btn-danger" lay-event="shutdown">{{ info.name }}</a>
 			{{#  }; }}
 			{{#  }); }}
+			</@autho>
 		</script>
 		<script type="text/javascript">
 		layui.use(['table', 'element'], function() {

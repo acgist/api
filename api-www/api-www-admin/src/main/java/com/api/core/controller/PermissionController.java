@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.api.core.gateway.APICode;
-import com.api.core.pojo.dto.PermissionPackage;
+import com.api.core.pojo.dto.PermissionTree;
 import com.api.core.pojo.layui.LayuiMessage;
 import com.api.core.service.PermissionService;
 import com.api.data.pojo.entity.PermissionEntity;
@@ -29,9 +29,9 @@ public class PermissionController {
 	
 	@ResponseBody
 	@PostMapping("/tree")
-	public List<PermissionPackage> treePost() {
-		PermissionPackage permissionPackage = permissionService.tree();
-		return permissionPackage.getChildren();
+	public List<PermissionTree> treePost() {
+		PermissionTree tree = permissionService.tree();
+		return tree.getChildren();
 	}
 	
 	@ResponseBody

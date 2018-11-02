@@ -30,6 +30,8 @@ import com.api.core.service.PermissionService;
 public class APISecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(APISecurityMetadataSource.class);
+
+	private static final List<String> ALLOW_ATTRIBUTES = new ArrayList<>();
 	
 	@Value("${system.security.allow.attributes:}")
 	private String allowAttributes;
@@ -37,7 +39,6 @@ public class APISecurityMetadataSource implements FilterInvocationSecurityMetada
 	@Autowired
 	private PermissionService permissionService;
 	
-	private static final List<String> ALLOW_ATTRIBUTES = new ArrayList<>();
 	
 	@PostConstruct
 	public void init() {

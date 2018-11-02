@@ -12,7 +12,8 @@
 				<ul class="layui-nav layui-layout-right">
 					<li class="layui-nav-item">
 						<a href="/admin/info" target="api-content">
-							<img src="${staticBase}/resources/images/logo.png" class="layui-nav-img" />${adminDetails.name}
+							<img src="${staticBase}/resources/images/logo.png" class="layui-nav-img" />
+							${adminDetails.name}
 						</a>
 						<dl class="layui-nav-child">
 							<dd>
@@ -25,49 +26,65 @@
 			<div class="layui-side layui-bg-black">
 				<div class="layui-side-scroll">
 					<ul class="layui-nav layui-nav-tree" lay-filter="test">
+						<@autho name="系统管理">
 						<li class="layui-nav-item">
 							<a>系统管理</a>
 							<dl class="layui-nav-child">
+								<@autho pattern="/admin/list">
 								<dd>
 									<a href="/admin/list" target="api-content">系统用户</a>
 								</dd>
+								</@autho>
+								<@autho pattern="/role/list">
 								<dd>
 									<a href="/role/list" target="api-content">系统角色</a>
 								</dd>
+								</@autho>
+								<@autho pattern="/permission/tree">
 								<dd>
 									<a href="/permission/tree" target="api-content">系统权限</a>
 								</dd>
+								</@autho>
+								<@autho pattern="/system/setting">
 								<dd>
 									<a href="/system/setting" target="api-content">系统设置</a>
 								</dd>
+								</@autho>
 							</dl>
 						</li>
+						</@autho>
+						<@autho name="服务管理">
 						<li class="layui-nav-item">
 							<a>服务管理</a>
 							<dl class="layui-nav-child">
+								<@autho pattern="/discovery">
 								<dd>
 									<a href="/discovery" target="api-content">服务列表</a>
 								</dd>
-							</dl>
-							<dl class="layui-nav-child">
+								</@autho>
+								<@autho pattern="/hystrix/">
 								<dd>
 									<a href="/hystrix/" target="api-content">服务监控</a>
 								</dd>
-							</dl>
-							<dl class="layui-nav-child">
+								</@autho>
+								<@autho pattern="/zipkin/">
 								<dd>
 									<a href="/zipkin/" target="api-content">链路监控</a>
 								</dd>
+								</@autho>
 							</dl>
 						</li>
-						<@autho name="test">
+						</@autho>
+						<@autho name="用户管理">
 						<li class="layui-nav-item">
 							<a href="javascript:;">用户管理</a>
 						</li>
 						</@autho>
+						<@autho name="订单管理">
 						<li class="layui-nav-item">
 							<a href="javascript:;">订单管理</a>
 						</li>
+						</@autho>
 					</ul>
 				</div>
 			</div>

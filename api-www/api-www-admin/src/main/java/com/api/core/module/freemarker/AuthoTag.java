@@ -24,7 +24,7 @@ import freemarker.template.TemplateModel;
 @Component
 public class AuthoTag implements TemplateDirectiveModel {
 	
-	private static final String KEY_NAME = "name"; // 菜单
+	private static final String KEY_NAME = "name"; // 菜单名称
 	private static final String KEY_PATTERN = "pattern"; // 菜单路径
 	
 	@Autowired

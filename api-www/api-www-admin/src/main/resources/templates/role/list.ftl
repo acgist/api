@@ -8,14 +8,22 @@
 	<body>
 		<div class="iframe-content">
 			<div class="layui-btn-group">
+				<@autho pattern="/role/submit">
 				<button class="layui-btn" id="create">新建</button>
+				</@autho>
 			</div>
 			<table class="layui-table" id="data-table" lay-filter="data-table"></table>
 		</div>
 		<script type="text/html" id="handle">
+			<@autho pattern="/role/update">
 			<a class="layui-btn layui-btn-sm" lay-event="update">修改</a>
+			</@autho>
+			<@autho pattern="/role/permission">
 			<a class="layui-btn layui-btn-sm layui-btn-normal" lay-event="permission">权限</a>
+			</@autho>
+			<@autho pattern="/role/delete">
 			<a class="layui-btn layui-btn-sm layui-btn-danger" lay-event="delete">删除</a>
+			</@autho>
 		</script>
 		<script type="text/javascript">
 		layui.use(['layer', 'table'], function() {

@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.AntPathMatcher;
 
-import com.api.core.pojo.dto.PermissionPackage;
+import com.api.core.pojo.dto.PermissionTree;
 import com.api.data.pojo.entity.PermissionEntity;
 import com.api.data.pojo.entity.RoleEntity;
 import com.api.data.repository.PermissionRepository;
@@ -26,8 +26,10 @@ import com.api.data.service.EntityService;
 @Service
 public class PermissionService extends EntityService<PermissionEntity> {
 
-	private static final Map<String, List<String>> PERMISSION_ROLES = new HashMap<>();
 	private static final Logger LOGGER = LoggerFactory.getLogger(PermissionService.class);
+	
+	// 权限路径和角色映射
+	private static final Map<String, List<String>> PERMISSION_ROLES = new HashMap<>();
 	
 	@Autowired
 	private RoleRepository roleRepository;
@@ -41,30 +43,37 @@ public class PermissionService extends EntityService<PermissionEntity> {
 	public void init() {
 		initPermissionRoles();
 	}
-	
-	public PermissionPackage tree() {
+
+	/**
+	 * 权限树
+	 */
+	public PermissionTree tree() {
 		return tree(null);
 	}
 	
-	public PermissionPackage tree(List<PermissionEntity> list) {
-		PermissionPackage root = new PermissionPackage();
+	/**
+	 * 获取权限树
+	 * @param list 当前已有权限
+	 */
+	public PermissionTree tree(List<PermissionEntity> list) {
+		PermissionTree root = new PermissionTree();
 		root.setName("根节点");
-		List<PermissionPackage> packages = repository
+		List<PermissionTree> packages = repository
 			.findAll()
 			.stream()
 			.sorted((a, b) -> {
 				return (a.getSort() != null || b.getSort() != null) ? 0 : a.getSort().compareTo(b.getSort());
 			})
 			.map(value -> {
-				PermissionPackage permissionPackage = new PermissionPackage();
-				permissionPackage.setName(value.getName());
-				permissionPackage.setEntity(value);
+				PermissionTree permissionTree = new PermissionTree();
+				permissionTree.setName(value.getName());
+				permissionTree.setEntity(value);
 				if(list != null) {
-					permissionPackage.setChecked(list.stream().anyMatch(entity -> entity.getId().equals(value.getId())));
+					permissionTree.setChecked(list.stream().anyMatch(entity -> entity.getId().equals(value.getId())));
 				} else {
-					permissionPackage.setChecked(Boolean.FALSE);
+					permissionTree.setChecked(Boolean.FALSE);
 				}
-				return permissionPackage;
+				return permissionTree;
 			})
 			.collect(Collectors.toList());
 		packagePermission(root, packages);
@@ -74,7 +83,7 @@ public class PermissionService extends EntityService<PermissionEntity> {
 	/**
 	 * 递归权限树
 	 */
-	private void packagePermission(PermissionPackage parent, List<PermissionPackage> list) {
+	private void packagePermission(PermissionTree parent, List<PermissionTree> list) {
 		list.forEach(permission -> {
 			final PermissionEntity parentEntity = parent.getEntity();
 			final PermissionEntity permissionEntity = permission.getEntity();

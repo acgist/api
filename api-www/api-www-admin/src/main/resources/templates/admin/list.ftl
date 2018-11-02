@@ -12,14 +12,22 @@
 					<input class="layui-input" name="name" id="nameInput" placeholder="账号" autocomplete="off" />
 				</div>
 				<button class="layui-btn layui-btn-normal" id="data-search">搜索</button>
+				<@autho pattern="/admin/submit">
 				<button class="layui-btn" id="create">新建</button>
+				</@autho>
 			</div>
 			<table class="layui-table" id="data-table" lay-filter="data-table"></table>
 		</div>
 		<script type="text/html" id="handle">
+			<@autho pattern="/admin/update">
 			<a class="layui-btn layui-btn-sm" lay-event="update">修改</a>
+			</@autho>
+			<@autho pattern="/admin/role">
 			<a class="layui-btn layui-btn-sm layui-btn-normal" lay-event="role">角色</a>
+			</@autho>
+			<@autho pattern="/admin/delete">
 			<a class="layui-btn layui-btn-sm layui-btn-danger" lay-event="delete">删除</a>
+			</@autho>
 		</script>
 		<script type="text/javascript">
 		layui.use(['table', 'element'], function() {

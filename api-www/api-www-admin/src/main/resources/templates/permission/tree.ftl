@@ -52,10 +52,18 @@
 								</div>
 								<div class="layui-form-item">
 									<div class="layui-input-block">
+										<@autho pattern="/permission/submit">
 										<button class="layui-btn" lay-submit="" lay-filter="submit">添加</button>
+										</@autho>
+										<@autho pattern="/permission/update">
 										<button class="layui-btn layui-btn-normal" lay-submit="" lay-filter="update">更新</button>
+										</@autho>
+										<@autho pattern="/permission/delete">
 										<button class="layui-btn layui-btn-danger" lay-submit="" lay-filter="delete">删除</button>
+										</@autho>
+										<@autho pattern="/permission/submit">
 										<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+										</@autho>
 									</div>
 								</div>
 							</form>
