@@ -38,6 +38,9 @@ public class ApiWwwAdminApplication {
 		SpringApplication.run(ApiWwwAdminApplication.class, args);
 	}
 	
+	/**
+	 * 重新turbine.stream监控
+	 */
 	@Bean
 	public org.springframework.cloud.netflix.turbine.stream.TurbineController turbineController(PublishSubject<Map<String, Object>> hystrixSubject) {
 		return new TurbineController(hystrixSubject);
