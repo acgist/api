@@ -2,6 +2,7 @@ package com.api.core.endpoint.impl;
 
 import com.api.core.endpoint.Endpoint;
 import com.api.core.endpoint.EndpointExecutor;
+import com.api.utils.HttpEntityUtils;
 
 /**
  * 应用关闭
@@ -14,7 +15,7 @@ public class ShutdownExecutor extends EndpointExecutor<String> {
 
 	@Override
 	public String executeEndpoint() {
-		return post(jsonEntity("{}"));
+		return post(HttpEntityUtils.jsonEntity("{}"));
 	}
 
 }

@@ -4,9 +4,6 @@ import java.net.URI;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
@@ -64,13 +61,4 @@ public abstract class EndpointExecutor<T> {
 		return null;
 	}
 	
-	/**
-	 * JSON请求数据
-	 */
-	public HttpEntity<Object> jsonEntity(Object object) {
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
-		return new HttpEntity<Object>(object, headers);
-	}
-
 }
