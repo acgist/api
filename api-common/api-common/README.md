@@ -1,5 +1,5 @@
 # 通用模块
-#### 添加数据库使用
+#### 添加数据库模块
 maven添加：
 ```
 <dependency>
@@ -15,7 +15,7 @@ maven添加：
 @EnableTransactionManagement
 ```
 
-#### 添加服务
+#### 添加服务模块
 maven添加：
 ```
 <!-- 服务调用 -->
