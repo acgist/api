@@ -25,13 +25,14 @@ Sleuth/Zipkin：链路跟踪（stream）
 Hystrix：熔断器（stream）  
 Turbine/Dashboard：熔断器仪表盘聚合（stream）
   
-#### 未使用Spring Cloud组件
+#### 未使用组件
 Task：  
 Shiro：  
 OAuth2：  
+Deeplearning4j：
 
 #### 软件版本
-* JAVA：JAVA 11、
+* JAVA：JAVA 11（LTS）、
 ~~JAVA：10~~
 * Redis：3.2.100
 * MySQL：5.7.13
@@ -101,3 +102,7 @@ feign模块以及包含hystrix熔断功能，但是没有端点监控功能（@E
 
 #### 开发工具
 Spring STS：http://spring.io/tools
+
+#### 待办
+Spring Cloud等待下一个稳定版。  
+后台用户、订单管理。

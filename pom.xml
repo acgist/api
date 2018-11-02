@@ -12,6 +12,13 @@
 	<name>api-acgist</name>
 	<description>maven</description>
 
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.0.RELEASE</version>
+		<relativePath />
+	</parent>
+
 	<modules>
 		<module>api-admin</module>
 		<module>api-config</module>
@@ -31,26 +38,23 @@
 		<module>api-service/api-service-gateway</module>
 	</modules>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.0.RELEASE</version>
-		<relativePath />
-	</parent>
-
 	<properties>
+		<java.version>10</java.version>
+		<!--
 		<java.version>11</java.version>
+		-->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		
-		<spring-cloud.version>Greenwich.M1</spring-cloud.version>
-		
 		<c3p0.version>0.9.5.2</c3p0.version>
 		<zipkin.version>2.11.7</zipkin.version>
 		<activation.version>1.1.1</activation.version>
 		<jaxb-runtime.version>2.3.1</jaxb-runtime.version>
 		<commons-codec.version>1.11</commons-codec.version>
 		<commons-lang3.version>3.8.1</commons-lang3.version>
+		<spring-cloud.version>Greenwich.M1</spring-cloud.version>
+		<!--
+		<spring-cloud.version>Finchley.SR2</spring-cloud.version>
+		-->
 		<spring-boot-admin.version>2.0.4</spring-boot-admin.version>
 		<commons-beanutils.version>1.9.3</commons-beanutils.version>
 		<mysql-connector-java.version>5.1.47</mysql-connector-java.version>
@@ -152,5 +156,26 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- Spring Cloud非开发版MAVEN库 -->
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 </project>
