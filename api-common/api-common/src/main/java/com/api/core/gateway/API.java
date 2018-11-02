@@ -22,14 +22,32 @@ public abstract class API implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	public static final String PROPERTY_SIGN = "sign"; // 签名字符串
+	public static final String PROPERTY_USERNAME = "username"; // 用户账号
+	public static final String PROPERTY_SIGN = "sign"; // 签名
 	public static final String DEFAULT_CHARSET = "UTF-8"; // 系统默认编码
 
+	@NotBlank(message = "用户帐号不能为空")
+	protected String username; // 用户账号
 	protected String queryId; // 请求ID
 	protected String reserved; // 原样返回数据
-//	@JsonIgnore // 忽略序列化属性
 	@NotBlank(message = "签名不能为空")
 	protected String sign; // 签名
+	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getQueryId() {
+		return queryId;
+	}
+
+	public void setQueryId(String queryId) {
+		this.queryId = queryId;
+	}
 	
 	public String getReserved() {
 		return reserved;
@@ -37,14 +55,6 @@ public abstract class API implements Serializable {
 	
 	public void setReserved(String reserved) {
 		this.reserved = reserved;
-	}
-	
-	public String getQueryId() {
-		return queryId;
-	}
-
-	public void setQueryId(String queryId) {
-		this.queryId = queryId;
 	}
 	
 	public String getSign() {

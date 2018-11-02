@@ -1,8 +1,17 @@
 package com.api.core.filter.pre;
 
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.api.core.filter.BaseZuulFilter;
+import com.api.core.gateway.APICode;
+import com.api.core.gateway.SessionComponent;
+import com.api.core.service.SignService;
+import com.api.utils.JSONUtils;
 import com.netflix.zuul.exception.ZuulException;
 
 /**
@@ -11,6 +20,9 @@ import com.netflix.zuul.exception.ZuulException;
 @Component
 public class SignVerifyFilter extends BaseZuulFilter {
 
+	@Autowired
+	private SignService signService;
+	
 	@Override
 	public boolean shouldFilter() {
 		return permissions();
@@ -18,13 +30,19 @@ public class SignVerifyFilter extends BaseZuulFilter {
 	
 	@Override
 	public Object run() throws ZuulException {
-//		final SessionComponent session = sessionComponent();
-//		final String json = session.getJson();
-//		final Map<String, String> data = JSONUtils.jsonToMap(json);
-//		if(SignService.verify(data)) {
-//			return null;
-//		}
-//		error(APICode.CODE_3001);
+		final SessionComponent session = sessionComponent();
+		final String json = session.getJson();
+		final Map<String, String> data = JSONUtils.jsonToMap(json)
+			.entrySet()
+			.stream()
+			.map(entry -> {
+				return Map.entry(entry.getKey(), (String) entry.getValue());
+			})
+			.collect(Collectors.toMap(Entry::getKey, Entry::getValue));
+		if(signService.verify(data)) {
+			return null;
+		}
+		error(APICode.CODE_3001);
 		return null;
 	}
 

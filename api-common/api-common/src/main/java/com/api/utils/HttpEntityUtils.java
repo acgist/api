@@ -5,6 +5,8 @@ import java.util.Map;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 
 /**
  * HttpEntity工具
@@ -14,17 +16,21 @@ public class HttpEntityUtils {
 	/**
 	 * 表单请求
 	 */
-	public static final HttpEntity<Map<String, Object>> formEntity(Map<String, Object> map) {
-		HttpHeaders headers = new HttpHeaders();
+	public static final HttpEntity<MultiValueMap<String, Object>> formEntity(Map<String, Object> map) {
+		final HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-		return new HttpEntity<Map<String, Object>>(map, headers);
+		final MultiValueMap<String, Object> values = new LinkedMultiValueMap<>();
+		map.forEach((key, value) -> {
+			values.add(key, value);
+		});
+		return new HttpEntity<MultiValueMap<String, Object>>(values, headers);
 	}
 	
 	/**
 	 * JSON请求数据
 	 */
 	public static final HttpEntity<Object> jsonEntity(Object object) {
-		HttpHeaders headers = new HttpHeaders();
+		final HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
 		return new HttpEntity<Object>(object, headers);
 	}

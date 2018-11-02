@@ -101,7 +101,7 @@ public abstract class BaseZuulFilter extends ZuulFilter {
 		context.setSendZuulResponse(false);
 		context.setResponseStatusCode(status);
 		context.getResponse().setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
-		responseBody(APIResponse.builder().buildMessage(code, message));
+		responseBody(APIResponse.builder().valueOfRequest(sessionComponent().getRequest()).buildMessage(code, message));
 	}
 	
 	/**

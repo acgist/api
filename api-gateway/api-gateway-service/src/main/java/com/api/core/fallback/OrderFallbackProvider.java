@@ -16,7 +16,9 @@ import org.springframework.stereotype.Component;
 import com.api.core.config.APIConstApplication;
 import com.api.core.gateway.API;
 import com.api.core.gateway.APICode;
+import com.api.core.gateway.SessionComponent;
 import com.api.core.gateway.response.APIResponse;
+import com.netflix.zuul.context.RequestContext;
 
 /**
  * 订单-熔断器
@@ -43,7 +45,9 @@ public class OrderFallbackProvider implements FallbackProvider {
 			}
 			@Override
 			public InputStream getBody() throws IOException {
-				return new ByteArrayInputStream(APIResponse.builder().buildMessage(APICode.CODE_1002).response().getBytes(API.DEFAULT_CHARSET));
+				RequestContext context = RequestContext.getCurrentContext();
+				SessionComponent session = SessionComponent.getInstance(context);
+				return new ByteArrayInputStream(APIResponse.builder().valueOfRequest(session.getRequest()).buildMessage(APICode.CODE_1002).response().getBytes(API.DEFAULT_CHARSET));
 			}
 			@Override
 			public HttpStatus getStatusCode() throws IOException {

@@ -12,7 +12,7 @@ import com.api.core.config.APIConstCache;
 import com.api.core.user.config.APIConstUserURL;
 import com.api.core.user.pojo.message.AuthoMessage;
 import com.api.utils.HttpEntityUtils;
-import com.api.utils.HystrixUtils;
+import com.api.utils.RibbonUtils;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 /**
@@ -27,7 +27,10 @@ public class UserService {
 	@Cacheable(cacheNames = APIConstCache.CACHE_KEY_USER_AUTHO, unless = "#result == null")
 	@HystrixCommand(fallbackMethod = "authoFallback")
 	public AuthoMessage autho(String name) {
-		final String uri = HystrixUtils.buildService(APIConstApplication.API_SERVICE_USER, APIConstUserURL.URL_SERVICE_USER_AUTHO);
+		if(name == null) {
+			return null;
+		}
+		final String uri = RibbonUtils.buildService(APIConstApplication.API_SERVICE_USER, APIConstUserURL.URL_SERVICE_USER_AUTHO);
 		return restTemplate.postForEntity(uri, HttpEntityUtils.formEntity(Map.of("name", name)), AuthoMessage.class).getBody();
 	}
 	

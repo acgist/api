@@ -1,9 +1,9 @@
 package com.api.utils;
 
 /**
- * hystrix工具
+ * ribbon工具
  */
-public class HystrixUtils {
+public class RibbonUtils {
 
 	// HTTP
 	private static final String HTTP = "http://";

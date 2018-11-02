@@ -111,4 +111,11 @@ public enum APICode {
 		return message;
 	}
 	
+	/**
+	 * 判断是否成功
+	 */
+	public static final boolean success(String code) {
+		return CODE_0000.getCode().equals(code);
+	}
+	
 }
