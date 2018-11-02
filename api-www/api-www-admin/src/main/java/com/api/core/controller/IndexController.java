@@ -12,8 +12,7 @@ public class IndexController {
 
 	@GetMapping(APIConstAdminURL.URL_ADMIN_INDEX)
 	public String index(ModelMap model) {
-		AdminDetails adminDetails = AdminDetails.current();
-		model.addAttribute("adminDetails", adminDetails);
+		model.addAttribute("adminDetails", AdminDetails.current());
 		return "/index";
 	}
 

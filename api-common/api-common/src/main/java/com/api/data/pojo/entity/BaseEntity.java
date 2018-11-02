@@ -16,6 +16,7 @@ import com.api.core.pojo.message.BaseMessage;
 
 /**
  * Entity：数据库实体
+ * @Transient：不需要映射数据库的字段
  */
 @EntityListeners(EntityListener.class)
 @MappedSuperclass
@@ -23,13 +24,9 @@ public class BaseEntity extends BaseMessage {
 
 	private static final long serialVersionUID = 1L;
 
-	/** "ID"属性名称 */
 	public static final String ID_PROPERTY_NAME = "id";
-
-	/** "创建日期"属性名称 */
+	public static final String CLASS_PROPERTY_NAME = "class";
 	public static final String CREATE_DATE_PROPERTY_NAME = "createDate";
-
-	/** "修改日期"属性名称 */
 	public static final String MODIFY_DATE_PROPERTY_NAME = "modifyDate";
 
 	/** ID */

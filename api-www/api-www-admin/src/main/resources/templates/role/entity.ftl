@@ -29,7 +29,7 @@
 			</form>
 		</div>
 		<script type="text/javascript">
-		layui.use(['form', 'jquery', 'element'], function() {
+		layui.use(['form', 'layer', 'table', 'jquery', 'element'], function() {
 			var form = layui.form;
 			form.on('submit(submit)', function(data) {
 				layui.jquery.post("${entity???string("/role/update", "/role/submit")}", data.field, function(data) {

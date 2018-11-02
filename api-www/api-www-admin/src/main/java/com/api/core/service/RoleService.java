@@ -23,6 +23,11 @@ public class RoleService extends EntityService<RoleEntity> {
 		super(repository);
 	}
 
+	@Override
+	public RoleEntity update(RoleEntity t) {
+		return repository.update(t, RoleEntity.PERMISSIONS_PROPERTY_NAME);
+	}
+	
 	/**
 	 * 授权
 	 */
@@ -36,7 +41,7 @@ public class RoleService extends EntityService<RoleEntity> {
 		Stream.of(pids).forEach(pid -> {
 			list.add(permissionRepository.findOne(pid));
 		});
-		repository.saveAndFlush(role);
+		repository.save(role);
 	}
 	
 }

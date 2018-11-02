@@ -29,6 +29,9 @@ public class AdminEntity extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
+	public static final String NAME_PROPERTY_NAME = "name";
+	public static final String ROLES_PROPERTY_NAME = "roles";
+	
 	private String name;
 	private String password;
 	private String memo;

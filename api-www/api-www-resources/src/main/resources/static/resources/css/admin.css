@@ -4,3 +4,5 @@
 .iframe-background{background-color:#F2F2F2;}
 .iframe-content{padding:1rem;}
 .layui-nav-tree .layui-nav-item a{cursor:pointer;}
+.cache .layui-elem-field{padding:1rem;}
+.cache .layui-btn{width:8rem;}

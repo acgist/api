@@ -26,7 +26,7 @@
 			</@autho>
 		</script>
 		<script type="text/javascript">
-		layui.use(['layer', 'table'], function() {
+		layui.use(['form', 'layer', 'table', 'jquery', 'element'], function() {
 			var $ = layui.$;
 			var table = layui.table;
 			table.render({

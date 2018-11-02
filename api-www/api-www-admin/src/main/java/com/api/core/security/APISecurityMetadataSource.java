@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.web.FilterInvocation;
@@ -27,18 +28,20 @@ import com.api.core.service.PermissionService;
  * 路径过滤
  */
 @Component
+@RefreshScope
 public class APISecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(APISecurityMetadataSource.class);
 
 	private static final List<String> ALLOW_ATTRIBUTES = new ArrayList<>();
 	
+	@Value("${system.security.enable:true}")
+	private boolean enable;
 	@Value("${system.security.allow.attributes:}")
 	private String allowAttributes;
 	
 	@Autowired
 	private PermissionService permissionService;
-	
 	
 	@PostConstruct
 	public void init() {
@@ -47,12 +50,16 @@ public class APISecurityMetadataSource implements FilterInvocationSecurityMetada
 	
 	/**
 	 * 获取访问角色
+	 * 返回null表示不拦截
 	 */
 	@Override
 	public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
+		if(!enable) {
+			return null;
+		}
 		FilterInvocation filter = (FilterInvocation) object;
 		if (allow(filter)) {
-			return null; // return null = 不拦截
+			return null;
 		}
 		return allowAttributes(filter);
 	}

@@ -1,7 +1,15 @@
 package com.api.data.repository;
 
+import java.beans.PropertyDescriptor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import java.util.stream.Stream;
 
+import org.apache.commons.beanutils.PropertyUtils;
+import org.apache.commons.lang3.ArrayUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeansException;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +27,16 @@ import com.api.data.pojo.select.Order;
 @Transactional(readOnly = true)
 public interface BaseExtendRepository<T extends BaseEntity> extends BaseRepository<T> {
 
+	// 更新时忽略属性
+	static final String[] UPDATE_IGNORE_PROPERTIES = new String[] {
+		BaseEntity.CLASS_PROPERTY_NAME,
+		BaseEntity.ID_PROPERTY_NAME,
+		BaseEntity.CREATE_DATE_PROPERTY_NAME,
+		BaseEntity.MODIFY_DATE_PROPERTY_NAME
+	};
+	
+	static final Logger LOGGER = LoggerFactory.getLogger(BaseExtendRepository.class);
+	
 	/**
 	 * 第一条数据
 	 */
@@ -41,7 +59,7 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 	 * 
 	 * @param filters 查询条件
 	 */
-	default T findOne(Filter... filters) {
+	default T findOne(Filter ... filters) {
 		return findOne((List<Order>) null, filters);
 	}
 
@@ -51,7 +69,7 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 	 * @param order 查询排序
 	 * @param filters 查询条件
 	 */
-	default T findOne(Order order, Filter... filters) {
+	default T findOne(Order order, Filter ... filters) {
 		return findOne(Order.orders(order), filters);
 	}
 
@@ -61,7 +79,7 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 	 * @param orders 查询排序
 	 * @param filters 查询条件
 	 */
-	default T findOne(List<Order> orders, Filter... filters) {
+	default T findOne(List<Order> orders, Filter ... filters) {
 		List<T> list = findList(FIRST, SIZE_ONE, orders, filters);
 		if(list == null || list.isEmpty()) {
 			return null;
@@ -84,7 +102,7 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 	 * @param size 查询数量
 	 * @param filters 查询条件
 	 */
-	default List<T> findList(int size, Filter... filters) {
+	default List<T> findList(int size, Filter ... filters) {
 		return findList(FIRST, size, (List<Order>) null, filters);
 	}
 
@@ -94,7 +112,7 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 	 * @param size 查询数量
 	 * @param orders 查询排序
 	 */
-	default List<T> findList(int size, Order... orders) {
+	default List<T> findList(int size, Order ... orders) {
 		return findList(FIRST, size, Order.orders(orders));
 	}
 
@@ -105,7 +123,7 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 	 * @param order 查询排序
 	 * @param filters 查询条件
 	 */
-	default List<T> findList(int size, Order order, Filter... filters) {
+	default List<T> findList(int size, Order order, Filter ... filters) {
 		return findList(FIRST, size, Order.orders(order), filters);
 	}
 
@@ -116,7 +134,7 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 	 * @param orders 查询排序
 	 * @param filters 查询条件
 	 */
-	default List<T> findList(int size, List<Order> orders, Filter... filters) {
+	default List<T> findList(int size, List<Order> orders, Filter ... filters) {
 		return findList(FIRST, size, orders, filters);
 	}
 
@@ -137,7 +155,7 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 	 * @param size 查询数量
 	 * @param filters 查询条件
 	 */
-	default List<T> findList(int first, int size, Filter... filters) {
+	default List<T> findList(int first, int size, Filter ... filters) {
 		return findList(first, size, (List<Order>) null, filters);
 	}
 
@@ -148,7 +166,7 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 	 * @param size 查询数量
 	 * @param orders 查询排序
 	 */
-	default List<T> findList(int first, int size, Order... orders) {
+	default List<T> findList(int first, int size, Order ... orders) {
 		return findList(first, size, Order.orders(orders));
 	}
 
@@ -160,7 +178,7 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 	 * @param order 查询排序
 	 * @param filters 查询条件
 	 */
-	default List<T> findList(int first, int size, Order order, Filter... filters) {
+	default List<T> findList(int first, int size, Order order, Filter ... filters) {
 		return findList(first, size, Order.orders(order), filters);
 	}
 
@@ -172,6 +190,35 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 	 * @param orders 查询排序
 	 * @param filters 查询条件
 	 */
-	List<T> findList(int first, int size, List<Order> orders, Filter... filters);
+	List<T> findList(int first, int size, List<Order> orders, Filter ... filters);
 
+	/**
+	 * 更新
+	 * @param t 更新实体
+	 * @param fields 忽略字段
+	 */
+	default T update(T t, String ... ignoreProperties) {
+		T persistant = findOne(t.getId());
+		if (persistant != null) {
+			copyProperties(t, persistant, (String[]) ArrayUtils.addAll(ignoreProperties, UPDATE_IGNORE_PROPERTIES));
+			return save(persistant);
+		} else {
+			return saveAndFlush(persistant);
+		}
+	}
+	
+	private void copyProperties(Object source, Object target, String[] ignoreProperties) throws BeansException {
+		PropertyDescriptor[] propertys = PropertyUtils.getPropertyDescriptors(target.getClass());
+		Stream.of(propertys)
+		.filter(property -> property.getWriteMethod() != null)
+		.filter(property -> ignoreProperties == null || !ArrayUtils.contains(ignoreProperties, property.getName()))
+		.forEach(property -> {
+			try {
+				property.getWriteMethod().invoke(target, property.getReadMethod().invoke(source));
+			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+				LOGGER.info("属性拷贝异常", e);
+			}
+		});
+	}
+	
 }

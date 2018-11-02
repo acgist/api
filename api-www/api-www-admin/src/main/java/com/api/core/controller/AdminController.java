@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.api.core.pojo.layui.LayuiMessage;
 import com.api.core.pojo.layui.LayuiTable;
+import com.api.core.security.AdminDetails;
 import com.api.core.service.AdminService;
 import com.api.core.service.RoleService;
 import com.api.data.pojo.entity.AdminEntity;
@@ -30,7 +31,8 @@ public class AdminController {
 	private AdminService adminService;
 	
 	@GetMapping("/info")
-	public String info() {
+	public String info(ModelMap model) {
+		model.addAttribute("adminDetails", AdminDetails.current());
 		return "/admin/info";
 	}
 
@@ -43,7 +45,7 @@ public class AdminController {
 	@PostMapping("/list")
 	public LayuiTable listPost(int page, int limit, String name) {
 		PageQuery query = new PageQuery(page, limit);
-		query.addFilters(Filter.eq("name", name));
+		query.addFilters(Filter.eq(AdminEntity.NAME_PROPERTY_NAME, name));
 		PageResult<AdminEntity> pageResult = adminService.findPage(query);
 		return LayuiTable.build(pageResult.getResult(), pageResult.getTotal());
 	}

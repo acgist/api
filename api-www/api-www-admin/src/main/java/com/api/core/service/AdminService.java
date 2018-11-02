@@ -23,6 +23,11 @@ public class AdminService extends EntityService<AdminEntity> {
 		super(repository);
 	}
 
+	@Override
+	public AdminEntity update(AdminEntity t) {
+		return repository.update(t, AdminEntity.ROLES_PROPERTY_NAME);
+	}
+	
 	/**
 	 * 授权
 	 */
@@ -36,7 +41,7 @@ public class AdminService extends EntityService<AdminEntity> {
 		Stream.of(rids).forEach(rid -> {
 			list.add(roleRepository.findOne(rid));
 		});
-		repository.saveAndFlush(admin);
+		repository.save(admin);
 	}
 	
 }

@@ -73,7 +73,7 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-		layui.use(['tree', 'form', 'jquery', 'element'], function() {
+		layui.use(['tree', 'form', 'layer', 'table', 'jquery', 'element'], function() {
 			var $ = layui.$;
 			var form = layui.form;
 			function load() {

@@ -45,9 +45,9 @@
 									<a href="/permission/tree" target="api-content">系统权限</a>
 								</dd>
 								</@autho>
-								<@autho pattern="/system/setting">
+								<@autho pattern="/cache">
 								<dd>
-									<a href="/system/setting" target="api-content">系统设置</a>
+									<a href="/cache" target="api-content">系统缓存</a>
 								</dd>
 								</@autho>
 							</dl>
@@ -96,7 +96,7 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-		layui.use('element', function() {
+		layui.use(['form', 'layer', 'table', 'jquery', 'element'], function() {
 			var element = layui.element;
 		});
 		</script>

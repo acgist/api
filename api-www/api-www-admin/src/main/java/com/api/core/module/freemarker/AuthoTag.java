@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
@@ -22,10 +24,14 @@ import freemarker.template.TemplateModel;
  * 权限标签
  */
 @Component
+@RefreshScope
 public class AuthoTag implements TemplateDirectiveModel {
 	
 	private static final String KEY_NAME = "name"; // 菜单名称
 	private static final String KEY_PATTERN = "pattern"; // 菜单路径
+	
+	@Value("${system.security.enable:true}")
+	private boolean enable;
 	
 	@Autowired
 	private PermissionService permissionService;
@@ -33,12 +39,14 @@ public class AuthoTag implements TemplateDirectiveModel {
 	@Override
 	@SuppressWarnings("rawtypes")
 	public void execute(Environment env, Map params, TemplateModel[] model, TemplateDirectiveBody body) throws TemplateException, IOException {
-		SimpleScalar nameScalar = (SimpleScalar) params.get(KEY_NAME);
-		SimpleScalar patternScalar = (SimpleScalar) params.get(KEY_PATTERN);
-		String name = nameScalar == null ? null : nameScalar.getAsString();
-		String pattern = patternScalar == null ? null : patternScalar.getAsString();
-		if(!(name(name) || pattern(pattern))) {
-			return;
+		if(enable) {
+			SimpleScalar nameScalar = (SimpleScalar) params.get(KEY_NAME);
+			SimpleScalar patternScalar = (SimpleScalar) params.get(KEY_PATTERN);
+			String name = nameScalar == null ? null : nameScalar.getAsString();
+			String pattern = patternScalar == null ? null : patternScalar.getAsString();
+			if(!(name(name) || pattern(pattern))) {
+				return;
+			}
 		}
 		body.render(env.getOut());
 	}

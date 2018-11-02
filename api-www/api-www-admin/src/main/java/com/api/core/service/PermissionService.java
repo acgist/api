@@ -1,5 +1,6 @@
 package com.api.core.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -110,18 +111,22 @@ public class PermissionService extends EntityService<PermissionEntity> {
 	private void initPermissionRoles() {
 		LOGGER.info("初始化权限和角色映射信息");
 		PERMISSION_ROLES.clear();
-		Map<String, String> permissions = new HashMap<>();
+		Map<String, List<String>> permissions = new HashMap<>();
 		List<RoleEntity> list = roleRepository.findAll();
 		list.forEach(role -> {
 			role.getPermissions().stream()
 			.filter(permission -> StringUtils.isNotEmpty(permission.getPattern()))
 			.forEach(permission -> {
-				permissions.put(permission.getPattern(), role.getName());
+				String pattern = permission.getPattern();
+				List<String> roles = permissions.get(pattern);
+				if(roles == null) {
+					roles = new ArrayList<>();
+				}
+				roles.add(role.getName());
+				permissions.put(pattern, roles);
 			});
 		});
-		Map<String, List<String>> result = permissions.entrySet().stream()
-			.collect(Collectors.groupingBy(Map.Entry::getKey, Collectors.mapping(Map.Entry::getValue, Collectors.toList())));
-		PERMISSION_ROLES.putAll(result);
+		PERMISSION_ROLES.putAll(permissions);
 		LOGGER.info("权限和角色映射信息：{}", PERMISSION_ROLES);
 	}
 	

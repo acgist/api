@@ -12,7 +12,7 @@
 					<div class="layui-card">
 						<div class="layui-card-header">当前用户</div>
 						<div class="layui-card-body">
-							admin
+							${adminDetails.name}
 						</div>
 					</div>
 				</div>
@@ -28,7 +28,7 @@
 					<div class="layui-card">
 						<div class="layui-card-header">最近操作</div>
 						<div class="layui-card-body">
-							admin
+							${adminDetails.name}
 						</div>
 					</div>
 				</div>

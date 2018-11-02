@@ -24,7 +24,7 @@
 			</form>
 		</div>
 		<script type="text/javascript">
-		layui.use(['layer', 'form'], function() {
+		layui.use(['form', 'layer', 'table', 'jquery', 'element'], function() {
 			var $ = layui.$;
 			var form = layui.form;
 			var root = $("#permissions");

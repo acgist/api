@@ -55,6 +55,10 @@ public class AdminDetails implements UserDetails {
 			.collect(Collectors.toList());
 	}
 	
+	public String getName() {
+		return this.name;
+	}
+	
 	@Override
 	public String getUsername() {
 		return this.name;
@@ -101,7 +105,7 @@ public class AdminDetails implements UserDetails {
 	public static final AdminDetails current() {
 		SecurityContext context = SecurityContextHolder.getContext();
 		Authentication authentication = context.getAuthentication();
-		if(authentication.isAuthenticated()) {
+		if(authentication.getPrincipal() != null && authentication.getPrincipal() instanceof AdminDetails) {
 			return (AdminDetails) authentication.getPrincipal();
 		}
 		return null;
