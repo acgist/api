@@ -22,7 +22,8 @@ public class ActuatorWebSecurityConfigurationAdapter extends WebSecurityConfigur
 //			.cors().disable()
 			.csrf().disable() // 解决POST请求403错误
 //			.csrf().ignoringAntMatchers(actuatorConfig.getActuatorIpAddresses())
-//			.and()
+			.headers().frameOptions().sameOrigin()
+			.and()
 			.authorizeRequests().antMatchers(actuatorConfig.getActuatorIpAddresses()).access(actuatorConfig.getActuatorIpAddresses())
 			.and()
 			.authorizeRequests().anyRequest().permitAll(); // 允许
