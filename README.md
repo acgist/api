@@ -31,12 +31,16 @@ Shiro：
 OAuth2：  
 
 #### 软件版本
-* JAVA：JAVA 10（不支持JAVA 11）
-* Redis：3.X.X
-* MySQL：5.X.X
-* RabbitMQ：3.X.X
-* Spring Boot：2.0.5.RELEASE
-* Spring Cloud：Finchley.SR1
+* JAVA：JAVA 11
+~~ JAVA：10
+* Redis：3.2.100
+* MySQL：5.7.13
+* RabbitMQ：3.7.8
+* Spring Boot：2.1.0.RELEASE
+~~ Spring Boot：2.0.5.RELEASE
+* Spring Cloud：Greenwich.M1
+~~ Spring Cloud：Finchley.SR1
+* Layui：v2.4.4
 
 #### 服务端口
 固定前缀+服务类型+服务序列号（10~99）  
