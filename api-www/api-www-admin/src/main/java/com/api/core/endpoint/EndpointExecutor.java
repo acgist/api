@@ -69,8 +69,8 @@ public abstract class EndpointExecutor<T> {
 	 */
 	public HttpEntity<Object> jsonEntity(Object object) {
 		HttpHeaders headers = new HttpHeaders();
-		 headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
-		 return new HttpEntity<Object>(object, headers);
+		headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
+		return new HttpEntity<Object>(object, headers);
 	}
 
 }

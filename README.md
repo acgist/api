@@ -67,12 +67,6 @@ OAuth2：
 |api-gateway|网关模块|
 |api-service|服务模块|
 
-#### 待办功能
-后台  
-日志统一处理  
-Bootstrap V4
-https://github.com/creativetimofficial/material-dashboard  
-
 #### 接口映射
 |地址|说明|
 |:-|:-|

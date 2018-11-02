@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 import org.hibernate.annotations.GenericGenerator;
 
 import com.api.data.pojo.entity.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * 用户：接口使用证书鉴权、页面使用密码登陆
@@ -23,7 +24,9 @@ public class UserEntity extends BaseEntity {
 	private String name;
 	@NotBlank(message = "用户密码不能为空")
 	private String password;
+	@JsonIgnore
 	private String pubilcKey;
+	@JsonIgnore
 	private String privateKey;
 
 	@Column(length = 20)

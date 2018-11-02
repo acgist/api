@@ -20,7 +20,15 @@ public class UserServiceImpl {
 		if(name == null) {
 			return null;
 		}
-		return null;
+		UserEntity user = userRepository.findName(name);
+		if(user == null) {
+			return null;
+		}
+		AuthoMessage message = new AuthoMessage();
+		message.setName(name);
+		message.setPubilcKey(user.getPubilcKey());
+		message.setPrivateKey(user.getPrivateKey());
+		return message;
 	}
 
 	public LoginMessage login(String name, String password) {

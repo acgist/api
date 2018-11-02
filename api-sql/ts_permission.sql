@@ -1,5 +1,5 @@
 INSERT INTO `ts_permission` VALUES ('402881e466cc9adf0166cc9eeb840001', '2018-10-31 08:38:24', '2018-11-1 08:13:35', '系统管理', '系统管理', '', '', 2000);
-INSERT INTO `ts_permission` VALUES ('402881e466cc9adf0166cc9eeb840000', '2018-11-1 08:14:19', '2018-11-1 08:14:19', '系统用户列表', '系统用户', '402881e466cc9adf0166cc9eeb840001', '/admin/list', 2100);
+INSERT INTO `ts_permission` VALUES ('402881e466cc9adf0166cc9eeb840000', '2018-11-1 08:14:19', '2018-11-2 08:42:30', '系统用户', '系统用户', '402881e466cc9adf0166cc9eeb840001', '/admin/list', 2100);
 INSERT INTO `ts_permission` VALUES ('402881e466cc9adf0166cc9f7d1b0001', '2018-11-1 08:14:56', '2018-11-1 08:15:15', '系统用户-添加', '系统用户-添加', '402881e466cc9adf0166cc9eeb840000', '/admin/submit', 2110);
 INSERT INTO `ts_permission` VALUES ('402881e466cc9adf0166cca0374b0002', '2018-11-1 08:15:44', '2018-11-1 08:15:44', '系统用户-删除', '系统用户-删除', '402881e466cc9adf0166cc9eeb840000', '/admin/delete', 2120);
 INSERT INTO `ts_permission` VALUES ('402881e466cc9adf0166cca0923e0003', '2018-11-1 08:16:07', '2018-11-1 08:16:07', '系统角色', '系统角色', '402881e466cc9adf0166cc9eeb840001', '/role/list', 2200);
@@ -24,3 +24,7 @@ INSERT INTO `ts_permission` VALUES ('402881e466ce71080166ce7283a30000', '2018-11
 INSERT INTO `ts_permission` VALUES ('402881e466ce7ec10166ce7fec3f0000', '2018-11-1 16:59:42', '2018-11-1 17:00:38', '通用信息', '通用信息', '', '', 1000);
 INSERT INTO `ts_permission` VALUES ('402881e466ce7ec10166ce8090520001', '2018-11-1 17:00:24', '2018-11-1 17:07:29', '通用信息-面板', '通用信息-面板', '402881e466ce7ec10166ce7fec3f0000', '/admin/info', 1200);
 INSERT INTO `ts_permission` VALUES ('402881e466ce7ec10166ce8090520002', '2018-11-1 17:00:24', '2018-11-1 17:00:24', '通用信息-首页', '通用信息-首页', '402881e466ce7ec10166ce7fec3f0000', '/index', 1100);
+INSERT INTO `ts_permission` VALUES ('402881e466d1d1a30166d1d61b880000', '2018-11-2 08:32:42', '2018-11-2 08:33:40', '通用信息-WEBJAR', '通用信息-WEBJAR', '402881e466ce7ec10166ce7fec3f0000', '/webjars/**', 1300);
+INSERT INTO `ts_permission` VALUES ('402881e466d1d1a30166d1def4ff0001', '2018-11-2 08:42:22', '2018-11-2 08:42:22', '系统用户-修改', '系统用户-修改', '402881e466cc9adf0166cc9eeb840000', '/admin/update', 2111);
+INSERT INTO `ts_permission` VALUES ('402881e466d1d1a30166d1e92ca90002', '2018-11-2 08:53:31', '2018-11-2 08:53:31', '系统缓存', '系统缓存', '402881e466cc9adf0166cc9eeb840001', '/cache', 2400);
+INSERT INTO `ts_permission` VALUES ('402881e466d248ee0166d24ea2a00001', '2018-11-2 10:44:21', '2018-11-2 10:44:21', '系统缓存-权限角色映射', '系统缓存-权限角色映射', '402881e466d1d1a30166d1e92ca90002', '/cache/permission/roles', 2410);

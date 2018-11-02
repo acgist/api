@@ -20,9 +20,7 @@ public class UserServiceFallback extends BaseServiceFallback implements UserServ
 	@Override
 	public AuthoMessage autho(String name) {
 		LOGGER.error("服务调用失败：用户授权，用户名：{}", name);
-		AuthoMessage message = new AuthoMessage();
-		message.buildFail();
-		return message;
+		return null;
 	}
 
 	@Override
