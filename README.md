@@ -1,15 +1,20 @@
 # API-ACGIST
 
 #### 项目介绍
-一个基于Spring Cloud的HTTP接口DEMO项目。  
+一个基于Spring Cloud的微服务项目，主要用于学习JAVA、Spring Boot、Spring Cloud等技术。  
+项目仅提供一个大体的技术框架，部分细节没有实现。
 
-#### 服务安全
-* 集群内服务器均公开nginx端口（80），其余所有端口均只允许内部集群网络访问。
-* 客户端通过nginx访问接口网关，通过网关访问内部服务或站点，网关负责鉴权和屏蔽端点。
-* 内网含有通知的情况需要验证通知地址是否是外网地址（防止攻击集群内部端点）。
-* 接口调用自己实现鉴权逻辑，网站模块使用session，不使用OAuth2。
-* api-www：一个简单的前台网站。
-* api-www-admin：一个简单的后台管理。
+#### 软件版本
+* JAVA：JAVA 11（LTS）、
+	~~JAVA：10~~
+* Redis：3.2.100
+* MySQL：5.7.13
+* RabbitMQ：3.7.8
+* Spring Boot：2.1.0.RELEASE、
+	~~Spring Boot：2.0.5.RELEASE~~
+* Spring Cloud：Greenwich.M1、
+	~~Spring Cloud：Finchley.SR1~~
+* Layui：v2.4.4
 
 #### SESSION共享
 Spring Session Redis
@@ -31,22 +36,10 @@ Mail：
 OAuth2：  
 ~~Shiro：~~（Spring Boot Security替代）  
 REST Docs：  
-Websocket：
-Reactive Web：
+Websocket：  
+Reactive Web：  
 Deeplearning4j：  
 Spring Cloud Data Flow：
-
-#### 软件版本
-* JAVA：JAVA 11（LTS）、
-	~~JAVA：10~~
-* Redis：3.2.100
-* MySQL：5.7.13
-* RabbitMQ：3.7.8
-* Spring Boot：2.1.0.RELEASE、
-	~~Spring Boot：2.0.5.RELEASE~~
-* Spring Cloud：Greenwich.M1、
-	~~Spring Cloud：Finchley.SR1~~
-* Layui：v2.4.4
 
 #### 服务端口
 固定前缀+服务类型+服务序列号（10~99）  
@@ -105,7 +98,15 @@ tb_业务表
 @EnableHystrixDashboard：开启hystrix仪表盘  
 feign模块以及包含hystrix熔断功能，但是没有端点监控功能（@EnableHystrix）  
 
-#### 开发工具
+#### 服务安全
+* 集群内服务器均公开nginx端口（80），其余所有端口均只允许内部集群网络访问。
+* 客户端通过nginx访问接口网关，通过网关访问内部服务或站点，网关负责鉴权和屏蔽端点。
+* 内网含有通知（HTTP通知）的情况需要验证通知地址是否是外网地址（防止攻击集群内部端点）。
+* 接口调用自己实现鉴权逻辑，网站模块使用session，不使用OAuth2。
+* api-www：一个简单的前台网站。
+* api-www-admin：一个简单的后台管理。
+
+#### 开发工具推荐
 Spring STS：http://spring.io/tools
 
 #### 待办
