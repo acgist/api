@@ -1,7 +1,7 @@
 # API-ACGIST
 
 #### 项目介绍
-一个基于Spring Cloud的微服务项目，主要用于学习JAVA、Spring Boot、Spring Cloud等技术。  
+一个基于Spring Cloud的微服务项目，主要用于学习JAVA、Spring Boot、Spring Cloud等技术，所以看起来就是一个技术堆积的项目。  
 项目仅提供一个大体的技术框架，部分细节没有实现。
 
 #### 软件版本
