@@ -14,7 +14,7 @@
 #### SESSION共享
 Spring Session Redis
 
-#### Spring Cloud组件
+#### Spring Cloud&其他功能
 Zuul：网关  
 Eureka：注册中心  
 Config：配置中心  
@@ -25,22 +25,27 @@ Sleuth/Zipkin：链路跟踪（stream）
 Hystrix：熔断器（stream）  
 Turbine/Dashboard：熔断器仪表盘聚合（stream）
   
-#### 未使用组件
+#### 将来集成功能
 Task：  
-Shiro：  
+Mail：  
 OAuth2：  
-Deeplearning4j：
+~~Shiro：~~（Spring Boot Security替代）  
+REST Docs：  
+Websocket：
+Reactive Web：
+Deeplearning4j：  
+Spring Cloud Data Flow：
 
 #### 软件版本
 * JAVA：JAVA 11（LTS）、
-~~JAVA：10~~
+	~~JAVA：10~~
 * Redis：3.2.100
 * MySQL：5.7.13
 * RabbitMQ：3.7.8
 * Spring Boot：2.1.0.RELEASE、
-~~Spring Boot：2.0.5.RELEASE~~
+	~~Spring Boot：2.0.5.RELEASE~~
 * Spring Cloud：Greenwich.M1、
-~~Spring Cloud：Finchley.SR1~~
+	~~Spring Cloud：Finchley.SR1~~
 * Layui：v2.4.4
 
 #### 服务端口
