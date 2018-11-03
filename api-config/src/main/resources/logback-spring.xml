@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
-
-	<contextName>logback</contextName>
 	
-	<property name="system.name" value="api-config" />
+	<contextName>${system.name}</contextName>
+
+	<springProperty scope="context" name="system.name" source="spring.application.name" />
 	
 	<!-- 输出到控制台 -->
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">

@@ -151,6 +151,11 @@
 			    <version>${zipkin.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>io.zipkin.java</groupId>
+				<artifactId>zipkin-autoconfigure-storage-elasticsearch</artifactId>
+				<version>${zipkin.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
 				<version>${spring-cloud.version}</version>

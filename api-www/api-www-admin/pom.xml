@@ -43,6 +43,13 @@
 			<groupId>io.zipkin.java</groupId>
 			<artifactId>zipkin-autoconfigure-collector-rabbitmq</artifactId>
 		</dependency>
+		<!--
+		保存zipkin链路信息到elasticsearch
+		<dependency>
+			<groupId>io.zipkin.java</groupId>
+			<artifactId>zipkin-autoconfigure-storage-elasticsearch</artifactId>
+		</dependency>
+		-->
 		<dependency>
 			<groupId>org.springframework.session</groupId>
 			<artifactId>spring-session-data-redis</artifactId>

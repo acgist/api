@@ -92,6 +92,17 @@ tb_业务表
 |com.api.data.服务模块.*|数据库模块|
 |com.api.feign.服务模块.*|feign模块|
 
+#### zipkin
+zipkin日志不存储。
+数据采集：配置：spring.zipkin.sender.type（搜索类型：zipkin*sender，依赖：zipkin-sender-*）
+数据收集：配置：zipkin.collector.*（搜索类型：zipkin*collector，依赖：zipkin-collector-*）
+数据存储：配置：zipkin.storage.*（搜索类型：zipkin*storage，依赖：zipkin-storage-*）
+
+#### 日志
+控制台：控制台日志  
+文件：文件日志  
+ELK：日志统一集中到ELK  
+
 #### 常见忽略错误
 @EnableHystrix：用于开启/actuator/hystrix.stream端点  
 @EnableFeignClients：需要指定包路径  
@@ -111,4 +122,6 @@ Spring STS：http://spring.io/tools
 
 #### 待办
 Spring Cloud等待下一个稳定版。  
+日志收集处理。
 后台用户、订单管理。
+zipkin日志保存。
