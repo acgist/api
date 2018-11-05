@@ -47,15 +47,13 @@ Spring Session Redis
 * 业务服务：3+XX+XX
 
 **系统服务类型：**
-
 * 10：注册中心
 * 20：配置中心
 * 30：服务网关
 * 80：网站网关（前端和静态资源：10-80、后台：80-99）
 * 90：管理平台（Spring Boot Admin）
 
-** 业务服务类型： **
-
+**业务服务类型：**
 * 10：用户服务
 * 20：订单服务
 * 30：网关信息服务
@@ -68,9 +66,9 @@ Spring Session Redis
 |api-config|配置中心|
 |api-registry|注册中心|
 |api-www|网站模块|
-|api-admin|Spring Boot Admin管理|
 |api-gateway|网关模块|
 |api-service|服务模块|
+|api-admin|Spring Boot Admin管理|
 
 #### 接口映射
 |地址|说明|
@@ -90,7 +88,7 @@ Spring Session Redis
 |包路径|作用|
 |:-|:-|
 |com.api.main|main方法|
-|com.api.core.服务模块.*|服务模块|
+|com.api.core.服务模块.*|核心模块|
 |com.api.data.服务模块.*|数据库模块|
 |com.api.feign.服务模块.*|feign模块|
 
