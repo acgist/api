@@ -24,7 +24,7 @@ public class DiscoveryController {
 	
 	@GetMapping
 	public String indexGet() {
-		return "/discovery/services";
+		return "/discovery/index";
 	}
 	
 	@PostMapping

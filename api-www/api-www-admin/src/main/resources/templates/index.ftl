@@ -77,7 +77,7 @@
 						</@autho>
 						<@autho name="用户管理">
 						<li class="layui-nav-item">
-							<a href="javascript:;">用户管理</a>
+							<a href="/user/list" target="api-content">用户管理</a>
 						</li>
 						</@autho>
 						<@autho name="订单管理">

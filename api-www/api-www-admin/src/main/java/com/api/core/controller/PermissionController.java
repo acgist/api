@@ -15,6 +15,9 @@ import com.api.core.pojo.layui.LayuiMessage;
 import com.api.core.service.PermissionService;
 import com.api.data.pojo.entity.PermissionEntity;
 
+/**
+ * 权限
+ */
 @Controller
 @RequestMapping("/permission")
 public class PermissionController {

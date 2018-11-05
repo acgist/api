@@ -20,12 +20,14 @@ public class UserEntity extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
+	public static final String NAME_PROPERTY_NAME = "name";
+	
 	@NotBlank(message = "用户名不能为空")
 	private String name;
 	@NotBlank(message = "用户密码不能为空")
 	private String password;
 	@JsonIgnore
-	private String pubilcKey;
+	private String publicKey;
 	@JsonIgnore
 	private String privateKey;
 
@@ -47,16 +49,16 @@ public class UserEntity extends BaseEntity {
 		this.password = password;
 	}
 
-	@Column(length = 1024)
-	public String getPubilcKey() {
-		return pubilcKey;
+	@Column(length = 2048)
+	public String getPublicKey() {
+		return publicKey;
 	}
 
-	public void setPubilcKey(String pubilcKey) {
-		this.pubilcKey = pubilcKey;
+	public void setPublicKey(String publicKey) {
+		this.publicKey = publicKey;
 	}
 
-	@Column(length = 1024)
+	@Column(length = 2048)
 	public String getPrivateKey() {
 		return privateKey;
 	}
