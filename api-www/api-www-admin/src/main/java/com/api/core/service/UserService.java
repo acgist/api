@@ -26,7 +26,7 @@ public class UserService extends EntityService<UserEntity> {
 	}
 
 	/**
-	 * 证书
+	 * 证书：应该生成两对，出于简单这里用一对
 	 */
 	public Map<String, String> cert() {
 		Map<String, String> data =	new HashMap<>(2);

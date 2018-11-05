@@ -26,7 +26,7 @@ public class UserServiceImpl {
 		}
 		AuthoMessage message = new AuthoMessage();
 		message.setName(name);
-		message.setPubilcKey(user.getPubilcKey());
+		message.setPubilcKey(user.getPublicKey());
 		message.setPrivateKey(user.getPrivateKey());
 		return message;
 	}

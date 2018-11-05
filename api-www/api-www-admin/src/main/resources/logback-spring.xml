@@ -4,6 +4,10 @@
 	<contextName>${system.name}</contextName>
 
 	<springProperty scope="context" name="system.name" source="spring.application.name" />
+	<springProperty scope="context" name="rabbitmq.host" source="spring.rabbitmq.host" />
+	<springProperty scope="context" name="rabbitmq.port" source="spring.rabbitmq.port" />
+	<springProperty scope="context" name="rabbitmq.username" source="spring.rabbitmq.username" />
+	<springProperty scope="context" name="rabbitmq.password" source="spring.rabbitmq.password" />
 	
 	<!-- 输出到控制台 -->
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
@@ -29,8 +33,50 @@
 		</layout>
 	</appender>
 	
+<!--
+logstash.conf配置：
+input {
+	rabbitmq {
+		host => "127.0.0.1"
+		port => 5672
+		user => "guest"
+		password => "guest"
+		durable => true
+		exchange_type => "direct"
+		exchange => "api.message.logs"
+		queue => "api-logs"
+		key => "logstash"
+		threads => 4
+		prefetch_count => 128
+	}
+}
+-->
+<!--
+	<appender name="rabbit" class="org.springframework.amqp.rabbit.logback.AmqpAppender">
+		<layout>
+			<pattern>
+				<![CDATA[[${system.name}] %d{YYYY-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n]]>
+			</pattern>
+		</layout>
+		<host>localhost</host>
+		<port>5672</port>
+		<username>guest</username>
+		<password>guest</password>
+		<routingKeyPattern>logstash</routingKeyPattern>
+		<declareExchange>true</declareExchange>
+		<exchangeType>direct</exchangeType>
+		<exchangeName>api.message.logs</exchangeName>
+		<durable>true</durable>
+		<charset>UTF-8</charset>
+		<deliveryMode>PERSISTENT</deliveryMode>
+	</appender>
+-->
+	
 	<root level="INFO">
 		<appender-ref ref="file" />
+<!--
+		<appender-ref ref="rabbit" />
+-->
 		<appender-ref ref="console" />
 	</root>
 	

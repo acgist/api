@@ -3,6 +3,7 @@ package com.api.core.gateway;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 
 import com.api.core.exception.ErrorCodeException;
@@ -34,6 +35,7 @@ public enum APICode {
 	CODE_4400("4400", "请求无效"),
 	CODE_4404("4404", "资源不存在"),
 	CODE_4405("4405", "服务不支持（METHOD）"),
+	CODE_4415("4415", "服务不支持（MEDIA TYPE）"),
 	CODE_4503("4503", "服务不可用"),
 	
 	CODE_9999("9999", "未知错误");
@@ -75,6 +77,8 @@ public enum APICode {
 			code = APICode.valueOfCode(exception.getErrorCode());
 		} else if (t instanceof HttpRequestMethodNotSupportedException) {
 			code = APICode.CODE_4405;
+		} else if (t instanceof HttpMediaTypeNotSupportedException) {
+			code = APICode.CODE_4415;
 		} else if (t instanceof HttpMessageNotReadableException) {
 			code = APICode.CODE_4400;
 		} else if(response != null) {

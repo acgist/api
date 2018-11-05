@@ -3,6 +3,7 @@ package com.api.core.filter.post;
 import org.springframework.stereotype.Component;
 
 import com.api.core.filter.BaseZuulFilter;
+import com.api.core.gateway.APICode;
 import com.api.core.gateway.APIType;
 import com.api.core.gateway.SessionComponent;
 import com.api.core.gateway.response.APIResponse;
@@ -26,7 +27,10 @@ public class PackageResponseFilter extends BaseZuulFilter {
 		if(responseJSON == null) {
 			responseJSON = context.getResponseBody();
 		}
-		final APIResponse apiResponse = JSONUtils.jsonToJava(responseJSON, clazz);
+		APIResponse apiResponse = JSONUtils.jsonToJava(responseJSON, clazz);
+		if(apiResponse == null) {
+			apiResponse = APIResponse.builder().valueOfRequest(sessionComponent().getRequest()).buildMessage(APICode.CODE_9999);
+		}
 		session.setResponse(apiResponse);
 		return null;
 	}
