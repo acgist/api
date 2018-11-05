@@ -1,7 +1,7 @@
 # API-ACGIST
 
 #### 项目介绍
-一个基于Spring Cloud的微服务项目，主要用于学习JAVA、Spring Boot、Spring Cloud等技术，所以看起来就是一个技术堆积的项目。  
+一个基于Spring Cloud的微服务项目，主要用于学习JAVA、Spring Boot、Spring Cloud等技术，所以看起来就是一个技术堆积的项目。<br />
 项目仅提供一个大体的技术框架，部分细节没有实现。
 
 #### 软件版本
@@ -29,7 +29,7 @@ Spring Session Redis
 * Sleuth/Zipkin：链路跟踪（stream）
 * Hystrix：熔断器（stream）
 * Turbine/Dashboard：熔断器仪表盘聚合（stream）
-  
+
 #### 将来集成功能
 * Task：
 * Mail：
@@ -42,18 +42,20 @@ Spring Session Redis
 * Spring Cloud Data Flow：
 
 #### 服务端口
-固定前缀+服务类型+服务序列号（10~99）  
-* 系统服务：2+XX+XX  
-* 业务服务：3+XX+XX  
+固定前缀+服务类型+服务序列号（10~99）
+* 系统服务：2+XX+XX
+* 业务服务：3+XX+XX
 
-** 系统服务类型：** 
+** 系统服务类型：**
+
 * 10：注册中心
 * 20：配置中心
 * 30：服务网关
 * 80：网站网关（前端和静态资源：10-80、后台：80-99）
 * 90：管理平台（Spring Boot Admin）
 
-** 业务服务类型：** 
+** 业务服务类型：**
+
 * 10：用户服务
 * 20：订单服务
 * 30：网关信息服务
@@ -99,9 +101,9 @@ Spring Session Redis
 * 数据存储：配置：zipkin.storage.*（搜索类型：zipkin*storage，依赖：zipkin-storage-*）
 
 #### 日志
-* 控制台：控制台日志  
-* 文件：文件日志  
-* ELK：日志统一集中到ELK  
+* 控制台：控制台日志
+* 文件：文件日志
+* ELK：日志统一集中到ELK
 
 #### 常见忽略错误
 * @EnableHystrix：用于开启/actuator/hystrix.stream端点
@@ -121,6 +123,6 @@ Spring Session Redis
 Spring STS：http://spring.io/tools
 
 #### 待办
-* Spring Cloud等待下一个稳定版。  
+* Spring Cloud等待下一个稳定版。
 * 日志收集处理。
 * 后台用户、订单管理。
