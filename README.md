@@ -5,7 +5,7 @@
 项目仅提供一个大体的技术框架，部分细节没有实现。
 
 #### 软件版本
-* JAVA：JAVA 11（LTS）、
+* JAVA：JAVA 11（OpenJDK）、
 	~~JAVA：10~~
 * Redis：3.2.100
 * MySQL：5.7.13
@@ -20,26 +20,26 @@
 Spring Session Redis
 
 #### Spring Cloud&其他功能
-Zuul：网关  
-Eureka：注册中心  
-Config：配置中心  
-Stream：消息队列  
-Bus：消息总线（stream）  
-Feign/Ribbon：服务调用  
-Sleuth/Zipkin：链路跟踪（stream）  
-Hystrix：熔断器（stream）  
-Turbine/Dashboard：熔断器仪表盘聚合（stream）
+* Zuul：网关
+* Eureka：注册中心
+* Config：配置中心
+* Stream：消息队列
+* Bus：消息总线（stream）
+* Feign/Ribbon：服务调用
+* Sleuth/Zipkin：链路跟踪（stream）
+* Hystrix：熔断器（stream）
+* Turbine/Dashboard：熔断器仪表盘聚合（stream）
   
 #### 将来集成功能
-Task：  
-Mail：  
-OAuth2：  
-~~Shiro：~~（Spring Boot Security替代）  
-REST Docs：  
-Websocket：  
-Reactive Web：  
-Deeplearning4j：  
-Spring Cloud Data Flow：
+* Task：
+* Mail：
+* OAuth2：
+~~Shiro：~~（Spring Boot Security替代）
+* REST Docs：
+* Websocket：
+* Reactive Web：
+* Deeplearning4j：
+* Spring Cloud Data Flow：
 
 #### 服务端口
 固定前缀+服务类型+服务序列号（10~99）  
@@ -81,8 +81,8 @@ Spring Cloud Data Flow：
 * 服务实现类@RequestBody必须要指定。
 
 #### 数据库表名称
-ts_系统表
-tb_业务表
+* ts_系统表
+* tb_业务表
 
 #### 服务包结构
 |包路径|作用|
@@ -93,21 +93,21 @@ tb_业务表
 |com.api.feign.服务模块.*|feign模块|
 
 #### zipkin
-zipkin日志不存储。
-数据采集：配置：spring.zipkin.sender.type（搜索类型：zipkin*sender，依赖：zipkin-sender-*）
-数据收集：配置：zipkin.collector.*（搜索类型：zipkin*collector，依赖：zipkin-collector-*）
-数据存储：配置：zipkin.storage.*（搜索类型：zipkin*storage，依赖：zipkin-storage-*）
+* zipkin日志不存储
+* 数据采集：配置：spring.zipkin.sender.type（搜索类型：zipkin*sender，依赖：zipkin-sender-*）
+* 数据收集：配置：zipkin.collector.*（搜索类型：zipkin*collector，依赖：zipkin-collector-*）
+* 数据存储：配置：zipkin.storage.*（搜索类型：zipkin*storage，依赖：zipkin-storage-*）
 
 #### 日志
-控制台：控制台日志  
-文件：文件日志  
-ELK：日志统一集中到ELK  
+* 控制台：控制台日志  
+* 文件：文件日志  
+* ELK：日志统一集中到ELK  
 
 #### 常见忽略错误
-@EnableHystrix：用于开启/actuator/hystrix.stream端点  
-@EnableFeignClients：需要指定包路径  
-@EnableHystrixDashboard：开启hystrix仪表盘  
-feign模块以及包含hystrix熔断功能，但是没有端点监控功能（@EnableHystrix）  
+* @EnableHystrix：用于开启/actuator/hystrix.stream端点
+* @EnableFeignClients：需要指定包路径
+* @EnableHystrixDashboard：开启hystrix仪表盘
+* feign模块以及包含hystrix熔断功能，但是没有端点监控功能（@EnableHystrix）
 
 #### 服务安全
 * 集群内服务器均公开nginx端口（80），其余所有端口均只允许内部集群网络访问。
@@ -121,7 +121,6 @@ feign模块以及包含hystrix熔断功能，但是没有端点监控功能（@E
 Spring STS：http://spring.io/tools
 
 #### 待办
-Spring Cloud等待下一个稳定版。  
-日志收集处理。
-后台用户、订单管理。
-zipkin日志保存。
+* Spring Cloud等待下一个稳定版。  
+* 日志收集处理。
+* 后台用户、订单管理。
