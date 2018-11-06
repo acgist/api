@@ -29,11 +29,11 @@ Spring Session Redis
 * Sleuth/Zipkin：链路跟踪（stream）
 * Hystrix：熔断器（stream）
 * Turbine/Dashboard：熔断器仪表盘聚合（stream）
+* Mail：
 * Websocket：
 
 #### 将来集成功能
 * Task：
-* Mail：
 * OAuth2：
 ~~Shiro：~~（Spring Boot Security替代）
 * REST Docs：

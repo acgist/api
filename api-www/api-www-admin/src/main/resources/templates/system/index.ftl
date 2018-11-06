@@ -2,15 +2,17 @@
 <html>
 	<head>
 		<#include "/admin/head.ftl" >
-		<title>系统缓存</title>
+		<title>系统管理</title>
 		<#include "/admin/resources.ftl" >
 	</head>
 	<body>
 		<div class="iframe-content cache">
 			<fieldset class="layui-elem-field">
-				<legend>清除缓存</legend>
+				<legend>功能按钮</legend>
 				<div>
-					<button class="layui-btn">测试</button>
+					<@autho pattern="/mail/test">
+					<button class="layui-btn" id="mail">邮件测试</button>
+					</@autho>
 				</div>
 			</fieldset>
 			<fieldset class="layui-elem-field">
@@ -25,6 +27,11 @@
 		<script type="text/javascript">
 		layui.use(['form', 'layer', 'table', 'jquery', 'element'], function() {
 			var $ = layui.$;
+			$('#mail').on('click', function() {
+				layui.jquery.get("/mail/test", function() {
+					layer.alert('测试邮件发送成功', {icon : 1});
+				});
+			});
 			$('#permissionRoles').on('click', function() {
 				layui.jquery.get("/cache/permission/roles", function() {
 					layer.alert('缓存已刷新', {icon : 1});

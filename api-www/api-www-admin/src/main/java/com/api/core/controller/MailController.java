@@ -7,22 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.api.core.pojo.layui.LayuiMessage;
-import com.api.core.service.PermissionService;
+import com.api.core.service.MailService;
 
-/**
- * 系统缓存
- */
 @Controller
-@RequestMapping("/cache")
-public class CacheController {
-
+@RequestMapping("/mail")
+public class MailController {
+	
 	@Autowired
-	private PermissionService permissionService;
+	private MailService mailService;
 	
 	@ResponseBody
-	@GetMapping("/permission/roles")
-	public LayuiMessage permissionRoles() {
-		permissionService.init();
+	@GetMapping("/test")
+	public LayuiMessage test() {
+		mailService.test();
 		return LayuiMessage.success();
 	}
 	

@@ -11,6 +11,7 @@ import org.springframework.cloud.netflix.turbine.stream.EnableTurbineStream;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -21,7 +22,7 @@ import rx.subjects.PublishSubject;
 import zipkin2.server.internal.EnableZipkinServer;
 
 @EntityScan("com.api.data.**.entity")
-//@EnableAsync
+@EnableAsync
 @ComponentScan({"com.api.core", "com.api.data"})
 //@EnableScheduling
 @EnableEurekaClient

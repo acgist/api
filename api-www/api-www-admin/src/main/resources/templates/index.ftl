@@ -45,9 +45,9 @@
 									<a href="/permission/tree" target="api-content">系统权限</a>
 								</dd>
 								</@autho>
-								<@autho pattern="/cache">
+								<@autho pattern="/system">
 								<dd>
-									<a href="/cache" target="api-content">系统缓存</a>
+									<a href="/system" target="api-content">系统管理</a>
 								</dd>
 								</@autho>
 							</dl>
