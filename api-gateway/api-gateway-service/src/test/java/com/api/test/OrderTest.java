@@ -12,6 +12,7 @@ import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
 import org.junit.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.web.client.ResponseErrorHandler;
@@ -23,6 +24,7 @@ import com.api.core.service.SignService;
 import com.api.utils.CAUtils;
 import com.api.utils.JSONUtils;
 
+@SpringBootTest(properties = "logging.level.root=error")
 public class OrderTest {
 
 	@Test
