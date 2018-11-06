@@ -15,7 +15,7 @@
 		<file>logs/${system.name}.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<maxHistory>30</maxHistory>
-			<fileNamePattern>logs/${system.name}-%d{yyyy-MM-dd}.log</fileNamePattern>
+			<fileNamePattern>logs/${system.name}.log-%d{yyyy-MM-dd}</fileNamePattern>
 		</rollingPolicy>
 		<layout class="ch.qos.logback.classic.PatternLayout">
 			<pattern>[${system.name}] %d{YYYY-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
