@@ -25,7 +25,7 @@ public class RoleService extends EntityService<RoleEntity> {
 
 	@Override
 	public RoleEntity update(RoleEntity t) {
-		return repository.update(t, RoleEntity.PERMISSIONS_PROPERTY_NAME);
+		return repository.update(t, RoleEntity.PROPERTY_PERMISSIONS);
 	}
 	
 	/**

@@ -29,10 +29,10 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 
 	// 更新时忽略属性
 	static final String[] UPDATE_IGNORE_PROPERTIES = new String[] {
-		BaseEntity.CLASS_PROPERTY_NAME,
-		BaseEntity.ID_PROPERTY_NAME,
-		BaseEntity.CREATE_DATE_PROPERTY_NAME,
-		BaseEntity.MODIFY_DATE_PROPERTY_NAME
+		BaseEntity.PROPERTY_CLASS,
+		BaseEntity.PROPERTY_ID,
+		BaseEntity.PROPERTY_CREATE_DATE,
+		BaseEntity.PROPERTY_MODIFY_DATE
 	};
 	
 	static final Logger LOGGER = LoggerFactory.getLogger(BaseExtendRepository.class);
@@ -51,7 +51,7 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 	 * 根据ID查询
 	 */
 	default T findOne(String id) {
-		return findOne(Filter.eq(BaseEntity.ID_PROPERTY_NAME, id));
+		return findOne(Filter.eq(BaseEntity.PROPERTY_ID, id));
 	}
 	
 	/**

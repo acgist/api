@@ -82,7 +82,7 @@
 						</@autho>
 						<@autho name="订单管理">
 						<li class="layui-nav-item">
-							<a href="javascript:;">订单管理</a>
+							<a href="/order/list" target="api-content">订单管理</a>
 						</li>
 						</@autho>
 					</ul>

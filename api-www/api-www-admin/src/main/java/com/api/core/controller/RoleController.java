@@ -28,13 +28,13 @@ public class RoleController {
 	private PermissionService permissionService;
 	
 	@GetMapping("/list")
-	public String listGet() {
+	public String list() {
 		return "/role/list";
 	}
 	
 	@ResponseBody
 	@PostMapping("/list")
-	public LayuiTable listPost() {
+	public LayuiTable list(ModelMap model) {
 		return LayuiTable.build(roleService.findAll());
 	}
 	

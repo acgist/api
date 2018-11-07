@@ -37,15 +37,15 @@ public class AdminController {
 	}
 
 	@GetMapping("/list")
-	public String listGet() {
+	public String list() {
 		return "/admin/list";
 	}
 	
 	@ResponseBody
 	@PostMapping("/list")
-	public LayuiTable listPost(int page, int limit, String name) {
+	public LayuiTable list(int page, int limit, String name) {
 		PageQuery query = new PageQuery(page, limit);
-		query.addFilters(Filter.eq(AdminEntity.NAME_PROPERTY_NAME, name));
+		query.addFilters(Filter.eq(AdminEntity.PROPERTY_NAME, name));
 		PageResult<AdminEntity> pageResult = adminService.findPage(query);
 		return LayuiTable.build(pageResult.getResult(), pageResult.getTotal());
 	}

@@ -24,10 +24,10 @@ public class BaseEntity extends BaseMessage {
 
 	private static final long serialVersionUID = 1L;
 
-	public static final String ID_PROPERTY_NAME = "id";
-	public static final String CLASS_PROPERTY_NAME = "class";
-	public static final String CREATE_DATE_PROPERTY_NAME = "createDate";
-	public static final String MODIFY_DATE_PROPERTY_NAME = "modifyDate";
+	public static final String PROPERTY_ID = "id";
+	public static final String PROPERTY_CLASS = "class";
+	public static final String PROPERTY_CREATE_DATE = "createDate";
+	public static final String PROPERTY_MODIFY_DATE = "modifyDate";
 
 	/** ID */
 	private String id;

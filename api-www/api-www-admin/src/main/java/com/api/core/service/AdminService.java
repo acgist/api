@@ -25,7 +25,7 @@ public class AdminService extends EntityService<AdminEntity> {
 
 	@Override
 	public AdminEntity update(AdminEntity t) {
-		return repository.update(t, AdminEntity.ROLES_PROPERTY_NAME);
+		return repository.update(t, AdminEntity.PROPERTY_ROLES);
 	}
 	
 	/**

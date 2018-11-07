@@ -20,6 +20,8 @@ public class OrderEntity extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
+	public static final String PROPERTY_ORDER_ID = "orderId";
+	
 	@NotBlank(message = "订单号不能为空")
 	private String orderId;
 

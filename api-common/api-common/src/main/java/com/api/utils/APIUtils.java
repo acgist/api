@@ -11,13 +11,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 
 import com.api.core.gateway.API;
+import com.api.data.pojo.entity.BaseEntity;
 
 /**
  * 对象转MAP工具
  */
 public class APIUtils {
 
-	private static final String CLASS_KEY = "class";
+	private static final String CLASS_KEY = BaseEntity.PROPERTY_CLASS;
 	private static final Logger LOGGER = LoggerFactory.getLogger(APIUtils.class);
 
 	/**

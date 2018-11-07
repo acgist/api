@@ -20,7 +20,7 @@ public class UserEntity extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	public static final String NAME_PROPERTY_NAME = "name";
+	public static final String PROPERTY_NAME = "name";
 	
 	@NotBlank(message = "用户名不能为空")
 	private String name;

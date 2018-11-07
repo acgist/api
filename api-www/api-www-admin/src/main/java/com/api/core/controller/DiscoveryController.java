@@ -23,13 +23,13 @@ public class DiscoveryController {
 	private DiscoveryService discoveryService;
 	
 	@GetMapping
-	public String indexGet() {
+	public String index() {
 		return "/discovery/index";
 	}
 	
 	@PostMapping
 	@ResponseBody
-	public LayuiTable indexPost(ModelMap model) {
+	public LayuiTable index(ModelMap model) {
 		return LayuiTable.build(discoveryService.services());
 	}
 	

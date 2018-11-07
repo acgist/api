@@ -26,7 +26,7 @@ public class RoleEntity extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 	
-	public static final String PERMISSIONS_PROPERTY_NAME = "permissions";
+	public static final String PROPERTY_PERMISSIONS = "permissions";
 	
 	private String name;
 	private String memo;

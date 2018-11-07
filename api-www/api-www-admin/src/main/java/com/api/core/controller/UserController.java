@@ -42,7 +42,7 @@ public class UserController {
 	@PostMapping("/list")
 	public LayuiTable list(int page, int limit, String name) {
 		PageQuery query = new PageQuery(page, limit);
-		query.addFilters(Filter.eq(UserEntity.NAME_PROPERTY_NAME, name));
+		query.addFilters(Filter.eq(UserEntity.PROPERTY_NAME, name));
 		PageResult<UserEntity> pageResult = userService.findPage(query);
 		return LayuiTable.build(pageResult.getResult(), pageResult.getTotal());
 	}
