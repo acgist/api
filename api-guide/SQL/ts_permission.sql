@@ -26,9 +26,10 @@ INSERT INTO `ts_permission` VALUES ('402881e466ce7ec10166ce8090520001', '2018-11
 INSERT INTO `ts_permission` VALUES ('402881e466ce7ec10166ce8090520002', '2018-11-1 17:00:24', '2018-11-1 17:00:24', '通用信息-首页', '通用信息-首页', '402881e466ce7ec10166ce7fec3f0000', '/index', 1100);
 INSERT INTO `ts_permission` VALUES ('402881e466d1d1a30166d1d61b880000', '2018-11-2 08:32:42', '2018-11-2 08:33:40', '通用信息-WEBJAR', '通用信息-WEBJAR', '402881e466ce7ec10166ce7fec3f0000', '/webjars/**', 1300);
 INSERT INTO `ts_permission` VALUES ('402881e466d1d1a30166d1def4ff0001', '2018-11-2 08:42:22', '2018-11-2 08:42:22', '系统用户-修改', '系统用户-修改', '402881e466cc9adf0166cc9eeb840000', '/admin/update', 2111);
-INSERT INTO `ts_permission` VALUES ('402881e466d1d1a30166d1e92ca90002', '2018-11-2 08:53:31', '2018-11-2 08:53:31', '系统缓存', '系统缓存', '402881e466cc9adf0166cc9eeb840001', '/cache', 2400);
-INSERT INTO `ts_permission` VALUES ('402881e466d248ee0166d24ea2a00001', '2018-11-2 10:44:21', '2018-11-2 10:44:21', '系统缓存-权限角色映射', '系统缓存-权限角色映射', '402881e466d1d1a30166d1e92ca90002', '/cache/permission/roles', 2410);
+INSERT INTO `ts_permission` VALUES ('402881e466d1d1a30166d1e92ca90002', '2018-11-2 08:53:31', '2018-11-6 16:13:21', '系统管理', '系统管理', '402881e466cc9adf0166cc9eeb840001', '/system', 2400);
+INSERT INTO `ts_permission` VALUES ('402881e466d248ee0166d24ea2a00001', '2018-11-2 10:44:21', '2018-11-6 16:13:39', '权限角色映射', '权限角色映射', '402881e466d1d1a30166d1e92ca90002', '/cache/permission/roles', 2410);
 INSERT INTO `ts_permission` VALUES ('402881e466e1b0cf0166e1b239660000', '2018-11-5 10:27:26', '2018-11-5 10:27:26', '用户管理-添加', '用户管理-添加', '402881e466cc9adf0166ccacd2230015', '/user/submit', 4010);
 INSERT INTO `ts_permission` VALUES ('402881e466e1b0cf0166e1b286150001', '2018-11-5 10:27:45', '2018-11-5 10:27:45', '用户管理-删除', '用户管理-删除', '402881e466cc9adf0166ccacd2230015', '/user/delete', 4030);
 INSERT INTO `ts_permission` VALUES ('402881e466e1b0cf0166e1b2b8620002', '2018-11-5 10:27:58', '2018-11-5 10:27:58', '用户管理-更新', '用户管理-更新', '402881e466cc9adf0166ccacd2230015', '/user/update', 4020);
 INSERT INTO `ts_permission` VALUES ('402881e466e1b0cf0166e1b488df0003', '2018-11-5 10:29:57', '2018-11-5 10:29:57', '用户管理-生成证书', '用户管理-生成证书', '402881e466cc9adf0166ccacd2230015', '/user/cert', 4040);
+INSERT INTO `ts_permission` VALUES ('402881e466e814460166e815e5490000', '2018-11-6 16:14:01', '2018-11-6 16:14:01', '邮件测试', '邮件测试', '402881e466d1d1a30166d1e92ca90002', '/mail/test', 2420);
