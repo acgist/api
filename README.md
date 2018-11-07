@@ -124,4 +124,4 @@ Spring STS：http://spring.io/tools
 * Spring Cloud等待下一个稳定版。
 
 #### 后台
-![后台-应用管理](http://files.git.oschina.net/group1/M00/05/78/PaAvDFviS6mAKNm9AACCOU1fjHU382.png =200x)
+![后台-应用管理](http://files.git.oschina.net/group1/M00/05/78/PaAvDFviS6mAKNm9AACCOU1fjHU382.png)
