@@ -35,7 +35,7 @@ Spring Session Redis
 #### 将来集成功能
 * Task：
 * OAuth2：
-~~Shiro：~~（Spring Boot Security替代）
+~~Shiro：（Spring Boot Security替代）~~
 * REST Docs：
 * Reactive Web：
 * Deeplearning4j：
@@ -122,4 +122,6 @@ Spring STS：http://spring.io/tools
 
 #### 待办
 * Spring Cloud等待下一个稳定版。
-* 后台用户、订单管理。
+
+#### 后台
+![后台-应用管理](http://files.git.oschina.net/group1/M00/05/78/PaAvDFviS6mAKNm9AACCOU1fjHU382.png =200x)
