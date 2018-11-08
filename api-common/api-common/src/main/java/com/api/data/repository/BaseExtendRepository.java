@@ -197,6 +197,7 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 	 * @param t 更新实体
 	 * @param fields 忽略字段
 	 */
+	@Transactional
 	default T update(T t, String ... ignoreProperties) {
 		T persistant = findOne(t.getId());
 		if (persistant != null) {
