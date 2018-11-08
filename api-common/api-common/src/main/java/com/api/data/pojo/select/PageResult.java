@@ -16,7 +16,7 @@ public class PageResult<T> implements Serializable {
 
 	/** 分页信息 */
 	private final PageQuery pageQuery;
-	
+
 	/** 内容 */
 	private final List<T> result = new ArrayList<T>();
 
@@ -26,8 +26,8 @@ public class PageResult<T> implements Serializable {
 	}
 
 	/**
-	 * @param result   内容
-	 * @param total    总记录数
+	 * @param result 内容
+	 * @param total 总记录数
 	 * @param pageable 分页信息
 	 */
 	public PageResult(List<T> result, long total, PageQuery pageQuery) {

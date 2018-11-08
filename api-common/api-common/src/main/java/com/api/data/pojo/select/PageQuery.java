@@ -71,14 +71,14 @@ public class PageQuery implements Serializable {
 		return orders;
 	}
 
-	public void addFilters(Filter... filters) {
+	public void addFilters(Filter ... filters) {
 		if (filters == null || filters.length == 0) {
 			return;
 		}
 		this.filters.addAll(Arrays.asList(filters));
 	}
 
-	public void addOrders(Order... orders) {
+	public void addOrders(Order ... orders) {
 		if (orders == null || orders.length == 0) {
 			return;
 		}

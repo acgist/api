@@ -12,7 +12,6 @@ public class EntityListener {
 
 	/**
 	 * 保存前处理
-	 * 
 	 * @param entity 基类
 	 */
 	@PrePersist
@@ -23,7 +22,6 @@ public class EntityListener {
 
 	/**
 	 * 更新前处理
-	 * 
 	 * @param entity 基类
 	 */
 	@PreUpdate

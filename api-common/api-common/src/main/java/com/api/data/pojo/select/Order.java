@@ -62,7 +62,6 @@ public class Order implements Serializable {
 
 	/**
 	 * 返回递增排序
-	 * 
 	 * @param property 属性
 	 * @return 递增排序
 	 */
@@ -72,7 +71,6 @@ public class Order implements Serializable {
 
 	/**
 	 * 返回递减排序
-	 * 
 	 * @param property 属性
 	 * @return 递减排序
 	 */
@@ -89,7 +87,6 @@ public class Order implements Serializable {
 	
 	/**
 	 * 获取属性
-	 * 
 	 * @return 属性
 	 */
 	public String getProperty() {
@@ -98,7 +95,6 @@ public class Order implements Serializable {
 
 	/**
 	 * 获取方向
-	 * 
 	 * @return 方向
 	 */
 	public Direction getDirection() {

@@ -207,8 +207,15 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 		}
 	}
 	
+	/**
+	 * 拷贝属性
+	 * @param source 提供属性的数据源
+	 * @param target 设置属性的数据源
+	 * @param ignoreProperties 忽略属性
+	 * @throws BeansException beans拷贝异常
+	 */
 	private void copyProperties(Object source, Object target, String[] ignoreProperties) throws BeansException {
-		PropertyDescriptor[] propertys = PropertyUtils.getPropertyDescriptors(target.getClass());
+		final PropertyDescriptor[] propertys = PropertyUtils.getPropertyDescriptors(target.getClass());
 		Stream.of(propertys)
 		.filter(property -> property.getWriteMethod() != null)
 		.filter(property -> ignoreProperties == null || !ArrayUtils.contains(ignoreProperties, property.getName()))

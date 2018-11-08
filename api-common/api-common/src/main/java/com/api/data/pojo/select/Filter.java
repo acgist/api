@@ -50,7 +50,6 @@ public class Filter implements Serializable {
 
 		/**
 		 * 从String中获取Operator
-		 * 
 		 * @param value 值
 		 * @return String对应的operator
 		 */
@@ -77,7 +76,6 @@ public class Filter implements Serializable {
 
 	/**
 	 * 初始化一个新创建的Filter对象
-	 * 
 	 * @param property 属性
 	 * @param operator 运算符
 	 * @param value 值
@@ -90,7 +88,6 @@ public class Filter implements Serializable {
 
 	/**
 	 * 返回等于筛选
-	 * 
 	 * @param property 属性
 	 * @param value 值
 	 * @return 等于筛选
@@ -101,7 +98,6 @@ public class Filter implements Serializable {
 
 	/**
 	 * 返回不等于筛选
-	 * 
 	 * @param property 属性
 	 * @param value 值
 	 * @return 不等于筛选
@@ -112,7 +108,6 @@ public class Filter implements Serializable {
 	
 	/**
 	 * 返回大于筛选
-	 * 
 	 * @param property 属性
 	 * @param value 值
 	 * @return 大于筛选
@@ -123,7 +118,6 @@ public class Filter implements Serializable {
 
 	/**
 	 * 返回小于筛选
-	 * 
 	 * @param property 属性
 	 * @param value 值
 	 * @return 小于筛选
@@ -134,7 +128,6 @@ public class Filter implements Serializable {
 
 	/**
 	 * 返回大于等于筛选
-	 * 
 	 * @param property 属性
 	 * @param value 值
 	 * @return 大于等于筛选
@@ -145,7 +138,6 @@ public class Filter implements Serializable {
 
 	/**
 	 * 返回小于等于筛选
-	 * 
 	 * @param property 属性
 	 * @param value 值
 	 * @return 小于等于筛选
@@ -156,7 +148,6 @@ public class Filter implements Serializable {
 
 	/**
 	 * 返回相似筛选
-	 * 
 	 * @param property 属性
 	 * @param value 值
 	 * @return 相似筛选
@@ -167,7 +158,6 @@ public class Filter implements Serializable {
 
 	/**
 	 * 返回包含筛选
-	 * 
 	 * @param property 属性
 	 * @param value 值
 	 * @return 包含筛选
@@ -178,7 +168,6 @@ public class Filter implements Serializable {
 
 	/**
 	 * 返回为Null筛选
-	 * 
 	 * @param property 属性
 	 * @return 为Null筛选
 	 */
@@ -188,7 +177,6 @@ public class Filter implements Serializable {
 
 	/**
 	 * 返回不为Null筛选
-	 * 
 	 * @param property 属性
 	 * @return 不为Null筛选
 	 */
@@ -205,7 +193,6 @@ public class Filter implements Serializable {
 	
 	/**
 	 * 获取属性
-	 * 
 	 * @return 属性
 	 */
 	public String getProperty() {
@@ -214,7 +201,6 @@ public class Filter implements Serializable {
 
 	/**
 	 * 设置属性
-	 * 
 	 * @param property 属性
 	 */
 	public void setProperty(String property) {
@@ -223,7 +209,6 @@ public class Filter implements Serializable {
 
 	/**
 	 * 获取运算符
-	 * 
 	 * @return 运算符
 	 */
 	public Operator getOperator() {
@@ -232,7 +217,6 @@ public class Filter implements Serializable {
 
 	/**
 	 * 设置运算符
-	 * 
 	 * @param operator 运算符
 	 */
 	public void setOperator(Operator operator) {
@@ -241,7 +225,6 @@ public class Filter implements Serializable {
 
 	/**
 	 * 获取值
-	 * 
 	 * @return 值
 	 */
 	public Object getValue() {
@@ -250,7 +233,6 @@ public class Filter implements Serializable {
 
 	/**
 	 * 设置值
-	 * 
 	 * @param value 值
 	 */
 	public void setValue(Object value) {

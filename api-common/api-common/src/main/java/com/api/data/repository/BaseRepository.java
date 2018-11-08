@@ -1,8 +1,8 @@
 package com.api.data.repository;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.function.Function;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -19,10 +19,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.api.data.pojo.entity.BaseEntity;
 import com.api.data.pojo.select.Filter;
+import com.api.data.pojo.select.Filter.Operator;
 import com.api.data.pojo.select.Order;
 import com.api.data.pojo.select.PageQuery;
 import com.api.data.pojo.select.PageResult;
-import com.api.data.pojo.select.Filter.Operator;
 
 /**
  * 添加findAll和findPage方法，直接使用接口实现即可使用
@@ -31,6 +31,16 @@ import com.api.data.pojo.select.Filter.Operator;
 @Transactional(readOnly = true)
 public interface BaseRepository<T extends BaseEntity> extends JpaRepository<T, String>, JpaSpecificationExecutor<T>  {
 
+	/**
+	 * like查询拼接
+	 */
+	String LIKE = "%";
+	
+	/**
+	 * like查询字符串拼接
+	 */
+	Function<String, String> likeQuery = (value) -> {return LIKE + value + LIKE;};
+	
 	/**
 	 * 集合查询
 	 * @param filters 查询条件
@@ -86,62 +96,47 @@ public interface BaseRepository<T extends BaseEntity> extends JpaRepository<T, S
 	 * @param filters 查询条件
 	 * @param orders 排序条件
 	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	default void buildCriteriaQuery(List<Filter> filters, List<Order> orders, Root<T> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+		// 条件
 		if(filters != null && !filters.isEmpty()) {
 			List<Predicate> list = new ArrayList<>(filters.size());
 			filters
 			.stream()
-			.filter(filter -> {
-				return filter != null && filter.getProperty() != null;
+			.filter(filter -> { // 过滤无效值
+				final Operator operator = filter.getOperator();
+				return filter != null &&
+					filter.getProperty() != null &&
+					((operator == Operator.isNull || operator == Operator.isNotNull) ? true : filter.getValue() != null);
+			})
+			.filter(filter -> { // 过滤空字符串
+				final Object value = filter.getValue();
+				if(value != null && value instanceof String) {
+					return !((String) value).isEmpty();
+				}
+				return true;
 			})
 			.forEach(filter -> {
-				if (filter.getOperator() == Operator.eq && filter.getValue() != null) {
-					if(filter.getValue() instanceof String) {
-						if(!filter.getValue().toString().isEmpty()) {
-							list.add(criteriaBuilder.equal(root.get(filter.getProperty()), filter.getValue()));
-						}
-					} else {
-						list.add(criteriaBuilder.equal(root.get(filter.getProperty()), filter.getValue()));
-					}
-				} else if (filter.getOperator() == Operator.ne && filter.getValue() != null) {
-					if(filter.getValue() instanceof String) {
-						if(!filter.getValue().toString().isEmpty()) {
-							list.add(criteriaBuilder.notEqual(root.get(filter.getProperty()), filter.getValue()));
-						}
-					} else {
-						list.add(criteriaBuilder.notEqual(root.get(filter.getProperty()), filter.getValue()));
-					}
-				} else if (filter.getOperator() == Operator.gt && filter.getValue() != null) {
-					if(filter.getValue() instanceof Date) {
-						list.add(criteriaBuilder.greaterThan(root.<Date>get(filter.getProperty()), (Date) filter.getValue()));
-					} else {
-						list.add(criteriaBuilder.gt(root.<Number>get(filter.getProperty()), (Number) filter.getValue()));
-					}
-				} else if (filter.getOperator() == Operator.lt && filter.getValue() != null) {
-					if(filter.getValue() instanceof Date) {
-						list.add(criteriaBuilder.lessThan(root.<Date>get(filter.getProperty()), (Date) filter.getValue()));
-					} else {
-						list.add(criteriaBuilder.lt(root.<Number>get(filter.getProperty()), (Number) filter.getValue()));
-					}
-				} else if (filter.getOperator() == Operator.ge && filter.getValue() != null) {
-					if(filter.getValue() instanceof Date) {
-						list.add(criteriaBuilder.greaterThanOrEqualTo(root.<Date>get(filter.getProperty()), (Date) filter.getValue()));
-					} else {
-						list.add(criteriaBuilder.ge(root.<Number>get(filter.getProperty()), (Number) filter.getValue()));
-					}
-				} else if (filter.getOperator() == Operator.le && filter.getValue() != null) {
-					if(filter.getValue() instanceof Date) {
-						list.add(criteriaBuilder.lessThanOrEqualTo(root.<Date>get(filter.getProperty()), (Date) filter.getValue()));
-					} else {
-						list.add(criteriaBuilder.le(root.<Number>get(filter.getProperty()), (Number) filter.getValue()));
-					}
-				} else if (filter.getOperator() == Operator.like && filter.getValue() != null && filter.getValue() instanceof String) {
-					list.add(criteriaBuilder.like(root.<String>get(filter.getProperty()), (String) filter.getValue()));
-				} else if (filter.getOperator() == Operator.in && filter.getValue() != null) {
+				final Operator operator = filter.getOperator();
+				if (operator == Operator.eq) {
+					list.add(criteriaBuilder.equal(root.get(filter.getProperty()), filter.getValue()));
+				} else if (operator == Operator.ne) {
+					list.add(criteriaBuilder.notEqual(root.get(filter.getProperty()), filter.getValue()));
+				} else if (operator == Operator.gt) {
+					list.add(criteriaBuilder.greaterThan(root.get(filter.getProperty()), (Comparable) filter.getValue()));
+				} else if (operator == Operator.lt) {
+					list.add(criteriaBuilder.lessThan(root.get(filter.getProperty()), (Comparable) filter.getValue()));
+				} else if (operator == Operator.ge) {
+					list.add(criteriaBuilder.greaterThanOrEqualTo(root.get(filter.getProperty()), (Comparable) filter.getValue()));
+				} else if (operator == Operator.le) {
+					list.add(criteriaBuilder.lessThanOrEqualTo(root.get(filter.getProperty()), (Comparable) filter.getValue()));
+				} else if (operator == Operator.like) {
+					list.add(criteriaBuilder.like(root.get(filter.getProperty()), likeQuery.apply(filter.getValue().toString())));
+				} else if (operator == Operator.in) {
 					list.add(root.get(filter.getProperty()).in(filter.getValue()));
-				} else if (filter.getOperator() == Operator.isNull) {
+				} else if (operator == Operator.isNull) {
 					list.add(root.get(filter.getProperty()).isNull());
-				} else if (filter.getOperator() == Operator.isNotNull) {
+				} else if (operator == Operator.isNotNull) {
 					list.add(root.get(filter.getProperty()).isNotNull());
 				}
 			});
@@ -151,6 +146,7 @@ public interface BaseRepository<T extends BaseEntity> extends JpaRepository<T, S
 //			criteriaQuery.where(criteriaBuilder.and(list.toArray(new Predicate[list.size()])));
 			criteriaQuery.where(list.toArray(new Predicate[list.size()]));
 		}
+		// 排序
 		if(orders != null && !orders.isEmpty()) {
 			List<javax.persistence.criteria.Order> list = new ArrayList<>(orders.size());
 			orders
