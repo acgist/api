@@ -11,6 +11,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
+/**
+ * C3P0数据库连接池
+ */
 @Configuration
 //@PropertySource(value = "classpath:/c3p0.properties")
 public class C3P0DataSource {

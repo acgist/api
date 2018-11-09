@@ -18,7 +18,7 @@ import com.api.data.pojo.select.Filter;
 import com.api.data.pojo.select.Order;
 
 /**
- * Repository基类
+ * BaseExtendRepository实现类
  */
 public class BaseExtendRepositoryImpl<T extends BaseEntity> extends SimpleJpaRepository<T, String> implements BaseExtendRepository<T> {
 

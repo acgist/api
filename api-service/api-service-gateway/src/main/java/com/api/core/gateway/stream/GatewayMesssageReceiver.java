@@ -9,6 +9,9 @@ import com.api.core.gateway.config.GatewayReceiverBinding;
 import com.api.core.gateway.pojo.message.GatewayMessage;
 import com.api.data.gateway.repository.GatewayRepository;
 
+/**
+ * 处理网关消息队列
+ */
 @EnableBinding(GatewayReceiverBinding.class)
 public class GatewayMesssageReceiver {
 

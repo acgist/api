@@ -3,7 +3,7 @@ package com.api.core.user.pojo.message;
 import com.api.core.pojo.message.BaseMessage;
 
 /**
- * 结果
+ * 授权信息
  */
 public class AuthoMessage extends BaseMessage {
 

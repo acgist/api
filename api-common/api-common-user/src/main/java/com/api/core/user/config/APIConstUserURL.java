@@ -3,7 +3,7 @@ package com.api.core.user.config;
 import com.api.core.config.APIConstURL;
 
 /**
- * 用户映射配置
+ * 用户服务映射配置
  */
 public interface APIConstUserURL extends APIConstURL {
 

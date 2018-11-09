@@ -16,7 +16,7 @@ import com.api.core.gateway.APICode;
 import com.api.core.gateway.response.APIResponse;
 
 /**
- * 错误页面
+ * 统一错误页面
  */
 @Controller
 public class APIErrorController implements ErrorController {

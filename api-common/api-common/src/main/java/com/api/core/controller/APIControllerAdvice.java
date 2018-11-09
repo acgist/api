@@ -14,7 +14,7 @@ import com.api.core.gateway.APICode;
 import com.api.utils.RedirectUtils;
 
 /**
- * 异常处理
+ * 统一异常处理
  */
 @ControllerAdvice
 public class APIControllerAdvice {

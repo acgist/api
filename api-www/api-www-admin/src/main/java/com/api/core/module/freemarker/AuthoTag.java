@@ -21,7 +21,7 @@ import freemarker.template.TemplateException;
 import freemarker.template.TemplateModel;
 
 /**
- * 权限标签
+ * 标签 - 权限
  */
 @Component
 @RefreshScope

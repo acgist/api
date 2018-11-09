@@ -12,7 +12,7 @@ import com.api.core.order.service.impl.OrderServiceImpl;
 import com.api.data.order.pojo.entity.OrderEntity;
 
 /**
- * 订单支付
+ * 创建订单
  */
 @Component
 @Scope("prototype")
@@ -24,7 +24,7 @@ public class PayExecutor extends APIExecutor<PayRequest, PayResponse> {
 	@Override
 	public void execute() {
 		OrderEntity order = new OrderEntity();
-		order.valueOfPayRequest(request);
+		order.valueOfRequest(request);
 		OrderMessage message = orderServiceImpl.order(order);
 		response.buildMessage(message);
 	}

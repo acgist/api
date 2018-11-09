@@ -19,7 +19,7 @@ import com.api.core.gateway.APICode;
 import com.api.core.gateway.response.APIResponse;
 
 /**
- * 订单-熔断器
+ * 静态资源-熔断器
  */
 @Component
 public class ResourcesFallbackProvider implements FallbackProvider {

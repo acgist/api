@@ -3,7 +3,7 @@ package com.api.core.order.gateway.response;
 import com.api.core.gateway.response.APIResponse;
 
 /**
- * 订单查询响应
+ * 响应-订单查询
  */
 public class QueryResponse extends APIResponse {
 

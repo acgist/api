@@ -12,8 +12,8 @@ public class UserSession extends BaseSession {
 
 	private static final long serialVersionUID = 1L;
 
-	public UserSession(HttpServletRequest request) {
-		super(APIConstSession.SESSION_USER, request.getSession());
+	public UserSession() {
+		super(APIConstSession.SESSION_USER);
 	}
 
 	private String id;

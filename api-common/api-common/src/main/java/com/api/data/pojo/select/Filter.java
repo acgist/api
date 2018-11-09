@@ -7,7 +7,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
- * select：数据库查询条件
+ * select：查询条件
  */
 public class Filter implements Serializable {
 

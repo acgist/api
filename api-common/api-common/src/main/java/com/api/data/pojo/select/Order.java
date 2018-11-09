@@ -7,7 +7,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
- * select：数据库查询排序
+ * select：查询排序
  */
 public class Order implements Serializable {
 

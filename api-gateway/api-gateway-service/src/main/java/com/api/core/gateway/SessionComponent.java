@@ -8,8 +8,6 @@ import com.netflix.zuul.context.RequestContext;
 
 /**
  * 请求数据
- * 	session：发生异常、重定向、请求转发均不会丢失数据
- * 	request：发生异常、请求转发均不会丢失数据，重定向时会丢失数据
  */
 public class SessionComponent implements Serializable {
 

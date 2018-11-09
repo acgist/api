@@ -93,6 +93,7 @@ public interface BaseRepository<T extends BaseEntity> extends JpaRepository<T, S
 	
 	/**
 	 * 创建查询条件
+	 * TODO 泛型优化
 	 * @param filters 查询条件
 	 * @param orders 排序条件
 	 */

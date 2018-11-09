@@ -7,6 +7,9 @@ import com.api.core.order.service.IOrderService;
 import com.api.feign.config.FeignConfig;
 import com.api.feign.order.fallback.OrderServiceFallback;
 
+/**
+ * 订单服务
+ */
 @FeignClient(name = APIConstApplication.API_SERVICE_ORDER, configuration = FeignConfig.class, fallback = OrderServiceFallback.class)
 public interface OrderService extends IOrderService {
 

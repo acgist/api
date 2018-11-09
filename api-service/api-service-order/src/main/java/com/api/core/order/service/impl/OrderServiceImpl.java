@@ -8,6 +8,9 @@ import com.api.data.order.pojo.entity.OrderEntity;
 import com.api.data.order.repository.OrderRepository;
 import com.api.data.service.APIEntityService;
 
+/**
+ * 订单
+ */
 @Service
 public class OrderServiceImpl implements APIEntityService {
 

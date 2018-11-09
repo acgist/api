@@ -50,6 +50,10 @@ public enum APICode {
 		this.message = message;
 	}
 
+	/**
+	 * 通过错误编码获取APICode，如果不存在默认返回9999
+	 * @param code 错误编码
+	 */
 	public static final APICode valueOfCode(String code) {
 		for (APICode apiCode : APICode.values()) {
 			if(apiCode.code.equals(code)) {
@@ -59,10 +63,19 @@ public enum APICode {
 		return CODE_9999;
 	}
 	
+	/**
+	 * 通过HTTP状态码获取APICode
+	 * @param statusCode HTTP状态码
+	 */
 	public static final APICode valueOfStatus(int statusCode) {
 		return valueOfCode(RESPONSE_ERROR + statusCode);
 	}
 	
+	/**
+	 * 通过异常信息获取APICode
+	 * @param e 异常信息
+	 * @param response 响应
+	 */
 	public static final APICode valueOfThrowable(final Throwable e, HttpServletResponse response) {
 		if(e == null) {
 			return APICode.CODE_9999;

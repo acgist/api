@@ -3,7 +3,7 @@ package com.api.core.user.pojo.message;
 import com.api.core.pojo.message.ResultMessage;
 
 /**
- * 登陆
+ * 登陆信息
  */
 public class LoginMessage extends ResultMessage {
 

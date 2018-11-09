@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * select：数据库分页查询
+ * select：分页查询
  */
 public class PageQuery implements Serializable {
 

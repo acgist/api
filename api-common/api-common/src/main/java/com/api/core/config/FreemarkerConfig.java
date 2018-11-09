@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * freemarker配置
+ * freemarker配置：添加静态地址、设置默认值
  */
 @Configuration
 public class FreemarkerConfig {

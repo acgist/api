@@ -19,7 +19,7 @@ public class OrderInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		UserSession user = UserSession.get(request);
 		if(user == null) {
-			RedirectUtils.redirectToGet(response, "/user/login");
+			RedirectUtils.redirectToGet(response, "/login");
 			return false;
 		}
 		return true;

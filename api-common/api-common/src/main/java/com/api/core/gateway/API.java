@@ -22,9 +22,9 @@ public abstract class API implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	public static final String DEFAULT_CHARSET = "UTF-8"; // 系统默认编码
 	public static final String PROPERTY_USERNAME = "username"; // 用户账号
 	public static final String PROPERTY_SIGN = "sign"; // 签名
-	public static final String DEFAULT_CHARSET = "UTF-8"; // 系统默认编码
 
 	@NotBlank(message = "用户帐号不能为空")
 	protected String username; // 用户账号

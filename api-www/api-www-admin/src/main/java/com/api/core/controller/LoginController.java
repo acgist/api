@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.api.core.config.APIConstAdminURL;
 import com.api.core.gateway.APICode;
 
+/**
+ * 登陆
+ */
 @Controller
 public class LoginController {
 

@@ -12,6 +12,9 @@ import javax.websocket.server.ServerEndpoint;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * websocket - 聊天室
+ */
 @Component
 @ServerEndpoint("/chat.socket")
 public class ChatWebSocket {

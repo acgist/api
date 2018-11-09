@@ -2,6 +2,7 @@ package com.api.core.pojo.session;
 
 import java.io.Serializable;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -12,17 +13,16 @@ public class BaseSession implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	protected String sessionKey;
-	protected transient HttpSession session;
 	
-	public BaseSession(String sessionKey, HttpSession session) {
+	public BaseSession(String sessionKey) {
 		this.sessionKey = sessionKey;
-		this.session = session;
 	}
 
 	/**
 	 * 设置session
 	 */
-	public void putSession() {
+	public void putSession(HttpServletRequest request) {
+		final HttpSession session = request.getSession();
 		session.setAttribute(sessionKey, this);
 	}
 	

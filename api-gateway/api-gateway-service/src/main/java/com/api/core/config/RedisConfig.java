@@ -16,7 +16,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * redis 配置
+ * redis配置
  */
 @Configuration
 public class RedisConfig {
@@ -39,15 +39,13 @@ public class RedisConfig {
 	private void serializer(RedisTemplate<String, Object> template) {
 		final Jackson2JsonRedisSerializer<?> serializer = new Jackson2JsonRedisSerializer<>(Object.class);
 		final ObjectMapper mapper = new ObjectMapper();
-		// KEY
-		template.setKeySerializer(new StringRedisSerializer());
-		// VALUE
+		template.setKeySerializer(new StringRedisSerializer()); // KEY序列化
 		mapper.setSerializationInclusion(Include.NON_NULL);
 		mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
 		mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		serializer.setObjectMapper(mapper);
-		template.setValueSerializer(serializer);
+		template.setValueSerializer(serializer);// VALUE序列化
 	}
 
 }

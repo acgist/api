@@ -9,6 +9,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import com.api.core.order.gateway.request.PayRequest;
 import com.api.data.pojo.entity.BaseEntity;
+import com.api.data.pojo.entity.ValueOfRequest;
 
 /**
  * 支付订单
@@ -16,7 +17,7 @@ import com.api.data.pojo.entity.BaseEntity;
 @Entity
 @Table(name = "tb_order")
 @GenericGenerator(name = "sequenceGenerator", strategy = "uuid")
-public class OrderEntity extends BaseEntity {
+public class OrderEntity extends BaseEntity implements ValueOfRequest<PayRequest> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -34,7 +35,8 @@ public class OrderEntity extends BaseEntity {
 		this.orderId = orderId;
 	}
 
-	public void valueOfPayRequest(PayRequest request) {
+	@Override
+	public void valueOfRequest(PayRequest request) {
 		this.setOrderId(request.getOrderId());
 	}
 

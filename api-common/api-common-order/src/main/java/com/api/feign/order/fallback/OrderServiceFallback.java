@@ -11,6 +11,9 @@ import com.api.data.order.pojo.entity.OrderEntity;
 import com.api.feign.order.service.OrderService;
 import com.api.feign.service.BaseServiceFallback;
 
+/**
+ * 订单服务熔断
+ */
 @Component
 @RequestMapping(APIConstURL.URL_FALLBACK_SERVICE)
 public class OrderServiceFallback extends BaseServiceFallback implements OrderService {

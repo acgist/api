@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 import com.api.core.gateway.request.APIRequest;
 
 /**
- * 交易接口
+ * 请求-创建订单
  */
 public class PayRequest extends APIRequest {
 	

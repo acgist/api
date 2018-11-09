@@ -10,7 +10,7 @@ import com.api.core.user.pojo.message.AuthoMessage;
 import com.api.core.user.pojo.message.LoginMessage;
 
 /**
- * 用户
+ * 用户服务
  */
 @RequestMapping(APIConstURL.URL_SERVICE)
 public interface IUserService {

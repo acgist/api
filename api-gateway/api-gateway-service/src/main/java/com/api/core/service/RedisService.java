@@ -7,7 +7,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 /**
- * redis 工具
+ * redis工具
  */
 @Service
 public class RedisService {

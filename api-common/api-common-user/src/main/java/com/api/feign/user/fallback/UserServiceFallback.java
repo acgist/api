@@ -11,6 +11,9 @@ import com.api.core.user.pojo.message.LoginMessage;
 import com.api.feign.service.BaseServiceFallback;
 import com.api.feign.user.service.UserService;
 
+/**
+ * 用户服务熔断
+ */
 @Component
 @RequestMapping(APIConstURL.URL_FALLBACK_SERVICE)
 public class UserServiceFallback extends BaseServiceFallback implements UserService {

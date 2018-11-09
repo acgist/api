@@ -14,9 +14,6 @@ import com.api.data.service.EntityService;
 import com.api.data.user.pojo.entity.UserEntity;
 import com.api.utils.CAUtils;
 
-/**
- * 用户
- */
 @Service
 public class UserService extends EntityService<UserEntity> {
 

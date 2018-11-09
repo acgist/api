@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * 内网IP地址配置
+ * 端点配置
  */
 @Configuration
 public class ActuatorConfig {

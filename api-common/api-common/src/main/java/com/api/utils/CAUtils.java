@@ -45,8 +45,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 注意：Cipher不是一个线程安全的类
- * getInstance("RSA");
- * =getInstance("RSA/ECB/PKCS1Padding");
+ * getInstance("RSA"); = getInstance("RSA/ECB/PKCS1Padding");
  */
 public class CAUtils {
 	

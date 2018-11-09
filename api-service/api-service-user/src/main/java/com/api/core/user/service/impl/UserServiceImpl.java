@@ -10,6 +10,9 @@ import com.api.core.user.pojo.message.LoginMessage;
 import com.api.data.user.pojo.entity.UserEntity;
 import com.api.data.user.repository.UserRepository;
 
+/**
+ * 用户
+ */
 @Service
 public class UserServiceImpl {
 

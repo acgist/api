@@ -14,7 +14,7 @@
 	<#include "/include/header.ftl">
 	<div class="container main">
 		<div class="login">
-			<form method="post" action="/user/login">
+			<form method="post" action="/login">
 				<input name="token" type="hidden" value="${token}" />
 				<div class="form-group">
 					<label for="username" class="control-label">账号：</label>

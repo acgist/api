@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.api.core.pojo.layui.LayuiMessage;
 import com.api.core.service.MailService;
 
+/**
+ * 邮件
+ */
 @Controller
 @RequestMapping("/mail")
 public class MailController {
