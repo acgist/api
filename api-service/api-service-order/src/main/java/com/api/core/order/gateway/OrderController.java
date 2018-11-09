@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.api.core.config.APIConstURL;
 import com.api.core.order.config.APIConstOrderURL;
 import com.api.core.order.gateway.executor.PayExecutor;
+import com.api.core.order.gateway.executor.QueryExecutor;
 import com.api.core.order.gateway.request.PayRequest;
+import com.api.core.order.gateway.request.QueryRequest;
 import com.api.core.order.gateway.response.PayResponse;
+import com.api.core.order.gateway.response.QueryResponse;
 import com.api.utils.APIUtils;
 
 /**
@@ -30,6 +33,14 @@ public class OrderController {
 	@PostMapping(APIConstOrderURL.URL_ORDER_PAY)
 	public PayResponse pay(@RequestBody PayRequest request) {
 		return APIUtils.newInstance(context, PayExecutor.class).execute(request);
+	}
+	
+	/**
+	 * 订单查询
+	 */
+	@PostMapping(APIConstOrderURL.URL_ORDER_QUERY)
+	public QueryResponse query(@RequestBody QueryRequest request) {
+		return APIUtils.newInstance(context, QueryExecutor.class).execute(request);
 	}
 	
 }

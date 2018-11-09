@@ -37,7 +37,7 @@ public class CsrfInterceptor implements HandlerInterceptor {
 				buildCsrfToken(session);
 				return true;
 			}
-			RedirectUtils.error(APICode.CODE_2403, request, response);
+			RedirectUtils.error(APICode.CODE_4403, request, response);
 			return false;
 		}
 		if(trueToken == null) {

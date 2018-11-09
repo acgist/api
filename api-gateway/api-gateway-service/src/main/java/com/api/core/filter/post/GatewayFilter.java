@@ -14,12 +14,12 @@ import com.api.data.gateway.pojo.entity.GatewayEntity;
 import com.netflix.zuul.exception.ZuulException;
 
 /**
- * 设置响应内容
+ * 网关记录
  */
 @Component
-public class GatewayUpdateFilter extends BaseZuulFilter {
+public class GatewayFilter extends BaseZuulFilter {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(GatewayUpdateFilter.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(GatewayFilter.class);
 	
 	@Autowired
 	private GatewayMesssageSender sender;

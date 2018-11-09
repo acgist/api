@@ -58,8 +58,10 @@ public class OrderTest {
 //					request.setOrderId("exception");
 //					zuul网关
 					ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:23010/gateway/api/order/pay"), request, String.class);
+//					ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:23010/gateway/api/order/query"), request, String.class);
 //					服务网关
 //					ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:32010/gateway/api/order/pay"), request, String.class);
+//					ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:32010/gateway/api/order/query"), request, String.class);
 //					直接调用服务
 //					ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:32010/service/order"), request, String.class);
 					String json = response.getBody();
@@ -79,6 +81,7 @@ public class OrderTest {
 							System.out.println("交易失败");
 						}
 					} else {
+						System.out.println(json);
 						System.out.println("验签失败");
 					}
 //					System.out.println(json);

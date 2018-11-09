@@ -44,7 +44,7 @@ public class PackageRequestFilter extends BaseZuulFilter {
 		session.setApiType(apiType);
 		final String requestJSON = requestJSON(request);
 		if(requestJSON == null || requestJSON.isEmpty()) {
-			error(APICode.CODE_2400, "请求数据不能为空");
+			error(APICode.CODE_4400, "请求数据不能为空");
 			return null;
 		}
 		final APIRequest apiRequest = JSONUtils.jsonToJava(requestJSON, apiType.reqeustClazz());
