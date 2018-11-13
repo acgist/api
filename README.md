@@ -120,8 +120,9 @@ Spring Session Redis
 #### 开发工具推荐
 Spring STS：http://spring.io/tools
 
-#### 待办
-* Spring Cloud等待下一个稳定版。
-
 #### 后台
 ![后台-应用管理](http://files.git.oschina.net/group1/M00/05/78/PaAvDFviS6mAKNm9AACCOU1fjHU382.png)
+
+#### 待办
+* Spring Cloud等待下一个稳定版。
+* turbine stream新版本无效，如需使用请使用旧版本替换，不知道是否是BUG。

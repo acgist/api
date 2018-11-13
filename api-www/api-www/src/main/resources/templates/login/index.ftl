@@ -18,11 +18,11 @@
 				<input name="token" type="hidden" value="${token}" />
 				<div class="form-group">
 					<label for="username" class="control-label">账号：</label>
-					<input required="required" name="username" type="text" class="form-control" id="username" placeholder="账号" />
+					<input tabindex="1" required="required" name="username" type="text" class="form-control" id="username" placeholder="账号" />
 				</div>
 				<div class="form-group">
 					<label for="password" class="control-label">密码：</label>
-					<input required="required" name="password" type="password" class="form-control" id="password" placeholder="密码" />
+					<input tabindex="2" required="required" name="password" type="password" class="form-control" id="password" placeholder="密码" />
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary">登陆</button>

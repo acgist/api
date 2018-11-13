@@ -18,7 +18,7 @@
 			<form method="post" action="/order">
 				<input name="token" type="hidden" value="${token}" />
 				<div class="form-group">
-					<input required="required" name="orderId" type="text" class="form-control" placeholder="订单号" />
+					<input tabindex="1" required="required" name="orderId" type="text" class="form-control" placeholder="订单号" />
 				</div>
 				<div class="form-group text-center">
 					<button type="submit" class="btn btn-primary">提交订单</button>

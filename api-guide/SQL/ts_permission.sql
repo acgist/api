@@ -19,7 +19,7 @@ INSERT INTO `ts_permission` VALUES ('402881e466cc9adf0166cca7159f0010', '2018-11
 INSERT INTO `ts_permission` VALUES ('402881e466cc9adf0166cca833bd0012', '2018-11-1 08:24:27', '2018-11-1 08:26:11', '关闭应用', '关闭应用', '402881e466cc9adf0166cca7159f0010', '/endpoint/shutdown', 3111);
 INSERT INTO `ts_permission` VALUES ('402881e466cc9adf0166cca8b3d80013', '2018-11-1 08:25:00', '2018-11-1 08:25:00', '刷新配置', '刷新配置', '402881e466cc9adf0166cca5dc10000d', '/endpoint/bus/refresh', 3120);
 INSERT INTO `ts_permission` VALUES ('402881e466cc9adf0166ccacd2230015', '2018-11-1 08:29:30', '2018-11-5 10:27:06', '用户管理', '用户管理', '', '/user/list', 4000);
-INSERT INTO `ts_permission` VALUES ('402881e466cc9adf0166ccacfbd60016', '2018-11-1 08:29:41', '2018-11-1 08:29:41', '订单管理', '订单管理', '', '', 5000);
+INSERT INTO `ts_permission` VALUES ('402881e466cc9adf0166ccacfbd60016', '2018-11-1 08:29:41', '2018-11-7 09:55:18', '订单管理', '订单管理', '', '/order/list', 5000);
 INSERT INTO `ts_permission` VALUES ('402881e466ce71080166ce7283a30000', '2018-11-1 16:45:03', '2018-11-1 16:45:03', '系统用户-角色', '系统用户-角色', '402881e466cc9adf0166cc9eeb840000', '/admin/role', 2130);
 INSERT INTO `ts_permission` VALUES ('402881e466ce7ec10166ce7fec3f0000', '2018-11-1 16:59:42', '2018-11-1 17:00:38', '通用信息', '通用信息', '', '', 1000);
 INSERT INTO `ts_permission` VALUES ('402881e466ce7ec10166ce8090520001', '2018-11-1 17:00:24', '2018-11-1 17:07:29', '通用信息-面板', '通用信息-面板', '402881e466ce7ec10166ce7fec3f0000', '/admin/info', 1200);
@@ -33,3 +33,5 @@ INSERT INTO `ts_permission` VALUES ('402881e466e1b0cf0166e1b286150001', '2018-11
 INSERT INTO `ts_permission` VALUES ('402881e466e1b0cf0166e1b2b8620002', '2018-11-5 10:27:58', '2018-11-5 10:27:58', '用户管理-更新', '用户管理-更新', '402881e466cc9adf0166ccacd2230015', '/user/update', 4020);
 INSERT INTO `ts_permission` VALUES ('402881e466e1b0cf0166e1b488df0003', '2018-11-5 10:29:57', '2018-11-5 10:29:57', '用户管理-生成证书', '用户管理-生成证书', '402881e466cc9adf0166ccacd2230015', '/user/cert', 4040);
 INSERT INTO `ts_permission` VALUES ('402881e466e814460166e815e5490000', '2018-11-6 16:14:01', '2018-11-6 16:14:01', '邮件测试', '邮件测试', '402881e466d1d1a30166d1e92ca90002', '/mail/test', 2420);
+INSERT INTO `ts_permission` VALUES ('402881e466ebe37a0166ebe48ce50000', '2018-11-7 09:58:36', '2018-11-7 09:58:36', '订单管理-查看', '订单管理-查看', '402881e466cc9adf0166ccacfbd60016', '/order/view', 5100);
+INSERT INTO `ts_permission` VALUES ('402881e4670c5c8601670c617b960000', '2018-11-13 17:22:54', '2018-11-13 17:22:54', '服务监控-代理', '服务监控-代理', '402881e466cc9adf0166cca5f7d8000e', '/proxy.stream', 3210);
