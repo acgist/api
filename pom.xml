@@ -61,6 +61,7 @@
 		<spring-boot-admin.version>2.0.4</spring-boot-admin.version>
 		<commons-beanutils.version>1.9.3</commons-beanutils.version>
 		<mysql-connector-java.version>5.1.47</mysql-connector-java.version>
+		<jasypt-spring-boot-starter.version>2.1.0</jasypt-spring-boot-starter.version>
 	</properties>
 
 	<dependencies>
@@ -136,6 +137,11 @@
 				<version>${mysql-connector-java.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>com.github.ulisesbocchio</groupId>
+				<artifactId>jasypt-spring-boot-starter</artifactId>
+				<version>${jasypt-spring-boot-starter.version}</version>
+			</dependency>
+			<dependency>
 			    <groupId>io.zipkin.java</groupId>
 			    <artifactId>zipkin-server</artifactId>
 			    <version>${zipkin.version}</version>
@@ -176,7 +182,9 @@
 	</build>
 	-->
 
-	<!-- Spring Cloud非开发版MAVEN库 -->
+	<!--
+	Spring Cloud非开发版MAVEN库
+	-->
 	<repositories>
 		<repository>
 			<id>spring-milestones</id>
