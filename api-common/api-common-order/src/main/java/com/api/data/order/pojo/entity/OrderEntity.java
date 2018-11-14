@@ -2,6 +2,7 @@ package com.api.data.order.pojo.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -15,7 +16,9 @@ import com.api.data.pojo.entity.ValueOfRequest;
  * entity - 订单
  */
 @Entity
-@Table(name = "tb_order")
+@Table(name = "tb_order", indexes = {
+	@Index(name = "index_order_order_id", columnList = "orderId", unique = true)
+})
 @GenericGenerator(name = "sequenceGenerator", strategy = "uuid")
 public class OrderEntity extends BaseEntity implements ValueOfRequest<PayRequest> {
 
@@ -26,7 +29,7 @@ public class OrderEntity extends BaseEntity implements ValueOfRequest<PayRequest
 	@NotBlank(message = "订单号不能为空")
 	private String orderId;
 
-	@Column(nullable = false, length = 100, unique = true)
+	@Column(nullable = false, length = 100)
 	public String getOrderId() {
 		return orderId;
 	}

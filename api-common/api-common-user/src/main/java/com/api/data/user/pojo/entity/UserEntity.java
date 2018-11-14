@@ -2,6 +2,7 @@ package com.api.data.user.pojo.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -15,7 +16,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * 接口使用证书鉴权、页面使用密码登陆
  */
 @Entity
-@Table(name = "tb_user")
+@Table(name = "tb_user", indexes = {
+	@Index(name = "index_user_name", columnList = "name", unique = true)
+})
 @GenericGenerator(name = "sequenceGenerator", strategy = "uuid")
 public class UserEntity extends BaseEntity {
 
