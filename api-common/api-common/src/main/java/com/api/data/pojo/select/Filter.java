@@ -66,7 +66,7 @@ public class Filter implements Serializable {
 	private Operator operator;
 
 	/** 值 */
-	private Object value;
+	private Comparable<?> value;
 
 	/**
 	 * 初始化一个新创建的Filter对象
@@ -80,7 +80,7 @@ public class Filter implements Serializable {
 	 * @param operator 运算符
 	 * @param value 值
 	 */
-	public Filter(String property, Operator operator, Object value) {
+	public Filter(String property, Operator operator, Comparable<?> value) {
 		this.property = property;
 		this.operator = operator;
 		this.value = value;
@@ -92,7 +92,7 @@ public class Filter implements Serializable {
 	 * @param value 值
 	 * @return 等于筛选
 	 */
-	public static final Filter eq(String property, Object value) {
+	public static final Filter eq(String property, Comparable<?> value) {
 		return new Filter(property, Operator.eq, value);
 	}
 
@@ -102,7 +102,7 @@ public class Filter implements Serializable {
 	 * @param value 值
 	 * @return 不等于筛选
 	 */
-	public static final Filter ne(String property, Object value) {
+	public static final Filter ne(String property, Comparable<?> value) {
 		return new Filter(property, Operator.ne, value);
 	}
 	
@@ -112,7 +112,7 @@ public class Filter implements Serializable {
 	 * @param value 值
 	 * @return 大于筛选
 	 */
-	public static final Filter gt(String property, Object value) {
+	public static final Filter gt(String property, Comparable<?> value) {
 		return new Filter(property, Operator.gt, value);
 	}
 
@@ -122,7 +122,7 @@ public class Filter implements Serializable {
 	 * @param value 值
 	 * @return 小于筛选
 	 */
-	public static final Filter lt(String property, Object value) {
+	public static final Filter lt(String property, Comparable<?> value) {
 		return new Filter(property, Operator.lt, value);
 	}
 
@@ -132,7 +132,7 @@ public class Filter implements Serializable {
 	 * @param value 值
 	 * @return 大于等于筛选
 	 */
-	public static final Filter ge(String property, Object value) {
+	public static final Filter ge(String property, Comparable<?> value) {
 		return new Filter(property, Operator.ge, value);
 	}
 
@@ -142,7 +142,7 @@ public class Filter implements Serializable {
 	 * @param value 值
 	 * @return 小于等于筛选
 	 */
-	public static final Filter le(String property, Object value) {
+	public static final Filter le(String property, Comparable<?> value) {
 		return new Filter(property, Operator.le, value);
 	}
 
@@ -152,7 +152,7 @@ public class Filter implements Serializable {
 	 * @param value 值
 	 * @return 相似筛选
 	 */
-	public static final Filter like(String property, Object value) {
+	public static final Filter like(String property, Comparable<?> value) {
 		return new Filter(property, Operator.like, value);
 	}
 
@@ -162,7 +162,7 @@ public class Filter implements Serializable {
 	 * @param value 值
 	 * @return 包含筛选
 	 */
-	public static final Filter in(String property, Object value) {
+	public static final Filter in(String property, Comparable<?> value) {
 		return new Filter(property, Operator.in, value);
 	}
 
@@ -235,7 +235,7 @@ public class Filter implements Serializable {
 	 * 设置值
 	 * @param value 值
 	 */
-	public void setValue(Object value) {
+	public void setValue(Comparable<?> value) {
 		this.value = value;
 	}
 
