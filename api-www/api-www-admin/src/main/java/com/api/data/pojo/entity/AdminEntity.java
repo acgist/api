@@ -13,8 +13,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -24,7 +22,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "ts_admin", indexes = {
 	@Index(name = "index_admin_name", columnList = "name", unique = true)
 })
-@GenericGenerator(name = "sequenceGenerator", strategy = "uuid")
 public class AdminEntity extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
@@ -71,12 +68,12 @@ public class AdminEntity extends BaseEntity {
 		joinColumns = @JoinColumn(
 			name = "admin_id",
 			referencedColumnName = "id",
-			foreignKey = @ForeignKey(name = "key_admin_id")
+			foreignKey = @ForeignKey(name = "key_admin_role_admin_id")
 		),
 		inverseJoinColumns = @JoinColumn(
 			name = "role_id",
 			referencedColumnName = "id",
-			foreignKey = @ForeignKey(name = "key_role_id")
+			foreignKey = @ForeignKey(name = "key_admin_role_role_id")
 		)
 	)
 	public List<RoleEntity> getRoles() {

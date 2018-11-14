@@ -11,6 +11,7 @@ import javax.persistence.MappedSuperclass;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.hibernate.annotations.GenericGenerator;
 
 import com.api.core.pojo.message.BaseMessage;
 
@@ -44,6 +45,7 @@ public class BaseEntity extends BaseMessage {
 	 */
 	@Id
 	@Column(length = 32)
+	@GenericGenerator(name = "sequenceGenerator", strategy = "uuid")
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "sequenceGenerator")
 	public String getId() {
 		return id;

@@ -6,8 +6,6 @@ import javax.persistence.Index;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import com.api.data.pojo.entity.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -19,7 +17,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "tb_user", indexes = {
 	@Index(name = "index_user_name", columnList = "name", unique = true)
 })
-@GenericGenerator(name = "sequenceGenerator", strategy = "uuid")
 public class UserEntity extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;

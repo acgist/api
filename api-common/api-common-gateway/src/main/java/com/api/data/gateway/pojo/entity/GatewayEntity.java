@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import com.api.data.pojo.entity.BaseEntity;
 
 /**
@@ -14,7 +12,6 @@ import com.api.data.pojo.entity.BaseEntity;
  */
 @Entity
 @Table(name = "tb_gateway")
-@GenericGenerator(name = "sequenceGenerator", strategy = "uuid")
 public class GatewayEntity extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;

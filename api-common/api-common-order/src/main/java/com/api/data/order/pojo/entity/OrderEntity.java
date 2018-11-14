@@ -6,8 +6,6 @@ import javax.persistence.Index;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import com.api.core.order.gateway.request.PayRequest;
 import com.api.data.pojo.entity.BaseEntity;
 import com.api.data.pojo.entity.ValueOfRequest;
@@ -19,7 +17,6 @@ import com.api.data.pojo.entity.ValueOfRequest;
 @Table(name = "tb_order", indexes = {
 	@Index(name = "index_order_order_id", columnList = "orderId", unique = true)
 })
-@GenericGenerator(name = "sequenceGenerator", strategy = "uuid")
 public class OrderEntity extends BaseEntity implements ValueOfRequest<PayRequest> {
 
 	private static final long serialVersionUID = 1L;

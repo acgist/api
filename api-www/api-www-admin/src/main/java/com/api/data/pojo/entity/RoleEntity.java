@@ -12,8 +12,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -21,7 +19,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 @Entity
 @Table(name = "ts_role")
-@GenericGenerator(name = "sequenceGenerator", strategy = "uuid")
 public class RoleEntity extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
@@ -57,12 +54,12 @@ public class RoleEntity extends BaseEntity {
 		joinColumns = @JoinColumn(
 			name = "role_id",
 			referencedColumnName = "id",
-			foreignKey = @ForeignKey(name = "key_role_id")
+			foreignKey = @ForeignKey(name = "key_role_permission_role_id")
 		),
 		inverseJoinColumns = @JoinColumn(
 			name = "permission_id",
 			referencedColumnName = "id",
-			foreignKey = @ForeignKey(name = "key_permission_id")
+			foreignKey = @ForeignKey(name = "key_role_permission_permission_id")
 		)
 	)
 	public List<PermissionEntity> getPermissions() {

@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
-
 /**
  * entity - 系统权限
  */
@@ -14,7 +12,6 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "ts_permission", indexes = {
 	@Index(name = "index_permission_parent", columnList = "parent")
 })
-@GenericGenerator(name = "sequenceGenerator", strategy = "uuid")
 public class PermissionEntity extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
