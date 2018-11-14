@@ -11,15 +11,15 @@ import com.api.core.gateway.request.APIRequest;
 import com.api.core.pojo.message.BaseMessage;
 
 /**
- * 数据校验工具
+ * utils - 数据校验
  */
 public class ValidatorUtils {
 
 	private static final Validator VALIDATOR = Validation.buildDefaultValidatorFactory().getValidator();
 	
 	/**
-	 * 校验数据：
-	 * 	成功返回：null
+	 * 请求校验数据：<br>
+	 * 	成功返回：null<br>
 	 * 	失败返回：错误信息
 	 */
 	public static final String verify(APIRequest request) {
@@ -45,8 +45,8 @@ public class ValidatorUtils {
 	}
 	
 	/**
-	 * 校验数据：
-	 * 	成功返回：null
+	 * 消息校验数据：<br>
+	 * 	成功返回：null<br>
 	 * 	失败返回：错误信息
 	 */
 	public static final String verify(BaseMessage message) {

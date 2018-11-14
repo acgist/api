@@ -5,11 +5,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.api.core.user.pojo.message.AuthoMessage;
 import com.api.core.user.pojo.message.LoginMessage;
-import com.api.core.user.service.IUserService;
 import com.api.core.user.service.impl.UserServiceImpl;
 
 /**
- * 用户服务
+ * 服务 - 用户
  */
 @RestController
 public class UserService implements IUserService {

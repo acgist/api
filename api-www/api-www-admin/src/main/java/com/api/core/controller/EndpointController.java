@@ -10,7 +10,7 @@ import com.api.core.endpoint.impl.ShutdownExecutor;
 import com.api.core.pojo.layui.LayuiMessage;
 
 /**
- * 端点
+ * controller - 端点
  */
 @Controller
 @RequestMapping("/endpoint")

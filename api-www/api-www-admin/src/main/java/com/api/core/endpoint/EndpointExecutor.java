@@ -8,13 +8,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * 端点执行
+ * 端点执行<br>
+ * 执行端点请求，获取请求结果
  */
 public abstract class EndpointExecutor<T> {
 
-	public static final String METHOD_GET = "get";
-	public static final String METHOD_POST = "post";
-	public static final String HEAD_ACTUATOR = "/actuator";
+	public static final String METHOD_GET = "get"; // GET请求
+	public static final String METHOD_POST = "post"; // POST请求
+	public static final String HEAD_ACTUATOR = "/actuator"; // 获取端点的地址
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(EndpointExecutor.class);
 	

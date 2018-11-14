@@ -1,7 +1,7 @@
 package com.api.core.config;
 
 /**
- * 缓存配置
+ * config - 缓存
  */
 public interface APIConstCache {
 

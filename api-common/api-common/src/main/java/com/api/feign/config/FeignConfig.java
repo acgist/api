@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import feign.Retryer;
 
 /**
- * feign配置
+ * config - feign
  */
 @Configuration
 public class FeignConfig {

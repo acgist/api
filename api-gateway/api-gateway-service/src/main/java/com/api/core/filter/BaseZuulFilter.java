@@ -19,8 +19,9 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 
 /**
- * 过滤器，POST过滤器顺序要小于1000，否者不能设置返回的responseBody，参考：SendResponseFilter
- * 	异常处理需要禁用SendErrorFilter：移除异常
+ * 过滤器基类<br>
+ * POST过滤器顺序要小于1000，否者不能设置返回的responseBody，参考：SendResponseFilter<br>
+ *  异常处理需要禁用SendErrorFilter：移除异常
  */
 public abstract class BaseZuulFilter extends ZuulFilter {
 
@@ -32,6 +33,9 @@ public abstract class BaseZuulFilter extends ZuulFilter {
 	protected static final String FILTER_TYPE_ROUTE = "route";
 	protected static final String FILTER_TYPE_ERROR = "error";
 	
+	/**
+	 * 是否执行
+	 */
 	@Override
 	public boolean shouldFilter() {
 		return true;
@@ -113,7 +117,7 @@ public abstract class BaseZuulFilter extends ZuulFilter {
 	}
 	
 	/**
-	 * 获取JSON
+	 * stream转化为JSON字符串
 	 */
 	protected String streamToJSON(InputStream input) {
 		if(input == null) {

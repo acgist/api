@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import com.api.core.module.freemarker.AuthoTag;
 
 /**
- * freemarker标签配置
+ * config - freemarker配置
  */
 @Configuration
 public class FreemarkerTagConfig {

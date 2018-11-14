@@ -26,7 +26,7 @@ public class APIErrorController implements ErrorController {
 	public static final String ERROR_PATH = "/error";
 	
 	/**
-	 * JSON接口错误处理
+	 * JSON错误处理
 	 */
 	@Primary
 	@ResponseBody
@@ -40,7 +40,7 @@ public class APIErrorController implements ErrorController {
 	}
 
 	/**
-	 * 其他错误处理
+	 * 非JSON错误处理
 	 */
 	@Primary
 	@RequestMapping(value = ERROR_PATH)
@@ -58,6 +58,12 @@ public class APIErrorController implements ErrorController {
 		return ERROR_PATH;
 	}
 	
+	/**
+	 * 错误代码转换，如果错误代码为空，使用相应代码获取错误代码
+	 * @param code 错误代码
+	 * @param response 响应
+	 * @return 错误代码
+	 */
 	private APICode code(String code, HttpServletResponse response) {
 		if(code == null) {
 			return APICode.valueOfStatus(response.getStatus());

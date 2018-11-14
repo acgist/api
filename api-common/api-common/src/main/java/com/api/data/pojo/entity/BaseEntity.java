@@ -15,7 +15,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import com.api.core.pojo.message.BaseMessage;
 
 /**
- * Entity：数据库实体
+ * Entity - 数据库实体基类<br>
  * @Transient：不需要映射数据库的字段
  */
 @EntityListeners(EntityListener.class)

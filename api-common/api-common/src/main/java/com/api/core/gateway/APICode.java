@@ -9,12 +9,12 @@ import org.springframework.web.HttpRequestMethodNotSupportedException;
 import com.api.core.exception.ErrorCodeException;
 
 /**
- * 错误状态码
- * 0000=成功
- * 9999=未知错误
- * 1xxx=系统错误
- * 2xxx=业务错误
- * 3xxx=数据错误
+ * 错误状态码<br>
+ * 0000=成功<br>
+ * 9999=未知错误<br>
+ * 1xxx=系统错误<br>
+ * 2xxx=业务错误<br>
+ * 3xxx=数据错误<br>
  * 4xxx=系统异常（主要处理服务器错误）
  */
 public enum APICode {
@@ -102,6 +102,12 @@ public enum APICode {
 		return code;
 	}
 	
+	/**
+	 * 通过错误代码和异常获取错误描述
+	 * @param code 错误代码
+	 * @param e 异常
+	 * @return 错误描述
+	 */
 	public static final String message(APICode code, Throwable e) {
 		if(e == null) {
 			return code.getMessage();
@@ -113,6 +119,12 @@ public enum APICode {
 		return message(code, message);
 	}
 	
+	/**
+	 * 通过错误代码和默认错误描述获取错误描述，如果默认错误描述为空使用错误代码的错误描述
+	 * @param code 错误代码
+	 * @param message 默认错误描述
+	 * @return 错误描述
+	 */
 	public static final String message(APICode code, String message) {
 		if(message == null || message.isEmpty()) {
 			message = code.getMessage();

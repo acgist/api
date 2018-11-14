@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
- * 系统权限
+ * entity - 系统权限
  */
 @Entity
 @Table(name = "ts_permission", indexes = {

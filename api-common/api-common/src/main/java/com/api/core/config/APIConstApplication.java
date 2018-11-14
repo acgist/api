@@ -1,7 +1,7 @@
 package com.api.core.config;
 
 /**
- * 服务名称
+ * config - 服务名称
  */
 public interface APIConstApplication {
 

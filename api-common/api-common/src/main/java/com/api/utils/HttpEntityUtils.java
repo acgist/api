@@ -9,7 +9,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
 /**
- * HttpEntity工具
+ * utils - HttpEntity
  */
 public class HttpEntityUtils {
 

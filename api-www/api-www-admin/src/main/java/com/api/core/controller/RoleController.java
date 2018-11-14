@@ -16,7 +16,7 @@ import com.api.data.pojo.entity.RoleEntity;
 import com.api.utils.JSONUtils;
 
 /**
- * 系统角色
+ * controller - 系统角色
  */
 @Controller
 @RequestMapping("/role")

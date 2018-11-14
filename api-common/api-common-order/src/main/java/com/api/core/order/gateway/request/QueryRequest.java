@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 import com.api.core.gateway.request.APIRequest;
 
 /**
- * 请求-订单查询
+ * 请求 - 订单查询
  */
 public class QueryRequest extends APIRequest {
 

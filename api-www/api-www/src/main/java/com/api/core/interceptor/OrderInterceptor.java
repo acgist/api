@@ -10,7 +10,8 @@ import com.api.core.pojo.session.UserSession;
 import com.api.utils.RedirectUtils;
 
 /**
- * 订单拦截器
+ * 拦截器 - 订单<br>
+ * 没有登陆时访问订单目录以及订单子目录进入到登陆页面
  */
 @Component
 public class OrderInterceptor implements HandlerInterceptor {

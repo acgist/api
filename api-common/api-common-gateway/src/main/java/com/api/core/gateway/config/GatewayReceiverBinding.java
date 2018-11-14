@@ -4,7 +4,7 @@ import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.messaging.SubscribableChannel;
 
 /**
- * 网关信息
+ * 网关信息接收
  */
 public interface GatewayReceiverBinding {
 

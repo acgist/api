@@ -2,6 +2,9 @@ package com.api.core.endpoint;
 
 import java.util.stream.Stream;
 
+/**
+ * 端点枚举
+ */
 public enum Endpoint {
 	
 	actuator("/actuator", "端点列表", EndpointExecutor.METHOD_GET),
@@ -10,9 +13,9 @@ public enum Endpoint {
 	actuator_channels("/actuator/channels", "消息通道", EndpointExecutor.METHOD_GET),
 	actuator_shutdown("/actuator/shutdown", "关闭应用", EndpointExecutor.METHOD_POST);
 	
-	private String path;
-	private String name;
-	private String method;
+	private String path; // 端点路径
+	private String name; // 端点名称
+	private String method; // 请求方法
 
 	private Endpoint(String path, String name, String method) {
 		this.path = path;

@@ -21,7 +21,7 @@ import com.api.utils.RedirectUtils;
 import com.netflix.zuul.context.RequestContext;
 
 /**
- * 后台-熔断器
+ * 熔断器 - 后台
  */
 @Component
 public class AdminFallbackProvider implements FallbackProvider {

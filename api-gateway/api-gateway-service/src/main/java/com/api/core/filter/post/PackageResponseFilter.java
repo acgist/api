@@ -12,7 +12,7 @@ import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 
 /**
- * 将响应数据打包：SessionComponent
+ * 响应数据打包
  */
 @Component
 public class PackageResponseFilter extends BaseZuulFilter {

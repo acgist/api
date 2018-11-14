@@ -11,7 +11,7 @@ import com.api.core.gateway.pojo.message.GatewayMessage;
 import com.api.data.gateway.pojo.entity.GatewayEntity;
 
 /**
- * 网关记录放入消息队列
+ * 网关信息放入消息队列
  */
 @EnableBinding(GatewaySenderBinding.class)
 public class GatewayMesssageSender {

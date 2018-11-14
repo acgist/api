@@ -12,7 +12,7 @@ import com.api.core.order.service.impl.OrderServiceImpl;
 import com.api.data.order.pojo.entity.OrderEntity;
 
 /**
- * 创建订单
+ * 请求执行器 - 创建订单
  */
 @Component
 @Scope("prototype")

@@ -13,11 +13,14 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
 /**
- * 权限决策
+ * 权限验证
  */
 @Component
 public class APIAccessDecisionManager implements AccessDecisionManager {
 
+	/**
+	 * 验证当前角色是否允许访问所请求权限
+	 */
 	@Override
 	public void decide(Authentication authentication, Object object, Collection<ConfigAttribute> configAttributes) throws AccessDeniedException, InsufficientAuthenticationException {
 		if (authentication == null) {

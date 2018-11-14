@@ -1,7 +1,7 @@
 package com.api.core.config;
 
 /**
- * SESSION KEY
+ * config - SESSION KEY
  */
 public interface APIConstSession {
 

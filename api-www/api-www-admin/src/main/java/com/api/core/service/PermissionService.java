@@ -24,6 +24,9 @@ import com.api.data.repository.PermissionRepository;
 import com.api.data.repository.RoleRepository;
 import com.api.data.service.EntityService;
 
+/**
+ * service - 系统权限
+ */
 @Service
 public class PermissionService extends EntityService<PermissionEntity> {
 
@@ -53,8 +56,8 @@ public class PermissionService extends EntityService<PermissionEntity> {
 	}
 	
 	/**
-	 * 获取权限树
-	 * @param list 当前已有权限
+	 * 权限树
+	 * @param list 当前已有权限，标记权限树中已有权限
 	 */
 	public PermissionTree tree(List<PermissionEntity> list) {
 		PermissionTree root = new PermissionTree();
@@ -82,7 +85,7 @@ public class PermissionService extends EntityService<PermissionEntity> {
 	}
 
 	/**
-	 * 递归权限树
+	 * 递归打包权限树
 	 */
 	private void packagePermission(PermissionTree parent, List<PermissionTree> list) {
 		list.forEach(permission -> {
@@ -98,6 +101,9 @@ public class PermissionService extends EntityService<PermissionEntity> {
 		});
 	}
 	
+	/**
+	 * 删除前验证权限是否含有子权限，如果有子权限删除失败
+	 */
 	@Override
 	public boolean delete(String id) {
 		PermissionRepository permissionRepository = (PermissionRepository) repository;
@@ -108,6 +114,9 @@ public class PermissionService extends EntityService<PermissionEntity> {
 		return false;
 	}
 	
+	/**
+	 * 初始化权限和角色映射信息
+	 */
 	private void initPermissionRoles() {
 		LOGGER.info("初始化权限和角色映射信息");
 		PERMISSION_ROLES.clear();
@@ -130,6 +139,11 @@ public class PermissionService extends EntityService<PermissionEntity> {
 		LOGGER.info("权限和角色映射信息：{}", PERMISSION_ROLES);
 	}
 	
+	/**
+	 * 根据权限地址获取对应权限的角色名称
+	 * @param servletPath 权限地址
+	 * @return 角色名称列表
+	 */
 	public List<String> permissionRoles(String servletPath) {
 		Optional<Entry<String, List<String>>> equalMatch = PERMISSION_ROLES.entrySet().stream()
 			.filter(entity -> entity.getKey().equalsIgnoreCase(servletPath))

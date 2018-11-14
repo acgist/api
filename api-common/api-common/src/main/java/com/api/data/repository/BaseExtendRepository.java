@@ -18,7 +18,7 @@ import com.api.data.pojo.select.Filter;
 import com.api.data.pojo.select.Order;
 
 /**
- * 添加findAll和findPage方法，并且对其中方法进行优化，需要指定BaseExtendRepositoryImpl：
+ * repository - 添加findAll和findPage方法，并且对其中方法进行优化，需要指定BaseExtendRepositoryImpl：<br>
  * <code>
  * @EnableJpaRepositories(basePackages = "com.api.core.**.repository", repositoryBaseClass = BaseExtendRepositoryImpl.class)
  * </code>
@@ -49,6 +49,7 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 
 	/**
 	 * 根据ID查询
+	 * @param id 实体ID
 	 */
 	default T findOne(String id) {
 		return findOne(Filter.eq(BaseEntity.PROPERTY_ID, id));
@@ -56,7 +57,6 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 	
 	/**
 	 * 单个查询
-	 * 
 	 * @param filters 查询条件
 	 */
 	default T findOne(Filter ... filters) {
@@ -65,7 +65,6 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 
 	/**
 	 * 单个查询
-	 * 
 	 * @param order 查询排序
 	 * @param filters 查询条件
 	 */
@@ -75,7 +74,6 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 
 	/**
 	 * 单个查询
-	 * 
 	 * @param orders 查询排序
 	 * @param filters 查询条件
 	 */
@@ -89,7 +87,6 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 
 	/**
 	 * 集合查询
-	 * 
 	 * @param size 查询数量
 	 */
 	default List<T> findList(int size) {
@@ -98,7 +95,6 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 
 	/**
 	 * 集合查询
-	 * 
 	 * @param size 查询数量
 	 * @param filters 查询条件
 	 */
@@ -108,7 +104,6 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 
 	/**
 	 * 集合查询
-	 * 
 	 * @param size 查询数量
 	 * @param orders 查询排序
 	 */
@@ -118,7 +113,6 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 
 	/**
 	 * 集合查询
-	 * 
 	 * @param size 查询数量
 	 * @param order 查询排序
 	 * @param filters 查询条件
@@ -129,7 +123,6 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 
 	/**
 	 * 集合查询
-	 * 
 	 * @param size 查询数量
 	 * @param orders 查询排序
 	 * @param filters 查询条件
@@ -140,7 +133,6 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 
 	/**
 	 * 集合查询
-	 * 
 	 * @param first 查询索引
 	 * @param size 查询数量
 	 */
@@ -150,7 +142,6 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 
 	/**
 	 * 集合查询
-	 * 
 	 * @param first 查询索引
 	 * @param size 查询数量
 	 * @param filters 查询条件
@@ -161,7 +152,6 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 
 	/**
 	 * 集合查询
-	 * 
 	 * @param first 查询索引
 	 * @param size 查询数量
 	 * @param orders 查询排序
@@ -172,7 +162,6 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 
 	/**
 	 * 集合查询
-	 * 
 	 * @param first 查询索引
 	 * @param size 查询数量
 	 * @param order 查询排序
@@ -184,7 +173,6 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 
 	/**
 	 * 集合查询
-	 * 
 	 * @param first 查询索引
 	 * @param size 查询数量
 	 * @param orders 查询排序

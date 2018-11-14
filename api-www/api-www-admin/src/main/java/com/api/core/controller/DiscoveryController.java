@@ -13,7 +13,7 @@ import com.api.core.pojo.layui.LayuiTable;
 import com.api.core.service.DiscoveryService;
 
 /**
- * 服务
+ * controller - 服务
  */
 @Controller
 @RequestMapping("/discovery")

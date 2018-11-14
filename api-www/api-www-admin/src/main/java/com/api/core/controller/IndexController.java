@@ -8,7 +8,7 @@ import com.api.core.config.APIConstAdminURL;
 import com.api.core.security.AdminDetails;
 
 /**
- * 首页
+ * controller - 首页
  */
 @Controller
 public class IndexController {

@@ -20,7 +20,7 @@ import com.api.core.security.APISecurityMetadataSource;
 import com.api.core.security.AdminDetailsService;
 
 /**
- * 端点安全，需要添加spring-boot-starter-security
+ * config - 端点安全，需要添加spring-boot-starter-security
  */
 @Order(0)
 @Configuration

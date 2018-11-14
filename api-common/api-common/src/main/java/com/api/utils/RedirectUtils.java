@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.api.core.gateway.APICode;
 
 /**
- * 重定向工具
+ * utils - 重定向
  */
 public class RedirectUtils {
 

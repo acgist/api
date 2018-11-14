@@ -13,7 +13,7 @@ import com.api.core.user.pojo.message.LoginMessage;
 import com.api.feign.user.service.UserService;
 
 /**
- * 用户 - 登陆
+ * controller - 用户 - 登陆
  */
 @Controller
 @RequestMapping("login")

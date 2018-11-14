@@ -1,12 +1,11 @@
 package com.api.utils;
 
 /**
- * ribbon工具
+ * utils - ribbon
  */
 public class RibbonUtils {
 
-	// HTTP
-	private static final String HTTP = "http://";
+	private static final String HTTP = "http://"; // HTTP
 	
 	/**
 	 * 创建服务地址
@@ -22,5 +21,5 @@ public class RibbonUtils {
 		}
 		return builder.toString();
 	}
-	
+
 }

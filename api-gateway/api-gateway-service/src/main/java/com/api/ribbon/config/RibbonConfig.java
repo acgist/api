@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * 负载均衡
+ * config - 负载均衡
  */
 @Configuration
 public class RibbonConfig {

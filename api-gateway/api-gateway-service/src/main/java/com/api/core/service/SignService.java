@@ -16,7 +16,7 @@ import com.api.ribbon.service.UserService;
 import com.api.utils.CAUtils;
 
 /**
- * 签名工具，公钥私钥生成：http://web.chacuo.net/netrsakeypair
+ * service - 签名工具，公钥私钥生成：http://web.chacuo.net/netrsakeypair
  */
 @Service
 public class SignService {

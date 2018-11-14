@@ -3,7 +3,7 @@ package com.api.core.pojo.message;
 import com.api.core.gateway.APICode;
 
 /**
- * message：服务间通信，返回结果
+ * message - 服务间通信，返回结果
  */
 public class ResultMessage extends BaseMessage {
 

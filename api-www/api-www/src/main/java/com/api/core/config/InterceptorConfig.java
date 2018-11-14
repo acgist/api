@@ -11,7 +11,7 @@ import com.api.core.interceptor.CsrfInterceptor;
 import com.api.core.interceptor.OrderInterceptor;
 
 /**
- * 拦截器配置
+ * config - 拦截器
  */
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {

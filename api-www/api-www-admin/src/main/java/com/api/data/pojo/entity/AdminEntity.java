@@ -18,7 +18,7 @@ import org.hibernate.annotations.GenericGenerator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * 系统用户
+ * entity - 系统用户
  */
 @Entity
 @Table(name = "ts_admin", indexes = {

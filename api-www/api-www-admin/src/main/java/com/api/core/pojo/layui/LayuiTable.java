@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * layui表格
+ * layui - 表格
  */
 public class LayuiTable implements Serializable {
 	

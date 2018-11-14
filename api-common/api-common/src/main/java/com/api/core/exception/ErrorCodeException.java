@@ -3,7 +3,7 @@ package com.api.core.exception;
 import com.api.core.gateway.APICode;
 
 /**
- * 错误状态码
+ * 异常 - 错误代码
  */
 public class ErrorCodeException extends RuntimeException {
 

@@ -25,7 +25,7 @@ import org.springframework.stereotype.Component;
 import com.api.core.service.PermissionService;
 
 /**
- * 路径过滤
+ * 角色和权限验证
  */
 @Component
 @RefreshScope
@@ -49,7 +49,7 @@ public class APISecurityMetadataSource implements FilterInvocationSecurityMetada
 	}
 	
 	/**
-	 * 获取访问角色
+	 * 获取访问角色列表<br>
 	 * 返回null表示不拦截
 	 */
 	@Override
@@ -64,6 +64,9 @@ public class APISecurityMetadataSource implements FilterInvocationSecurityMetada
 		return allowAttributes(filter);
 	}
 
+	/**
+	 * 验证是否为不需要鉴权的地址
+	 */
 	private boolean allow(FilterInvocation filter) {
 		return ALLOW_ATTRIBUTES.stream()
 			.filter(StringUtils::isNotEmpty)
@@ -71,6 +74,9 @@ public class APISecurityMetadataSource implements FilterInvocationSecurityMetada
 			.anyMatch(maptcher -> maptcher.matches(filter.getHttpRequest()));
 	}
 	
+	/**
+	 * 根据权限地址获取角色列表
+	 */
 	private List<ConfigAttribute> allowAttributes(FilterInvocation filter) {
 		List<String> list = permissionService.permissionRoles(filter.getRequest().getServletPath());
 		if(list == null) {
@@ -81,6 +87,9 @@ public class APISecurityMetadataSource implements FilterInvocationSecurityMetada
 			.collect(Collectors.toList());
 	}
 	
+	/**
+	 * 禁止访问权限
+	 */
 	private List<ConfigAttribute> deniedAttributes() {
 		return Collections.singletonList(new SecurityConfig("ROLE_DENIED"));
 	}
@@ -95,6 +104,9 @@ public class APISecurityMetadataSource implements FilterInvocationSecurityMetada
 		return true;
 	}
 	
+	/**
+	 * 初始化不需要鉴权的地址
+	 */
 	private void initAllowAttributes() {
 		LOGGER.info("不需要鉴权的地址：{}", this.allowAttributes);
 		ALLOW_ATTRIBUTES.clear();

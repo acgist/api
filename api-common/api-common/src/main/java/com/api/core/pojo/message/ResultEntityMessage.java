@@ -3,7 +3,7 @@ package com.api.core.pojo.message;
 import com.api.data.pojo.entity.BaseEntity;
 
 /**
- * message：服务间通信，返回结果和实体
+ * message - 服务间通信，返回结果和实体
  */
 public class ResultEntityMessage<T extends BaseEntity> extends ResultMessage {
 

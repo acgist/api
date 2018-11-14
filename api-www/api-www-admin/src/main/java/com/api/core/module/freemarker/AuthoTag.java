@@ -21,7 +21,7 @@ import freemarker.template.TemplateException;
 import freemarker.template.TemplateModel;
 
 /**
- * 标签 - 权限
+ * 标签 - 权限验证
  */
 @Component
 @RefreshScope
@@ -40,8 +40,8 @@ public class AuthoTag implements TemplateDirectiveModel {
 	@SuppressWarnings("rawtypes")
 	public void execute(Environment env, Map params, TemplateModel[] model, TemplateDirectiveBody body) throws TemplateException, IOException {
 		if(enable) {
-			SimpleScalar nameScalar = (SimpleScalar) params.get(KEY_NAME);
-			SimpleScalar patternScalar = (SimpleScalar) params.get(KEY_PATTERN);
+			SimpleScalar nameScalar = (SimpleScalar) params.get(KEY_NAME); // 权限名称
+			SimpleScalar patternScalar = (SimpleScalar) params.get(KEY_PATTERN); // 权限地址
 			String name = nameScalar == null ? null : nameScalar.getAsString();
 			String pattern = patternScalar == null ? null : patternScalar.getAsString();
 			if(!(name(name) || pattern(pattern))) {
@@ -51,23 +51,33 @@ public class AuthoTag implements TemplateDirectiveModel {
 		body.render(env.getOut());
 	}
 
+	/**
+	 * 根据权限名称验证权限
+	 * @param name 权限名称
+	 * @return 验证结果：true-成功、false-失败
+	 */
 	private boolean name(String name) {
 		if(name == null) {
 			return false;
 		}
-		AdminDetails adminDetails = AdminDetails.current();
+		final AdminDetails adminDetails = AdminDetails.current();
 		return adminDetails.hasPermissions(name);
 	}
 	
+	/**
+	 * 根据权限地址验证权限
+	 * @param pattern 权限地址
+	 * @return 验证结果：true-成功、false-失败
+	 */
 	private boolean pattern(String pattern) {
 		if(pattern == null) {
 			return false;
 		}
-		List<String> roles = permissionService.permissionRoles(pattern);
+		final List<String> roles = permissionService.permissionRoles(pattern);
 		if(roles == null) {
 			return false;
 		}
-		AdminDetails adminDetails = AdminDetails.current();
+		final AdminDetails adminDetails = AdminDetails.current();
 		return adminDetails.getAuthorities().stream().map(GrantedAuthority::getAuthority).anyMatch(role -> roles.contains(role));
 	}
 	

@@ -12,7 +12,7 @@ import com.api.feign.service.BaseServiceFallback;
 import com.api.feign.user.service.UserService;
 
 /**
- * 用户服务熔断
+ * 服务熔断 - 用户
  */
 @Component
 @RequestMapping(APIConstURL.URL_FALLBACK_SERVICE)

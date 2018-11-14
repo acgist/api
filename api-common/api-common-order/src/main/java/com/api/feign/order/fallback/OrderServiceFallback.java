@@ -12,7 +12,7 @@ import com.api.feign.order.service.OrderService;
 import com.api.feign.service.BaseServiceFallback;
 
 /**
- * 订单服务熔断
+ * 服务熔断 - 订单
  */
 @Component
 @RequestMapping(APIConstURL.URL_FALLBACK_SERVICE)

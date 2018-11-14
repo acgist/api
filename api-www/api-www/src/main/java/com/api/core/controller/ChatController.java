@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 聊天室
+ * controller - 聊天室
  */
 @Controller
 @RequestMapping("/chat")

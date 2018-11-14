@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
- * session管理
+ * session - 基类
  */
 public class BaseSession implements Serializable {
 	

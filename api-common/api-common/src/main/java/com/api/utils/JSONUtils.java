@@ -6,11 +6,13 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * JSON工具
+ * utils - JSON
  */
 public class JSONUtils {
 
@@ -25,7 +27,7 @@ public class JSONUtils {
 		}
 		final ObjectMapper mapper = new ObjectMapper();
 		try {
-//			mapper.setSerializationInclusion(Include.NON_NULL); // 使用注解：@JsonInclude(Include.NON_NULL)
+			mapper.setSerializationInclusion(Include.NON_NULL); // 使用注解：@JsonInclude(Include.NON_NULL)
 			return mapper.writeValueAsString(object);
 		} catch (JsonProcessingException e) {
 			LOGGER.error("JAVA对象转JSON异常，内容：{}", object, e);
@@ -60,7 +62,7 @@ public class JSONUtils {
 		}
 		final ObjectMapper mapper = new ObjectMapper();
 		try {
-//			mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false); // 使用注解：@JsonIgnoreProperties(ignoreUnknown = true)
+			mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false); // 使用注解：@JsonIgnoreProperties(ignoreUnknown = true)
 			return mapper.readValue(json, clazz);
 		} catch (IOException e) {
 			LOGGER.error("JSON转JAVA对象异常", e);

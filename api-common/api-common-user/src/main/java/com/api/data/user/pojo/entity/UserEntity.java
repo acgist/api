@@ -11,7 +11,8 @@ import com.api.data.pojo.entity.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * 用户：接口使用证书鉴权、页面使用密码登陆
+ * entity - 用户<br>
+ * 接口使用证书鉴权、页面使用密码登陆
  */
 @Entity
 @Table(name = "tb_user")
@@ -20,7 +21,10 @@ public class UserEntity extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	public static final String PROPERTY_NAME = "name";
+	public static final String PROPERTY_NAME = "name"; // 用户名
+	public static final String PROPERTY_PASSWORD = "password"; // 密码
+	public static final String PROPERTY_PUBLIC_KEY = "publicKey"; // 公钥
+	public static final String PROPERTY_PRIVATE_KEY = "privateKey"; // 私钥
 	
 	@NotBlank(message = "用户名不能为空")
 	private String name;

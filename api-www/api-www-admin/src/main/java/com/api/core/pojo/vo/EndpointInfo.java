@@ -1,7 +1,7 @@
 package com.api.core.pojo.vo;
 
 /**
- * 端点
+ * info - 端点
  */
 public class EndpointInfo {
 

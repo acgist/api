@@ -5,7 +5,7 @@ import com.api.core.endpoint.EndpointExecutor;
 import com.api.utils.HttpEntityUtils;
 
 /**
- * 应用关闭
+ * 端点 - 应用关闭
  */
 public class ShutdownExecutor extends EndpointExecutor<String> {
 

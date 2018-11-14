@@ -11,7 +11,7 @@ import com.api.data.user.pojo.entity.UserEntity;
 import com.api.data.user.repository.UserRepository;
 
 /**
- * 用户
+ * service - 用户
  */
 @Service
 public class UserServiceImpl {
@@ -19,6 +19,11 @@ public class UserServiceImpl {
 	@Autowired
 	private UserRepository userRepository;
 
+	/**
+	 * 根据用户名称获取授权信息（公钥、私钥）
+	 * @param name 用户名称
+	 * @return 授权信息
+	 */
 	public AuthoMessage autho(String name) {
 		if(name == null) {
 			return null;
@@ -34,6 +39,12 @@ public class UserServiceImpl {
 		return message;
 	}
 
+	/**
+	 * 用户登录
+	 * @param name 用户名称
+	 * @param password 用户密码
+	 * @return 登陆结果
+	 */
 	public LoginMessage login(String name, String password) {
 		LoginMessage message = new LoginMessage();
 		if(name == null || password == null) {

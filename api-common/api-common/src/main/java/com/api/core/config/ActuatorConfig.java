@@ -8,7 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * 端点配置
+ * config - 端点<br>
+ * 配置端点匹配地址、允许访问端点的地址
  */
 @Configuration
 public class ActuatorConfig {

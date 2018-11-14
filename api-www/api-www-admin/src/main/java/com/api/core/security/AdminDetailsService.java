@@ -10,7 +10,7 @@ import com.api.data.pojo.entity.AdminEntity;
 import com.api.data.repository.AdminRepository;
 
 /**
- * 权限验证
+ * 系统用户
  */
 @Service
 public class AdminDetailsService implements UserDetailsService {
@@ -18,6 +18,9 @@ public class AdminDetailsService implements UserDetailsService {
 	@Autowired
 	private AdminRepository adminRepository;
 	
+	/**
+	 * 根据系统用户名加载系统用户
+	 */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		AdminEntity admin = adminRepository.findName(username);

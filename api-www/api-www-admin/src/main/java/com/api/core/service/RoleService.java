@@ -12,6 +12,9 @@ import com.api.data.repository.PermissionRepository;
 import com.api.data.repository.RoleRepository;
 import com.api.data.service.EntityService;
 
+/**
+ * service - 角色
+ */
 @Service
 public class RoleService extends EntityService<RoleEntity> {
 	
@@ -29,7 +32,9 @@ public class RoleService extends EntityService<RoleEntity> {
 	}
 	
 	/**
-	 * 授权
+	 * 系统角色授权
+	 * @param rid 角色ID
+	 * @param pids 权限ID数组
 	 */
 	public void permission(String rid, String[] pids) {
 		if(pids == null) {

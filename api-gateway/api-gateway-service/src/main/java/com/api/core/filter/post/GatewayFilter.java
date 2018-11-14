@@ -14,7 +14,7 @@ import com.api.data.gateway.pojo.entity.GatewayEntity;
 import com.netflix.zuul.exception.ZuulException;
 
 /**
- * 网关记录
+ * 网关信息记录
  */
 @Component
 public class GatewayFilter extends BaseZuulFilter {

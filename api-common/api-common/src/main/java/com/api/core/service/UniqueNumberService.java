@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 /**
- * 编号生成
+ * service - 唯一编号生成
  */
 @Service
 public class UniqueNumberService {

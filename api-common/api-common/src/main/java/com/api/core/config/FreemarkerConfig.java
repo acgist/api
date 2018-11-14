@@ -9,7 +9,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * freemarker配置：添加静态地址、设置默认值
+ * config - freemarker<br>
+ * 添加静态地址、设置默认值
  */
 @Configuration
 public class FreemarkerConfig {
@@ -28,6 +29,7 @@ public class FreemarkerConfig {
 	public void init() throws Exception {
 		LOGGER.info("初始化freemarker静态文件域名：{}", staticBase);
 		configuration.setSharedVariable("staticBase", staticBase);
+		LOGGER.info("freemarker空值优化处理");
 		configuration.setSetting("classic_compatible", compatible.toString()); // api-web-admin项目中不知为何没有自动配置此项
 	}
 

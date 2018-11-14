@@ -13,7 +13,7 @@ import com.api.core.pojo.vo.EndpointInfo;
 import com.api.utils.JSONUtils;
 
 /**
- * 端点查询
+ * 端点 - 查询端点
  */
 public class ActuatorExecutor extends EndpointExecutor<String> {
 

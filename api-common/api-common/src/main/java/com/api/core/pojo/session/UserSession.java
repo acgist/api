@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 import com.api.core.config.APIConstSession;
 
 /**
- * session-用户
+ * session - 用户
  */
 public class UserSession extends BaseSession {
 
@@ -16,8 +16,8 @@ public class UserSession extends BaseSession {
 		super(APIConstSession.SESSION_USER);
 	}
 
-	private String id;
-	private String name;
+	private String id; // 用户ID
+	private String name; // 用户名称
 
 	public String getId() {
 		return id;

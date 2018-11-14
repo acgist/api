@@ -5,7 +5,7 @@ import java.io.Serializable;
 import com.api.core.gateway.APICode;
 
 /**
- * layui消息
+ * layui - 消息
  */
 public class LayuiMessage implements Serializable {
 

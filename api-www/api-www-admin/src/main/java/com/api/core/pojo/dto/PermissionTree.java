@@ -7,7 +7,7 @@ import java.util.List;
 import com.api.data.pojo.entity.PermissionEntity;
 
 /**
- * 权限树
+ * dto - 权限树
  */
 public class PermissionTree implements Serializable {
 

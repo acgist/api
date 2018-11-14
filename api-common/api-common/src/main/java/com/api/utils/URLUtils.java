@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * URL工具
+ * utils - URL
  */
 public class URLUtils {
 	

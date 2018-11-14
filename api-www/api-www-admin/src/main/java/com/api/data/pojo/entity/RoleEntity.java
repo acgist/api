@@ -17,7 +17,7 @@ import org.hibernate.annotations.GenericGenerator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * 系统角色
+ * entity - 系统角色
  */
 @Entity
 @Table(name = "ts_role")

@@ -44,7 +44,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 注意：Cipher不是一个线程安全的类
+ * utils - 证书<br>
+ * Cipher不是一个线程安全的类<br>
  * getInstance("RSA"); = getInstance("RSA/ECB/PKCS1Padding");
  */
 public class CAUtils {
@@ -59,6 +60,9 @@ public class CAUtils {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(CAUtils.class);
 	
+	/**
+	 * 证书创建
+	 */
 	public static final void create(
 			Organ user, Organ creater, String alias, Long validity, String password,
 			String cerPath, String pfxPath

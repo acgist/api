@@ -10,7 +10,8 @@ import com.api.utils.APIUtils;
 import com.api.utils.DateUtils;
 
 /**
- * 抽象响应，如果含有请求信息请调用valueOfRequest设置请求内容
+ * 抽象响应<br>
+ * 如果含有请求信息请调用valueOfRequest设置请求内容<br>
  * 必须要设置响应状态码
  */
 public class APIResponse extends API {

@@ -10,7 +10,7 @@ import org.hibernate.annotations.GenericGenerator;
 import com.api.data.pojo.entity.BaseEntity;
 
 /**
- * 网关记录
+ * entity - 网关信息
  */
 @Entity
 @Table(name = "tb_gateway")
@@ -19,6 +19,12 @@ public class GatewayEntity extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
+	public static final String PROPERTY_TYPE = "type"; // 类型
+	public static final String PROPERTY_CODE = "code"; // 状态码
+	public static final String PROPERTY_QUERY_ID = "queryId"; // 请求ID
+	public static final String PROPERTY_SEND = "send"; // 请求报文
+	public static final String PROPERTY_RECEIVE = "receive"; // 响应报文
+	
 	/**
 	 * 参考：{@link APIType}
 	 */

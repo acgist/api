@@ -13,6 +13,9 @@ import org.springframework.stereotype.Service;
 
 import com.api.core.controller.MailController;
 
+/**
+ * service - 邮件
+ */
 @Service
 public class MailService {
 

@@ -12,7 +12,7 @@ import com.api.data.pojo.entity.BaseEntity;
 import com.api.data.pojo.entity.ValueOfRequest;
 
 /**
- * 支付订单
+ * entity - 订单
  */
 @Entity
 @Table(name = "tb_order")
@@ -21,12 +21,12 @@ public class OrderEntity extends BaseEntity implements ValueOfRequest<PayRequest
 
 	private static final long serialVersionUID = 1L;
 
-	public static final String PROPERTY_ORDER_ID = "orderId";
+	public static final String PROPERTY_ORDER_ID = "orderId"; // 订单号
 	
 	@NotBlank(message = "订单号不能为空")
 	private String orderId;
 
-	@Column(nullable = false, length = 100)
+	@Column(nullable = false, length = 100, unique = true)
 	public String getOrderId() {
 		return orderId;
 	}

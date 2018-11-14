@@ -3,7 +3,7 @@ package com.api.core.pojo.vo;
 import java.util.List;
 
 /**
- * 服务实例
+ * info - 服务实例
  */
 public class ServiceInstanceInfo {
 

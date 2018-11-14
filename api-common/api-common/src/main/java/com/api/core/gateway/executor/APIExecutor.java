@@ -15,14 +15,16 @@ import com.api.core.gateway.request.APIRequest;
 import com.api.core.gateway.response.APIResponse;
 
 /**
- * 请求执行者，执行一个完整的接口请求：
+ * 请求执行器<br>
+ * 执行一个完整的接口请求：<br>
+ * <pre>
  * 	交易：
  * 		接口：创建订单+付款->完成
  * 		网站：创建订单完成->付款->完成
  * 	服务：
  * 		创建订单服务
  * 		支付服务
- * 	接口：支付接口
+ * </pre>
  */
 @Component
 @Scope("prototype")

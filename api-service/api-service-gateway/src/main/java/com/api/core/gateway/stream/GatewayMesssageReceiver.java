@@ -10,7 +10,8 @@ import com.api.core.gateway.pojo.message.GatewayMessage;
 import com.api.data.gateway.repository.GatewayRepository;
 
 /**
- * 处理网关消息队列
+ * 网关信息队列接收器<br>
+ * 保存网关信息到数据库
  */
 @EnableBinding(GatewayReceiverBinding.class)
 public class GatewayMesssageReceiver {

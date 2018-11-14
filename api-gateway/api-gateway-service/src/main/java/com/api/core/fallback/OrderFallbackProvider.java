@@ -21,7 +21,7 @@ import com.api.core.gateway.response.APIResponse;
 import com.netflix.zuul.context.RequestContext;
 
 /**
- * 订单-熔断器
+ * 熔断器 - 订单服务
  */
 @Component
 public class OrderFallbackProvider implements FallbackProvider {

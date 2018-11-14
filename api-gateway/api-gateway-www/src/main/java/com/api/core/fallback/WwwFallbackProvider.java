@@ -21,7 +21,7 @@ import com.api.utils.RedirectUtils;
 import com.netflix.zuul.context.RequestContext;
 
 /**
- * 前台-熔断器
+ * 熔断器 - 前台
  */
 @Component
 public class WwwFallbackProvider implements FallbackProvider {

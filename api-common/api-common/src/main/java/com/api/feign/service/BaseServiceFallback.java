@@ -1,7 +1,7 @@
 package com.api.feign.service;
 
 /**
- * service - 熔断
+ * 熔断基类
  */
 public class BaseServiceFallback {
 

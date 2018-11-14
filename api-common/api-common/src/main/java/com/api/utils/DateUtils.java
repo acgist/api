@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 日期工具
+ * utils - 日期，默认格式：yyyyMMddHHmmss
  */
 public class DateUtils {
 

@@ -12,7 +12,7 @@ import com.api.core.pojo.vo.ServiceInfo;
 import com.api.core.pojo.vo.ServiceInstanceInfo;
 
 /**
- * 服务工具
+ * service - 服务
  */
 @Service
 public class DiscoveryService {
@@ -38,6 +38,7 @@ public class DiscoveryService {
 	
 	/**
 	 * 查询服务所有实例
+	 * @param serviceId 服务ID
 	 */
 	public List<ServiceInstanceInfo> instances(String serviceId) {
 		List<ServiceInstanceInfo> instances = new ArrayList<>();

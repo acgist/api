@@ -6,7 +6,7 @@ import com.api.core.gateway.API;
 import com.api.utils.ValidatorUtils;
 
 /**
- * 抽象请求
+ * 抽象请求<br>
  */
 public class APIRequest extends API {
 

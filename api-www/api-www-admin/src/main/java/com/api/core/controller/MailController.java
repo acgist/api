@@ -10,7 +10,7 @@ import com.api.core.pojo.layui.LayuiMessage;
 import com.api.core.service.MailService;
 
 /**
- * 邮件
+ * controller - 邮件
  */
 @Controller
 @RequestMapping("/mail")

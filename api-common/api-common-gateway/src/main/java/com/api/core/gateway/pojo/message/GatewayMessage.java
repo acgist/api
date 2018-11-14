@@ -4,7 +4,7 @@ import com.api.core.pojo.message.EntityMessage;
 import com.api.data.gateway.pojo.entity.GatewayEntity;
 
 /**
- * 网关消息
+ * 网关信息
  */
 public class GatewayMessage extends EntityMessage<GatewayEntity> {
 

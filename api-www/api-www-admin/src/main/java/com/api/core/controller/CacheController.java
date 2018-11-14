@@ -10,7 +10,7 @@ import com.api.core.pojo.layui.LayuiMessage;
 import com.api.core.service.PermissionService;
 
 /**
- * 系统缓存
+ * controller - 缓存
  */
 @Controller
 @RequestMapping("/cache")

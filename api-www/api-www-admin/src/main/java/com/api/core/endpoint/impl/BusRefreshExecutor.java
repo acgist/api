@@ -5,7 +5,7 @@ import com.api.core.endpoint.EndpointExecutor;
 import com.api.utils.HttpEntityUtils;
 
 /**
- * 刷新配置
+ * 端点 - BUS刷新配置
  */
 public class BusRefreshExecutor extends EndpointExecutor<String> {
 

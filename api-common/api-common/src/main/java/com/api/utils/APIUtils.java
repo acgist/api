@@ -14,12 +14,13 @@ import com.api.core.gateway.API;
 import com.api.data.pojo.entity.BaseEntity;
 
 /**
- * 对象转MAP工具
+ * utils - 对象转MAP
  */
 public class APIUtils {
-
-	private static final String CLASS_KEY = BaseEntity.PROPERTY_CLASS;
+	
 	private static final Logger LOGGER = LoggerFactory.getLogger(APIUtils.class);
+
+	private static final String CLASS_KEY = BaseEntity.PROPERTY_CLASS; // 忽略class属性
 
 	/**
 	 * 获取对象实例

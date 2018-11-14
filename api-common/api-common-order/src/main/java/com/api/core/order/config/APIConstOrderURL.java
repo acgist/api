@@ -3,7 +3,7 @@ package com.api.core.order.config;
 import com.api.core.config.APIConstURL;
 
 /**
- * 订单服务映射配置
+ * config - URL - 订单
  */
 public interface APIConstOrderURL extends APIConstURL {
 

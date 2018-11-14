@@ -25,7 +25,7 @@ import com.api.data.pojo.select.PageQuery;
 import com.api.data.pojo.select.PageResult;
 
 /**
- * 添加findAll和findPage方法，直接使用接口实现即可使用
+ * repository - 添加findAll和findPage方法，直接使用接口实现即可使用
  */
 @NoRepositoryBean
 @Transactional(readOnly = true)

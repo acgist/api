@@ -24,7 +24,7 @@ import com.api.data.pojo.select.PageResult;
 import com.api.data.user.pojo.entity.UserEntity;
 
 /**
- * 用户
+ * controller - 用户
  */
 @Controller
 @RequestMapping("/user")

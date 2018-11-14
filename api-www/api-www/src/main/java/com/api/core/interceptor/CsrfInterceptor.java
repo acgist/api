@@ -17,7 +17,9 @@ import com.api.core.gateway.APICode;
 import com.api.utils.RedirectUtils;
 
 /**
- * CSRF拦截
+ * 拦截器 - CSRF<br>
+ * POST请求验证是否含有TOKEN，防止CSRF攻击<br>
+ * CSRF如果不存在或者严重成功后生成TOKEN（放入session），如果验证失败禁止当前访问
  */
 @Component
 public class CsrfInterceptor implements HandlerInterceptor {
@@ -46,6 +48,10 @@ public class CsrfInterceptor implements HandlerInterceptor {
 		return true;
 	}
 	
+	/**
+	 * 生成TOKEN
+	 * @param session session
+	 */
 	private static final void buildCsrfToken(HttpSession session) {
 		final String token = UUID.randomUUID().toString();
 		session.setAttribute(APIConstSession.SESSION_CSRF_TOKEN, token);

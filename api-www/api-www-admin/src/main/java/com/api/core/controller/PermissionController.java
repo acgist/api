@@ -17,7 +17,7 @@ import com.api.core.service.PermissionService;
 import com.api.data.pojo.entity.PermissionEntity;
 
 /**
- * 权限
+ * controller - 系统权限
  */
 @Controller
 @RequestMapping("/permission")

@@ -16,7 +16,7 @@ import com.api.utils.RibbonUtils;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 /**
- * 用户服务
+ * 服务调用 - 用户
  */
 @Service
 public class UserService {
@@ -25,7 +25,7 @@ public class UserService {
     public RestTemplate restTemplate;
 	
 	/**
-	 * 获取用户接口授权信息
+	 * 获取用户授权信息
 	 */
 	@Cacheable(cacheNames = APIConstCache.CACHE_KEY_USER_AUTHO, unless = "#result == null")
 	@HystrixCommand(fallbackMethod = "authoFallback")
@@ -37,6 +37,9 @@ public class UserService {
 		return restTemplate.postForEntity(uri, HttpEntityUtils.formEntity(Map.of("name", name)), AuthoMessage.class).getBody();
 	}
 	
+	/**
+	 * 熔断器
+	 */
 	public AuthoMessage authoFallback(String name) {
 		return null;
 	}

@@ -9,7 +9,7 @@ import com.api.data.order.repository.OrderRepository;
 import com.api.data.service.APIEntityService;
 
 /**
- * 订单
+ * service - 订单
  */
 @Service
 public class OrderServiceImpl implements APIEntityService {
@@ -17,6 +17,11 @@ public class OrderServiceImpl implements APIEntityService {
 	@Autowired
 	private OrderRepository orderRepository;
 	
+	/**
+	 * 创建订单
+	 * @param order 订单信息
+	 * @return 订单实体
+	 */
 	public OrderMessage order(OrderEntity order) {
 		OrderMessage message = new OrderMessage();
 		if(!verifyEntity(order, message)) {

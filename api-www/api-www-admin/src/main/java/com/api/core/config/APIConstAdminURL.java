@@ -1,7 +1,7 @@
 package com.api.core.config;
 
 /**
- * 后台地址
+ * config - URL - 后台
  */
 public interface APIConstAdminURL extends APIConstURL {
 

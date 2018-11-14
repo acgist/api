@@ -14,6 +14,9 @@ import com.api.data.service.EntityService;
 import com.api.data.user.pojo.entity.UserEntity;
 import com.api.utils.CAUtils;
 
+/**
+ * service - 用户
+ */
 @Service
 public class UserService extends EntityService<UserEntity> {
 
@@ -23,13 +26,14 @@ public class UserService extends EntityService<UserEntity> {
 	}
 
 	/**
-	 * 证书：应该生成两对，出于简单这里用一对
+	 * 生成证书<br>
+	 * 应该生成两对，出于简单只生成一对
 	 */
 	public Map<String, String> cert() {
-		Map<String, String> data =	new HashMap<>(2);
-		KeyPair keyPair = CAUtils.keyPair();
-		PublicKey publicKey = keyPair.getPublic();
-		PrivateKey privateKey = keyPair.getPrivate();
+		final Map<String, String> data =	new HashMap<>(2);
+		final KeyPair keyPair = CAUtils.keyPair();
+		final PublicKey publicKey = keyPair.getPublic();
+		final PrivateKey privateKey = keyPair.getPrivate();
 		data.put("publicKey", CAUtils.keyToString(publicKey));
 		data.put("privateKey", CAUtils.keyToString(privateKey));
 		return data;

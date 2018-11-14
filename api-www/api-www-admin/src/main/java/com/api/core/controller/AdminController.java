@@ -19,7 +19,7 @@ import com.api.data.pojo.select.PageQuery;
 import com.api.data.pojo.select.PageResult;
 
 /**
- * 系统用户
+ * controller - 系统用户
  */
 @Controller
 @RequestMapping("/admin")

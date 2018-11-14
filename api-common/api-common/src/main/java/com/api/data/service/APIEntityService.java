@@ -6,12 +6,15 @@ import com.api.data.pojo.entity.BaseEntity;
 import com.api.utils.ValidatorUtils;
 
 /**
- * entity服务类
+ * service - 实体操作基类
  */
 public interface APIEntityService {
 
 	/**
-	 * 验证数据格式是否正确
+	 * 实体验证
+	 * @param entity 实体
+	 * @param result 验证信息
+	 * @return 验证结果：true-成功、false-失败
 	 */
 	default boolean verifyEntity(BaseEntity entity, ResultMessage result) {
 		final String message = ValidatorUtils.verify(entity);

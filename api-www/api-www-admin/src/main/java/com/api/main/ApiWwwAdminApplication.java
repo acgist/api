@@ -42,7 +42,7 @@ public class ApiWwwAdminApplication {
 	}
 	
 	/**
-	 * 重新turbine.stream监控
+	 * 重新设置turbine.stream监控端点映射地址，防止资源访问出现加载失败或者长时间加载错误
 	 */
 	@Bean
 	public org.springframework.cloud.netflix.turbine.stream.TurbineController turbineController(PublishSubject<Map<String, Object>> hystrixSubject) {

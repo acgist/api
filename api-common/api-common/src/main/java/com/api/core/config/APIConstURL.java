@@ -1,7 +1,7 @@
 package com.api.core.config;
 
 /**
- * 链接管理
+ * config - URL
  */
 public interface APIConstURL {
 

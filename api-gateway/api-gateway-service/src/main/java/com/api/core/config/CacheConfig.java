@@ -18,7 +18,7 @@ import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 
 /**
- * 缓存配置
+ * config - 缓存
  */
 @Configuration
 public class CacheConfig {
