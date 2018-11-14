@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.cloud.netflix.turbine.stream.EnableTurbineStream;
+import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -23,6 +24,7 @@ import zipkin2.server.internal.EnableZipkinServer;
 
 @EntityScan("com.api.data.**.entity")
 @EnableAsync
+@EnableBinding
 @ComponentScan({"com.api.core", "com.api.data"})
 //@EnableScheduling
 @EnableEurekaClient
