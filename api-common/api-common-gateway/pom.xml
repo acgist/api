@@ -9,11 +9,11 @@
 	<packaging>jar</packaging>
 
 	<name>api-common-gateway</name>
-	<description>通用模块-网关服务</description>
+	<description>通用模块-网关信息服务</description>
 
 	<parent>
 		<groupId>com.acgist</groupId>
-		<artifactId>api-acgist</artifactId>
+		<artifactId>api-parent</artifactId>
 		<version>1.0.0</version>
 		<relativePath>../../</relativePath>
 	</parent>

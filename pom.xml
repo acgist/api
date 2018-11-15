@@ -5,12 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.acgist</groupId>
-	<artifactId>api-acgist</artifactId>
+	<artifactId>api-parent</artifactId>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 
-	<name>api-acgist</name>
-	<description>maven</description>
+	<name>api-parent</name>
+	<description>一个基于Spring Cloud的微服务项目（https://www.acgist.com）</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -42,12 +42,13 @@
 	</modules>
 
 	<properties>
+		<encoding>UTF-8</encoding>
 		<java.version>11</java.version>
 		<!--
 		<java.version>10</java.version>
 		-->
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
 		<c3p0.version>0.9.5.2</c3p0.version>
 		<zipkin.version>2.11.7</zipkin.version>
 		<activation.version>1.1.1</activation.version>
@@ -166,6 +167,7 @@
 	</dependencyManagement>
 
 	<!--
+	不是所有项目都需要将依赖jar打包
 	<build>
 		<plugins>
 			<plugin>
