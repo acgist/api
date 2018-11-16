@@ -24,9 +24,9 @@ public class MailController {
 	@ResponseBody
 	@GetMapping("/test")
 	public LayuiMessage test(String to) {
-		String subject = "邮件主题：测试";
-		String content = "邮件内容：测试邮件";
-		MailEvent event = new MailEvent(this, to, subject, content);
+		final String subject = "邮件主题：测试";
+		final String content = "邮件内容：测试邮件";
+		final MailEvent event = new MailEvent(this, to, subject, content);
 		EventPublisher.publish(context, event);
 		return LayuiMessage.success();
 	}
