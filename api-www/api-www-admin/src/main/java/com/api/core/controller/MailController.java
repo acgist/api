@@ -1,13 +1,15 @@
 package com.api.core.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.api.core.event.mail.MailEvent;
 import com.api.core.pojo.layui.LayuiMessage;
-import com.api.core.service.MailService;
+import com.api.utils.EventPublisher;
 
 /**
  * controller - 邮件
@@ -17,12 +19,15 @@ import com.api.core.service.MailService;
 public class MailController {
 	
 	@Autowired
-	private MailService mailService;
+	private ApplicationContext context;
 	
 	@ResponseBody
 	@GetMapping("/test")
-	public LayuiMessage test() {
-		mailService.test();
+	public LayuiMessage test(String to) {
+		String subject = "邮件主题：测试";
+		String content = "邮件内容：测试邮件";
+		MailEvent event = new MailEvent(this, to, subject, content);
+		EventPublisher.publish(context, event);
 		return LayuiMessage.success();
 	}
 	

@@ -28,8 +28,14 @@
 		layui.use(['form', 'layer', 'table', 'jquery', 'element'], function() {
 			var $ = layui.$;
 			$('#mail').on('click', function() {
-				layui.jquery.get("/mail/test", function() {
-					layer.alert('测试邮件发送成功', {icon : 1});
+				layer.prompt({
+					formType : 0, // 0-默认/1-密码/2-多行文本
+					title : "请输入邮箱"
+				}, function(value, index, elem){
+					layui.jquery.get("/mail/test?to=" + value, function() {
+						layer.alert('测试邮件发送成功', {icon : 1});
+					});
+					layer.close(index);
 				});
 			});
 			$('#permissionRoles').on('click', function() {
