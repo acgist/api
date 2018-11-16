@@ -16,9 +16,9 @@ public interface APIConstApplication {
 	String API_SERVICE_ORDER = "api-service-order";
 	
 	/**
-	 * 网关信息模块
+	 * 异步模块
 	 */
-	String API_SERVICE_GATEWAY = "api-service-gateway";
+	String API_SERVICE_ASYN = "api-service-asyn";
 	
 	/**
 	 * 前台

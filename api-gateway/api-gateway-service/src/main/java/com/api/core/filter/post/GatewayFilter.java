@@ -10,7 +10,7 @@ import com.api.core.gateway.APIType;
 import com.api.core.gateway.SessionComponent;
 import com.api.core.gateway.response.APIResponse;
 import com.api.core.stream.GatewayMesssageSender;
-import com.api.data.gateway.pojo.entity.GatewayEntity;
+import com.api.data.asyn.pojo.entity.GatewayEntity;
 import com.netflix.zuul.exception.ZuulException;
 
 /**

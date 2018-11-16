@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>api-common-asyn</artifactId>
+	<packaging>jar</packaging>
+
+	<name>api-common-asyn</name>
+	<description>通用模块-异步模块</description>
+
+	<parent>
+		<groupId>com.acgist</groupId>
+		<artifactId>api-parent</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../../</relativePath>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.acgist</groupId>
+			<artifactId>api-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-stream</artifactId>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+
+</project>
