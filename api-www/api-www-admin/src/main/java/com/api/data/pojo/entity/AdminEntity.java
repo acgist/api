@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -32,14 +34,19 @@ public class AdminEntity extends BaseEntity {
 	/**
 	 * 账号
 	 */
+	@Size(max = 20, message = "系统用户账号长度不能超过20")
+	@NotBlank(message = "系统用户账号不能为空")
 	private String name;
 	/**
 	 * 密码
 	 */
+	@Size(max = 50, message = "系统用户密码长度不能超过50")
+	@NotBlank(message = "系统用户密码不能为空")
 	private String password;
 	/**
 	 * 描述
 	 */
+	@Size(max = 100, message = "系统用户描述长度不能超过100")
 	private String memo;
 	/**
 	 * 角色列表

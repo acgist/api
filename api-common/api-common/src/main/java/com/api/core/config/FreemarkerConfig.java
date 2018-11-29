@@ -28,9 +28,9 @@ public class FreemarkerConfig {
 	@PostConstruct
 	public void init() throws Exception {
 		LOGGER.info("初始化freemarker静态文件域名：{}", staticBase);
-		configuration.setSharedVariable("staticBase", staticBase);
+		this.configuration.setSharedVariable("staticBase", this.staticBase);
 		LOGGER.info("freemarker空值优化处理");
-		configuration.setSetting("classic_compatible", compatible.toString()); // api-web-admin项目中不知为何没有自动配置此项
+		this.configuration.setSetting("classic_compatible", this.compatible.toString()); // api-web-admin项目中不知为何没有自动配置此项
 	}
 
 }

@@ -61,7 +61,7 @@ public abstract class APIExecutor<T extends APIRequest, K extends APIResponse> {
 	 * 默认生成响应
 	 */
 	private K buildResponse() {
-		K response = buildAPIResponse();
+		K response = this.buildAPIResponse();
 		response.valueOfRequest(this.request); // 设置需要原样返回的参数
 		return response;
 	}

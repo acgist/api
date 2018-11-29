@@ -31,6 +31,7 @@ public class PageResult<T> implements Serializable {
 	 * @param pageable 分页信息
 	 */
 	public PageResult(List<T> result, long total, PageQuery pageQuery) {
+		this.result.clear();
 		this.result.addAll(result);
 		this.total = total;
 		this.pageQuery = pageQuery;

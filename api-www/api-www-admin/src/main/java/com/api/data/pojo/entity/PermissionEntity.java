@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 /**
  * entity - 系统权限
@@ -19,18 +21,24 @@ public class PermissionEntity extends BaseEntity {
 	/**
 	 * 名称
 	 */
+	@Size(max = 20, message = "系统权限名称长度不能超过20")
+	@NotBlank(message = "系统权限名称不能为空")
 	private String name;
 	/**
 	 * 匹配规则
 	 */
+	@Size(max = 50, message = "系统权限匹配规则长度不能超过50")
+	@NotBlank(message = "系统权限匹配规则不能为空")
 	private String pattern;
 	/**
 	 * 描述
 	 */
+	@Size(max = 100, message = "系统权限描述长度不能超过100")
 	private String memo;
 	/**
 	 * 父级菜单
 	 */
+	@Size(max = 32, message = "系统权限父级菜单长度不能超过32")
 	private String parent;
 	/**
 	 * 排序

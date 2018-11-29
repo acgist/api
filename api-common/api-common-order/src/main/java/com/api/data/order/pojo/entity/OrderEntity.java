@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.api.core.order.gateway.request.PayRequest;
 import com.api.data.pojo.entity.BaseEntity;
@@ -26,6 +27,7 @@ public class OrderEntity extends BaseEntity implements ValueOfRequest<PayRequest
 	/**
 	 * 订单号
 	 */
+	@Size(max = 100, message = "订单号长度不能超过100")
 	@NotBlank(message = "订单号不能为空")
 	private String orderId;
 

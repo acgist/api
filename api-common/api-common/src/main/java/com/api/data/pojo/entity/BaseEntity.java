@@ -110,8 +110,6 @@ public class BaseEntity extends BaseMessage {
 
 	/**
 	 * 重写equals方法
-	 * @param obj 对象
-	 * @return 是否相等
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -132,7 +130,6 @@ public class BaseEntity extends BaseMessage {
 
 	/**
 	 * 重写hashCode方法
-	 * @return hashCode
 	 */
 	@Override
 	public int hashCode() {
@@ -140,4 +137,5 @@ public class BaseEntity extends BaseMessage {
 			.append(getId())
 			.toHashCode();
 	}
+	
 }

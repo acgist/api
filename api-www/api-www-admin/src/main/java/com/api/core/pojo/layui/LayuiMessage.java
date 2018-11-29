@@ -3,16 +3,14 @@ package com.api.core.pojo.layui;
 import java.io.Serializable;
 
 import com.api.core.gateway.APICode;
+import com.api.core.gateway.response.APIResponse;
 
 /**
  * layui - 消息
  */
-public class LayuiMessage implements Serializable {
+public class LayuiMessage extends APIResponse implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	private String code;
-	private String message;
 
 	public static final LayuiMessage success() {
 		return build(APICode.CODE_0000);
@@ -24,8 +22,7 @@ public class LayuiMessage implements Serializable {
 	
 	public static final LayuiMessage build(String code, String message) {
 		LayuiMessage layuiMessage = new LayuiMessage();
-		layuiMessage.code = code;
-		layuiMessage.message = message;
+		layuiMessage.buildMessage(code, message);
 		return layuiMessage;
 	}
 	

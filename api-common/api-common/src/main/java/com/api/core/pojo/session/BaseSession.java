@@ -23,7 +23,7 @@ public class BaseSession implements Serializable {
 	 */
 	public void putSession(HttpServletRequest request) {
 		final HttpSession session = request.getSession();
-		session.setAttribute(sessionKey, this);
+		session.setAttribute(this.sessionKey, this);
 	}
 	
 }

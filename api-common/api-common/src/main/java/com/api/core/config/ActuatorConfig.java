@@ -35,19 +35,19 @@ public class ActuatorConfig {
 	private void initActuatorIpAddresses() {
 		final String[] ipAddresses = this.ipAddresses.split(",");
 		if(ipAddresses.length == 0) {
-			actuatorIpAddresses = "localhost";
+			this.actuatorIpAddresses = "localhost";
 			return;
 		}
 		final StringBuffer matcher = new StringBuffer();
 		matcher.append("hasIpAddress('").append(ipAddresses[0]).append("')");
 		if(ipAddresses.length == 1) {
-			actuatorIpAddresses = matcher.toString();
+			this.actuatorIpAddresses = matcher.toString();
 			return;
 		}
 		for (int index = 1; index < ipAddresses.length; index++) {
 			matcher.append(" or hasIpAddress('").append(ipAddresses[index]).append("')");
 		}
-		actuatorIpAddresses = matcher.toString();
+		this.actuatorIpAddresses = matcher.toString();
 	}
 	
 	private void initActuatorAntMatchers() {

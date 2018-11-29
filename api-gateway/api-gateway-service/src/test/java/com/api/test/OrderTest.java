@@ -76,7 +76,7 @@ public class OrderTest {
 					String signString = returnData.get("sign");
 					if(CAUtils.verify(verifyString, signString, publicKey)) {
 //						System.out.println("ok");
-						if(!APICode.success(returnData.get("responseCode"))) {
+						if(!APICode.success(returnData.get("code"))) {
 							System.out.println(json);
 							System.out.println("交易失败");
 						}

@@ -20,8 +20,8 @@ public class APIResponse extends API {
 
 	protected String requestTime; // 请求时间
 	protected String responseTime; // 响应时间
-	protected String responseCode; // 响应码
-	protected String responseMessage; // 响应内容
+	protected String code; // 响应码
+	protected String message; // 响应内容
 
 	public String getRequestTime() {
 		return requestTime;
@@ -39,20 +39,20 @@ public class APIResponse extends API {
 		this.responseTime = responseTime;
 	}
 
-	public String getResponseCode() {
-		return responseCode;
+	public String getCode() {
+		return code;
 	}
 
-	public void setResponseCode(String responseCode) {
-		this.responseCode = responseCode;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
-	public String getResponseMessage() {
-		return responseMessage;
+	public String getMessage() {
+		return message;
 	}
 
-	public void setResponseMessage(String responseMessage) {
-		this.responseMessage = responseMessage;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 	
 	/**
@@ -116,8 +116,8 @@ public class APIResponse extends API {
 	 * 设置响应信息
 	 */
 	public APIResponse buildMessage(String code, String message) {
-		this.responseCode = code;
-		this.responseMessage = message;
+		this.code = code;
+		this.message = message;
 		this.responseTime = DateUtils.nowDate();
 		return this;
 	}

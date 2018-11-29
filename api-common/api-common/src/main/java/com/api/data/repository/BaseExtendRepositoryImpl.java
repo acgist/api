@@ -37,12 +37,12 @@ public class BaseExtendRepositoryImpl<T extends BaseEntity> extends SimpleJpaRep
 
 	@Override
 	public List<T> findList(int first, int size, List<Order> orders, Filter ... filters) {
-		final Class<T> javaType = clazz.getJavaType();
-		final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		final Class<T> javaType = this.clazz.getJavaType();
+		final CriteriaBuilder criteriaBuilder = this.entityManager.getCriteriaBuilder();
 		final CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(javaType);
 		final Root<T> root = criteriaQuery.from(javaType);
-		buildCriteriaQuery(Filter.filters(filters), orders, root, criteriaQuery, criteriaBuilder);
-		final TypedQuery<T> typedQuery = entityManager.createQuery(criteriaQuery).setFlushMode(FlushModeType.COMMIT);
+		this.buildCriteriaQuery(Filter.filters(filters), orders, root, criteriaQuery, criteriaBuilder);
+		final TypedQuery<T> typedQuery = this.entityManager.createQuery(criteriaQuery).setFlushMode(FlushModeType.COMMIT);
 		typedQuery.setFirstResult(first);
 		typedQuery.setMaxResults(size);
 		return typedQuery.getResultList();

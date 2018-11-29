@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.api.data.pojo.entity.BaseEntity;
 
@@ -23,16 +25,20 @@ public class GatewayEntity extends BaseEntity {
 	public static final String PROPERTY_RECEIVE = "receive"; // 响应报文
 	
 	/**
-	 * 参考：{@link APIType}
+	 * 请求类型，参考：{@link APIType}
 	 */
+	@Size(max = 20, message = "请求类型长度不能超过20")
+	@NotBlank(message = "请求类型不能为空")
 	private String type;
 	/**
 	 * 响应状态
 	 */
+	@Size(max = 4, message = "响应状态长度不能超过4")
 	private String code;
 	/**
 	 * 请求ID
 	 */
+	@Size(max = 20, message = "请求ID长度不能超过20")
 	private String queryId;
 	/**
 	 * 响应报文

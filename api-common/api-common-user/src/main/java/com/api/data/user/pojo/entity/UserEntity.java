@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.api.data.pojo.entity.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -29,25 +30,29 @@ public class UserEntity extends BaseEntity {
 	/**
 	 * 名称
 	 */
-	@NotBlank(message = "用户名不能为空")
+	@Size(max = 20, message = "用户名称长度不能超过20")
+	@NotBlank(message = "用户名称不能为空")
 	private String name;
 	/**
 	 * 密码
 	 */
+	@Size(max = 50, message = "用户密码长度不能超过50")
 	@NotBlank(message = "用户密码不能为空")
 	private String password;
 	/**
 	 * 公钥
 	 */
+	@Size(max = 2048, message = "用户公钥长度不能超过2048")
 	@JsonIgnore
 	private String publicKey;
 	/**
 	 * 私钥
 	 */
+	@Size(max = 2048, message = "用户私钥长度不能超过2048")
 	@JsonIgnore
 	private String privateKey;
 
-	@Column(length = 20)
+	@Column(length = 20, nullable = false)
 	public String getName() {
 		return name;
 	}
@@ -56,7 +61,7 @@ public class UserEntity extends BaseEntity {
 		this.name = name;
 	}
 
-	@Column(length = 100)
+	@Column(length = 50, nullable = false)
 	public String getPassword() {
 		return password;
 	}

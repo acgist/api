@@ -101,7 +101,7 @@ public interface BaseRepository<T extends BaseEntity> extends JpaRepository<T, S
 	default void buildCriteriaQuery(List<Filter> filters, List<Order> orders, Root<T> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
 		// 条件
 		if(filters != null && !filters.isEmpty()) {
-			List<Predicate> list = new ArrayList<>(filters.size());
+			final List<Predicate> list = new ArrayList<>(filters.size());
 			filters
 			.stream()
 			.filter(filter -> { // 过滤无效值
@@ -149,7 +149,7 @@ public interface BaseRepository<T extends BaseEntity> extends JpaRepository<T, S
 		}
 		// 排序
 		if(orders != null && !orders.isEmpty()) {
-			List<javax.persistence.criteria.Order> list = new ArrayList<>(orders.size());
+			final List<javax.persistence.criteria.Order> list = new ArrayList<>(orders.size());
 			orders
 			.stream()
 			.filter(order -> {

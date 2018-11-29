@@ -7,14 +7,14 @@ import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.api.core.config.APIConst;
+
 /**
- * utils - 日期，默认格式：yyyyMMddHHmmss
+ * utils - 日期，默认格式：{@link APIConst#TIMESTAMP_FORMAT_LIMIT}
  */
 public class DateUtils {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(DateUtils.class);
-	
-	public static final String FORMAT_PATTERN = "yyyyMMddHHmmss";
 	
 	/**
 	 * 接口时间
@@ -30,7 +30,7 @@ public class DateUtils {
 		if(date == null) {
 			return null;
 		}
-		final SimpleDateFormat formater = new SimpleDateFormat(FORMAT_PATTERN);
+		final SimpleDateFormat formater = new SimpleDateFormat(APIConst.TIMESTAMP_FORMAT_LIMIT);
 		return formater.format(date);
 	}
 	
@@ -41,7 +41,7 @@ public class DateUtils {
 		if(time == null) {
 			return null;
 		}
-		final SimpleDateFormat formater = new SimpleDateFormat(FORMAT_PATTERN);
+		final SimpleDateFormat formater = new SimpleDateFormat(APIConst.TIMESTAMP_FORMAT_LIMIT);
 		try {
 			return formater.parse(time);
 		} catch (ParseException e) {

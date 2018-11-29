@@ -37,7 +37,7 @@ public class GatewayFilter extends BaseZuulFilter {
 		} else if(apiType.record()) {
 			entity.setType(apiType.name());
 			entity.setQueryId(session.getQueryId());
-			entity.setCode(response.getResponseCode());
+			entity.setCode(response.getCode());
 			entity.setSend(responseJSON);
 			entity.setReceive(requestJSON);
 			sender.send(entity);

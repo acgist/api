@@ -9,7 +9,7 @@ public class PayResponse extends APIResponse {
 
 	private static final long serialVersionUID = 1L;
 
-	private String orderId; // 订单号
+	private String orderId;
 
 	public String getOrderId() {
 		return orderId;

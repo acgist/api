@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -28,10 +30,13 @@ public class RoleEntity extends BaseEntity {
 	/**
 	 * 名称
 	 */
+	@Size(max = 20, message = "系统角色名称长度不能超过20")
+	@NotBlank(message = "系统角色名称不能为空")
 	private String name;
 	/**
 	 * 描述
 	 */
+	@Size(max = 100, message = "系统角色描述长度不能超过100")
 	private String memo;
 	/**
 	 * 权限
