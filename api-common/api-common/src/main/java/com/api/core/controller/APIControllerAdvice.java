@@ -1,11 +1,15 @@
 package com.api.core.controller;
 
+import java.util.stream.Collectors;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Primary;
+import org.springframework.validation.BindException;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -34,6 +38,21 @@ public class APIControllerAdvice {
 		} else {
 			RedirectUtils.error(code, request, response);
 		}
+	}
+	
+	/**
+	 * 数据校验异常
+	 */
+	@Primary
+	@ExceptionHandler(BindException.class)
+	public void bindException(Exception e, HttpServletRequest request, HttpServletResponse response) {
+		LOGGER.error("系统异常", e);
+		BindException exception = (BindException) e;
+		final String message = exception.getAllErrors()
+		.stream()
+		.map(ObjectError::getDefaultMessage)
+		.collect(Collectors.joining("，"));
+		RedirectUtils.error(APICode.CODE_3000, message, request, response);
 	}
 
 }

@@ -3,6 +3,7 @@ package com.api.core.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +29,7 @@ public class OrderController {
 	}
 	
 	@PostMapping
-	public String order(OrderEntity order, ModelMap model) {
+	public String order(@Validated OrderEntity order, ModelMap model) {
 		OrderMessage message = orderService.order(order);
 		model.put("message", message);
 		return "/order/index";
