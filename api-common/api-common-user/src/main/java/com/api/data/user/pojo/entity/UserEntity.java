@@ -26,12 +26,24 @@ public class UserEntity extends BaseEntity {
 	public static final String PROPERTY_PUBLIC_KEY = "publicKey"; // 公钥
 	public static final String PROPERTY_PRIVATE_KEY = "privateKey"; // 私钥
 	
+	/**
+	 * 名称
+	 */
 	@NotBlank(message = "用户名不能为空")
 	private String name;
+	/**
+	 * 密码
+	 */
 	@NotBlank(message = "用户密码不能为空")
 	private String password;
+	/**
+	 * 公钥
+	 */
 	@JsonIgnore
 	private String publicKey;
+	/**
+	 * 私钥
+	 */
 	@JsonIgnore
 	private String privateKey;
 

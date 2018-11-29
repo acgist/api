@@ -16,10 +16,25 @@ public class PermissionEntity extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 名称
+	 */
 	private String name;
+	/**
+	 * 匹配规则
+	 */
 	private String pattern;
+	/**
+	 * 描述
+	 */
 	private String memo;
-	private String parent; // 父级菜单
+	/**
+	 * 父级菜单
+	 */
+	private String parent;
+	/**
+	 * 排序
+	 */
 	private Short sort;
 
 	@Column(length = 20, nullable = false)

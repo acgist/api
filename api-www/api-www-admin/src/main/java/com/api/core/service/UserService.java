@@ -30,7 +30,7 @@ public class UserService extends EntityService<UserEntity> {
 	 * 应该生成两对，出于简单只生成一对
 	 */
 	public Map<String, String> cert() {
-		final Map<String, String> data =	new HashMap<>(2);
+		final Map<String, String> data = new HashMap<>(2);
 		final KeyPair keyPair = CAUtils.keyPair();
 		final PublicKey publicKey = keyPair.getPublic();
 		final PrivateKey privateKey = keyPair.getPrivate();

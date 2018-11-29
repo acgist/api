@@ -29,9 +29,21 @@ public class AdminEntity extends BaseEntity {
 	public static final String PROPERTY_NAME = "name";
 	public static final String PROPERTY_ROLES = "roles";
 	
+	/**
+	 * 账号
+	 */
 	private String name;
+	/**
+	 * 密码
+	 */
 	private String password;
+	/**
+	 * 描述
+	 */
 	private String memo;
+	/**
+	 * 角色列表
+	 */
 	@JsonIgnore
 	private List<RoleEntity> roles;
 

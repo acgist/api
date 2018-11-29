@@ -8,12 +8,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import com.api.core.config.APIConst;
 import com.api.core.pojo.message.BaseMessage;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
  * Entity - 数据库实体基类<br>
@@ -30,13 +35,17 @@ public class BaseEntity extends BaseMessage {
 	public static final String PROPERTY_CREATE_DATE = "createDate";
 	public static final String PROPERTY_MODIFY_DATE = "modifyDate";
 
-	/** ID */
+	/**
+	 * ID
+	 */
 	private String id;
-
-	/** 创建日期 */
+	/**
+	 * 创建日期
+	 */
 	private Date createDate;
-
-	/** 修改日期 */
+	/**
+	 * 修改日期
+	 */
 	private Date modifyDate;
 	
 	/**
@@ -63,6 +72,9 @@ public class BaseEntity extends BaseMessage {
 	 * 获取创建日期
 	 * @return 创建日期
 	 */
+	@DateTimeFormat(pattern = APIConst.TIMESTAMP_FORMAT)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = APIConst.TIMESTAMP_FORMAT)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable = false, updatable = false)
 	public Date getCreateDate() {
 		return createDate;
@@ -80,6 +92,9 @@ public class BaseEntity extends BaseMessage {
 	 * 获取修改日期
 	 * @return 修改日期
 	 */
+	@DateTimeFormat(pattern = APIConst.TIMESTAMP_FORMAT)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = APIConst.TIMESTAMP_FORMAT)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable = false)
 	public Date getModifyDate() {
 		return modifyDate;

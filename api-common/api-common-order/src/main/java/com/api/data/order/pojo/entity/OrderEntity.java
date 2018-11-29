@@ -23,6 +23,9 @@ public class OrderEntity extends BaseEntity implements ValueOfRequest<PayRequest
 
 	public static final String PROPERTY_ORDER_ID = "orderId"; // 订单号
 	
+	/**
+	 * 订单号
+	 */
 	@NotBlank(message = "订单号不能为空")
 	private String orderId;
 

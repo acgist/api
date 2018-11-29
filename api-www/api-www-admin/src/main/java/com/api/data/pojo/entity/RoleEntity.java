@@ -25,8 +25,17 @@ public class RoleEntity extends BaseEntity {
 	
 	public static final String PROPERTY_PERMISSIONS = "permissions";
 	
+	/**
+	 * 名称
+	 */
 	private String name;
+	/**
+	 * 描述
+	 */
 	private String memo;
+	/**
+	 * 权限
+	 */
 	@JsonIgnore
 	private List<PermissionEntity> permissions;
 
