@@ -1,15 +1,11 @@
 package com.api.data.repository;
 
-import java.beans.PropertyDescriptor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-import java.util.stream.Stream;
 
-import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeansException;
+import org.springframework.beans.BeanUtils;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -189,32 +185,11 @@ public interface BaseExtendRepository<T extends BaseEntity> extends BaseReposito
 	default T update(T t, String ... ignoreProperties) {
 		T persistant = findOne(t.getId());
 		if (persistant != null) {
-			copyProperties(t, persistant, (String[]) ArrayUtils.addAll(ignoreProperties, UPDATE_IGNORE_PROPERTIES));
+			BeanUtils.copyProperties(t, persistant, ArrayUtils.addAll(ignoreProperties, UPDATE_IGNORE_PROPERTIES));
 			return save(persistant);
 		} else {
 			return saveAndFlush(persistant);
 		}
-	}
-	
-	/**
-	 * 拷贝属性
-	 * @param source 提供属性的数据源
-	 * @param target 设置属性的数据源
-	 * @param ignoreProperties 忽略属性
-	 * @throws BeansException beans拷贝异常
-	 */
-	private void copyProperties(Object source, Object target, String[] ignoreProperties) throws BeansException {
-		final PropertyDescriptor[] propertys = PropertyUtils.getPropertyDescriptors(target.getClass());
-		Stream.of(propertys)
-		.filter(property -> property.getWriteMethod() != null)
-		.filter(property -> ignoreProperties == null || !ArrayUtils.contains(ignoreProperties, property.getName()))
-		.forEach(property -> {
-			try {
-				property.getWriteMethod().invoke(target, property.getReadMethod().invoke(source));
-			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-				LOGGER.info("属性拷贝异常", e);
-			}
-		});
 	}
 	
 }

@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEvent;
 
 /**
- * 事件推送器
+ * utils - 事件推送器
  */
 public class EventPublisher {
 
