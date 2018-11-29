@@ -28,7 +28,7 @@ public class UserServiceImpl {
 		if(name == null) {
 			return null;
 		}
-		UserEntity user = userRepository.findName(name);
+		UserEntity user = userRepository.findByName(name);
 		if(user == null) {
 			return null;
 		}
@@ -51,7 +51,7 @@ public class UserServiceImpl {
 			message.buildMessage(APICode.CODE_2000);
 			return message;
 		}
-		UserEntity user = userRepository.findName(name);
+		UserEntity user = userRepository.findByName(name);
 		if(user == null) {
 			message.buildMessage(APICode.CODE_9999, "不存在的用户");
 			return message;

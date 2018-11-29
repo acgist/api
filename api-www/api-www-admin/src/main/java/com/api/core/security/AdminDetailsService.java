@@ -23,7 +23,7 @@ public class AdminDetailsService implements UserDetailsService {
 	 */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		AdminEntity admin = adminRepository.findName(username);
+		AdminEntity admin = adminRepository.findByName(username);
 		if (admin == null) {
 			throw new UsernameNotFoundException("用户不存在：" + username);
 		}

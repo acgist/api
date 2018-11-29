@@ -1,4 +1,4 @@
-package com.api.core.pojo.dto;
+package com.api.core.pojo.vo;
 
 import java.io.Serializable;
 import java.util.ArrayList;

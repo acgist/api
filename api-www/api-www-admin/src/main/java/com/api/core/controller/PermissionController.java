@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.api.core.gateway.APICode;
-import com.api.core.pojo.dto.PermissionTree;
 import com.api.core.pojo.layui.LayuiMessage;
+import com.api.core.pojo.vo.PermissionTree;
 import com.api.core.service.PermissionService;
 import com.api.data.pojo.entity.PermissionEntity;
 

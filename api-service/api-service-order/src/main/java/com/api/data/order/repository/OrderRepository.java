@@ -18,6 +18,6 @@ public interface OrderRepository extends BaseExtendRepository<OrderEntity> {
 	 * @return 订单实体
 	 */
 	@Query(value = "SELECT * FROM tb_order model WHERE model.order_id = :orderId LIMIT 1", nativeQuery = true)
-	OrderEntity findOrderId(String orderId);
+	OrderEntity findByOrderId(String orderId);
 	
 }

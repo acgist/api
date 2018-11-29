@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.AntPathMatcher;
 
-import com.api.core.pojo.dto.PermissionTree;
+import com.api.core.pojo.vo.PermissionTree;
 import com.api.data.pojo.entity.PermissionEntity;
 import com.api.data.pojo.entity.RoleEntity;
 import com.api.data.repository.PermissionRepository;
@@ -107,7 +107,7 @@ public class PermissionService extends EntityService<PermissionEntity> {
 	@Override
 	public boolean delete(String id) {
 		PermissionRepository permissionRepository = (PermissionRepository) repository;
-		List<PermissionEntity> list = permissionRepository.findChildren(id);
+		List<PermissionEntity> list = permissionRepository.findByParent(id);
 		if(list.isEmpty()) {
 			return super.delete(id);
 		}

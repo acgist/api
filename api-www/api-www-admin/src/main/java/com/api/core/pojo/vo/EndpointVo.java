@@ -1,18 +1,18 @@
 package com.api.core.pojo.vo;
 
 /**
- * info - 端点
+ * vo - 端点
  */
-public class EndpointInfo {
+public class EndpointVo {
 
 	private String key;
 	private String name;
 	private String uri;
 
-	public EndpointInfo() {
+	public EndpointVo() {
 	}
 
-	public EndpointInfo(String key, String name, String uri) {
+	public EndpointVo(String key, String name, String uri) {
 		this.key = key;
 		this.name = name;
 		this.uri = uri;

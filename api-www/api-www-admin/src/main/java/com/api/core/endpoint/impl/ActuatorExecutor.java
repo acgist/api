@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import com.api.core.endpoint.Endpoint;
 import com.api.core.endpoint.EndpointExecutor;
-import com.api.core.pojo.vo.EndpointInfo;
+import com.api.core.pojo.vo.EndpointVo;
 import com.api.utils.JSONUtils;
 
 /**
@@ -30,12 +30,12 @@ public class ActuatorExecutor extends EndpointExecutor<String> {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<EndpointInfo> endpoints() {
+	public List<EndpointVo> endpoints() {
 		final String json = execute();
 		if(json == null) {
 			return List.of();
 		}
-		List<EndpointInfo> endpoints = new ArrayList<>();
+		List<EndpointVo> endpoints = new ArrayList<>();
 		if(json != null) {
 			Map<String, Object> map = JSONUtils.jsonToMap(json);
 			Map<String, Map<String, Object>> links = (Map<String, Map<String, Object>>) map.get("_links");
@@ -46,8 +46,8 @@ public class ActuatorExecutor extends EndpointExecutor<String> {
 						if(endpoint == null) {
 							LOGGER.info("未配置的端点：{}", value);
 						} else {
-							EndpointInfo endpointInfo = new EndpointInfo(endpoint.name(), endpoint.getName(), (String) value);
-							endpoints.add(endpointInfo);
+							EndpointVo endpointVo = new EndpointVo(endpoint.name(), endpoint.getName(), (String) value);
+							endpoints.add(endpointVo);
 						}
 					}
 				});

@@ -25,7 +25,7 @@ public class QueryExecutor extends APIExecutor<QueryRequest, QueryResponse> {
 	@Override
 	protected void execute() {
 		String orderId = request.getOrderId();
-		OrderEntity order = orderRepository.findOrderId(orderId);
+		OrderEntity order = orderRepository.findByOrderId(orderId);
 		if(order == null) {
 			response.buildMessage(APICode.CODE_2002);
 			return;

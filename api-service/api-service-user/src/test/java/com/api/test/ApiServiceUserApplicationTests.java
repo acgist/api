@@ -23,7 +23,7 @@ public class ApiServiceUserApplicationTests {
 
 	@Test
 	public void findName() {
-		UserEntity userEntity = userRepository.findName("test");
+		UserEntity userEntity = userRepository.findByName("test");
 		System.out.println(userEntity.getId());
 	}
 	

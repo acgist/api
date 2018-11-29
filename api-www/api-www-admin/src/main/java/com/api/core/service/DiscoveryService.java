@@ -8,8 +8,8 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.stereotype.Service;
 
 import com.api.core.endpoint.impl.ActuatorExecutor;
-import com.api.core.pojo.vo.ServiceInfo;
-import com.api.core.pojo.vo.ServiceInstanceInfo;
+import com.api.core.pojo.vo.ServiceVo;
+import com.api.core.pojo.vo.ServiceInstanceVo;
 
 /**
  * service - 服务
@@ -23,13 +23,13 @@ public class DiscoveryService {
 	/**
 	 * 查询所有服务
 	 */
-	public List<ServiceInfo> services() {
-		List<ServiceInfo> services = new ArrayList<>();
+	public List<ServiceVo> services() {
+		List<ServiceVo> services = new ArrayList<>();
 		discoveryClient
 		.getServices()
 		.forEach(serviceId -> {
-			ServiceInfo service = new ServiceInfo(serviceId);
-			List<ServiceInstanceInfo> instances = instances(serviceId);
+			ServiceVo service = new ServiceVo(serviceId);
+			List<ServiceInstanceVo> instances = instances(serviceId);
 			service.setInstances(instances);
 			services.add(service);
 		});
@@ -40,15 +40,15 @@ public class DiscoveryService {
 	 * 查询服务所有实例
 	 * @param serviceId 服务ID
 	 */
-	public List<ServiceInstanceInfo> instances(String serviceId) {
-		List<ServiceInstanceInfo> instances = new ArrayList<>();
+	public List<ServiceInstanceVo> instances(String serviceId) {
+		List<ServiceInstanceVo> instances = new ArrayList<>();
 		discoveryClient
 		.getInstances(serviceId)
 		.forEach(instance -> {
-			ServiceInstanceInfo instanceInfo = new ServiceInstanceInfo(serviceId, instance.getUri().toString());
+			ServiceInstanceVo serviceInstanceVo = new ServiceInstanceVo(serviceId, instance.getUri().toString());
 			ActuatorExecutor executor = new ActuatorExecutor(instance.getUri().toString());
-			instanceInfo.setEndpointInfos(executor.endpoints());
-			instances.add(instanceInfo);
+			serviceInstanceVo.setEndpoints(executor.endpoints());
+			instances.add(serviceInstanceVo);
 		});
 		return instances;
 	}

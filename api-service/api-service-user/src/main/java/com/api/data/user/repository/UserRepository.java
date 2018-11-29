@@ -18,6 +18,6 @@ public interface UserRepository extends BaseExtendRepository<UserEntity> {
 	 * @return 用户实体
 	 */
 	@Query(value = "SELECT * FROM tb_user user WHERE user.name = :name LIMIT 1", nativeQuery = true)
-	UserEntity findName(String name);
+	UserEntity findByName(String name);
 	
 }

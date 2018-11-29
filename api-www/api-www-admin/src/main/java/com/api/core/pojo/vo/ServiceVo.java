@@ -3,17 +3,17 @@ package com.api.core.pojo.vo;
 import java.util.List;
 
 /**
- * info - 服务信息
+ * vo - 服务信息
  */
-public class ServiceInfo {
+public class ServiceVo {
 
 	private String serviceId;
-	List<ServiceInstanceInfo> instances;
+	List<ServiceInstanceVo> instances;
 
-	public ServiceInfo() {
+	public ServiceVo() {
 	}
 
-	public ServiceInfo(String serviceId) {
+	public ServiceVo(String serviceId) {
 		this.serviceId = serviceId;
 	}
 
@@ -25,11 +25,11 @@ public class ServiceInfo {
 		this.serviceId = serviceId;
 	}
 
-	public List<ServiceInstanceInfo> getInstances() {
+	public List<ServiceInstanceVo> getInstances() {
 		return instances;
 	}
 
-	public void setInstances(List<ServiceInstanceInfo> instances) {
+	public void setInstances(List<ServiceInstanceVo> instances) {
 		this.instances = instances;
 	}
 

@@ -3,18 +3,18 @@ package com.api.core.pojo.vo;
 import java.util.List;
 
 /**
- * info - 服务实例
+ * vo - 服务实例
  */
-public class ServiceInstanceInfo {
+public class ServiceInstanceVo {
 
 	private String serviceId;
 	private String uri;
-	private List<EndpointInfo> endpointInfos;
+	private List<EndpointVo> endpoints;
 
-	public ServiceInstanceInfo() {
+	public ServiceInstanceVo() {
 	}
 
-	public ServiceInstanceInfo(String serviceId, String uri) {
+	public ServiceInstanceVo(String serviceId, String uri) {
 		this.serviceId = serviceId;
 		this.uri = uri;
 	}
@@ -35,12 +35,12 @@ public class ServiceInstanceInfo {
 		this.uri = uri;
 	}
 
-	public List<EndpointInfo> getEndpointInfos() {
-		return endpointInfos;
+	public List<EndpointVo> getEndpoints() {
+		return endpoints;
 	}
 
-	public void setEndpointInfos(List<EndpointInfo> endpointInfos) {
-		this.endpointInfos = endpointInfos;
+	public void setEndpoints(List<EndpointVo> endpoints) {
+		this.endpoints = endpoints;
 	}
 
 }

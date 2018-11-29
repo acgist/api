@@ -17,6 +17,6 @@ public interface AdminRepository extends BaseExtendRepository<AdminEntity> {
 	 * @return 系统用户
 	 */
 	@Query(value = "SELECT * FROM ts_admin admin WHERE admin.name = :name LIMIT 1", nativeQuery = true)
-	AdminEntity findName(String name);
+	AdminEntity findByName(String name);
 	
 }
