@@ -92,15 +92,23 @@
 			load();
 			form.on('submit(submit)', function(data) {
 				layui.jquery.post("/permission/submit", data.field, function(data) {
-					load();
-					layer.alert("添加成功", {icon : 1});
+					if(data.code == "0000") {
+						load();
+						layer.alert("添加成功", {icon : 1});
+					} else {
+						parent.layer.alert(data.message);
+					}
 				});
 				return false;
 			});
 			form.on('submit(update)', function(data) {
 				layui.jquery.post("/permission/update", data.field, function(data) {
-					load();
-					layer.alert("更新成功", {icon : 1});
+					if(data.code == "0000") {
+						load();
+						layer.alert("更新成功", {icon : 1});
+					} else {
+						parent.layer.alert(data.message);
+					}
 				});
 				return false;
 			});
@@ -110,12 +118,12 @@
 					return false;
 				}
 				layui.jquery.post("/permission/delete", {id : data.field.id}, function(data) {
-					var message = "删除成功";
-					if(message.code != "0000") {
-						message = data.message;
+					if(data.code == "0000") {
+						load();
+						layer.alert("删除成功", {icon : 1});
+					} else {
+						parent.layer.alert(data.message);
 					}
-					load();
-					layer.alert(message, {icon : 1});
 				});
 				return false;
 			});

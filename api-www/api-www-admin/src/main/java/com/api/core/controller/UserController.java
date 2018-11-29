@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,7 +56,7 @@ public class UserController {
 	
 	@ResponseBody
 	@PostMapping("/submit")
-	public LayuiMessage submit(UserEntity entity) {
+	public LayuiMessage submit(@Validated UserEntity entity) {
 		userService.submit(entity);
 		return LayuiMessage.success();
 	}
@@ -68,7 +69,7 @@ public class UserController {
 	
 	@ResponseBody
 	@PostMapping("/update")
-	public LayuiMessage update(UserEntity entity) {
+	public LayuiMessage update(@Validated UserEntity entity) {
 		userService.update(entity);
 		return LayuiMessage.success();
 	}

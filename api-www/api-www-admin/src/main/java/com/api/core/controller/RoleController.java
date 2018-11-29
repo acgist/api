@@ -3,6 +3,7 @@ package com.api.core.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,7 +46,7 @@ public class RoleController {
 	
 	@ResponseBody
 	@PostMapping("/submit")
-	public LayuiMessage submit(RoleEntity entity) {
+	public LayuiMessage submit(@Validated RoleEntity entity) {
 		roleService.submit(entity);
 		return LayuiMessage.success();
 	}
@@ -58,7 +59,7 @@ public class RoleController {
 	
 	@ResponseBody
 	@PostMapping("/update")
-	public LayuiMessage update(RoleEntity entity) {
+	public LayuiMessage update(@Validated RoleEntity entity) {
 		roleService.update(entity);
 		return LayuiMessage.success();
 	}

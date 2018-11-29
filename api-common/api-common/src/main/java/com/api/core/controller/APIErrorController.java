@@ -30,9 +30,9 @@ public class APIErrorController implements ErrorController {
 	 */
 	@Primary
 	@ResponseBody
-	@RequestMapping(value = ERROR_PATH, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = ERROR_PATH, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public String index(String code, String message, HttpServletResponse response) {
-//		request.getAttribute("javax.servlet.error.message");
+//		request.getAttribute("javax.servlet.error.message"); // 错误信息
 		final APICode apiCode = code(code, response);
 		message = APICode.message(apiCode, message);
 		LOGGER.warn("系统错误（接口），错误代码：{}，错误描述：{}", apiCode.getCode(), message);
@@ -43,7 +43,7 @@ public class APIErrorController implements ErrorController {
 	 * 非JSON错误处理
 	 */
 	@Primary
-	@RequestMapping(value = ERROR_PATH)
+	@RequestMapping(value = ERROR_PATH, produces = MediaType.TEXT_HTML_VALUE)
 	public String index(String code, String message, ModelMap model, HttpServletResponse response) {
 		final APICode apiCode = code(code, response);
 		message = APICode.message(apiCode, message);

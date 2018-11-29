@@ -39,9 +39,13 @@
 			var form = layui.form;
 			form.on('submit(submit)', function(data) {
 				layui.jquery.post("${entity???string("/admin/update", "/admin/submit")}", data.field, function(data) {
-					parent.layui.table.reload('data-table-model');
-					parent.layer.closeAll();
-					parent.layer.alert("${entity???string("修改", "添加")}成功", {icon : 1});
+					if(data.code == "0000") {
+						parent.layui.table.reload('data-table-model');
+						parent.layer.closeAll();
+						parent.layer.alert("${entity???string("修改", "添加")}成功", {icon : 1});
+					} else {
+						parent.layer.alert(data.message);
+					}
 				});
 				return false;
 			});

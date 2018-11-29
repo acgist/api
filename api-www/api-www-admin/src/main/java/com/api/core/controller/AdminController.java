@@ -3,6 +3,7 @@ package com.api.core.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,7 +58,7 @@ public class AdminController {
 	
 	@ResponseBody
 	@PostMapping("/submit")
-	public LayuiMessage submit(AdminEntity entity) {
+	public LayuiMessage submit(@Validated AdminEntity entity) {
 		adminService.submit(entity);
 		return LayuiMessage.success();
 	}
@@ -70,7 +71,7 @@ public class AdminController {
 	
 	@ResponseBody
 	@PostMapping("/update")
-	public LayuiMessage update(AdminEntity entity) {
+	public LayuiMessage update(@Validated AdminEntity entity) {
 		adminService.update(entity);
 		return LayuiMessage.success();
 	}

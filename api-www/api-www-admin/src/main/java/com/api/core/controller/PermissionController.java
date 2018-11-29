@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,17 +41,19 @@ public class PermissionController {
 	
 	@ResponseBody
 	@PostMapping("/submit")
-	public PermissionEntity submit(PermissionEntity entity) {
+	public LayuiMessage submit(@Validated PermissionEntity entity) {
 		final String id = entity.getId();
 		entity.setId(null);
 		entity.setParent(id);
-		return permissionService.submit(entity);
+		permissionService.submit(entity);
+		return LayuiMessage.success();
 	}
 	
 	@ResponseBody
 	@PostMapping("/update")
-	public PermissionEntity update(PermissionEntity entity) {
-		return permissionService.update(entity);
+	public LayuiMessage update(@Validated PermissionEntity entity) {
+		permissionService.update(entity);
+		return LayuiMessage.success();
 	}
 	
 	@ResponseBody
