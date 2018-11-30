@@ -76,7 +76,7 @@ public class RoleController {
 	@PostMapping("/permission")
 	public LayuiMessage permission(String rid, String[] pids) {
 		roleService.permission(rid, pids);
-		permissionService.init();
+		permissionService.initPermissionRoles();
 		return LayuiMessage.success();
 	}
 	

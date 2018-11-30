@@ -14,7 +14,7 @@ import com.api.data.asyn.pojo.entity.GatewayEntity;
  * 网关信息放入消息队列
  */
 @EnableBinding(GatewaySenderBinding.class)
-public class GatewayMesssageSender {
+public class GatewayMessageSender {
 
     @Autowired
     @Output(GatewaySenderBinding.GATEWAY_SENDER_STREAM_BINDER)

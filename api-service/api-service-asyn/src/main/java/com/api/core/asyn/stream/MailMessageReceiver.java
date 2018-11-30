@@ -19,9 +19,9 @@ import com.api.core.asyn.service.MailService;
  * 使用线程池发送，防止单个邮件发送时间过长导致线程阻塞
  */
 @EnableBinding(MailReceiverBinding.class)
-public class MailMesssageReceiver {
+public class MailMessageReceiver {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(MailMesssageReceiver.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(MailMessageReceiver.class);
 	
 	@Autowired
 	private MailService mailService;

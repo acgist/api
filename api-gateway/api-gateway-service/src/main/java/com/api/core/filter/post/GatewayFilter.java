@@ -9,7 +9,7 @@ import com.api.core.filter.BaseZuulFilter;
 import com.api.core.gateway.APIType;
 import com.api.core.gateway.SessionComponent;
 import com.api.core.gateway.response.APIResponse;
-import com.api.core.stream.GatewayMesssageSender;
+import com.api.core.stream.GatewayMessageSender;
 import com.api.data.asyn.pojo.entity.GatewayEntity;
 import com.netflix.zuul.exception.ZuulException;
 
@@ -22,7 +22,7 @@ public class GatewayFilter extends BaseZuulFilter {
 	private static final Logger LOGGER = LoggerFactory.getLogger(GatewayFilter.class);
 	
 	@Autowired
-	private GatewayMesssageSender sender;
+	private GatewayMessageSender sender;
 	
 	@Override
 	public Object run() throws ZuulException {

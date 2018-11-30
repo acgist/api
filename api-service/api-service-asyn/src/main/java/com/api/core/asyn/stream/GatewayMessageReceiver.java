@@ -16,9 +16,9 @@ import com.api.data.asyn.repository.GatewayRepository;
  * 保存网关信息到数据库
  */
 @EnableBinding(GatewayReceiverBinding.class)
-public class GatewayMesssageReceiver {
+public class GatewayMessageReceiver {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(GatewayMesssageReceiver.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(GatewayMessageReceiver.class);
 	
 	@Autowired
 	private GatewayRepository gatewayRepository;
@@ -26,7 +26,7 @@ public class GatewayMesssageReceiver {
 	@StreamListener(GatewayReceiverBinding.GATEWAY_RECEIVER_STREAM_BINDER)
 	public void receive(Message<GatewayMessage> message) {
 		GatewayMessage gatewayMessage = message.getPayload();
-		if(gatewayMessage.getEntity() == null) {
+		if(gatewayMessage == null || gatewayMessage.getEntity() == null) {
 			LOGGER.warn("网关信息为空");
 		} else {
 			gatewayRepository.save(gatewayMessage.getEntity());

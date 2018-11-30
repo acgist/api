@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.api.core.pojo.layui.LayuiMessage;
-import com.api.core.stream.MailMesssageSender;
+import com.api.core.stream.MailMessageSender;
 
 /**
  * controller - 邮件
@@ -17,14 +17,14 @@ import com.api.core.stream.MailMesssageSender;
 public class MailController {
 	
 	@Autowired
-	private MailMesssageSender mailMesssageSender;
+	private MailMessageSender mailMessageSender;
 	
 	@ResponseBody
 	@GetMapping("/test")
 	public LayuiMessage test(String to) {
 		final String subject = "邮件主题：测试";
 		final String content = "邮件内容：测试邮件";
-		mailMesssageSender.send(to, subject, content);
+		mailMessageSender.send(to, subject, content);
 		return LayuiMessage.success();
 	}
 	

@@ -13,7 +13,7 @@ import com.api.core.asyn.pojo.message.MailMessage;
  * 邮件信息放入消息队列
  */
 @EnableBinding(MailSenderBinding.class)
-public class MailMesssageSender {
+public class MailMessageSender {
 
 	@Autowired
 	@Output(MailSenderBinding.MAIL_SENDER_STREAM_BINDER)

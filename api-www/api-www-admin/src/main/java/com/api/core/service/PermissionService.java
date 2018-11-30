@@ -26,6 +26,7 @@ import com.api.data.service.EntityService;
 
 /**
  * service - 系统权限
+ * TODO PERMISSION_ROLES、PERMISSION_NAMES集群时清除缓存优化，存入redis
  */
 @Service
 public class PermissionService extends EntityService<PermissionEntity> {
@@ -34,6 +35,8 @@ public class PermissionService extends EntityService<PermissionEntity> {
 	
 	// 权限路径和角色映射
 	private static final Map<String, List<String>> PERMISSION_ROLES = new HashMap<>();
+	// 权限路径和名称映射
+	private static final Map<String, String> PERMISSION_NAMES = new HashMap<>();
 	
 	@Autowired
 	private RoleRepository roleRepository;
@@ -46,6 +49,7 @@ public class PermissionService extends EntityService<PermissionEntity> {
 	@PostConstruct
 	public void init() {
 		initPermissionRoles();
+		initPermissionNames();
 	}
 
 	/**
@@ -117,11 +121,11 @@ public class PermissionService extends EntityService<PermissionEntity> {
 	/**
 	 * 初始化权限和角色映射信息
 	 */
-	private void initPermissionRoles() {
+	public void initPermissionRoles() {
 		LOGGER.info("初始化权限和角色映射信息");
 		PERMISSION_ROLES.clear();
-		Map<String, List<String>> permissions = new HashMap<>();
-		List<RoleEntity> list = roleRepository.findAll();
+		final Map<String, List<String>> permissions = new HashMap<>();
+		final List<RoleEntity> list = roleRepository.findAll();
 		list.forEach(role -> {
 			role.getPermissions().stream()
 			.filter(permission -> StringUtils.isNotEmpty(permission.getPattern()))
@@ -152,6 +156,40 @@ public class PermissionService extends EntityService<PermissionEntity> {
 			equalMatch.get().getValue();
 		}
 		Optional<Entry<String, List<String>>> antMatch = PERMISSION_ROLES.entrySet().stream()
+			.filter(entity -> {
+				AntPathMatcher matcher = new AntPathMatcher();
+				return matcher.match(entity.getKey(), servletPath);
+			})
+			.findFirst();
+		return antMatch.isPresent() ? antMatch.get().getValue() : null;
+	}
+	
+	/**
+	 * 初始化权限路径和权限名称
+	 * TODO 修改、删除、新增时重新初始化
+	 */
+	public void initPermissionNames() {
+		LOGGER.info("初始化权限和权限名称映射信息");
+		List<PermissionEntity> list = repository.findAll();
+		PERMISSION_NAMES.clear();
+		list.forEach(entity -> {
+			PERMISSION_NAMES.put(entity.getPattern(), entity.getName());
+		});
+	}
+	
+	/**
+	 * 根据权限地址获取对应权限的名称
+	 * @param servletPath 权限地址
+	 * @return 权限名称
+	 */
+	public String permissionName(String servletPath) {
+		Optional<Entry<String, String>> equalMatch = PERMISSION_NAMES.entrySet().stream()
+			.filter(entity -> entity.getKey().equalsIgnoreCase(servletPath))
+			.findFirst();
+		if(equalMatch.isPresent()) {
+			equalMatch.get().getValue();
+		}
+		Optional<Entry<String, String>> antMatch = PERMISSION_NAMES.entrySet().stream()
 			.filter(entity -> {
 				AntPathMatcher matcher = new AntPathMatcher();
 				return matcher.match(entity.getKey(), servletPath);

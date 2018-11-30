@@ -7,8 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import com.api.core.interceptor.CsrfInterceptor;
-import com.api.core.interceptor.OrderInterceptor;
+import com.api.core.interceptor.LogInterceptor;
 
 /**
  * config - 拦截器
@@ -19,16 +18,12 @@ public class InterceptorConfig implements WebMvcConfigurer {
 	private static final Logger LOGGER = LoggerFactory.getLogger(InterceptorConfig.class);
 	
 	@Autowired
-	private CsrfInterceptor csrfInterceptor;
-	@Autowired
-	private OrderInterceptor orderInterceptor;
+	private LogInterceptor logInterceptor;
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		LOGGER.info("拦截器初始化：csrfInterceptor");
-		registry.addInterceptor(csrfInterceptor).addPathPatterns("/**");
-		LOGGER.info("拦截器初始化：orderInterceptor");
-		registry.addInterceptor(orderInterceptor).addPathPatterns("/order/**");
+		LOGGER.info("拦截器初始化：logInterceptor");
+		registry.addInterceptor(logInterceptor).addPathPatterns("/**");
 		WebMvcConfigurer.super.addInterceptors(registry);
 	}
 
