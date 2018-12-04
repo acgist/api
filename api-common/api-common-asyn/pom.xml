@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>api-common-asyn</name>
-	<description>通用模块-异步模块</description>
+	<description>通用模块-异步模块（异步消息处理，如：通知、邮件、日志等）</description>
 
 	<parent>
 		<groupId>com.acgist</groupId>

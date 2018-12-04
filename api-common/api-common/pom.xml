@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>api-common</name>
-	<description>通用模块</description>
+	<description>通用模块（提供常用工具类、超类、POJO等）</description>
 
 	<parent>
 		<groupId>com.acgist</groupId>
