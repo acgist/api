@@ -33,4 +33,8 @@ public class WebQuery {
 		this.max = max;
 	}
 
+	public String uri() {
+		return null;
+	}
+	
 }

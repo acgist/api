@@ -46,35 +46,31 @@
 	<properties>
 		<encoding>UTF-8</encoding>
 		<java.version>11</java.version>
-		<!--
-		<java.version>10</java.version>
-		-->
 		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+		<scala.version>2.11</scala.version>
 		<c3p0.version>0.9.5.2</c3p0.version>
 		<spark.version>2.4.0</spark.version>
+		<jsoup.version>1.11.3</jsoup.version>
 		<zipkin.version>2.11.7</zipkin.version>
 		<activation.version>1.1.1</activation.version>
 		<jaxb-runtime.version>2.3.1</jaxb-runtime.version>
 		<commons-codec.version>1.11</commons-codec.version>
 		<commons-lang3.version>3.8.1</commons-lang3.version>
 		<spring-cloud.version>Greenwich.M1</spring-cloud.version>
-		<!--
-		<spring-cloud.version>Finchley.SR2</spring-cloud.version>
-		-->
 		<spring-boot-admin.version>2.0.4</spring-boot-admin.version>
 		<commons-beanutils.version>1.9.3</commons-beanutils.version>
 		<mysql-connector-java.version>5.1.47</mysql-connector-java.version>
 	</properties>
 
 	<dependencies>
-		<!-- JAVA 10被移除模块 -->
+		<!-- JAVA被移除模块 -->
 		<dependency>
 			<groupId>javax.activation</groupId>
 			<artifactId>activation</artifactId>
 			<version>${activation.version}</version>
 		</dependency>
-		<!-- JAVA 10被移除模块 -->
+		<!-- JAVA被移除模块 -->
 		<dependency>
 			<groupId>org.glassfish.jaxb</groupId>
 			<artifactId>jaxb-runtime</artifactId>
@@ -168,8 +164,33 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.spark</groupId>
-				<artifactId>spark-core_2.12</artifactId>
+				<artifactId>spark-core_${scala.version}</artifactId>
 				<version>${spark.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.spark</groupId>
+				<artifactId>spark-streaming_${scala.version}</artifactId>
+				<version>${spark.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.apache.spark</groupId>
+			    <artifactId>spark-streaming-kafka-0-10_${scala.version}</artifactId>
+			    <version>${spark.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.spark</groupId>
+				<artifactId>spark-mllib_${scala.version}</artifactId>
+				<version>${spark.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.spark</groupId>
+				<artifactId>spark-mllib-local_${scala.version}</artifactId>
+				<version>${spark.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jsoup</groupId>
+				<artifactId>jsoup</artifactId>
+				<version>${jsoup.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>

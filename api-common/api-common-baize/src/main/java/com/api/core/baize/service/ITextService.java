@@ -1,5 +1,6 @@
 package com.api.core.baize.service;
 
+import com.api.core.baize.pojo.message.Classify;
 import com.api.core.baize.pojo.message.Sentiment;
 import com.api.core.baize.pojo.message.Similarity;
 import com.api.core.baize.pojo.message.TokenCount;
@@ -30,6 +31,13 @@ public interface ITextService extends IBaizeService {
 	 * @return 分析结果
 	 */
 	Sentiment sentiment(String content);
+	
+	/**
+	 * 文章分类
+	 * @param content 文本内容
+	 * @return 文章分类
+	 */
+	Classify classify(String content);
 	
 	/**
 	 * 相似度识别
