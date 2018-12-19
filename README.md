@@ -15,6 +15,8 @@
 * Spring Cloud：Greenwich.M1、
 	~~Spring Cloud：Finchley.SR1~~
 * Layui：v2.4.4
+* Hadoop：2.7.7
+* Flink：1.7.0
 
 #### SESSION共享
 Spring Session Redis
