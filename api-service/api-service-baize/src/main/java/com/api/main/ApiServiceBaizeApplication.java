@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableEurekaClient
 @SpringBootApplication
 public class ApiServiceBaizeApplication {
-
+	
 	public static void main(String[] args) {
 		SpringApplication.run(ApiServiceBaizeApplication.class, args);
 	}

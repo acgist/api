@@ -72,6 +72,12 @@ input {
 	</appender>
 -->
 	
+<!--
+	<logger name="com.acgist" level="INFO" additivity="false">  
+		<appender-ref ref="file"/>  
+	</logger>
+-->
+
 	<root level="INFO">
 		<appender-ref ref="file" />
 		<appender-ref ref="console" />
