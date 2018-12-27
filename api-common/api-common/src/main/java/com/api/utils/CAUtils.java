@@ -2,9 +2,11 @@ package com.api.utils;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.math.BigInteger;
@@ -30,8 +32,7 @@ import java.util.Enumeration;
 
 import javax.crypto.Cipher;
 
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.x500.X500Name;
 import org.bouncycastle.asn1.x509.Extension;
@@ -138,9 +139,9 @@ public class CAUtils {
 		} catch (Exception e) {
 			LOGGER.error("证书生成异常", e);
 		} finally {
-			IOUtils.closeQuietly(parentCerInput);
-			IOUtils.closeQuietly(cerOutput);
-			IOUtils.closeQuietly(pfxOutput);
+			close(parentCerInput);
+			close(cerOutput);
+			close(pfxOutput);
 		}
 	}
 	
@@ -175,7 +176,7 @@ public class CAUtils {
 		} catch (Exception e) {
 			LOGGER.error("加载公钥异常", e);
 		} finally {
-			IOUtils.closeQuietly(input);
+			close(input);
 		}
 		return null;
 	}
@@ -202,7 +203,7 @@ public class CAUtils {
 		} catch (Exception e) {
 			LOGGER.error("加载私钥异常", e);
 		} finally {
-			IOUtils.closeQuietly(input);
+			close(input);
 		}
 		return null;
 	}
@@ -426,7 +427,7 @@ public class CAUtils {
 		} catch (CertificateException | FileNotFoundException e) {
 			LOGGER.error("获取序列号异常", e);
 		} finally {
-			IOUtils.closeQuietly(input);
+			close(input);
 		}
 		return new BigInteger(Long.valueOf(System.currentTimeMillis()).toString());
 	}
@@ -484,6 +485,19 @@ public class CAUtils {
 	 */
 	public static final Organ organ(String cn, String ou, String o, String l, String st, String c) {
 		return new Organ(cn, ou, o, l, st, c);
+	}
+	
+	/**
+	 * 资源关闭
+	 */
+	private static final void close(Closeable closeable) {
+		try {
+			if(closeable != null) {
+				closeable.close();
+			}
+		} catch (IOException e) {
+			closeable = null;
+		}
 	}
 	
 }

@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	
+
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>api-config</artifactId>
-	<packaging>jar</packaging>
+	<artifactId>api-www-parent</artifactId>
+	<packaging>pom</packaging>
 
-	<name>api-config</name>
-	<description>配置中心</description>
+	<name>api-www-parent</name>
+	<description>网站模块</description>
 
 	<parent>
 		<groupId>com.acgist</groupId>
@@ -18,21 +17,23 @@
 		<relativePath>../</relativePath>
 	</parent>
 
+	<modules>
+		<module>api-www</module>
+		<module>api-www-admin</module>
+		<module>api-www-resources</module>
+	</modules>
+
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-bus</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<artifactId>spring-cloud-stream-binder-rabbit</artifactId>
 		</dependency>
 	</dependencies>
-
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -48,5 +49,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	
 </project>

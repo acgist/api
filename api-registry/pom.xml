@@ -14,8 +14,8 @@
 	<parent>
 		<groupId>com.acgist</groupId>
 		<artifactId>api-parent</artifactId>
-		<version>1.0.0</version>
-		<relativePath>..</relativePath>
+		<version>${api.version}</version>
+		<relativePath>../</relativePath>
 	</parent>
 
 	<dependencies>
@@ -27,12 +27,6 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -43,7 +37,6 @@
 				<executions>
 					<execution>
 						<goals>
-							<!-- 将依赖打包到生成的包里面 -->
 							<goal>repackage</goal>
 						</goals>
 					</execution>

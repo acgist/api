@@ -10,8 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 
+import com.api.core.config.APIConst;
 import com.api.core.gateway.API;
-import com.api.data.pojo.entity.BaseEntity;
 
 /**
  * utils - 对象转MAP
@@ -20,7 +20,7 @@ public class APIUtils {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(APIUtils.class);
 
-	private static final String CLASS_KEY = BaseEntity.PROPERTY_CLASS; // 忽略class属性
+	private static final String CLASS_KEY = APIConst.PROPERTY_CLASS; // 忽略class属性
 
 	/**
 	 * 获取对象实例

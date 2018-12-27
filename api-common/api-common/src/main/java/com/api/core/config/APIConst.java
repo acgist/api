@@ -20,4 +20,9 @@ public interface APIConst {
 	 */
 	String TIMESTAMP_FORMAT_LIMIT = "yyyyMMddHHmmss";
 	
+	/**
+	 * class属性
+	 */
+	String PROPERTY_CLASS = "class";
+	
 }

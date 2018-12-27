@@ -6,7 +6,7 @@
 
 	<groupId>com.acgist</groupId>
 	<artifactId>api-parent</artifactId>
-	<version>1.0.0</version>
+	<version>${api.version}</version>
 	<packaging>pom</packaging>
 
 	<name>api-parent</name>
@@ -16,9 +16,6 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.0.RELEASE</version>
-		<!--
-		<version>2.0.5.RELEASE</version>
-		-->
 		<relativePath />
 	</parent>
 
@@ -26,28 +23,18 @@
 		<module>api-admin</module>
 		<module>api-config</module>
 		<module>api-registry</module>
-		<module>api-common/api-common</module>
-		<module>api-common/api-common-asyn</module>
-		<module>api-common/api-common-user</module>
-		<module>api-common/api-common-order</module>
-		<module>api-common/api-common-baize</module>
-		<module>api-service/api-service-asyn</module>
-		<module>api-service/api-service-user</module>
-		<module>api-service/api-service-order</module>
-		<module>api-service/api-service-baize</module>
-		<module>api-www/api-www</module>
-		<module>api-www/api-www-admin</module>
-		<module>api-www/api-www-resources</module>
-		<module>api-gateway/api-gateway-www</module>
-		<module>api-gateway/api-gateway-admin</module>
-		<module>api-gateway/api-gateway-service</module>
+		<module>api-common</module>
+		<module>api-service</module>
+		<module>api-www</module>
+		<module>api-gateway</module>
 	</modules>
 
 	<properties>
-		<encoding>UTF-8</encoding>
+		<api.version>1.0.0</api.version>
+		<api.encoding>UTF-8</api.encoding>
 		<java.version>11</java.version>
-		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+		<project.build.sourceEncoding>${api.encoding}</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${api.encoding}</project.reporting.outputEncoding>
 		<scala.version>2.11</scala.version>
 		<c3p0.version>0.9.5.2</c3p0.version>
 		<flink.version>1.7.0</flink.version>
@@ -76,6 +63,13 @@
 			<artifactId>jaxb-runtime</artifactId>
 			<version>${jaxb-runtime.version}</version>
 		</dependency>
+		
+		<!-- test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
@@ -84,27 +78,37 @@
 			<dependency>
 				<groupId>com.acgist</groupId>
 				<artifactId>api-common</artifactId>
-				<version>${project.version}</version>
+				<version>${api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.acgist</groupId>
+				<artifactId>api-common-data</artifactId>
+				<version>${api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.acgist</groupId>
+				<artifactId>api-common-feign</artifactId>
+				<version>${api.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.acgist</groupId>
 				<artifactId>api-common-asyn</artifactId>
-				<version>${project.version}</version>
+				<version>${api.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.acgist</groupId>
 				<artifactId>api-common-user</artifactId>
-				<version>${project.version}</version>
+				<version>${api.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.acgist</groupId>
 				<artifactId>api-common-order</artifactId>
-				<version>${project.version}</version>
+				<version>${api.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.acgist</groupId>
 				<artifactId>api-common-baize</artifactId>
-				<version>${project.version}</version>
+				<version>${api.version}</version>
 			</dependency>
 			<!-- 第三方依赖 -->
 			<dependency>
@@ -198,12 +202,19 @@
 	</dependencyManagement>
 
 	<!--
-	不是所有项目都需要将依赖jar打包
+	将依赖打包到生成的包里面
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>com.acgist</groupId>
 		<artifactId>api-parent</artifactId>
-		<version>1.0.0</version>
+		<version>${api.version}</version>
 		<relativePath>../</relativePath>
 	</parent>
 
@@ -43,12 +43,6 @@
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-starter-server</artifactId>
 		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
@@ -71,7 +65,6 @@
 				<executions>
 					<execution>
 						<goals>
-							<!-- 将依赖打包到生成的包里面 -->
 							<goal>repackage</goal>
 						</goals>
 					</execution>
