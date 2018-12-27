@@ -127,5 +127,3 @@ Spring STS：http://spring.io/tools
 
 #### 待办
 * Spring Cloud等待下一个稳定版。
-* common-data
-* common-feign
