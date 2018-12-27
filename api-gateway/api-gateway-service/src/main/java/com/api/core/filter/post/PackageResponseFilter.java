@@ -31,6 +31,9 @@ public class PackageResponseFilter extends BaseZuulFilter {
 		if(apiResponse == null) {
 			apiResponse = APIResponse.builder().valueOfRequest(sessionComponent().getRequest()).buildMessage(APICode.CODE_9999);
 		}
+		if(apiResponse.fail()) {
+			apiResponse.valueOfRequest(session.getRequest());
+		}
 		session.setResponse(apiResponse);
 		return null;
 	}

@@ -56,6 +56,20 @@ public class APIResponse extends API {
 	}
 	
 	/**
+	 * 是否成功
+	 */
+	public boolean success() {
+		return APICode.CODE_0000.getCode().equals(this.getCode());
+	}
+	
+	/**
+	 * 是否失败
+	 */
+	public boolean fail() {
+		return !success();
+	}
+	
+	/**
 	 * 将请求数据内容设置到响应内容中
 	 */
 	public APIResponse valueOfRequest(APIRequest request) {

@@ -6,6 +6,7 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -48,7 +49,8 @@ public class OrderTest {
 				try {
 					PayRequest request = new PayRequest();
 					request.setUsername("test");
-					request.setOrderId("fail");
+					request.setOrderId(UUID.randomUUID().toString());
+//					request.setOrderId("fail");
 					request.setRequestTime("1234");
 					Map<String, String> data= request.data();
 					PublicKey publicKey = CAUtils.stringToPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCC1PaGCetY2GknOEcui/6zp2F3el7XzBdrzK0bcJQW//5Fyejtbl1ibadFlMOdd8yWW4cxBBBKdYRX9TGlyae8flK44xMwl4EvYmMwof8ckl26ESa1Mt8UM0WcsKsJFsZX8xlUCzHIdTAsgjPSR/WFaAcRl9InyIaE5Lk/kGnrowIDAQAB");
