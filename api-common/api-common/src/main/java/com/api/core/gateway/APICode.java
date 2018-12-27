@@ -44,6 +44,7 @@ public enum APICode {
 	private String message;
 
 	private static final String RESPONSE_ERROR = "4";
+	public static final String CODE_SUCCESS = APICode.CODE_0000.getCode();
 	
 	private APICode(String code, String message) {
 		this.code = code;
@@ -144,7 +145,7 @@ public enum APICode {
 	 * 判断是否成功
 	 */
 	public static final boolean success(String code) {
-		return CODE_0000.getCode().equals(code);
+		return APICode.CODE_SUCCESS.equals(code);
 	}
 	
 }

@@ -25,7 +25,7 @@ public class MailController {
 		final String subject = "邮件主题：测试";
 		final String content = "邮件内容：测试邮件";
 		mailMessageSender.send(to, subject, content);
-		return LayuiMessage.success();
+		return LayuiMessage.buildSuccess();
 	}
 	
 }

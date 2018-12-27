@@ -48,7 +48,7 @@ public class RoleController {
 	@PostMapping("/submit")
 	public LayuiMessage submit(@Validated RoleEntity entity) {
 		roleService.submit(entity);
-		return LayuiMessage.success();
+		return LayuiMessage.buildSuccess();
 	}
 	
 	@GetMapping("/update")
@@ -61,7 +61,7 @@ public class RoleController {
 	@PostMapping("/update")
 	public LayuiMessage update(@Validated RoleEntity entity) {
 		roleService.update(entity);
-		return LayuiMessage.success();
+		return LayuiMessage.buildSuccess();
 	}
 	
 	@GetMapping("/permission")
@@ -77,14 +77,14 @@ public class RoleController {
 	public LayuiMessage permission(String rid, String[] pids) {
 		roleService.permission(rid, pids);
 		permissionService.initPermissionRoles();
-		return LayuiMessage.success();
+		return LayuiMessage.buildSuccess();
 	}
 	
 	@ResponseBody
 	@PostMapping("/delete")
 	public LayuiMessage delete(String id) {
 		roleService.delete(id);
-		return LayuiMessage.success();
+		return LayuiMessage.buildSuccess();
 	}
 	
 }

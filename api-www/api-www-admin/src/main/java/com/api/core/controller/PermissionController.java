@@ -46,21 +46,21 @@ public class PermissionController {
 		entity.setId(null);
 		entity.setParent(id);
 		permissionService.submit(entity);
-		return LayuiMessage.success();
+		return LayuiMessage.buildSuccess();
 	}
 	
 	@ResponseBody
 	@PostMapping("/update")
 	public LayuiMessage update(@Validated PermissionEntity entity) {
 		permissionService.update(entity);
-		return LayuiMessage.success();
+		return LayuiMessage.buildSuccess();
 	}
 	
 	@ResponseBody
 	@PostMapping("/delete")
 	public LayuiMessage delete(String id) {
 		if(permissionService.delete(id)) {
-			return LayuiMessage.success();
+			return LayuiMessage.buildSuccess();
 		}
 		return LayuiMessage.build(APICode.CODE_9999.getCode(), "不能删除含有子节点的权限");
 	}

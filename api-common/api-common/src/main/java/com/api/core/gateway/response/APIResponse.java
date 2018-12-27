@@ -59,7 +59,7 @@ public class APIResponse extends API {
 	 * 是否成功
 	 */
 	public boolean success() {
-		return APICode.CODE_0000.getCode().equals(this.getCode());
+		return APICode.CODE_SUCCESS.equals(this.getCode());
 	}
 	
 	/**

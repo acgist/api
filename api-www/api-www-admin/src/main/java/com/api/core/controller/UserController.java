@@ -58,7 +58,7 @@ public class UserController {
 	@PostMapping("/submit")
 	public LayuiMessage submit(@Validated UserEntity entity) {
 		userService.submit(entity);
-		return LayuiMessage.success();
+		return LayuiMessage.buildSuccess();
 	}
 	
 	@GetMapping("/update")
@@ -71,7 +71,7 @@ public class UserController {
 	@PostMapping("/update")
 	public LayuiMessage update(@Validated UserEntity entity) {
 		userService.update(entity);
-		return LayuiMessage.success();
+		return LayuiMessage.buildSuccess();
 	}
 	
 	@ResponseBody
@@ -102,7 +102,7 @@ public class UserController {
 	@PostMapping("/delete")
 	public LayuiMessage delete(String id) {
 		userService.delete(id);
-		return LayuiMessage.success();
+		return LayuiMessage.buildSuccess();
 	}
 	
 }

@@ -24,7 +24,7 @@ public class EndpointController {
 	public LayuiMessage busRefresh(String serviceId, String uri) {
 		BusRefreshExecutor executor = new BusRefreshExecutor(uri, serviceId);
 		executor.execute();
-		return LayuiMessage.success();
+		return LayuiMessage.buildSuccess();
 	}
 
 	/**
@@ -35,7 +35,7 @@ public class EndpointController {
 	public LayuiMessage shutdown(String uri) {
 		ShutdownExecutor executor = new ShutdownExecutor(uri);
 		executor.execute();
-		return LayuiMessage.success();
+		return LayuiMessage.buildSuccess();
 	}
 	
 }

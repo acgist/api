@@ -23,7 +23,7 @@ public class CacheController {
 	@GetMapping("/permission/roles")
 	public LayuiMessage permissionRoles() {
 		permissionService.init();
-		return LayuiMessage.success();
+		return LayuiMessage.buildSuccess();
 	}
 	
 }

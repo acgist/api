@@ -1,18 +1,21 @@
 package com.api.core.pojo.layui;
 
-import java.io.Serializable;
-
 import com.api.core.gateway.APICode;
-import com.api.core.gateway.response.APIResponse;
+import com.api.core.pojo.message.BaseMessage;
+import com.api.utils.DateUtils;
 
 /**
  * layui - 消息
  */
-public class LayuiMessage extends APIResponse implements Serializable {
+public class LayuiMessage extends BaseMessage {
 
 	private static final long serialVersionUID = 1L;
 
-	public static final LayuiMessage success() {
+	private String code;
+	private String message;
+	private String responseTime;
+	
+	public static final LayuiMessage buildSuccess() {
 		return build(APICode.CODE_0000);
 	}
 	
@@ -22,8 +25,14 @@ public class LayuiMessage extends APIResponse implements Serializable {
 	
 	public static final LayuiMessage build(String code, String message) {
 		LayuiMessage layuiMessage = new LayuiMessage();
-		layuiMessage.buildMessage(code, message);
-		return layuiMessage;
+		return layuiMessage.buildMessage(code, message);
+	}
+	
+	public LayuiMessage buildMessage(String code, String message) {
+		this.code = code;
+		this.message = message;
+		this.responseTime = DateUtils.nowDate();
+		return this;
 	}
 	
 	public String getCode() {
@@ -40,6 +49,14 @@ public class LayuiMessage extends APIResponse implements Serializable {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public String getResponseTime() {
+		return responseTime;
+	}
+
+	public void setResponseTime(String responseTime) {
+		this.responseTime = responseTime;
 	}
 
 }

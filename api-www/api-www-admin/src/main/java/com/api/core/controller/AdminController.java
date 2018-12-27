@@ -60,7 +60,7 @@ public class AdminController {
 	@PostMapping("/submit")
 	public LayuiMessage submit(@Validated AdminEntity entity) {
 		adminService.submit(entity);
-		return LayuiMessage.success();
+		return LayuiMessage.buildSuccess();
 	}
 	
 	@GetMapping("/update")
@@ -73,7 +73,7 @@ public class AdminController {
 	@PostMapping("/update")
 	public LayuiMessage update(@Validated AdminEntity entity) {
 		adminService.update(entity);
-		return LayuiMessage.success();
+		return LayuiMessage.buildSuccess();
 	}
 	
 	@GetMapping("/role")
@@ -87,14 +87,14 @@ public class AdminController {
 	@PostMapping("/role")
 	public LayuiMessage role(String aid, String[] rids) {
 		adminService.role(aid, rids);
-		return LayuiMessage.success();
+		return LayuiMessage.buildSuccess();
 	}
 	
 	@ResponseBody
 	@PostMapping("/delete")
 	public LayuiMessage delete(String id) {
 		adminService.delete(id);
-		return LayuiMessage.success();
+		return LayuiMessage.buildSuccess();
 	}
 	
 }

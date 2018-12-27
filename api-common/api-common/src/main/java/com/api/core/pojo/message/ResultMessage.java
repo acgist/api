@@ -9,8 +9,6 @@ public class ResultMessage extends BaseMessage {
 
 	private static final long serialVersionUID = 1L;
 
-	private static final String CODE_SUCCESS = APICode.CODE_0000.getCode();
-
 	protected String code;
 	protected String message;
 
@@ -34,7 +32,14 @@ public class ResultMessage extends BaseMessage {
 	 * 是否成功
 	 */
 	public boolean isSuccess() {
-		return CODE_SUCCESS.equals(this.getCode());
+		return APICode.CODE_SUCCESS.equals(this.getCode());
+	}
+	
+	/**
+	 * 是否失败
+	 */
+	public boolean isFail() {
+		return !isSuccess();
 	}
 
 	public ResultMessage buildSuccess() {

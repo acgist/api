@@ -22,7 +22,7 @@ public class LoginController {
 	@ResponseBody
 	@PostMapping(APIConstAdminURL.URL_LOGIN)
 	public String login(String username, String password) {
-		return APICode.CODE_0000.getCode();
+		return APICode.CODE_SUCCESS;
 	}
 	
 	@GetMapping(APIConstAdminURL.URL_LOGOUT)
