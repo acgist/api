@@ -19,16 +19,6 @@
 		<relativePath />
 	</parent>
 
-	<modules>
-		<module>api-admin</module>
-		<module>api-config</module>
-		<module>api-registry</module>
-		<module>api-common</module>
-		<module>api-service</module>
-		<module>api-www</module>
-		<module>api-gateway</module>
-	</modules>
-
 	<properties>
 		<api.version>1.0.0</api.version>
 		<api.encoding>UTF-8</api.encoding>
@@ -50,6 +40,16 @@
 		<mysql-connector-java.version>5.1.47</mysql-connector-java.version>
 	</properties>
 
+	<modules>
+		<module>api-admin</module>
+		<module>api-config</module>
+		<module>api-registry</module>
+		<module>api-common</module>
+		<module>api-service</module>
+		<module>api-www</module>
+		<module>api-gateway</module>
+	</modules>
+
 	<dependencies>
 		<!-- JAVA被移除模块 -->
 		<dependency>
@@ -64,7 +64,7 @@
 			<version>${jaxb-runtime.version}</version>
 		</dependency>
 		
-		<!-- test -->
+		<!-- 测试 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -180,16 +180,6 @@
 			    <groupId>org.apache.flink</groupId>
 			    <artifactId>flink-clients_${scala.version}</artifactId>
 			    <version>${flink.version}</version>
-			</dependency>
-			<dependency>
-			    <groupId>org.apache.flink</groupId>
-			    <artifactId>flink-streaming-java_${scala.version}</artifactId>
-			    <version>${flink.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.flink</groupId>
-				<artifactId>flink-connector-kafka-0.11_${scala.version}</artifactId>
-				<version>${flink.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>

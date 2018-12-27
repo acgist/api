@@ -23,10 +23,10 @@
 			<groupId>com.acgist</groupId>
 			<artifactId>api-common</artifactId>
 		</dependency>
-		<!-- feign：包含熔断功能，不包含hystrix.stream监控 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
+			<optional>true</optional>
 		</dependency>
 	</dependencies>
 

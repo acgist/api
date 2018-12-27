@@ -5,13 +5,20 @@ maven添加：
 <dependency>
 	<groupId>org.springframework.cloud</groupId>
 	<artifactId>spring-cloud-starter-openfeign</artifactId>
-	<optional>true</optional>
 </dependency>
 <!-- hystrix监控 -->
 <dependency>
 	<groupId>org.springframework.cloud</groupId>
 	<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-	<optional>true</optional>
+</dependency>
+<!-- hystrix监控流 -->
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-netflix-hystrix-stream</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-stream-binder-rabbit</artifactId>
 </dependency>
 ```
 添加扫描：
