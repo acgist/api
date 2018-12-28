@@ -5,15 +5,12 @@
 项目仅提供一个大体的技术框架，部分细节没有实现。
 
 #### 软件版本
-* JAVA：JAVA 11（OpenJDK）、
-	~~JAVA：10~~
+* JAVA：JAVA 11（OpenJDK）
 * Redis：3.2.100
 * MySQL：5.7.13
 * RabbitMQ：3.7.8
-* Spring Boot：2.1.0.RELEASE、
-	~~Spring Boot：2.0.5.RELEASE~~
-* Spring Cloud：Greenwich.M1、
-	~~Spring Cloud：Finchley.SR1~~
+* Spring Boot：2.1.0.RELEASE
+* Spring Cloud：Greenwich.RC2
 * Layui：v2.4.4
 * Hadoop：2.7.7
 * Flink：1.7.0
@@ -35,6 +32,7 @@ Spring Session Redis
 * Websocket：
 
 #### 将来集成功能
+* Flink
 * Task：
 * OAuth2：
 ~~Shiro：（Spring Boot Security替代）~~
@@ -59,24 +57,25 @@ Spring Session Redis
 * 10：用户服务
 * 20：订单服务
 * 30：异步服务
+* 40：白泽服务
 * 80：网站网关（10-50：前端、50-80：后台、80-99：静态资源）
 
 #### 项目结构
 |目录|描述|
 |:-|:-|
-|api-common|通用模块|
+|api-admin|Spring Boot Admin|
 |api-config|配置中心|
 |api-registry|注册中心|
+|api-common|通用模块|
+|api-service|服务模块|
 |api-www|网站模块|
 |api-gateway|网关模块|
-|api-service|服务模块|
-|api-admin|Spring Boot Admin管理|
 
 #### 接口映射
 |地址|说明|
 |:-|:-|
-|/gateway/api/**|网关接口|
-/service/**|服务|
+|/gateway/api/**|网关接口（公开接口）|
+|/service/**|服务（内部服务）|
 
 #### 服务接口
 * 服务接口要@RequestBody、@RequestParam指定类型，如果是多个String类型，必须使用@RequestParam。
@@ -127,3 +126,6 @@ Spring STS：http://spring.io/tools
 
 #### 待办
 * Spring Cloud等待下一个稳定版。
+* 支付模块（支付宝、微信...）
+* 微信模块（公众号、小程序）
+* 内容分析模块（白泽）
