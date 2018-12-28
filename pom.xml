@@ -55,13 +55,11 @@
 		<dependency>
 			<groupId>javax.activation</groupId>
 			<artifactId>activation</artifactId>
-			<version>${activation.version}</version>
 		</dependency>
 		<!-- JAVA被移除模块 -->
 		<dependency>
 			<groupId>org.glassfish.jaxb</groupId>
 			<artifactId>jaxb-runtime</artifactId>
-			<version>${jaxb-runtime.version}</version>
 		</dependency>
 		
 		<!-- 测试 -->
@@ -74,7 +72,7 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<!-- common -->
+			<!-- 通用模块 -->
 			<dependency>
 				<groupId>com.acgist</groupId>
 				<artifactId>api-common</artifactId>
@@ -137,6 +135,11 @@
 				<version>${commons-beanutils.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.jsoup</groupId>
+				<artifactId>jsoup</artifactId>
+				<version>${jsoup.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>com.mchange</groupId>
 				<artifactId>c3p0</artifactId>
 				<version>${c3p0.version}</version>
@@ -165,11 +168,6 @@
 				<groupId>io.zipkin.java</groupId>
 				<artifactId>zipkin-autoconfigure-storage-elasticsearch</artifactId>
 				<version>${zipkin.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.jsoup</groupId>
-				<artifactId>jsoup</artifactId>
-				<version>${jsoup.version}</version>
 			</dependency>
 			<dependency>
 			    <groupId>org.apache.flink</groupId>
