@@ -19,19 +19,6 @@
 	</parent>
 
 	<dependencies>
-		<!-- 通用工具 -->
-		<dependency>
-			<groupId>commons-codec</groupId>
-			<artifactId>commons-codec</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>commons-beanutils</groupId>
-			<artifactId>commons-beanutils</artifactId>
-		</dependency>
 		<!-- web：web模块 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
