@@ -1,6 +1,7 @@
 package com.api.utils;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -9,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
@@ -16,12 +18,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public class JSONUtils {
 
-	public static final Logger LOGGER = LoggerFactory.getLogger(JSONUtils.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(JSONUtils.class);
 
 	/**
 	 * JAVA对象转JSON字符串
 	 */
-	public static final String javaToJson(Object object) {
+	public static final String toJSON(Object object) {
 		if (object == null) {
 			return null;
 		}
@@ -37,16 +39,15 @@ public class JSONUtils {
 
 	/**
 	 * JSON字符串转MAP对象
-	 * TODO 优化泛型
 	 */
-	@SuppressWarnings("unchecked")
-	public static final Map<String, Object> jsonToMap(String json) {
+	public static final Map<String, Object> toMap(String json) {
 		if (json == null) {
 			return null;
 		}
 		final ObjectMapper mapper = new ObjectMapper();
 		try {
-			return mapper.readValue(json, Map.class);
+			final JavaType type = mapper.getTypeFactory().constructParametricType(Map.class, String.class, Object.class);
+			return mapper.readValue(json, type);
 		} catch (IOException e) {
 			LOGGER.error("JSON转MAP异常，内容：" + json, e);
 		}
@@ -54,9 +55,26 @@ public class JSONUtils {
 	}
 	
 	/**
+	 * JSON字符串转List对象
+	 */
+	public static final <T> List<T> toList(String json, Class<T> clazz) {
+		if (json == null) {
+			return null;
+		}
+		final ObjectMapper mapper = new ObjectMapper();
+		try {
+			final JavaType type = mapper.getTypeFactory().constructParametricType(List.class, clazz);
+			return mapper.readValue(json, type);
+		} catch (IOException e) {
+			LOGGER.error("JSON转List异常，内容：" + json, e);
+		}
+		return null;
+	}
+	
+	/**
 	 * JSON字符串转JAVA对象
 	 */
-	public static final <T> T jsonToJava(String json, Class<T> clazz) {
+	public static final <T> T toJava(String json, Class<T> clazz) {
 		if(json == null || clazz == null) {
 			return null;
 		}

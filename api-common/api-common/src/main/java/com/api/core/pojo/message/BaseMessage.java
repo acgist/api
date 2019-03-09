@@ -16,7 +16,7 @@ public class BaseMessage implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return JSONUtils.javaToJson(this);
+		return JSONUtils.toJSON(this);
 	}
 	
 }

@@ -68,7 +68,7 @@ public class RoleController {
 	public String permission(String id, ModelMap model) {
 		RoleEntity entity = roleService.find(id);
 		model.addAttribute("entity", entity);
-		model.addAttribute("permissions", JSONUtils.javaToJson(permissionService.tree(entity.getPermissions())));
+		model.addAttribute("permissions", JSONUtils.toJSON(permissionService.tree(entity.getPermissions())));
 		return "/role/permission";
 	}
 	

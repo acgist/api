@@ -67,7 +67,7 @@ public class OrderTest {
 //					直接调用服务
 //					ResponseEntity<String> response = rest.postForEntity(URI.create("http://192.168.1.100:32010/service/order"), request, String.class);
 					String json = response.getBody();
-					Map<String, String> returnData = JSONUtils.jsonToMap(json)
+					Map<String, String> returnData = JSONUtils.toMap(json)
 						.entrySet()
 						.stream()
 						.map(entry -> {
