@@ -37,7 +37,7 @@ public class ActuatorExecutor extends EndpointExecutor<String> {
 		}
 		List<EndpointVo> endpoints = new ArrayList<>();
 		if(json != null) {
-			Map<String, Object> map = JSONUtils.jsonToMap(json);
+			Map<String, Object> map = JSONUtils.toMap(json);
 			Map<String, Map<String, Object>> links = (Map<String, Map<String, Object>>) map.get("_links");
 			links.forEach((name, actuator) -> {
 				actuator.forEach((key, value) -> {

@@ -41,7 +41,7 @@ public class RequestUtils {
 			return entry.getKey() + "=" + String.join(",", entry.getValue());
 		}).collect(Collectors.joining("&"));
 		message.put(PARAMETER, parameter);
-		return JSONUtils.javaToJson(message);
+		return JSONUtils.toJSON(message);
 	}
 	
 	/**

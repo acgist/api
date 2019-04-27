@@ -27,7 +27,7 @@ public class PackageResponseFilter extends BaseZuulFilter {
 		if(responseJSON == null) {
 			responseJSON = context.getResponseBody();
 		}
-		APIResponse apiResponse = JSONUtils.jsonToJava(responseJSON, clazz);
+		APIResponse apiResponse = JSONUtils.toJava(responseJSON, clazz);
 		if(apiResponse == null) {
 			apiResponse = APIResponse.builder().valueOfRequest(sessionComponent().getRequest()).buildMessage(APICode.CODE_9999);
 		}

@@ -77,7 +77,7 @@ public abstract class API implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return JSONUtils.javaToJson(this);
+		return JSONUtils.toJSON(this);
 	}
 	
 }

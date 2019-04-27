@@ -32,7 +32,7 @@ public class SignVerifyFilter extends BaseZuulFilter {
 	public Object run() throws ZuulException {
 		final SessionComponent session = sessionComponent();
 		final String json = session.getJson();
-		final Map<String, String> data = JSONUtils.jsonToMap(json)
+		final Map<String, String> data = JSONUtils.toMap(json)
 			.entrySet()
 			.stream()
 			.map(entry -> {
