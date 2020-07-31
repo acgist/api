@@ -26,7 +26,7 @@
 		<project.build.sourceEncoding>${api.encoding}</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${api.encoding}</project.reporting.outputEncoding>
 		<scala.version>2.11</scala.version>
-		<c3p0.version>0.9.5.2</c3p0.version>
+		<c3p0.version>0.9.5.4</c3p0.version>
 		<flink.version>1.7.0</flink.version>
 		<jsoup.version>1.11.3</jsoup.version>
 		<zipkin.version>2.11.7</zipkin.version>
