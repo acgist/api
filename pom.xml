@@ -37,7 +37,7 @@
 		<spring-cloud.version>Greenwich.RC2</spring-cloud.version>
 		<spring-boot-admin.version>2.0.4</spring-boot-admin.version>
 		<commons-beanutils.version>1.9.3</commons-beanutils.version>
-		<mysql-connector-java.version>5.1.47</mysql-connector-java.version>
+		<mysql-connector-java.version>8.0.16</mysql-connector-java.version>
 	</properties>
 
 	<modules>
